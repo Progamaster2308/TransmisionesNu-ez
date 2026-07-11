@@ -1,16 +1,54 @@
-# React + Vite
+# Transmisiones Nunez
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicacion React + Vite para catalogo de refacciones, citas, pedidos, panel admin y contenido dinamico conectado a Supabase.
 
-Currently, two official plugins are available:
+## Desarrollo local
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Instalar dependencias:
 
-## React Compiler
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Crear `.env.local` usando `.env.example` como base:
 
-## Expanding the ESLint configuration
+```bash
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Iniciar el servidor:
+
+```bash
+npm run dev
+```
+
+## Variables en Netlify
+
+Netlify no usa `.env.local` del repositorio. Para que la app funcione publicada, agrega estas variables en:
+
+`Site configuration` -> `Environment variables`
+
+Variables requeridas:
+
+```bash
+VITE_SUPABASE_URL
+VITE_SUPABASE_PUBLISHABLE_KEY
+```
+
+Despues de agregarlas, ejecuta:
+
+`Deploys` -> `Trigger deploy` -> `Clear cache and deploy site`
+
+## Supabase
+
+Ejecuta los SQL de `src/app/schema.sql` y, si solo necesitas reparar la seccion de trabajos realizados, `src/app/work-showcase.sql` en el SQL Editor de Supabase.
+
+Para login admin, el usuario autorizado se controla por correo en `src/app/config/adminConfig.js` y en las politicas RLS de Supabase.
+
+## QA
+
+```bash
+npm run lint
+npm run build
+```
