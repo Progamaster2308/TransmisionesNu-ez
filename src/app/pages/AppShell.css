@@ -1,0 +1,149 @@
+.app-container {
+  min-height: 100vh;
+  background: var(--nu-bg);
+}
+
+.nu-shellHeader {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, .94);
+  border-bottom: 1px solid rgba(191, 210, 236, .78);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, .04);
+}
+
+.nu-shellNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  width: min(1440px, calc(100% - 72px));
+  min-height: 78px;
+  margin: 0 auto;
+}
+
+.nu-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  color: var(--nu-ink);
+  text-decoration: none;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.nu-brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(7, 48, 122, .1);
+}
+
+.nu-brandMark img {
+  display: block;
+  width: 62px;
+  height: auto;
+}
+
+.nu-brandText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nu-navLinks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nu-navLink,
+.nu-cartLink,
+.nu-adminBtn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  border-radius: var(--nu-radius);
+  padding: 0 12px;
+  font-size: .92rem;
+  font-weight: 820;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .16s ease, color .16s ease, border-color .16s ease, transform .16s ease;
+}
+
+.nu-navLink {
+  color: #52657f;
+}
+
+.nu-navLink:hover {
+  background: #eef5ff;
+  color: var(--nu-ink);
+}
+
+.nu-cartLink {
+  color: #0b3d86;
+  background: #eff6ff;
+  border: 1px solid #cfe0ff;
+  font-weight: 850;
+}
+
+.nu-adminBtn {
+  border: 0;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0f3d91, #2563eb);
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, .18);
+}
+
+.nu-adminBtn:hover {
+  background: #1d4ed8;
+}
+
+.main-viewport {
+  min-height: calc(100vh - 74px);
+}
+
+@media (max-width: 760px) {
+  .nu-shellNav {
+    width: min(100% - 28px, 1440px);
+    min-height: auto;
+    padding: 14px 0;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nu-navLinks {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .nu-navLink,
+  .nu-cartLink,
+  .nu-adminBtn {
+    min-height: 40px;
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  .nu-brand {
+    width: 100%;
+  }
+
+  .nu-brandText {
+    flex: 1;
+  }
+}

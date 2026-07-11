@@ -1,0 +1,354 @@
+.nu-page {
+  min-height: 100vh;
+  padding: 32px 0 72px;
+  background: var(--nu-bg);
+}
+
+.nu-container {
+  width: min(1370px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.nu-pageHeader {
+  display: grid;
+  gap: 18px;
+  padding: 26px;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 251, 255, .96));
+  box-shadow: var(--nu-shadow);
+}
+
+.nu-title {
+  margin: 0;
+  color: var(--nu-ink);
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.nu-subtitle {
+  margin: -8px 0 0;
+  color: var(--nu-muted);
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.nu-controls {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(180px, 220px) auto auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.nu-input,
+.nu-select {
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  padding: 0 13px;
+  background: #ffffff;
+  color: var(--nu-ink);
+  outline: none;
+}
+
+.nu-input:focus,
+.nu-select:focus {
+  border-color: var(--nu-primary);
+  box-shadow: 0 0 0 4px rgba(15, 98, 201, .13);
+}
+
+.nu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.nu-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  background: var(--nu-panel);
+  box-shadow: 0 14px 34px rgba(12, 40, 83, .07);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.nu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, .1);
+}
+
+.nu-cardTop {
+  position: relative;
+  padding: 16px;
+  background: linear-gradient(180deg, #f4f8ff, #ffffff);
+}
+
+.nu-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  padding: 0 10px;
+  color: var(--nu-primary-dark);
+  background: #eaf3ff;
+  font-size: .78rem;
+  font-weight: 950;
+}
+
+.nu-favBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  min-height: 30px;
+  border: 1px solid #cfe0ff;
+  border-radius: 999px;
+  padding: 0 11px;
+  color: #1d4ed8;
+  background: #eff6ff;
+  font-size: .76rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.nu-favBtn--active {
+  color: #ffffff;
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.nu-imgWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 158px;
+  margin-top: 8px;
+}
+
+.nu-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.nu-photoBtn {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  min-height: 34px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: 0 12px;
+  color: #0f3b7a;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, .12);
+  font-size: .78rem;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.nu-photoBtn:hover {
+  border-color: #2563eb;
+  color: #1d4ed8;
+}
+
+.nu-cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.nu-sku {
+  color: var(--nu-muted);
+  font-size: .78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.nu-cardTitle {
+  min-height: 44px;
+  margin: 0;
+  color: var(--nu-ink);
+  font-size: 1.02rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.nu-rating {
+  color: #f59e0b;
+  font-size: .9rem;
+}
+
+.nu-stock {
+  color: var(--nu-muted);
+  font-weight: 850;
+}
+
+.nu-btn {
+  min-height: 44px;
+  border: 0;
+  border-radius: var(--nu-radius);
+  padding: 0 14px;
+  font-weight: 950;
+  cursor: pointer;
+  transition: background .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+
+.nu-btn:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.nu-btn--primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--nu-primary-dark), var(--nu-primary));
+  box-shadow: 0 12px 22px rgba(15, 98, 201, .16);
+}
+
+.nu-btn--primary:hover:not(:disabled) {
+  background: var(--nu-primary-dark);
+  transform: translateY(-1px);
+}
+
+.nu-skeleton,
+.nu-empty {
+  margin-top: 20px;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  background: var(--nu-panel);
+  box-shadow: var(--nu-shadow);
+}
+
+.nu-skeleton {
+  height: 320px;
+}
+
+.nu-empty {
+  padding: 22px;
+  color: var(--nu-muted);
+  font-weight: 850;
+}
+
+.nu-previewOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 6, 23, .64);
+  backdrop-filter: blur(6px);
+}
+
+.nu-previewCard {
+  position: relative;
+  display: block;
+  width: min(980px, 100%);
+  max-height: min(760px, calc(100vh - 48px));
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, .95);
+  border-radius: 8px;
+  background: #0f172a;
+  box-shadow: 0 32px 90px rgba(2, 6, 23, .34);
+}
+
+.nu-previewInfo {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  z-index: 2;
+  max-width: min(420px, calc(100% - 120px));
+  padding: 12px 14px;
+  border: 1px solid rgba(226, 232, 240, .92);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, .1);
+}
+
+.nu-previewInfo h3 {
+  margin: 4px 0;
+  color: var(--nu-ink);
+  font-size: 1.04rem;
+  line-height: 1.25;
+}
+
+.nu-previewInfo p {
+  margin: 0;
+  color: var(--nu-muted);
+  font-size: .88rem;
+  font-weight: 800;
+}
+
+.nu-previewClose {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  min-height: 38px;
+  border: 1px solid #dbe6f5;
+  border-radius: 999px;
+  padding: 0 14px;
+  color: #0f172a;
+  background: #ffffff;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, .12);
+}
+
+.nu-zoomStage {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: min(640px, calc(100vh - 72px));
+  min-height: 420px;
+  padding: 74px 22px 34px;
+  overflow: hidden;
+  background: #0f172a;
+  cursor: zoom-in;
+}
+
+.nu-zoomImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform .12s ease;
+  will-change: transform;
+}
+
+@media (max-width: 820px) {
+  .nu-container {
+    width: min(100% - 28px, 1370px);
+  }
+
+  .nu-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .nu-previewCard {
+    overflow: auto;
+  }
+
+  .nu-previewInfo {
+    left: 14px;
+    top: 14px;
+    max-width: calc(100% - 28px);
+  }
+
+  .nu-previewClose {
+    top: auto;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .nu-zoomStage {
+    height: min(520px, calc(100vh - 72px));
+    min-height: 360px;
+    padding: 86px 14px 64px;
+  }
+}

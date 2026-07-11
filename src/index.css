@@ -1,0 +1,116 @@
+:root {
+  --nu-ink: #071426;
+  --nu-ink-soft: #24364f;
+  --nu-muted: #607089;
+  --nu-line: #d8e3f2;
+  --nu-panel: #ffffff;
+  --nu-bg: #f4f8fd;
+  --nu-primary: #0f62c9;
+  --nu-primary-dark: #0a438e;
+  --nu-navy: #071a35;
+  --nu-blue: #1767c7;
+  --nu-radius: 8px;
+  --nu-shadow: 0 20px 50px rgba(12, 40, 83, .09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--nu-bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    linear-gradient(180deg, #ffffff 0, #f7fbff 220px, var(--nu-bg) 100%);
+  color: var(--nu-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(15, 98, 201, .22);
+  outline-offset: 2px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  letter-spacing: 0;
+}
+
+.nu-linkBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid #cfe0ff;
+  border-radius: var(--nu-radius);
+  padding: 0 14px;
+  color: var(--nu-primary-dark);
+  background: #eff6ff;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color .16s ease, background .16s ease, transform .16s ease;
+}
+
+.nu-linkBtn:hover {
+  border-color: #93c5fd;
+  background: #dbeafe;
+  transform: translateY(-1px);
+}
+
+.cyber-toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 50;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 12px 14px;
+  border-radius: var(--nu-radius);
+  background: var(--nu-navy);
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, .22);
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.cyber-toast.toast-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

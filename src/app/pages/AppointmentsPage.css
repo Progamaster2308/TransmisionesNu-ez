@@ -1,0 +1,298 @@
+.apWrap {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 32px 0 72px;
+}
+
+.apPanel {
+  display: grid;
+  gap: 22px;
+}
+
+.apHeader {
+  display: grid;
+  gap: 6px;
+}
+
+.apHeader h2 {
+  margin: 0;
+  color: var(--nu-ink);
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+}
+
+.apSub {
+  margin: 0;
+  color: var(--nu-muted);
+  font-weight: 750;
+}
+
+.apGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, .55fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.apCol,
+.apSide,
+.adminTableWrap {
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  background: var(--nu-panel);
+  box-shadow: var(--nu-shadow);
+}
+
+.apCol,
+.apSide {
+  padding: 22px;
+}
+
+.apCol {
+  display: grid;
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.appointmentFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field label {
+  color: var(--nu-ink);
+  font-weight: 900;
+}
+
+.field input,
+.field select,
+.field textarea,
+.adminSearch {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  padding: 0 13px;
+  background: #ffffff;
+  color: var(--nu-ink);
+  outline: none;
+}
+
+.field textarea {
+  min-height: 128px;
+  padding-top: 12px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.adminSearch:focus {
+  border-color: var(--nu-primary);
+  box-shadow: 0 0 0 4px rgba(15, 98, 201, .13);
+}
+
+.timesBox,
+.apSummary {
+  display: grid;
+  gap: 13px;
+}
+
+.timesTitle,
+.apSummaryTitle {
+  color: var(--nu-ink);
+  font-weight: 950;
+}
+
+.timesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  gap: 10px;
+}
+
+.timeBtn,
+.apSubmit,
+.adminAction {
+  border: 0;
+  border-radius: var(--nu-radius);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.timeBtn {
+  min-height: 42px;
+  background: #eff6ff;
+  color: var(--nu-primary-dark);
+  border: 1px solid #cfe0ff;
+}
+
+.timeBtn--active {
+  background: var(--nu-primary);
+  color: #ffffff;
+}
+
+.timeBtn--booked,
+.timeBtn:disabled {
+  cursor: not-allowed;
+  background: #e5e7eb;
+  color: #7a8797;
+}
+
+.timesHint,
+.apLegal {
+  color: var(--nu-muted);
+  font-weight: 750;
+  font-size: .92rem;
+}
+
+.apSummaryLine {
+  color: var(--nu-ink-soft);
+  font-weight: 800;
+}
+
+.apSubmit {
+  min-height: 46px;
+  background: linear-gradient(135deg, var(--nu-primary-dark), var(--nu-primary));
+  color: #ffffff;
+  box-shadow: 0 12px 22px rgba(15, 98, 201, .16);
+}
+
+.apSubmit:disabled {
+  cursor: not-allowed;
+  background: #94a3b8;
+}
+
+.adminTools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.adminTools--wide {
+  grid-template-columns: minmax(260px, 1fr) 180px auto auto;
+}
+
+.adminDayGroup {
+  display: grid;
+  gap: 12px;
+}
+
+.adminDayGroup h3 {
+  margin: 0;
+  color: var(--nu-ink);
+  font-size: 1.2rem;
+}
+
+.adminCount,
+.adminLoading,
+.adminEmpty {
+  color: var(--nu-muted);
+  font-weight: 850;
+}
+
+.adminTableWrap {
+  overflow-x: auto;
+}
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 14px;
+  border-bottom: 1px solid var(--nu-line);
+  text-align: left;
+}
+
+.adminTable th {
+  color: var(--nu-muted);
+  background: #f8fafc;
+  font-size: .78rem;
+  text-transform: uppercase;
+}
+
+.adminClientName,
+.adminDate {
+  color: var(--nu-ink);
+  font-weight: 950;
+}
+
+.adminClientEmail {
+  color: var(--nu-muted);
+  font-size: .86rem;
+  font-weight: 800;
+}
+
+.adminProblem {
+  max-width: 300px;
+  color: var(--nu-ink-soft);
+  line-height: 1.45;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: var(--nu-ink-soft);
+  font-weight: 900;
+}
+
+.statusPill--scheduled {
+  background: #eff6ff;
+  color: var(--nu-primary-dark);
+}
+
+.statusPill--confirmed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.statusPill--completed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.statusPill--cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.adminActionsRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adminAction {
+  min-height: 36px;
+  padding: 8px 10px;
+  background: #eff6ff;
+  color: #0b3d86;
+}
+
+.adminAction--cancel {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+@media (max-width: 760px) {
+  .apWrap {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .apGrid,
+  .appointmentFields,
+  .adminTools {
+    grid-template-columns: 1fr;
+  }
+}

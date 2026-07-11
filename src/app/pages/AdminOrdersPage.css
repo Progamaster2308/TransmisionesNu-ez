@@ -1,0 +1,237 @@
+.adminOrdersPage {
+  min-height: 100vh;
+  padding: 32px 0 72px;
+  background: var(--nu-bg);
+}
+
+.adminOrdersPanel {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  padding: 24px;
+  background: #ffffff;
+  box-shadow: var(--nu-shadow);
+}
+
+.adminOrdersHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 560px);
+  gap: 18px;
+  align-items: end;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--nu-line);
+}
+
+.adminOrdersHeader p {
+  margin: 0 0 6px;
+  color: #2563eb;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.adminOrdersHeader h1 {
+  margin: 0;
+  color: var(--nu-ink);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.adminOrdersTools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px auto;
+  gap: 10px;
+}
+
+.adminOrdersHeader input,
+.adminOrdersTools button {
+  min-height: 44px;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  padding: 0 13px;
+  outline: none;
+}
+
+.adminOrdersTools button {
+  color: #ffffff;
+  background: var(--nu-primary);
+  border-color: var(--nu-primary);
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.adminOrdersHeader input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+}
+
+.adminOrdersList {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.adminOrderCard {
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  padding: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, .055);
+}
+
+.adminOrderTop,
+.adminOrderMeta,
+.adminOrderItem {
+  display: flex;
+  gap: 12px;
+}
+
+.adminOrderTop {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.adminOrderTop span {
+  color: var(--nu-muted);
+  font-size: .76rem;
+  font-weight: 760;
+}
+
+.adminOrderTop h2 {
+  margin: 4px 0;
+  color: var(--nu-ink);
+  font-size: 1.18rem;
+  overflow-wrap: anywhere;
+}
+
+.adminOrderTop p {
+  margin: 0;
+  color: var(--nu-muted);
+  font-weight: 760;
+}
+
+.adminOrderTop strong {
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: #1d4ed8;
+  background: #eff6ff;
+  font-size: .76rem;
+  text-transform: uppercase;
+}
+
+.adminOrderStatus--cancelled,
+.adminOrderStatus--returned {
+  color: #b91c1c !important;
+  background: #fee2e2 !important;
+}
+
+.adminOrderStatus--ready {
+  color: #15803d !important;
+  background: #dcfce7 !important;
+}
+
+.adminOrderMeta {
+  flex-wrap: wrap;
+  margin-top: 14px;
+  color: var(--nu-muted);
+  font-weight: 780;
+}
+
+.adminOrderNotes {
+  margin: 14px 0 0;
+  border-left: 3px solid #2563eb;
+  padding-left: 12px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.adminOrderItems {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.adminOrderItem {
+  align-items: center;
+  border-radius: var(--nu-radius);
+  padding: 10px 12px;
+  background: #f8fafc;
+}
+
+.adminOrderItem span {
+  color: #2563eb;
+  font-weight: 900;
+}
+
+.adminOrderItem strong {
+  color: var(--nu-ink);
+}
+
+.adminOrderItem small {
+  margin-left: auto;
+  color: var(--nu-muted);
+  font-weight: 760;
+}
+
+.adminOrderActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.adminOrderActions button {
+  min-height: 38px;
+  border: 1px solid var(--nu-line);
+  border-radius: var(--nu-radius);
+  padding: 0 12px;
+  background: #ffffff;
+  color: var(--nu-ink);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.adminOrderActions .danger {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+
+.adminOrdersEmpty {
+  padding: 44px 0 22px;
+  color: var(--nu-muted);
+  text-align: center;
+  font-weight: 850;
+}
+
+@media (max-width: 760px) {
+  .adminOrdersPanel {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .adminOrdersHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .adminOrdersTools {
+    grid-template-columns: 1fr;
+  }
+
+  .adminOrderTop {
+    flex-direction: column;
+  }
+
+  .adminOrderItem {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .adminOrderItem small {
+    margin-left: 0;
+  }
+
+  .adminOrderActions button {
+    flex: 1 1 160px;
+  }
+}
