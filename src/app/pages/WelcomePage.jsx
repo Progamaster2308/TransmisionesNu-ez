@@ -17,11 +17,12 @@ const workshopMapsUrl = 'https://www.google.com/maps/place/Av.+Ejido+A+%26+C.+46
 const workshopMapEmbedUrl = 'https://www.google.com/maps?q=32.4275085,-114.7389354&t=k&z=19&output=embed';
 
 function WelcomePage() {
-  const [banner, setBanner] = useState(() => getDefaultBanner());
-  const [repairPromo, setRepairPromo] = useState(() => getDefaultRepairPromo());
+  const [banner, setBanner] = useState(null);
+  const [repairPromo, setRepairPromo] = useState(null);
   const [workShowcase, setWorkShowcase] = useState([]);
   const [productCount, setProductCount] = useState(null);
-  const [showSplash, setShowSplash] = useState(true);
+  const [contentReady, setContentReady] = useState(false);
+  const [splashMinimumDone, setSplashMinimumDone] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,9 +41,15 @@ function WelcomePage() {
           setRepairPromo(promoResult.status === 'fulfilled' && promoResult.value ? promoResult.value : getDefaultRepairPromo());
           setProductCount(productsResult.status === 'fulfilled' ? productsResult.value : null);
           setWorkShowcase(worksResult.status === 'fulfilled' ? worksResult.value.filter((item) => item.enabled && item.imagen).slice(0, 3) : []);
+          setContentReady(true);
         }
       } catch (error) {
         console.error(error);
+        if (mounted) {
+          setBanner(getDefaultBanner());
+          setRepairPromo(getDefaultRepairPromo());
+          setContentReady(true);
+        }
       }
     })();
 
@@ -52,18 +59,21 @@ function WelcomePage() {
   }, []);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setShowSplash(false), 1850);
+    const timer = window.setTimeout(() => setSplashMinimumDone(true), 1850);
     return () => window.clearTimeout(timer);
   }, []);
 
+  const showSplash = !contentReady || !splashMinimumDone;
+  const activeBanner = banner || getDefaultBanner();
+  const activeRepairPromo = repairPromo || getDefaultRepairPromo();
   const safeBanner = {
-    titulo: banner?.titulo ? sanitizeText(banner.titulo, 120) : getDefaultBanner().titulo,
-    subtitulo: banner?.subtitulo ? sanitizeText(banner.subtitulo, 180) : getDefaultBanner().subtitulo,
-    descripcion: banner?.descripcion ? sanitizeText(banner.descripcion, 320) : getDefaultBanner().descripcion,
-    cta_label: banner?.cta_label ? sanitizeText(banner.cta_label, 40) : getDefaultBanner().cta_label,
-    cta_link: banner?.cta_link ? sanitizeText(banner.cta_link, 120) : getDefaultBanner().cta_link,
-    imagen: banner?.imagen ? sanitizeText(banner.imagen, 500) : '',
-    splash_image: banner?.splash_image ? sanitizeText(banner.splash_image, 500) : ''
+    titulo: activeBanner?.titulo ? sanitizeText(activeBanner.titulo, 120) : getDefaultBanner().titulo,
+    subtitulo: activeBanner?.subtitulo ? sanitizeText(activeBanner.subtitulo, 180) : getDefaultBanner().subtitulo,
+    descripcion: activeBanner?.descripcion ? sanitizeText(activeBanner.descripcion, 320) : getDefaultBanner().descripcion,
+    cta_label: activeBanner?.cta_label ? sanitizeText(activeBanner.cta_label, 40) : getDefaultBanner().cta_label,
+    cta_link: activeBanner?.cta_link ? sanitizeText(activeBanner.cta_link, 120) : getDefaultBanner().cta_link,
+    imagen: activeBanner?.imagen ? sanitizeText(activeBanner.imagen, 500) : '',
+    splash_image: activeBanner?.splash_image ? sanitizeText(activeBanner.splash_image, 500) : ''
   };
 
   const heroStyle = safeBanner.imagen
@@ -73,12 +83,12 @@ function WelcomePage() {
     ? { '--splash-image': `url(${safeBanner.splash_image})` }
     : undefined;
   const safePromo = {
-    titulo: repairPromo?.titulo ? sanitizeText(repairPromo.titulo, 120) : getDefaultRepairPromo().titulo,
-    subtitulo: repairPromo?.subtitulo ? sanitizeText(repairPromo.subtitulo, 180) : getDefaultRepairPromo().subtitulo,
-    descripcion: repairPromo?.descripcion ? sanitizeText(repairPromo.descripcion, 320) : getDefaultRepairPromo().descripcion,
-    cta_label: repairPromo?.cta_label ? sanitizeText(repairPromo.cta_label, 40) : getDefaultRepairPromo().cta_label,
-    cta_link: repairPromo?.cta_link ? sanitizeText(repairPromo.cta_link, 120) : getDefaultRepairPromo().cta_link,
-    imagen: repairPromo?.imagen ? sanitizeText(repairPromo.imagen, 500) : ''
+    titulo: activeRepairPromo?.titulo ? sanitizeText(activeRepairPromo.titulo, 120) : getDefaultRepairPromo().titulo,
+    subtitulo: activeRepairPromo?.subtitulo ? sanitizeText(activeRepairPromo.subtitulo, 180) : getDefaultRepairPromo().subtitulo,
+    descripcion: activeRepairPromo?.descripcion ? sanitizeText(activeRepairPromo.descripcion, 320) : getDefaultRepairPromo().descripcion,
+    cta_label: activeRepairPromo?.cta_label ? sanitizeText(activeRepairPromo.cta_label, 40) : getDefaultRepairPromo().cta_label,
+    cta_link: activeRepairPromo?.cta_link ? sanitizeText(activeRepairPromo.cta_link, 120) : getDefaultRepairPromo().cta_link,
+    imagen: activeRepairPromo?.imagen ? sanitizeText(activeRepairPromo.imagen, 500) : ''
   };
   const repairPromoStyle = safePromo.imagen
     ? { '--repair-promo-image': `url(${safePromo.imagen})` }

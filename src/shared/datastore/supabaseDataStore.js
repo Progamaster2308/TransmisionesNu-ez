@@ -212,8 +212,6 @@ export async function deleteProduct(productId) {
 }
 
 export async function getActiveBanner() {
-  const localBanner = readLocalJson(LOCAL_BANNER_KEY, DEFAULT_BANNER);
-
   try {
     const result = await supabase
       .from('admin_banner')
@@ -224,9 +222,9 @@ export async function getActiveBanner() {
       .maybeSingle();
 
     const remoteBanner = unwrapSupabase(result);
-    return remoteBanner ? { ...localBanner, ...remoteBanner } : localBanner;
+    return remoteBanner ? { ...DEFAULT_BANNER, ...remoteBanner } : getDefaultBanner();
   } catch {
-    return localBanner;
+    return getDefaultBanner();
   }
 }
 
@@ -251,8 +249,6 @@ export function resetLocalBanner() {
 }
 
 export async function getActiveRepairPromo() {
-  const localPromo = readLocalJson(LOCAL_REPAIR_PROMO_KEY, DEFAULT_REPAIR_PROMO);
-
   try {
     const result = await supabase
       .from('repair_promotions')
@@ -263,9 +259,9 @@ export async function getActiveRepairPromo() {
       .maybeSingle();
 
     const remotePromo = unwrapSupabase(result);
-    return remotePromo ? { ...localPromo, ...remotePromo } : localPromo;
+    return remotePromo ? { ...DEFAULT_REPAIR_PROMO, ...remotePromo } : getDefaultRepairPromo();
   } catch {
-    return localPromo;
+    return getDefaultRepairPromo();
   }
 }
 
