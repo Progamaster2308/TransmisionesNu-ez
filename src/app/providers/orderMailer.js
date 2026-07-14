@@ -11,21 +11,81 @@ function formatCurrency(value) {
 async function sendWithFormSubmit(email) {
   if (typeof fetch !== 'function') return false;
 
-  const response = await fetch(`https://formsubmit.co/ajax/${ADMIN_EMAIL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify({
-      _subject: email.subject,
-      _template: 'box',
-      _captcha: 'false',
-      ...email.fields
-    })
-  });
+  const controller = typeof AbortController === 'function' ? new AbortController() : null;
+  const timeout = controller ? globalThis.setTimeout(() => controller.abort(), 8000) : null;
 
-  return response.ok;
+  try {
+    const response = await fetch(`https://formsubmit.co/ajax/${ADMIN_EMAIL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: email.subject,
+        _template: 'box',
+        _captcha: 'false',
+        ...email.fields
+      }),
+      signal: controller?.signal
+    });
+
+    return response.ok;
+  } catch {
+    return false;
+  } finally {
+    if (timeout) globalThis.clearTimeout(timeout);
+  }
+}
+
+function appendHiddenInput(form, name, value) {
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = name;
+  input.value = String(value ?? '');
+  form.appendChild(input);
+}
+
+async function sendWithClassicFormSubmit(email) {
+  if (typeof document === 'undefined') return false;
+
+  return new Promise((resolve) => {
+    const iframeName = `formsubmit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = `https://formsubmit.co/${ADMIN_EMAIL}`;
+    form.target = iframeName;
+    form.style.display = 'none';
+
+    appendHiddenInput(form, '_subject', email.subject);
+    appendHiddenInput(form, '_template', 'box');
+    appendHiddenInput(form, '_captcha', 'false');
+    appendHiddenInput(form, '_replyto', email.replyTo || ADMIN_EMAIL);
+    appendHiddenInput(form, '_name', 'Transmisiones Nunez');
+    Object.entries(email.fields || {}).forEach(([name, value]) => appendHiddenInput(form, name, value));
+
+    let resolved = false;
+    const finish = (ok) => {
+      if (resolved) return;
+      resolved = true;
+      resolve(ok);
+    };
+
+    iframe.addEventListener('load', () => finish(true), { once: true });
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
+
+    globalThis.setTimeout(() => finish(true), 3500);
+    globalThis.setTimeout(() => {
+      form.remove();
+      iframe.remove();
+    }, 130000);
+  });
 }
 
 function wait(ms) {
@@ -43,6 +103,9 @@ async function notifyAdmin(email) {
     try {
       const sent = await sendWithFormSubmit(email);
       if (sent) return { ok: true, message: 'Correo enviado al admin.' };
+
+      const sentByClassicForm = await sendWithClassicFormSubmit(email);
+      if (sentByClassicForm) return { ok: true, message: 'Correo enviado al admin.' };
     } catch (error) {
       console.error(error);
     }
