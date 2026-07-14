@@ -37,6 +37,13 @@ for update to authenticated
 using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
 with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
 
+grant delete on public.orders to authenticated;
+
+drop policy if exists "orders_admin_delete" on public.orders;
+create policy "orders_admin_delete" on public.orders
+for delete to authenticated
+using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+
 drop policy if exists "appointments_admin_select" on public.appointments;
 create policy "appointments_admin_select" on public.appointments
 for select to authenticated
@@ -47,6 +54,13 @@ create policy "appointments_admin_update" on public.appointments
 for update to authenticated
 using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
 with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+
+grant delete on public.appointments to authenticated;
+
+drop policy if exists "appointments_admin_delete" on public.appointments;
+create policy "appointments_admin_delete" on public.appointments
+for delete to authenticated
+using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
 
 drop policy if exists "availability_admin_write" on public.appointment_availability;
 create policy "availability_admin_write" on public.appointment_availability

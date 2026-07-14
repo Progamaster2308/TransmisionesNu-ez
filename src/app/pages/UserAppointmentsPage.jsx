@@ -207,7 +207,7 @@ export default function UserAppointmentsPage() {
             <div className="appointmentFields">
               <div className="field">
                 <label>Nombre completo</label>
-                <input value={customerName} onChange={(event) => setCustomerName(event.target.value)} type="text" placeholder="Ej. María López" required maxLength={80} pattern="[A-Za-zÀ-ÿÑñ '-]{2,80}" />
+                <input value={customerName} onChange={(event) => setCustomerName(event.target.value)} type="text" placeholder="Ej. Andrea Salazar" required maxLength={80} pattern="[A-Za-zÀ-ÿÑñ '-]{2,80}" />
               </div>
               <div className="field">
                 <label>Correo electrónico</label>
@@ -215,19 +215,19 @@ export default function UserAppointmentsPage() {
               </div>
               <div className="field">
                 <label>Número de celular</label>
-                <input value={phone} onChange={(event) => setPhone(event.target.value.replace(/\D/g, '').slice(0, 10))} type="tel" inputMode="numeric" placeholder="Ej. 6621234567" required minLength={10} maxLength={10} pattern="[0-9]{10}" />
+                <input value={phone} onChange={(event) => setPhone(event.target.value.replace(/\D/g, '').slice(0, 10))} type="tel" inputMode="numeric" placeholder="Ej. 6627841930" required minLength={10} maxLength={10} pattern="[0-9]{10}" />
               </div>
               <div className="field">
                 <label>Auto</label>
-                <input value={car} onChange={(event) => setCar(event.target.value)} type="text" placeholder="Ej. Nissan" required maxLength={60} pattern="[A-Za-z0-9À-ÿÑñ .-]{2,60}" />
+                <input value={car} onChange={(event) => setCar(event.target.value)} type="text" placeholder="Ej. Honda" required maxLength={60} pattern="[A-Za-z0-9À-ÿÑñ .-]{2,60}" />
               </div>
               <div className="field">
                 <label>Modelo</label>
-                <input value={model} onChange={(event) => setModel(event.target.value)} type="text" placeholder="Ej. Sentra" required maxLength={60} pattern="[A-Za-z0-9À-ÿÑñ .-]{1,60}" />
+                <input value={model} onChange={(event) => setModel(event.target.value)} type="text" placeholder="Ej. CR-V" required maxLength={60} pattern="[A-Za-z0-9À-ÿÑñ .-]{1,60}" />
               </div>
               <div className="field">
                 <label>Año</label>
-                <input value={year} onChange={(event) => setYear(event.target.value)} type="number" min="1950" max={maxVehicleYear} placeholder="Ej. 2018" required />
+                <input value={year} onChange={(event) => setYear(event.target.value)} type="number" min="1950" max={maxVehicleYear} placeholder="Ej. 2020" required />
               </div>
             </div>
 

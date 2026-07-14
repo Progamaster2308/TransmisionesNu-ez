@@ -170,7 +170,7 @@ export default function CheckoutPage() {
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     type="text"
-                    placeholder="Ej. Juan Pérez"
+                    placeholder="Ej. Carlos Ramírez"
                     required
                     maxLength={80}
                     pattern="[A-Za-zÀ-ÿÑñ '-]{2,80}"
@@ -198,7 +198,7 @@ export default function CheckoutPage() {
                       onChange={(e) => setCustomerPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
                       type="tel"
                       inputMode="numeric"
-                      placeholder="Ej. 6621234567"
+                      placeholder="Ej. 6624589031"
                       required
                       minLength={10}
                       maxLength={10}
@@ -226,7 +226,7 @@ export default function CheckoutPage() {
                       value={vehicleMake}
                       onChange={(e) => setVehicleMake(e.target.value)}
                       type="text"
-                      placeholder="Ej. Nissan"
+                      placeholder="Ej. Toyota"
                       required
                       maxLength={60}
                       pattern="[A-Za-z0-9À-ÿÑñ .-]{2,60}"
@@ -239,7 +239,7 @@ export default function CheckoutPage() {
                       value={vehicleModel}
                       onChange={(e) => setVehicleModel(e.target.value)}
                       type="text"
-                      placeholder="Ej. Sentra"
+                      placeholder="Ej. Tacoma"
                       required
                       maxLength={60}
                       pattern="[A-Za-z0-9À-ÿÑñ .-]{1,60}"
@@ -255,7 +255,7 @@ export default function CheckoutPage() {
                     type="number"
                     min="1950"
                     max={maxVehicleYear}
-                    placeholder="Ej. 2018"
+                    placeholder="Ej. 2019"
                     required
                   />
                 </div>
@@ -266,7 +266,7 @@ export default function CheckoutPage() {
                     value={notas}
                     onChange={(e) => setNotas(e.target.value)}
                     rows={4}
-                    placeholder="Ej. modelo del vehículo, transmisión, horario preferido, dudas..."
+                    placeholder="Ej. pickup por la tarde, revisar compatibilidad de transmisión..."
                     maxLength={500}
                   />
                 </div>

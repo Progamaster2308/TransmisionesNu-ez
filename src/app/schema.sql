@@ -230,8 +230,8 @@ grant select, insert, update, delete on public.products to authenticated;
 grant select, insert, update, delete on public.admin_banner to authenticated;
 grant select, insert, update, delete on public.repair_promotions to authenticated;
 grant select, insert, update, delete on public.work_showcase to authenticated;
-grant select, update on public.orders to authenticated;
-grant select, update on public.appointments to authenticated;
+grant select, update, delete on public.orders to authenticated;
+grant select, update, delete on public.appointments to authenticated;
 grant select, insert, update, delete on public.appointment_availability to authenticated;
 
 drop policy if exists "products_read_public" on public.products;
@@ -290,6 +290,11 @@ for update to authenticated
 using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
 with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
 
+drop policy if exists "orders_admin_delete" on public.orders;
+create policy "orders_admin_delete" on public.orders
+for delete to authenticated
+using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+
 drop policy if exists "appointments_insert_public" on public.appointments;
 create policy "appointments_insert_public" on public.appointments
 for insert to public with check (true);
@@ -304,6 +309,11 @@ for update to authenticated
 using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
 with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
 
+drop policy if exists "appointments_admin_delete" on public.appointments;
+create policy "appointments_admin_delete" on public.appointments
+for delete to authenticated
+using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+
 drop policy if exists "availability_read_public" on public.appointment_availability;
 create policy "availability_read_public" on public.appointment_availability
 for select to anon, authenticated using (true);
@@ -314,7 +324,7 @@ for all to authenticated
 using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
 with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
 
--- Datos de prueba seguros para validar la app.
+-- Datos base para iniciar el catálogo y contenido público.
 insert into public.products (sku, nombre, marca, categoria, precio, "precioOriginal", descuento, imagen, rating, stock, "envioGratis")
 values
   ('TN-FILTRO-001', 'Filtro para transmision automatica', 'TransNunez', 'Filtros', 850, 1100, 'Promo', null, 5, 12, false),
@@ -354,39 +364,3 @@ select
   'https://images.unsplash.com/photo-1632823469850-1b7b1e8b7e1e?auto=format&fit=crop&w=1400&q=80',
   true
 where not exists (select 1 from public.repair_promotions where enabled = true);
-
-insert into public.orders (customer_name, customer_email, notas, pickup_date, status, total, items)
-values
-  (
-    'Bryan Nunez',
-    'bryannunezing23@gmail.com',
-    'Pedido de prueba para validar reporte mensual.',
-    current_date + 1,
-    'pending',
-    1130,
-    '[{"sku":"TN-FILTRO-001","nombre":"Filtro para transmision automatica","cantidad":1,"precioUnitario":850,"precioLinea":850},{"sku":"TN-ACEITE-DEX","nombre":"Aceite Dexron VI","cantidad":1,"precioUnitario":280,"precioLinea":280}]'::jsonb
-  ),
-  (
-    'Brian de Jesus',
-    'transmisionesnunezz@gmail.com',
-    'Pedido de prueba marcado como devuelto.',
-    current_date + 2,
-    'returned',
-    4200,
-    '[{"sku":"TN-KIT-REPAR","nombre":"Kit de reparacion de transmision","cantidad":1,"precioUnitario":4200,"precioLinea":4200}]'::jsonb
-  ),
-  (
-    'Brian Wasprodex',
-    'brianwasprodex@gmail.com',
-    'Pedido de prueba listo para entrega.',
-    current_date + 3,
-    'ready',
-    560,
-    '[{"sku":"TN-ACEITE-DEX","nombre":"Aceite Dexron VI","cantidad":2,"precioUnitario":280,"precioLinea":560}]'::jsonb
-  );
-
-insert into public.appointments (customer_name, customer_email, phone, car, model, year, problem_description, servicio, fecha, hora, status)
-values
-  ('Bryan Nunez', 'bryannunezing23@gmail.com', '6621234567', 'Nissan', 'Sentra', 2018, 'Golpe al hacer cambio de primera a segunda.', 'Diagnostico', current_date + 1, '10:00', 'scheduled'),
-  ('Brian de Jesus', 'transmisionesnunezz@gmail.com', '6627654321', 'Chevrolet', 'Silverado', 2016, 'Fuga de aceite y ruido al arrancar.', 'Reparacion', current_date + 2, '11:00', 'confirmed'),
-  ('Brian Wasprodex', 'brianwasprodex@gmail.com', '6625551111', 'Toyota', 'Corolla', 2020, 'Patina en carretera y tarda en responder.', 'Diagnostico', current_date + 3, '14:00', 'scheduled');

@@ -1,0 +1,47 @@
+-- Transmisiones Nunez - limpieza puntual de pedidos de prueba.
+-- Ejecutar en Supabase SQL Editor solo si quieres retirar los pedidos
+-- generados durante pruebas antes de entregar la app al negocio.
+
+delete from public.orders
+where id in (
+  '52246017-7446-4feb-8250-64d465959a78',
+  '3a39f093-e1c9-4bcc-8239-79a47fcb4774',
+  '8d73c998-a858-4d6a-b105-d02fc76d9248',
+  '4a880fc3-d711-4fc6-b4d2-9d8ddf3d2fce',
+  'fd7e5078-2766-4993-8e5a-648a462b52f1',
+  '9b24122b-b0d8-4ab0-946b-ef2574db38aa',
+  '1334e699-9375-4a3c-b85a-b9b1c9c7f91c',
+  'cefc19dd-5907-4786-bd84-c475b3e4553d',
+  'eaa001aa-3f4b-4bf8-9cb8-b3c717ed1967',
+  '5775fe48-e165-4afa-912a-99c5c61e50aa',
+  '10c73be3-bdb1-4e4e-ae7e-e211bf9e91f3',
+  'b53ce06d-df1c-4c24-b780-0abdbb6e738e',
+  'aa0cd6e2-cf78-4c6c-a5ed-7a7f38e7d3d2',
+  'b9424574-af9c-4b74-96b4-b628c2ef92ba',
+  '1c384a6c-a6b4-4b05-8092-63d639cc0fff',
+  '0be8c91f-fad9-4f2e-8cdf-61572d633f1d',
+  '3faf23a8-240e-4893-833c-9e8d075311fd',
+  'b1a76b34-7a1d-44e0-919a-dda100dd8c8b',
+  '74b7e814-f366-44c5-a387-bd52690ef330',
+  'a0fc3fdf-9c9b-42a3-b980-2e10fe1a383a',
+  '55fa25ac-0718-4540-ac22-d8942cda9430',
+  '9e3d24ae-fd51-4262-9433-9ffc99ffc573',
+  'e8dd8285-b032-4d21-bab3-3140c347bf2b',
+  '4a99c2f8-d323-4f16-a088-0a0fc907ec75',
+  '23582a18-5f4a-4ef1-bbe6-17a4a37d6b33',
+  '5db504c4-23fb-41bc-8b3f-5bf6cbc8720f',
+  '74630d92-f710-4e93-88be-14c25cde0c97',
+  '7c0241da-a504-442b-bf6e-da5f392f5d2b',
+  'bc7daf74-6491-4901-8689-0b24605f115f',
+  '545f9d3b-67c3-4572-8e53-4cd736bd9d04',
+  'eef76779-9113-49da-9602-6d732bdf0ad5',
+  '0d23a746-2987-42bb-b1df-ce9740a3609a',
+  '42439c48-33ad-4685-9350-07eb2cba9f5a',
+  '5e6a392f-4fb8-49b1-995d-6c0a8ff02c2b',
+  'ca44cac4-7fed-471a-ab4d-18c17b753cb3',
+  '27fd1475-91f8-485b-945d-ede943fc6814',
+  '04db4ae9-9713-481d-b3d2-bdd75a11d13e',
+  '4f8c55bb-a9b5-4757-9acb-97a9dd2e33e5',
+  '8888b0e6-cea8-454f-a146-5734dbf512be',
+  'eb4178d0-74d0-4d3e-a17a-d087446fa4ce'
+);
