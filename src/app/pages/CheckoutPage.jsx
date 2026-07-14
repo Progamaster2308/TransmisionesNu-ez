@@ -133,10 +133,10 @@ export default function CheckoutPage() {
       if (data?.id) {
         localStorage.setItem('nu:lastOrderId', data.id);
         requestAdminEmailNotification({ ...orderPayload, id: data.id })
-          .then(() => showToast('Correo enviado al admin.'))
+          .then(() => showToast('Notificación enviada al admin.'))
           .catch((error) => {
             console.error(error);
-            showToast(error?.message || 'Orden registrada, pero no se pudo enviar el correo al admin.');
+            showToast(error?.message || 'Orden registrada, pero no se pudo notificar al admin.');
           });
       }
 

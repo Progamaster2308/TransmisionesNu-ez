@@ -141,10 +141,10 @@ export default function UserAppointmentsPage() {
       });
 
       requestAppointmentEmailNotification(appointment)
-        .then(() => showToast('Correo enviado al admin.'))
+        .then(() => showToast('Notificación enviada al admin.'))
         .catch((error) => {
           console.error(error);
-          showToast(error?.message || 'Cita agendada, pero no se pudo enviar el correo al admin.');
+          showToast(error?.message || 'Cita agendada, pero no se pudo notificar al admin.');
         });
 
       showToast('Cita agendada. Admin la revisará.');
