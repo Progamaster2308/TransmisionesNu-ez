@@ -1,3 +1,5 @@
+import { ADMIN_EMAIL } from '../config/adminConfig';
+
 function formatCurrency(value) {
   return Number(value || 0).toLocaleString('es-MX', {
     style: 'currency',
@@ -6,31 +8,23 @@ function formatCurrency(value) {
   });
 }
 
-function encodeFormData(values) {
-  const data = new URLSearchParams();
-  Object.entries(values).forEach(([key, value]) => {
-    data.append(key, String(value ?? ''));
-  });
-  return data.toString();
-}
-
-async function sendWithNetlifyForms(email) {
+async function sendWithFormSubmit(email) {
   if (typeof fetch !== 'function') return false;
 
   const controller = typeof AbortController === 'function' ? new AbortController() : null;
-  const timeout = controller ? globalThis.setTimeout(() => controller.abort(), 12000) : null;
+  const timeout = controller ? globalThis.setTimeout(() => controller.abort(), 8000) : null;
 
   try {
-    const response = await fetch('/', {
+    const response = await fetch(`https://formsubmit.co/ajax/${ADMIN_EMAIL}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
       },
-      body: encodeFormData({
-        'form-name': 'tn-admin-notifications',
-        subject: email.subject,
-        reply_to: email.replyTo || '',
-        message: email.body,
+      body: JSON.stringify({
+        _subject: email.subject,
+        _template: 'box',
+        _captcha: 'false',
         ...email.fields
       }),
       signal: controller?.signal
@@ -42,6 +36,56 @@ async function sendWithNetlifyForms(email) {
   } finally {
     if (timeout) globalThis.clearTimeout(timeout);
   }
+}
+
+function appendHiddenInput(form, name, value) {
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = name;
+  input.value = String(value ?? '');
+  form.appendChild(input);
+}
+
+async function sendWithClassicFormSubmit(email) {
+  if (typeof document === 'undefined') return false;
+
+  return new Promise((resolve) => {
+    const iframeName = `formsubmit_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = `https://formsubmit.co/${ADMIN_EMAIL}`;
+    form.target = iframeName;
+    form.style.display = 'none';
+
+    appendHiddenInput(form, '_subject', email.subject);
+    appendHiddenInput(form, '_template', 'box');
+    appendHiddenInput(form, '_captcha', 'false');
+    appendHiddenInput(form, '_replyto', email.replyTo || ADMIN_EMAIL);
+    appendHiddenInput(form, '_name', 'Transmisiones Nunez');
+    Object.entries(email.fields || {}).forEach(([name, value]) => appendHiddenInput(form, name, value));
+
+    let resolved = false;
+    const finish = (ok) => {
+      if (resolved) return;
+      resolved = true;
+      resolve(ok);
+    };
+
+    iframe.addEventListener('load', () => finish(true), { once: true });
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
+
+    globalThis.setTimeout(() => finish(true), 3500);
+    globalThis.setTimeout(() => {
+      form.remove();
+      iframe.remove();
+    }, 130000);
+  });
 }
 
 function wait(ms) {
@@ -57,14 +101,17 @@ async function notifyAdmin(email) {
     if (retryDelays[attempt]) await wait(retryDelays[attempt]);
 
     try {
-      const sent = await sendWithNetlifyForms(email);
-      if (sent) return { ok: true, message: 'Notificacion guardada en Netlify Forms.' };
+      const sentByClassicForm = await sendWithClassicFormSubmit(email);
+      if (sentByClassicForm) return { ok: true, message: 'Correo enviado al admin.' };
+
+      const sent = await sendWithFormSubmit(email);
+      if (sent) return { ok: true, message: 'Correo enviado al admin.' };
     } catch (error) {
       console.error(error);
     }
   }
 
-  throw new Error('No se pudo guardar la notificacion en Netlify Forms despues de varios intentos.');
+  throw new Error('No se pudo enviar el correo al admin despues de varios intentos.');
 }
 
 function buildFallbackBody(fields) {
