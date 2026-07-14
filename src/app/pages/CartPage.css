@@ -105,6 +105,7 @@
 }
 
 .cartItemName,
+.cartItemPrice,
 .cartItemAvailability,
 .cartItemNote {
   color: var(--nu-ink);
@@ -116,11 +117,17 @@
 }
 
 .cartItemAvailability,
+.cartItemPrice,
 .cartItemNote {
   margin-top: 6px;
   color: var(--nu-muted);
   font-size: .9rem;
   font-weight: 760;
+}
+
+.cartItemPrice {
+  color: var(--nu-primary-dark);
+  font-weight: 950;
 }
 
 .cartRemove,
@@ -187,6 +194,14 @@
 .cartTotalTitle {
   color: #dbeafe;
   font-weight: 950;
+}
+
+.cartEstimate {
+  margin-top: 8px;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 950;
+  line-height: 1.05;
 }
 
 .cartTotalHint {

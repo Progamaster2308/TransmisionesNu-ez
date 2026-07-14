@@ -15,13 +15,13 @@ create table if not exists public.products (
   imagen text default null,
   rating integer not null default 5 check (rating >= 0 and rating <= 5),
   stock integer not null default 0 check (stock >= 0),
-  "envioGratis" boolean not null default true,
+  "envioGratis" boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
 alter table public.products add column if not exists "precioOriginal" integer not null default 0;
-alter table public.products add column if not exists "envioGratis" boolean not null default true;
+alter table public.products add column if not exists "envioGratis" boolean not null default false;
 alter table public.products add column if not exists descuento text default null;
 alter table public.products add column if not exists imagen text default null;
 alter table public.products add column if not exists rating integer not null default 5;
@@ -317,9 +317,9 @@ with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
 -- Datos de prueba seguros para validar la app.
 insert into public.products (sku, nombre, marca, categoria, precio, "precioOriginal", descuento, imagen, rating, stock, "envioGratis")
 values
-  ('TN-FILTRO-001', 'Filtro para transmision automatica', 'TransNunez', 'Filtros', 850, 1100, 'Promo', null, 5, 12, true),
-  ('TN-ACEITE-DEX', 'Aceite Dexron VI', 'ACDelco', 'Aceites', 280, 350, '20%', null, 5, 24, true),
-  ('TN-KIT-REPAR', 'Kit de reparacion de transmision', 'TransNunez', 'Kits', 4200, 4800, 'Oferta', null, 5, 5, true)
+  ('TN-FILTRO-001', 'Filtro para transmision automatica', 'TransNunez', 'Filtros', 850, 1100, 'Promo', null, 5, 12, false),
+  ('TN-ACEITE-DEX', 'Aceite Dexron VI', 'ACDelco', 'Aceites', 280, 350, '20%', null, 5, 24, false),
+  ('TN-KIT-REPAR', 'Kit de reparacion de transmision', 'TransNunez', 'Kits', 4200, 4800, 'Oferta', null, 5, 5, false)
 on conflict (sku) do update
 set
   nombre = excluded.nombre,

@@ -7,10 +7,20 @@ import { isSupabaseConfigError } from '../providers/supabaseClient';
 import { sanitizeText } from '../providers/marketplaceStorage';
 import { useCart } from '../providers/useCart';
 import { useFavorites } from '../providers/useFavorites';
+import { useToast } from '../providers/useToast';
+
+function formatCurrency(value) {
+  return Number(value || 0).toLocaleString('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 0
+  });
+}
 
 export default function CatalogPage() {
-  const { addToCart } = useCart();
+  const { items: cartItems, addToCart } = useCart();
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { showToast } = useToast();
 
   const [query, setQuery] = useState('');
   const [categoria, setCategoria] = useState('Todas');
@@ -69,6 +79,30 @@ export default function CatalogPage() {
     setPreviewProduct(null);
     setZoomPoint({ x: 50, y: 50 });
     setZoomActive(false);
+  };
+
+  const handleFavorite = (product) => {
+    const favorite = isFavorite(product.id);
+    toggleFavorite(product);
+    showToast(favorite ? 'Producto quitado de favoritos.' : 'Producto agregado a favoritos.');
+  };
+
+  const handleAddToCart = (product) => {
+    const stock = Number(product.stock ?? 0);
+    const current = cartItems.find((item) => item.id === product.id);
+
+    if (stock <= 0) {
+      showToast('Producto no disponible.');
+      return;
+    }
+
+    if (current && Number(current.cantidad || 0) >= stock) {
+      showToast('Ya agregaste el máximo disponible.');
+      return;
+    }
+
+    addToCart(product);
+    showToast('Producto agregado al pedido.');
   };
 
   const handleZoomMove = (event) => {
@@ -149,7 +183,7 @@ export default function CatalogPage() {
                     <button
                       type="button"
                       className={`nu-favBtn ${favorite ? 'nu-favBtn--active' : ''}`}
-                      onClick={() => toggleFavorite(p)}
+                      onClick={() => handleFavorite(p)}
                       aria-label={favorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
                     >
                       Favorito
@@ -178,6 +212,12 @@ export default function CatalogPage() {
                     <div className="nu-sku">{p.sku}</div>
                     <h3 className="nu-cardTitle">{p.nombre}</h3>
                     <div className="nu-rating">{'★'.repeat(p.rating ?? 5)}</div>
+                    <div className="nu-priceRow">
+                      <strong>{formatCurrency(p.precio)}</strong>
+                      {Number(p.precioOriginal || 0) > Number(p.precio || 0) && (
+                        <span>{formatCurrency(p.precioOriginal)}</span>
+                      )}
+                    </div>
 
                     <div className="nu-stock">
                       {disabled ? 'Agotado' : `Disponible: ${p.stock}`}
@@ -186,7 +226,7 @@ export default function CatalogPage() {
                     <button
                       className="nu-btn nu-btn--primary"
                       disabled={disabled}
-                      onClick={() => addToCart(p)}
+                      onClick={() => handleAddToCart(p)}
                     >
                       {disabled ? 'No disponible' : 'Agregar al pedido'}
                     </button>
@@ -219,6 +259,7 @@ export default function CatalogPage() {
                 <div className="nu-sku">{previewProduct.sku}</div>
                 <h3>{previewProduct.nombre}</h3>
                 <p>{previewProduct.marca} - {previewProduct.categoria}</p>
+                <strong>{formatCurrency(previewProduct.precio)}</strong>
               </div>
 
               <div

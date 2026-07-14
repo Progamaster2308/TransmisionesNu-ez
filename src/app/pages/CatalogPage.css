@@ -184,6 +184,26 @@
   font-size: .9rem;
 }
 
+.nu-priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nu-priceRow strong {
+  color: var(--nu-primary-dark);
+  font-size: 1.22rem;
+  font-weight: 950;
+}
+
+.nu-priceRow span {
+  color: var(--nu-muted);
+  font-size: .88rem;
+  font-weight: 850;
+  text-decoration: line-through;
+}
+
 .nu-stock {
   color: var(--nu-muted);
   font-weight: 850;
@@ -282,6 +302,13 @@
   color: var(--nu-muted);
   font-size: .88rem;
   font-weight: 800;
+}
+
+.nu-previewInfo strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--nu-primary-dark);
+  font-size: 1.05rem;
 }
 
 .nu-previewClose {

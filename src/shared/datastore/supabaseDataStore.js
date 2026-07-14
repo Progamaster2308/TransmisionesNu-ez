@@ -1,5 +1,15 @@
 ﻿import { supabase } from '../../app/providers/supabaseClient';
-import { normalizeMoney, safeDateISO, sanitizeEmail, sanitizeText } from '../../app/providers/marketplaceStorage';
+import {
+  normalizeMoney,
+  safeDateISO,
+  sanitizeEmail,
+  sanitizeLongMessage,
+  sanitizePersonName,
+  sanitizePhone,
+  sanitizeText,
+  sanitizeVehicleText,
+  sanitizeVehicleYear
+} from '../../app/providers/marketplaceStorage';
 
 const APPOINTMENT_STATUSES = ['scheduled', 'confirmed', 'completed', 'cancelled'];
 const ORDER_STATUSES = ['pending', 'confirmed', 'cancelled', 'ready', 'returned'];
@@ -120,7 +130,7 @@ function normalizeProductPayload(product) {
     imagen: sanitizeText(product.imagen, 500) || null,
     rating: Math.min(5, Math.max(0, Math.floor(Number(product.rating) || 5))),
     stock: Math.max(0, Math.floor(Number(product.stock) || 0)),
-    envioGratis: Boolean(product.envioGratis ?? true)
+    envioGratis: false
   };
 }
 
@@ -329,9 +339,9 @@ export async function createOrder(order) {
   const id = order.id || createClientUuid();
   const payload = {
     id,
-    customer_name: sanitizeText(order.customer_name, 80),
+    customer_name: sanitizePersonName(order.customer_name, 80),
     customer_email: sanitizeEmail(order.customer_email),
-    notas: sanitizeText(order.notas, 500) || null,
+    notas: sanitizeLongMessage(order.notas, 500) || null,
     pickup_date: safeDateISO(order.pickup_date),
     total: normalizeMoney(order.total),
     items: Array.isArray(order.items) ? order.items : [],
@@ -410,14 +420,14 @@ export async function createAppointment(appointment) {
   const id = appointment.id || createClientUuid();
   const payload = {
     id,
-    customer_name: sanitizeText(appointment.customer_name, 80),
+    customer_name: sanitizePersonName(appointment.customer_name, 80),
     customer_email: sanitizeEmail(appointment.customer_email),
-    phone: sanitizeText(appointment.phone, 24),
-    car: sanitizeText(appointment.car, 80),
-    model: sanitizeText(appointment.model, 80),
-    year: Math.max(1900, Math.min(2100, Math.floor(Number(appointment.year) || 0))),
-    problem_description: sanitizeText(appointment.problem_description, 700),
-    servicio: sanitizeText(appointment.servicio, 60),
+    phone: sanitizePhone(appointment.phone),
+    car: sanitizeVehicleText(appointment.car, 60),
+    model: sanitizeVehicleText(appointment.model, 60),
+    year: sanitizeVehicleYear(appointment.year),
+    problem_description: sanitizeLongMessage(appointment.problem_description, 700),
+    servicio: sanitizeVehicleText(appointment.servicio, 60),
     fecha: safeDateISO(appointment.fecha),
     hora: sanitizeText(appointment.hora, 10),
     status: 'scheduled'

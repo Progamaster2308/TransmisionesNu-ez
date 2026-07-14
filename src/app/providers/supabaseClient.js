@@ -40,6 +40,9 @@ function createMissingConfigClient() {
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
       signInWithPassword: () => failedResult,
       signOut: () => failedResult
+    },
+    functions: {
+      invoke: () => failedResult
     }
   };
 }

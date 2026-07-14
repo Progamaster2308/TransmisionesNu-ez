@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { listOrders, listOrdersByMonth, updateOrderStatus } from '../../shared/datastore/supabaseDataStore';
-import { requestCustomerOrderStatusNotification } from '../providers/orderMailer';
 import { sanitizeText } from '../providers/marketplaceStorage';
 import { isSupabaseConfigError } from '../providers/supabaseClient';
 import { useToast } from '../providers/useToast';
@@ -84,6 +84,7 @@ export default function AdminOrdersPage() {
   const [reportMonth, setReportMonth] = useState(() => new Date().toISOString().slice(0, 7));
   const [loading, setLoading] = useState(true);
   const [reporting, setReporting] = useState(false);
+  const [updatingOrderId, setUpdatingOrderId] = useState('');
   const { showToast } = useToast();
 
   useEffect(() => {
@@ -120,15 +121,17 @@ export default function AdminOrdersPage() {
   }, [orders, query]);
 
   const setStatus = async (order, status) => {
+    const orderId = order.id;
+    setUpdatingOrderId(orderId);
     try {
-      const orderId = order.id;
       const updated = await updateOrderStatus(orderId, status);
       setOrders((current) => current.map((order) => (order.id === orderId ? updated : order)));
-      const notification = requestCustomerOrderStatusNotification({ ...order, ...updated });
-      showToast(notification.message);
+      showToast('Pedido actualizado. Contacta al cliente manualmente con los datos registrados.');
     } catch (error) {
       console.error(error);
-      showToast('No se pudo actualizar el pedido');
+      showToast(error?.message ? `No se pudo actualizar el pedido: ${error.message}` : 'No se pudo actualizar el pedido');
+    } finally {
+      setUpdatingOrderId('');
     }
   };
 
@@ -160,6 +163,7 @@ export default function AdminOrdersPage() {
           <div>
             <p>Panel administrativo</p>
             <h1>Pedidos recibidos</h1>
+            <Link className="adminOrdersBack" to="/admin">Volver al admin</Link>
           </div>
           <div className="adminOrdersTools">
             <input
@@ -215,10 +219,10 @@ export default function AdminOrdersPage() {
                   </div>
 
                   <div className="adminOrderActions">
-                    <button type="button" onClick={() => setStatus(order, 'confirmed')}>Confirmar</button>
-                    <button type="button" onClick={() => setStatus(order, 'ready')}>Aprobar</button>
-                    <button type="button" onClick={() => setStatus(order, 'returned')}>Devolver</button>
-                    <button type="button" className="danger" onClick={() => setStatus(order, 'cancelled')}>Cancelar</button>
+                    <button type="button" disabled={updatingOrderId === order.id} onClick={() => setStatus(order, 'confirmed')}>Confirmar</button>
+                    <button type="button" disabled={updatingOrderId === order.id} onClick={() => setStatus(order, 'ready')}>Aprobar</button>
+                    <button type="button" disabled={updatingOrderId === order.id} onClick={() => setStatus(order, 'returned')}>Devolver</button>
+                    <button type="button" disabled={updatingOrderId === order.id} className="danger" onClick={() => setStatus(order, 'cancelled')}>Cancelar</button>
                   </div>
                 </article>
               );

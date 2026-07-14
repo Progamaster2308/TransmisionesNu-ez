@@ -14,6 +14,13 @@
   gap: 6px;
 }
 
+.apHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
 .apHeader h2 {
   margin: 0;
   color: var(--nu-ink);
@@ -45,6 +52,7 @@
 .apCol,
 .apSide {
   padding: 22px;
+  min-width: 0;
 }
 
 .apCol {
@@ -55,6 +63,7 @@
 .field {
   display: grid;
   gap: 8px;
+  min-width: 0;
 }
 
 .appointmentFields {
@@ -152,6 +161,9 @@
 .apSummaryLine {
   color: var(--nu-ink-soft);
   font-weight: 800;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .apSubmit {
@@ -197,6 +209,7 @@
 
 .adminTableWrap {
   overflow-x: auto;
+  max-width: 100%;
 }
 
 .adminTable {
@@ -204,11 +217,41 @@
   border-collapse: collapse;
 }
 
+.adminTable--appointments {
+  min-width: 980px;
+  table-layout: fixed;
+}
+
+.adminTable--appointments th:nth-child(1) {
+  width: 82px;
+}
+
+.adminTable--appointments th:nth-child(2) {
+  width: 230px;
+}
+
+.adminTable--appointments th:nth-child(3) {
+  width: 210px;
+}
+
+.adminTable--appointments th:nth-child(4) {
+  width: auto;
+}
+
+.adminTable--appointments th:nth-child(5) {
+  width: 150px;
+}
+
+.adminTable--appointments th:nth-child(6) {
+  width: 150px;
+}
+
 .adminTable th,
 .adminTable td {
   padding: 14px;
   border-bottom: 1px solid var(--nu-line);
   text-align: left;
+  vertical-align: top;
 }
 
 .adminTable th {
@@ -222,29 +265,46 @@
 .adminDate {
   color: var(--nu-ink);
   font-weight: 950;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .adminClientEmail {
   color: var(--nu-muted);
   font-size: .86rem;
   font-weight: 800;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.adminCell {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .adminProblem {
-  max-width: 300px;
   color: var(--nu-ink-soft);
   line-height: 1.45;
+  white-space: normal;
 }
 
 .statusPill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 28px;
+  min-width: 110px;
   padding: 4px 10px;
   border-radius: 999px;
   background: #e2e8f0;
   color: var(--nu-ink-soft);
+  font-size: .84rem;
   font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .statusPill--scheduled {
@@ -268,21 +328,44 @@
 }
 
 .adminActionsRow {
-  display: flex;
+  display: grid;
   gap: 8px;
-  flex-wrap: wrap;
+  align-items: start;
 }
 
 .adminAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 36px;
   padding: 8px 10px;
   background: #eff6ff;
   color: #0b3d86;
+  max-width: 100%;
+  line-height: 1.1;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .adminAction--cancel {
   background: #fee2e2;
   color: #991b1b;
+}
+
+.adminBackLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--nu-radius);
+  padding: 0 14px;
+  color: #0b3d86;
+  background: #eff6ff;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 @media (max-width: 760px) {
@@ -292,7 +375,13 @@
 
   .apGrid,
   .appointmentFields,
-  .adminTools {
+  .adminTools,
+  .apHeaderTop {
     grid-template-columns: 1fr;
+  }
+
+  .apHeaderTop {
+    display: grid;
+    align-items: stretch;
   }
 }

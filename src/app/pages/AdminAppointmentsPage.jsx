@@ -1,10 +1,18 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { listAppointments, updateAppointmentStatus } from '../../shared/datastore/supabaseDataStore';
 import { sanitizeText } from '../providers/marketplaceStorage';
 import { isSupabaseConfigError } from '../providers/supabaseClient';
 
 import './AppointmentsPage.css';
+
+const STATUS_LABELS = {
+  scheduled: 'Pendiente',
+  confirmed: 'Confirmada',
+  completed: 'Completada',
+  cancelled: 'Cancelada'
+};
 
 export default function AdminAppointmentsPage() {
   const [query, setQuery] = useState('');
@@ -36,16 +44,16 @@ export default function AdminAppointmentsPage() {
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
 
-    return rows.filter((r) => {
-      const okDate = !dateFilter || r.fecha === dateFilter;
+    return rows.filter((row) => {
+      const okDate = !dateFilter || row.fecha === dateFilter;
       const okQ = !q || (
-        r.customer_name?.toLowerCase().includes(q) ||
-        r.customer_email?.toLowerCase().includes(q) ||
-        r.phone?.toLowerCase().includes(q) ||
-        r.car?.toLowerCase().includes(q) ||
-        r.model?.toLowerCase().includes(q) ||
-        r.servicio?.toLowerCase().includes(q) ||
-        r.hora?.toLowerCase().includes(q)
+        row.customer_name?.toLowerCase().includes(q) ||
+        row.customer_email?.toLowerCase().includes(q) ||
+        row.phone?.toLowerCase().includes(q) ||
+        row.car?.toLowerCase().includes(q) ||
+        row.model?.toLowerCase().includes(q) ||
+        row.servicio?.toLowerCase().includes(q) ||
+        row.hora?.toLowerCase().includes(q)
       );
       return okDate && okQ;
     });
@@ -63,7 +71,7 @@ export default function AdminAppointmentsPage() {
   const updateStatus = async (id, status) => {
     try {
       const updated = await updateAppointmentStatus(id, status);
-      setRows((prev) => prev.map((r) => (r.id === id ? updated : r)));
+      setRows((prev) => prev.map((row) => (row.id === id ? updated : row)));
     } catch (error) {
       console.error(error);
     }
@@ -73,7 +81,10 @@ export default function AdminAppointmentsPage() {
     <main className="apWrap">
       <div className="apPanel">
         <div className="apHeader">
-          <h2>Admin - Citas</h2>
+          <div className="apHeaderTop">
+            <h2>Admin - Citas</h2>
+            <Link className="adminBackLink" to="/admin">Volver al admin</Link>
+          </div>
           <p className="apSub">Consulta las citas por día y hora, revisa la falla reportada y actualiza el estado.</p>
         </div>
 
@@ -82,13 +93,13 @@ export default function AdminAppointmentsPage() {
             className="adminSearch"
             placeholder="Filtrar por cliente, correo, celular, auto o servicio..."
             value={query}
-            onChange={(e) => setQuery(sanitizeText(e.target.value, 80))}
+            onChange={(event) => setQuery(sanitizeText(event.target.value, 80))}
           />
           <input
             className="adminSearch"
             type="date"
             value={dateFilter}
-            onChange={(e) => setDateFilter(e.target.value)}
+            onChange={(event) => setDateFilter(event.target.value)}
           />
           <button className="adminAction" type="button" onClick={() => setDateFilter('')}>
             Ver todas
@@ -105,7 +116,7 @@ export default function AdminAppointmentsPage() {
             <section className="adminDayGroup" key={fecha}>
               <h3>{fecha}</h3>
               <div className="adminTableWrap">
-                <table className="adminTable">
+                <table className="adminTable adminTable--appointments">
                   <thead>
                     <tr>
                       <th>Hora</th>
@@ -117,25 +128,27 @@ export default function AdminAppointmentsPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {appointments.map((r) => (
-                      <tr key={r.id}>
-                        <td><div className="adminDate">{r.hora}</div></td>
-                        <td>
-                          <div className="adminClientName">{r.customer_name}</div>
-                          <div className="adminClientEmail">{r.customer_email}</div>
-                          <div className="adminClientEmail">{r.phone}</div>
+                    {appointments.map((row) => (
+                      <tr key={row.id}>
+                        <td className="adminCell adminCell--time"><div className="adminDate">{row.hora}</div></td>
+                        <td className="adminCell adminCell--client">
+                          <div className="adminClientName">{row.customer_name}</div>
+                          <div className="adminClientEmail">{row.customer_email}</div>
+                          <div className="adminClientEmail">{row.phone}</div>
                         </td>
-                        <td>
-                          <div className="adminClientName">{r.car} {r.model}</div>
-                          <div className="adminClientEmail">{r.year} - {r.servicio}</div>
+                        <td className="adminCell adminCell--vehicle">
+                          <div className="adminClientName">{row.car} {row.model}</div>
+                          <div className="adminClientEmail">{row.year} - {row.servicio}</div>
                         </td>
-                        <td className="adminProblem">{r.problem_description || r.notes || '-'}</td>
-                        <td><span className={`statusPill statusPill--${r.status}`}>{r.status}</span></td>
-                        <td>
+                        <td className="adminCell adminProblem">{row.problem_description || row.notes || '-'}</td>
+                        <td className="adminCell adminCell--status">
+                          <span className={`statusPill statusPill--${row.status}`}>{STATUS_LABELS[row.status] || row.status}</span>
+                        </td>
+                        <td className="adminCell adminCell--actions">
                           <div className="adminActionsRow">
-                            <button type="button" className="adminAction" onClick={() => updateStatus(r.id, 'confirmed')}>Confirmar</button>
-                            <button type="button" className="adminAction" onClick={() => updateStatus(r.id, 'completed')}>Completar</button>
-                            <button type="button" className="adminAction adminAction--cancel" onClick={() => updateStatus(r.id, 'cancelled')}>Cancelar</button>
+                            <button type="button" className="adminAction" onClick={() => updateStatus(row.id, 'confirmed')}>Confirmar</button>
+                            <button type="button" className="adminAction" onClick={() => updateStatus(row.id, 'completed')}>Completar</button>
+                            <button type="button" className="adminAction adminAction--cancel" onClick={() => updateStatus(row.id, 'cancelled')}>Cancelar</button>
                           </div>
                         </td>
                       </tr>

@@ -5,7 +5,17 @@ import {
   listAppointmentAvailability,
   listBookedAppointmentsByDate
 } from '../../shared/datastore/supabaseDataStore';
-import { safeDateISO, sanitizeEmail, sanitizeText } from '../providers/marketplaceStorage';
+import {
+  addYearsISO,
+  getTodayISO,
+  safeDateISO,
+  sanitizeEmail,
+  sanitizeLongMessage,
+  sanitizePersonName,
+  sanitizePhone,
+  sanitizeVehicleText,
+  sanitizeVehicleYear
+} from '../providers/marketplaceStorage';
 import { requestAppointmentEmailNotification } from '../providers/orderMailer';
 import { isSupabaseConfigError } from '../providers/supabaseClient';
 import { useToast } from '../providers/useToast';
@@ -19,8 +29,11 @@ function getDateWeekday(date) {
 
 export default function UserAppointmentsPage() {
   const { showToast } = useToast();
+  const minDate = getTodayISO();
+  const maxDate = addYearsISO(1);
+  const maxVehicleYear = new Date().getFullYear() + 1;
 
-  const [selectedDate, setSelectedDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [selectedDate, setSelectedDate] = useState(minDate);
   const [service, setService] = useState('Diagnóstico');
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
@@ -52,7 +65,7 @@ export default function UserAppointmentsPage() {
   }, []);
 
   useEffect(() => {
-    if (!selectedDate) return;
+    if (!safeDateISO(selectedDate)) return;
     let mounted = true;
 
     (async () => {
@@ -84,21 +97,31 @@ export default function UserAppointmentsPage() {
     return (dayAvailability.slots ?? []).filter((slot) => !bookedSlots.has(slot));
   }, [booked, dayAvailability]);
 
-  const submit = async (e) => {
-    e.preventDefault();
+  const submit = async (event) => {
+    event.preventDefault();
 
-    const name = sanitizeText(customerName, 80);
+    const name = sanitizePersonName(customerName, 80);
     const email = sanitizeEmail(customerEmail);
     const date = safeDateISO(selectedDate);
-    const servicio = sanitizeText(service, 60);
-    const safePhone = sanitizeText(phone, 24);
-    const safeCar = sanitizeText(car, 80);
-    const safeModel = sanitizeText(model, 80);
-    const safeYear = Math.floor(Number(year) || 0);
-    const safeProblem = sanitizeText(problemDescription, 700);
+    const servicio = sanitizeVehicleText(service, 60);
+    const safePhone = sanitizePhone(phone);
+    const safeCar = sanitizeVehicleText(car, 60);
+    const safeModel = sanitizeVehicleText(model, 60);
+    const safeYear = sanitizeVehicleYear(year);
+    const safeProblem = sanitizeLongMessage(problemDescription, 700);
 
-    if (!name || !email || !safePhone || !safeCar || !safeModel || !safeYear || !safeProblem || !date || !timeSlot || !availableSlots.includes(timeSlot)) {
-      showToast('Completa todos los datos de la cita.');
+    if (!date) {
+      showToast('Selecciona una fecha válida entre hoy y máximo un año.');
+      return;
+    }
+
+    if (!name || !email || !safePhone || !safeCar || !safeModel || !safeYear || !safeProblem || !servicio) {
+      showToast('Revisa nombre, correo, celular y datos del vehículo.');
+      return;
+    }
+
+    if (!timeSlot || !availableSlots.includes(timeSlot)) {
+      showToast('Selecciona un horario disponible.');
       return;
     }
 
@@ -117,11 +140,12 @@ export default function UserAppointmentsPage() {
         hora: timeSlot
       });
 
-      try {
-        await requestAppointmentEmailNotification(appointment);
-      } catch (error) {
-        console.error(error);
-      }
+      requestAppointmentEmailNotification(appointment)
+        .then(() => showToast('Correo enviado al admin.'))
+        .catch((error) => {
+          console.error(error);
+          showToast(error?.message || 'Cita agendada, pero no se pudo enviar el correo al admin.');
+        });
 
       showToast('Cita agendada. Admin la revisará.');
       setTimeSlot('');
@@ -146,7 +170,7 @@ export default function UserAppointmentsPage() {
           <section className="apCol">
             <div className="field">
               <label>Servicio</label>
-              <select value={service} onChange={(e) => setService(e.target.value)}>
+              <select value={service} onChange={(event) => setService(event.target.value)}>
                 <option value="Diagnóstico">Diagnóstico</option>
                 <option value="Reparación">Reparación</option>
                 <option value="Refacciones">Refacciones</option>
@@ -155,7 +179,7 @@ export default function UserAppointmentsPage() {
 
             <div className="field">
               <label>Fecha</label>
-              <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} required />
+              <input type="date" value={selectedDate} min={minDate} max={maxDate} onChange={(event) => setSelectedDate(event.target.value)} required />
             </div>
 
             <div className="timesBox">
@@ -183,40 +207,40 @@ export default function UserAppointmentsPage() {
             <div className="appointmentFields">
               <div className="field">
                 <label>Nombre completo</label>
-                <input value={customerName} onChange={(e) => setCustomerName(e.target.value)} type="text" placeholder="Ej. María López" required maxLength={80} />
+                <input value={customerName} onChange={(event) => setCustomerName(event.target.value)} type="text" placeholder="Ej. María López" required maxLength={80} pattern="[A-Za-zÀ-ÿÑñ '-]{2,80}" />
               </div>
               <div className="field">
                 <label>Correo electrónico</label>
-                <input value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} type="email" placeholder="correo@ejemplo.com" required maxLength={160} />
+                <input value={customerEmail} onChange={(event) => setCustomerEmail(event.target.value)} type="email" placeholder="correo@ejemplo.com" required maxLength={160} pattern="[a-zA-Z0-9]+@([a-zA-Z0-9]+\.)+[a-zA-Z]{2,}" />
               </div>
               <div className="field">
                 <label>Número de celular</label>
-                <input value={phone} onChange={(e) => setPhone(e.target.value)} type="tel" placeholder="Ej. 6621234567" required maxLength={24} />
+                <input value={phone} onChange={(event) => setPhone(event.target.value.replace(/\D/g, '').slice(0, 10))} type="tel" inputMode="numeric" placeholder="Ej. 6621234567" required minLength={10} maxLength={10} pattern="[0-9]{10}" />
               </div>
               <div className="field">
                 <label>Auto</label>
-                <input value={car} onChange={(e) => setCar(e.target.value)} type="text" placeholder="Ej. Nissan" required maxLength={80} />
+                <input value={car} onChange={(event) => setCar(event.target.value)} type="text" placeholder="Ej. Nissan" required maxLength={60} pattern="[A-Za-z0-9À-ÿÑñ .-]{2,60}" />
               </div>
               <div className="field">
                 <label>Modelo</label>
-                <input value={model} onChange={(e) => setModel(e.target.value)} type="text" placeholder="Ej. Sentra" required maxLength={80} />
+                <input value={model} onChange={(event) => setModel(event.target.value)} type="text" placeholder="Ej. Sentra" required maxLength={60} pattern="[A-Za-z0-9À-ÿÑñ .-]{1,60}" />
               </div>
               <div className="field">
                 <label>Año</label>
-                <input value={year} onChange={(e) => setYear(e.target.value)} type="number" min="1900" max="2100" placeholder="Ej. 2018" required />
+                <input value={year} onChange={(event) => setYear(event.target.value)} type="number" min="1950" max={maxVehicleYear} placeholder="Ej. 2018" required />
               </div>
             </div>
 
             <div className="field">
               <label>Descripción de la falla</label>
-              <textarea value={problemDescription} onChange={(e) => setProblemDescription(e.target.value)} rows={5} placeholder="Describe ruidos, cambios, fugas o síntomas que presenta el vehículo." required maxLength={700} />
+              <textarea value={problemDescription} onChange={(event) => setProblemDescription(event.target.value)} rows={5} placeholder="Describe ruidos, cambios, fugas o síntomas que presenta el vehículo." required minLength={10} maxLength={700} />
             </div>
           </section>
 
           <aside className="apSide">
             <div className="apSummary">
               <div className="apSummaryTitle">Confirmación</div>
-              <div className="apSummaryLine"><strong>Fecha:</strong> {selectedDate || '-'}</div>
+              <div className="apSummaryLine"><strong>Fecha:</strong> {safeDateISO(selectedDate) || '-'}</div>
               <div className="apSummaryLine"><strong>Hora:</strong> {timeSlot || 'Selecciona una'}</div>
               <div className="apSummaryLine"><strong>Servicio:</strong> {service}</div>
               <div className="apSummaryLine"><strong>Vehículo:</strong> {car || '-'} {model || ''} {year || ''}</div>

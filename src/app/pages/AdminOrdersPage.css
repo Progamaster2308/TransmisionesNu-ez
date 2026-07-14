@@ -38,6 +38,21 @@
   font-size: clamp(1.7rem, 3vw, 2.4rem);
 }
 
+.adminOrdersBack {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--nu-radius);
+  padding: 0 14px;
+  color: #0b3d86;
+  background: #eff6ff;
+  font-weight: 900;
+  text-decoration: none;
+}
+
 .adminOrdersTools {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 150px auto;

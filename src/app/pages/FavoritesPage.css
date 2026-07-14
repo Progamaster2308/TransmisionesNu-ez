@@ -99,6 +99,13 @@
   overflow-wrap: anywhere;
 }
 
+.favoriteBody strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--nu-primary-dark);
+  font-size: 1.08rem;
+}
+
 .favoriteBody p {
   margin: 0 0 12px;
   color: var(--nu-muted);

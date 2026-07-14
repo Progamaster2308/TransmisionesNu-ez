@@ -2,12 +2,45 @@ import { Link } from 'react-router-dom';
 
 import { useCart } from '../providers/useCart';
 import { useFavorites } from '../providers/useFavorites';
+import { useToast } from '../providers/useToast';
 
 import './FavoritesPage.css';
 
+function formatCurrency(value) {
+  return Number(value || 0).toLocaleString('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 0
+  });
+}
+
 export default function FavoritesPage() {
-  const { addToCart } = useCart();
+  const { items: cartItems, addToCart } = useCart();
   const { items, clearFavorites, toggleFavorite } = useFavorites();
+  const { showToast } = useToast();
+
+  const handleAddToCart = (item) => {
+    const stock = Number(item.stock ?? 0);
+    const current = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (stock <= 0) {
+      showToast('Producto no disponible.');
+      return;
+    }
+
+    if (current && Number(current.cantidad || 0) >= stock) {
+      showToast('Ya agregaste el máximo disponible.');
+      return;
+    }
+
+    addToCart(item);
+    showToast('Producto agregado al pedido.');
+  };
+
+  const handleRemoveFavorite = (item) => {
+    toggleFavorite(item);
+    showToast('Producto quitado de favoritos.');
+  };
 
   return (
     <main className="favoritesPage">
@@ -50,12 +83,13 @@ export default function FavoritesPage() {
                   <div className="favoriteBody">
                     <span>{item.sku}</span>
                     <h3>{item.nombre}</h3>
+                    <strong>{formatCurrency(item.precio)}</strong>
                     <p>{disabled ? 'Agotado' : `Disponible: ${item.stock}`}</p>
                     <div className="favoriteButtons">
-                      <button type="button" disabled={disabled} onClick={() => addToCart(item)}>
+                      <button type="button" disabled={disabled} onClick={() => handleAddToCart(item)}>
                         Agregar al pedido
                       </button>
-                      <button type="button" onClick={() => toggleFavorite(item)}>
+                      <button type="button" onClick={() => handleRemoveFavorite(item)}>
                         Quitar
                       </button>
                     </div>

@@ -35,8 +35,7 @@ const emptyProduct = {
   descuento: '',
   imagen: '',
   rating: 5,
-  stock: '',
-  envioGratis: true
+  stock: ''
 };
 
 function slotsToText(slots) {
@@ -129,7 +128,7 @@ export default function AdminPanelPage() {
   };
 
   const updateProductField = (field) => (event) => {
-    const value = field === 'envioGratis' ? event.target.checked : event.target.value;
+    const value = event.target.value;
     setProductForm((current) => ({ ...current, [field]: value }));
   };
 
@@ -412,7 +411,6 @@ export default function AdminPanelPage() {
             <label className="admin-field"><span>Descuento</span><input value={productForm.descuento || ''} onChange={updateProductField('descuento')} /></label>
             <label className="admin-field"><span>Stock</span><input type="number" value={productForm.stock} onChange={updateProductField('stock')} required /></label>
             <label className="admin-field admin-field--wide"><span>Imagen</span><input value={productForm.imagen || ''} onChange={updateProductField('imagen')} placeholder="https://..." /></label>
-            <label className="admin-check"><input type="checkbox" checked={Boolean(productForm.envioGratis)} onChange={updateProductField('envioGratis')} /> Envío gratis</label>
             <div className="admin-formActions admin-field--wide">
               <button className="admin-saveBtn" type="submit" disabled={saving}>{editingProductId ? 'Actualizar producto' : 'Agregar producto'}</button>
               {editingProductId && <button className="admin-resetBtn" type="button" onClick={() => { setEditingProductId(''); setProductForm(emptyProduct); }}>Cancelar edición</button>}

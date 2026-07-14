@@ -40,7 +40,7 @@ export default function AppShell({ children }) {
               Catálogo
             </Link>
             <Link to="/citas" className="nu-navLink">
-              Soporte
+              Agendar cita
             </Link>
             <Link to="/chat" className="nu-navLink">
               Chat
@@ -56,7 +56,7 @@ export default function AppShell({ children }) {
               onClick={handleToggleAdminMode}
               className="nu-adminBtn"
             >
-              {vistaActual === 'admin' ? 'Salir admin' : 'Admin'}
+              {vistaActual === 'admin' ? 'Salir sesión' : 'Sesión'}
             </button>
           </div>
         </nav>

@@ -1,10 +1,29 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 
+const CART_KEY = 'tn:cart';
 
 const CartContext = createContext(null);
 
+function readInitialCart() {
+  try {
+    const raw = localStorage.getItem(CART_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
 export function CartProvider({ children }) {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(readInitialCart);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(items));
+    } catch {
+      // The cart should keep working even when browser storage is unavailable.
+    }
+  }, [items]);
 
   const addToCart = (product) => {
     if (!product?.id) return;

@@ -5,10 +5,21 @@ import { useToast } from '../providers/useToast';
 
 import './CartPage.css';
 
+function formatCurrency(value) {
+  return Number(value || 0).toLocaleString('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 0
+  });
+}
+
 export default function CartPage() {
   const { items, removeItem, clearCart, updateQty } = useCart();
   const { showToast } = useToast();
   const navigate = useNavigate();
+  const estimatedTotal = items.reduce((sum, item) => (
+    sum + Number(item.precio || 0) * Math.max(1, Number(item.cantidad || 1))
+  ), 0);
 
   const handleContinue = async () => {
     if (items.length === 0) {
@@ -59,6 +70,7 @@ export default function CartPage() {
                         <div>
                           <div className="cartItemSku">{it.sku}</div>
                           <div className="cartItemName">{it.nombre}</div>
+                          <div className="cartItemPrice">{formatCurrency(it.precio)} c/u</div>
                           <div className="cartItemAvailability">Disponible: {it.stock ?? 0}</div>
                         </div>
                         <button type="button" className="cartRemove" onClick={() => removeItem(it.id)}>
@@ -96,8 +108,9 @@ export default function CartPage() {
             <aside className="cartRight">
               <div className="cartTotalBox">
                 <div className="cartTotalTitle">Orden de consulta</div>
+                <div className="cartEstimate">{formatCurrency(estimatedTotal)}</div>
                 <div className="cartTotalHint">
-                  Al generar la orden, el vendedor recibe el detalle para confirmar disponibilidad y seguimiento.
+                  Total estimado. El vendedor recibe el detalle para confirmar disponibilidad y seguimiento.
                 </div>
 
                 <button className="cartPay" onClick={handleContinue}>Generar orden</button>
