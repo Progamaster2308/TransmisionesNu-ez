@@ -1,50 +1,11 @@
 import { ADMIN_EMAIL } from '../config/adminConfig';
 
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
-
 function formatCurrency(value) {
   return Number(value || 0).toLocaleString('es-MX', {
     style: 'currency',
     currency: 'MXN',
     maximumFractionDigits: 0
   });
-}
-
-async function sendWithWeb3Forms(email) {
-  if (!WEB3FORMS_ACCESS_KEY || typeof fetch !== 'function') return false;
-
-  const controller = typeof AbortController === 'function' ? new AbortController() : null;
-  const timeout = controller ? globalThis.setTimeout(() => controller.abort(), 12000) : null;
-
-  try {
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: email.subject,
-        from_name: 'Transmisiones Nunez',
-        email: email.replyTo || ADMIN_EMAIL,
-        replyto: email.replyTo || ADMIN_EMAIL,
-        message: email.body,
-        ...email.fields
-      }),
-      signal: controller?.signal
-    });
-
-    if (!response.ok) return false;
-
-    const data = await response.json().catch(() => null);
-    return data?.success === true;
-  } catch (error) {
-    console.error(error);
-    return false;
-  } finally {
-    if (timeout) globalThis.clearTimeout(timeout);
-  }
 }
 
 async function sendWithFormSubmit(email) {
@@ -140,9 +101,6 @@ async function notifyAdmin(email) {
     if (retryDelays[attempt]) await wait(retryDelays[attempt]);
 
     try {
-      const sentByWeb3Forms = await sendWithWeb3Forms(email);
-      if (sentByWeb3Forms) return { ok: true, message: 'Correo enviado al admin.' };
-
       const sentByClassicForm = await sendWithClassicFormSubmit(email);
       if (sentByClassicForm) return { ok: true, message: 'Correo enviado al admin.' };
 
