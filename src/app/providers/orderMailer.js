@@ -101,11 +101,11 @@ async function notifyAdmin(email) {
     if (retryDelays[attempt]) await wait(retryDelays[attempt]);
 
     try {
-      const sent = await sendWithFormSubmit(email);
-      if (sent) return { ok: true, message: 'Correo enviado al admin.' };
-
       const sentByClassicForm = await sendWithClassicFormSubmit(email);
       if (sentByClassicForm) return { ok: true, message: 'Correo enviado al admin.' };
+
+      const sent = await sendWithFormSubmit(email);
+      if (sent) return { ok: true, message: 'Correo enviado al admin.' };
     } catch (error) {
       console.error(error);
     }
