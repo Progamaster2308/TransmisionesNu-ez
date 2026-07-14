@@ -30,7 +30,10 @@ async function sendWithWeb3Forms(email) {
         email: email.replyTo || ADMIN_EMAIL,
         replyto: email.replyTo || ADMIN_EMAIL,
         message: email.body,
-        ...email.fields
+        tipo: email.type,
+        folio: email.fields?.Folio || '',
+        cliente: email.fields?.Cliente || '',
+        email_cliente: email.replyTo || ''
       }),
       signal: controller?.signal
     });
@@ -194,6 +197,7 @@ function buildOrderEmail(order) {
 
   return {
     subject: `Transmisiones Nunez | Nueva orden ${order.id}`,
+    type: 'pedido',
     body: buildFallbackBody(fields),
     replyTo: order.customer_email,
     fields
@@ -220,6 +224,7 @@ function buildAppointmentEmail(appointment) {
 
   return {
     subject: `Transmisiones Nunez | Nueva cita ${appointment.fecha} ${appointment.hora}`,
+    type: 'cita',
     body: buildFallbackBody(fields),
     replyTo: appointment.customer_email,
     fields
