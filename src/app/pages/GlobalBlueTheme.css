@@ -2955,6 +2955,7 @@ body .nu-zoomStage {
 
 body .admin-splashPreview,
 body .admin-bannerPreview {
+  container-type: inline-size !important;
   overflow: hidden !important;
   border-color: rgba(123, 200, 255, .5) !important;
   background-color: #061426 !important;
@@ -2985,7 +2986,12 @@ body .admin-bannerPreview p {
 body .admin-splashPreview strong,
 body .admin-bannerPreview h3 {
   max-width: 100% !important;
-  overflow-wrap: anywhere !important;
+  font-size: clamp(2.05rem, 7cqw, 3rem) !important;
+  line-height: 1.02 !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  text-wrap: balance !important;
+  hyphens: none !important;
 }
 
 body .admin-bannerPreview button {
