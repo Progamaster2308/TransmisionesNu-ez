@@ -49,6 +49,9 @@ export default function UserAppointmentsPage() {
   const refreshBookedSlots = async (date) => {
     const latestBooked = await listBookedAppointmentsByDate(date);
     setBooked(latestBooked);
+    setTimeSlot((current) => (
+      latestBooked.some((item) => item.hora === current) ? '' : current
+    ));
     return latestBooked;
   };
 
@@ -73,21 +76,40 @@ export default function UserAppointmentsPage() {
     if (!safeDateISO(selectedDate)) return;
     let mounted = true;
 
-    (async () => {
-      setLoadingSlots(true);
+    const loadBookedSlots = async ({ showLoading = false } = {}) => {
+      if (showLoading) setLoadingSlots(true);
       try {
         const data = await listBookedAppointmentsByDate(selectedDate);
-        if (mounted) setBooked(data);
+        if (mounted) {
+          setBooked(data);
+          setTimeSlot((current) => (
+            data.some((item) => item.hora === current) ? '' : current
+          ));
+        }
       } catch (error) {
         if (!isSupabaseConfigError(error)) console.error(error);
         if (mounted) setBooked([]);
       } finally {
-        if (mounted) setLoadingSlots(false);
+        if (showLoading && mounted) setLoadingSlots(false);
       }
-    })();
+    };
+
+    loadBookedSlots({ showLoading: true });
+
+    const refreshIfVisible = () => {
+      if (document.visibilityState === 'visible') {
+        loadBookedSlots();
+      }
+    };
+    const intervalId = window.setInterval(refreshIfVisible, 12000);
+    window.addEventListener('focus', refreshIfVisible);
+    document.addEventListener('visibilitychange', refreshIfVisible);
 
     return () => {
       mounted = false;
+      window.clearInterval(intervalId);
+      window.removeEventListener('focus', refreshIfVisible);
+      document.removeEventListener('visibilitychange', refreshIfVisible);
     };
   }, [selectedDate]);
 
