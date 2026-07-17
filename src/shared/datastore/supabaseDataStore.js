@@ -442,6 +442,13 @@ export async function createAppointment(appointment) {
   }
 
   const result = await supabase.from('appointments').insert(payload);
+  if (
+    result.error?.code === '23505' &&
+    result.error?.message?.includes('appointments_active_slot_unique')
+  ) {
+    throw new Error('Ese horario acaba de ocuparse. Selecciona otra hora disponible.');
+  }
+
   unwrapSupabase(result);
   return { ...payload, id };
 }

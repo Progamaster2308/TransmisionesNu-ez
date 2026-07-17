@@ -151,6 +151,9 @@ export default function UserAppointmentsPage() {
       setBooked(await listBookedAppointmentsByDate(date));
     } catch (err) {
       console.error(err);
+      if (err?.message?.includes('horario acaba de ocuparse')) {
+        setBooked(await listBookedAppointmentsByDate(date));
+      }
       showToast(err?.message ? `Error: ${err.message}` : 'No se pudo agendar.');
     } finally {
       setLoadingSlots(false);

@@ -2,81 +2,12 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { listOrders, listOrdersByMonth, updateOrderStatus } from '../../shared/datastore/supabaseDataStore';
+import { buildTablePdf, downloadBlob, formatReportDate } from '../../shared/pdfReport';
 import { sanitizeText } from '../providers/marketplaceStorage';
 import { isSupabaseConfigError } from '../providers/supabaseClient';
 import { useToast } from '../providers/useToast';
 
 import './AdminOrdersPage.css';
-
-function escapePdfText(value) {
-  return String(value ?? '').replace(/[\\()]/g, '\\$&').replace(/[^\x20-\x7E]/g, '');
-}
-
-function buildSimplePdf(title, rows) {
-  const lines = [
-    title,
-    `Generado: ${new Date().toLocaleString()}`,
-    '',
-    'Pedido | Fecha | Dia | Hora | Usuario | Estado | Total',
-    ...rows.map((order) => {
-      const date = new Date(order.created_at);
-      return [
-        String(order.id).slice(0, 8),
-        date.toLocaleDateString(),
-        date.toLocaleDateString('es-MX', { weekday: 'long' }),
-        date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        order.customer_name,
-        order.status,
-        `$${Number(order.total || 0).toLocaleString()}`
-      ].join(' | ');
-    })
-  ];
-
-  const content = [
-    'BT',
-    '/F1 10 Tf',
-    '40 790 Td',
-    ...lines.flatMap((line, index) => [
-      index === 0 ? '/F1 16 Tf' : '/F1 9 Tf',
-      `(${escapePdfText(line).slice(0, 150)}) Tj`,
-      '0 -18 Td'
-    ]),
-    'ET'
-  ].join('\n');
-
-  const objects = [
-    '<< /Type /Catalog /Pages 2 0 R >>',
-    '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
-    '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>',
-    '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',
-    `<< /Length ${content.length} >>\nstream\n${content}\nendstream`
-  ];
-
-  let pdf = '%PDF-1.4\n';
-  const offsets = [0];
-  objects.forEach((object, index) => {
-    offsets.push(pdf.length);
-    pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
-  });
-
-  const xref = pdf.length;
-  pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
-  offsets.slice(1).forEach((offset) => {
-    pdf += `${String(offset).padStart(10, '0')} 00000 n \n`;
-  });
-  pdf += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
-
-  return new Blob([pdf], { type: 'application/pdf' });
-}
-
-function downloadBlob(blob, filename) {
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(url);
-}
 
 export default function AdminOrdersPage() {
   const [orders, setOrders] = useState([]);
@@ -145,8 +76,36 @@ export default function AdminOrdersPage() {
     setReporting(true);
     try {
       const data = await listOrdersByMonth(year, month - 1);
-      const blob = buildSimplePdf(`Reporte de pedidos ${reportMonth}`, data);
-      downloadBlob(blob, `reporte-pedidos-${reportMonth}.pdf`);
+      const blob = buildTablePdf({
+        title: `Total de pedidos: ${data.length}`,
+        subtitle: 'Historial de pedidos',
+        rows: data,
+        scopeLabel: `Mes: ${reportMonth}`,
+        totalLabel: `${data.length} pedidos`,
+        footerLabel: 'Reporte administrativo de pedidos',
+        columns: [
+          { label: 'Pedido', x: 36, chars: 9, lines: 1, bold: true, value: (order) => String(order.id || '-').slice(0, 8) },
+          { label: 'Creado', x: 96, chars: 10, lines: 1, value: (order) => formatReportDate(String(order.created_at || '').slice(0, 10)) },
+          { label: 'Cliente', x: 174, chars: 23, lines: 3, value: (order) => `${order.customer_name || '-'} | ${order.customer_email || '-'}` },
+          { label: 'Fecha sol.', x: 350, chars: 10, lines: 1, value: (order) => formatReportDate(order.pickup_date) },
+          {
+            label: 'Productos',
+            x: 424,
+            chars: 29,
+            lines: 3,
+            value: (order) => {
+              const items = Array.isArray(order.items) ? order.items : [];
+              return items.length
+                ? items.map((item) => `${item.cantidad || 1}x ${item.nombre || item.sku || 'Producto'}`).join('; ')
+                : '-';
+            }
+          },
+          { label: 'Notas', x: 610, chars: 17, lines: 3, value: (order) => order.notas || '-' },
+          { label: 'Estado', x: 724, chars: 10, lines: 1, value: (order) => order.status || '-' },
+          { label: 'Total', x: 768, chars: 9, lines: 1, value: (order) => `$${Number(order.total || 0).toLocaleString()}` }
+        ]
+      });
+      downloadBlob(blob, `transmisiones-nunez-historial-pedidos-${reportMonth}.pdf`);
       showToast('Reporte PDF generado');
     } catch (error) {
       console.error(error);
