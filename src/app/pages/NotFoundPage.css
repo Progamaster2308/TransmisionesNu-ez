@@ -483,8 +483,13 @@
   }
 
   .notFoundVisual {
-    min-height: 300px;
-    padding: 18px;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 24px;
     overflow: hidden;
   }
 
@@ -504,9 +509,9 @@
   }
 
   .notFoundPlate {
-    top: 20px;
-    left: 24px;
-    right: 24px;
+    position: relative;
+    inset: auto;
+    width: 100%;
     gap: 10px;
     padding: 10px 12px;
   }
@@ -525,40 +530,30 @@
   }
 
   .notFoundDial {
-    margin-top: 22px;
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    margin: 10px 0;
     gap: 10px;
     font-size: clamp(3rem, 15vw, 4.25rem);
   }
 
   .notFoundShaft {
+    top: 47%;
+    left: 7%;
     width: 86%;
     height: 16px;
   }
 
   .notFoundTool {
-    width: 126px;
-    height: 26px;
-    right: 14px;
-    bottom: 102px;
-    opacity: .82;
-  }
-
-  .notFoundTool::before {
-    left: -12px;
-    width: 34px;
-    height: 34px;
-  }
-
-  .notFoundTool::after {
-    right: -12px;
-    width: 30px;
-    height: 30px;
+    display: none;
   }
 
   .notFoundStatus {
-    left: 24px;
-    right: 24px;
-    bottom: 24px;
+    position: relative;
+    inset: auto;
+    z-index: 2;
+    width: 100%;
     align-items: flex-start;
     flex-direction: column;
     gap: 4px;
@@ -586,12 +581,16 @@
   }
 
   .notFoundVisual {
-    min-height: 282px;
+    gap: 20px;
+    padding: 18px;
   }
 
   .notFoundPlate,
   .notFoundStatus {
-    left: 18px;
-    right: 18px;
+    width: 100%;
+  }
+
+  .notFoundDial {
+    font-size: clamp(2.7rem, 14vw, 3.6rem);
   }
 }
