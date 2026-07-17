@@ -46,6 +46,12 @@ export default function UserAppointmentsPage() {
   const [availability, setAvailability] = useState([]);
   const [booked, setBooked] = useState([]);
 
+  const refreshBookedSlots = async (date) => {
+    const latestBooked = await listBookedAppointmentsByDate(date);
+    setBooked(latestBooked);
+    return latestBooked;
+  };
+
   useEffect(() => {
     let mounted = true;
 
@@ -126,6 +132,13 @@ export default function UserAppointmentsPage() {
 
     setLoadingSlots(true);
     try {
+      const latestBooked = await refreshBookedSlots(date);
+      if (latestBooked.some((item) => item.hora === timeSlot)) {
+        setTimeSlot('');
+        showToast('Ese horario ya no está disponible. Selecciona otra hora.');
+        return;
+      }
+
       const appointment = await createAppointment({
         customer_name: name,
         customer_email: email,
@@ -148,11 +161,12 @@ export default function UserAppointmentsPage() {
 
       showToast('Cita agendada. Admin la revisará.');
       setTimeSlot('');
-      setBooked(await listBookedAppointmentsByDate(date));
+      await refreshBookedSlots(date);
     } catch (err) {
       console.error(err);
       if (err?.message?.includes('horario acaba de ocuparse')) {
-        setBooked(await listBookedAppointmentsByDate(date));
+        setTimeSlot('');
+        await refreshBookedSlots(date);
       }
       showToast(err?.message ? `Error: ${err.message}` : 'No se pudo agendar.');
     } finally {
