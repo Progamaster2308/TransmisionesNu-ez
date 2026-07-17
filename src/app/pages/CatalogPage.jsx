@@ -175,6 +175,7 @@ export default function CatalogPage() {
             {filtered.map((p) => {
               const disabled = (p.stock ?? 0) <= 0;
               const favorite = isFavorite(p.id);
+              const stockLevel = Math.max(0, Math.min(100, Number(p.stock || 0) * 10));
 
               return (
                 <article key={p.id} className="nu-card">
@@ -211,6 +212,10 @@ export default function CatalogPage() {
                   <div className="nu-cardBody">
                     <div className="nu-sku">{p.sku}</div>
                     <h3 className="nu-cardTitle">{p.nombre}</h3>
+                    <div className="nu-cardMeta" aria-label="Marca y categoría">
+                      <span>{p.marca || 'Marca no especificada'}</span>
+                      <span>{p.categoria || 'General'}</span>
+                    </div>
                     <div className="nu-rating">{'★'.repeat(p.rating ?? 5)}</div>
                     <div className="nu-priceRow">
                       <strong>{formatCurrency(p.precio)}</strong>
@@ -221,6 +226,9 @@ export default function CatalogPage() {
 
                     <div className="nu-stock">
                       {disabled ? 'Agotado' : `Disponible: ${p.stock}`}
+                    </div>
+                    <div className="nu-stockTrack" aria-hidden="true">
+                      <span style={{ width: `${disabled ? 0 : stockLevel}%` }} />
                     </div>
 
                     <button

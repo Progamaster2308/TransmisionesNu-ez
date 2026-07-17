@@ -12,9 +12,11 @@ import {
 import { sanitizeText } from '../providers/marketplaceStorage';
 
 import './WelcomePage.css';
+import './WelcomeHeroFix.css';
 
 const workshopMapsUrl = 'https://www.google.com/maps/place/Av.+Ejido+A+%26+C.+46,+M%C3%A9xico,+83498+San+Luis+R%C3%ADo+Colorado,+Son./@32.4275119,-114.7390882,87m/data=!3m1!1e3!4m6!3m5!1s0x80d64f3fe382f6c7:0x78547498f5547196!8m2!3d32.4275085!4d-114.7389354!16s%2Fg%2F11hb8gf69j!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D';
 const workshopMapEmbedUrl = 'https://www.google.com/maps?q=32.4275085,-114.7389354&t=k&z=19&output=embed';
+const contactEmail = String(import.meta.env.VITE_CONTACT_EMAIL || '').trim();
 
 function WelcomePage() {
   const [banner, setBanner] = useState(null);
@@ -93,33 +95,6 @@ function WelcomePage() {
   const repairPromoStyle = safePromo.imagen
     ? { '--repair-promo-image': `url(${safePromo.imagen})` }
     : undefined;
-  const quickStats = [
-    {
-      value: productCount === null ? '...' : `+${productCount}`,
-      label: 'Productos',
-      detail: 'Ver catálogo',
-      action: () => navigate('/catalogo')
-    },
-    {
-      value: '24-72 horas',
-      label: 'Entrega del vehículo',
-      detail: 'Tiempo mínimo',
-      action: () => navigate('/citas')
-    },
-    {
-      value: 'Consulta directa',
-      label: 'Agendar cita',
-      detail: 'Horario disponible',
-      action: () => navigate('/citas')
-    },
-    {
-      value: 'Soporte',
-      label: 'Chat bot',
-      detail: 'Atención rápida',
-      action: () => navigate('/chat')
-    }
-  ];
-
   return (
     <>
       {showSplash && (
@@ -133,40 +108,18 @@ function WelcomePage() {
       )}
 
       <main className="nu-home">
-        <section className="dago-toolbar" aria-label="Acciones principales">
-          <button type="button" className="dago-toolbar__menu" onClick={() => navigate('/catalogo')}>
-            Menú
-          </button>
-          <button type="button" className="dago-toolbar__vehicle" onClick={() => navigate('/citas')}>
-            Agregar vehículo
-          </button>
-          <button type="button" className="dago-toolbar__search" onClick={() => navigate('/catalogo')}>
-            Encuentra refacciones y accesorios
-          </button>
-          <button type="button" className="dago-toolbar__store" onClick={() => navigate('/checkout')}>
-            Generar pedido
-          </button>
-        </section>
-
-        <section className="dago-season">
-          <div>
-            <strong>Refacciones y servicios disponibles para tu transmisión</strong>
-          </div>
-          <button type="button" onClick={() => navigate('/catalogo')}>Ver disponibles</button>
-        </section>
-
-        <section className="dago-hero" style={heroStyle}>
-          <button type="button" className="dago-hero__arrow dago-hero__arrow--prev" aria-label="Promoción anterior" />
-
-          <div className="dago-hero__copy">
-            <h1>{safeBanner.titulo}</h1>
-            <p className="dago-hero__subtitle">{safeBanner.subtitulo}</p>
-            <p className="dago-hero__desc">{safeBanner.descripcion}</p>
-            <div className="dago-hero__actions">
-              <button type="button" className="dago-btn dago-btn--light" onClick={() => navigate(safeBanner.cta_link)}>
+        <section className="dago-hero dago-hero--integrated tn-hero" style={heroStyle}>
+          <div className="tn-hero-copy">
+            <p className="tn-hero-kicker">Transmisiones Núñez</p>
+            <h1 className="tn-hero-heading">Refacciones y servicios disponibles para tu transmisión</h1>
+            <p className="tn-hero-name">{safeBanner.titulo}</p>
+            <p className="tn-hero-subtitle">{safeBanner.subtitulo}</p>
+            <p className="tn-hero-desc">{safeBanner.descripcion}</p>
+            <div className="tn-hero-actions">
+              <button type="button" className="tn-hero-btn tn-hero-btn--light" onClick={() => navigate(safeBanner.cta_link)}>
                 {safeBanner.cta_label}
               </button>
-              <button type="button" className="dago-btn dago-btn--dark" onClick={() => navigate('/citas')}>
+              <button type="button" className="tn-hero-btn tn-hero-btn--blue" onClick={() => navigate('/citas')}>
                 Agendar soporte
               </button>
             </div>
@@ -178,23 +131,32 @@ function WelcomePage() {
             <div className="dago-hero__part dago-hero__part--tall" />
             <div className="dago-hero__part dago-hero__part--small" />
           </div>
-
-          <button type="button" className="dago-hero__arrow dago-hero__arrow--next" aria-label="Promoción siguiente" />
         </section>
 
-        <section className="dago-stats" aria-label="Datos de la tienda">
-          {quickStats.map((stat) => (
-            <button type="button" className="dago-stat" key={stat.label} onClick={stat.action}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-              <small>{stat.detail}</small>
-            </button>
-          ))}
+        <section className="dago-mosaic" aria-label="Servicios destacados">
+          <button type="button" className="dago-mosaic__panel dago-mosaic__panel--diagnostic" onClick={() => navigate('/citas')}>
+            <i className="tn-panel-icon tn-panel-icon--scan" aria-hidden="true" />
+            <span>Diagnóstico de precisión</span>
+            <strong>Escaneo, revisión y lectura de fallas</strong>
+            <small>Consulta directa</small>
+          </button>
+          <button type="button" className="dago-mosaic__panel dago-mosaic__panel--remanufacture" onClick={() => navigate('/catalogo')}>
+            <i className="tn-panel-icon tn-panel-icon--gear" aria-hidden="true" />
+            <span>Remanufactura certificada</span>
+            <strong>Componentes y refacciones verificadas</strong>
+            <small>{productCount === null ? 'Catálogo activo' : `+${productCount} productos`}</small>
+          </button>
+          <button type="button" className="dago-mosaic__panel dago-mosaic__panel--warranty" onClick={() => navigate('/chat')}>
+            <i className="tn-panel-icon tn-panel-icon--shield" aria-hidden="true" />
+            <span>Garantía total</span>
+            <strong>Seguimiento claro con el taller</strong>
+            <small>24-72 horas</small>
+          </button>
         </section>
 
         <section className="pickup-notice" aria-label="Aviso de compra en taller">
           <div>
-            <span>Importante</span>
+            <span><i className="tn-section-icon tn-section-icon--notice" aria-hidden="true" />Importante</span>
             <h2>Sin entregas a domicilio</h2>
             <p>
               El catálogo es únicamente para buscar refacciones y generar un pedido de apartado.
@@ -208,6 +170,7 @@ function WelcomePage() {
 
         <section className="repair-promo" style={repairPromoStyle}>
           <div>
+            <span><i className="tn-section-icon tn-section-icon--service" aria-hidden="true" />Servicio</span>
             <h2>{safePromo.titulo}</h2>
             <p>{safePromo.subtitulo}</p>
             <small>{safePromo.descripcion}</small>
@@ -219,7 +182,7 @@ function WelcomePage() {
 
         <section className="workshop-map" aria-label="Ubicación del taller">
           <div className="workshop-map__copy">
-            <span>Ubicación del taller</span>
+            <span><i className="tn-section-icon tn-section-icon--location" aria-hidden="true" />Ubicación del taller</span>
             <h2>Visítanos para diagnóstico y reparación</h2>
             <p>Abre la ubicación en Maps para iniciar ruta directa al taller.</p>
             <a href={workshopMapsUrl} target="_blank" rel="noreferrer">
@@ -244,7 +207,7 @@ function WelcomePage() {
         {workShowcase.length > 0 && (
           <section className="work-showcase" aria-label="Trabajos realizados">
             <div className="work-showcase__header">
-              <span>Trabajos realizados</span>
+              <span><i className="tn-section-icon tn-section-icon--work" aria-hidden="true" />Trabajos realizados</span>
               <h2>Reparaciones y ventas del taller</h2>
             </div>
             <div className="work-showcase__grid">
@@ -260,6 +223,36 @@ function WelcomePage() {
             </div>
           </section>
         )}
+
+        <footer className="tn-footer" aria-label="Contacto de Transmisiones Núñez">
+          <p>Transmisiones Núñez. Todos los derechos reservados.</p>
+          <div className="tn-footer__links">
+            <button
+              type="button"
+              onClick={() => {
+                window.open('https://www.facebook.com/share/18HommcM7n/', '_blank', 'noopener,noreferrer');
+              }}
+              aria-label="Facebook de Transmisiones Núñez"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.4l.6-3h-3V9c0-.6.4-1 1-1Z" />
+              </svg>
+              <span>Facebook</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                if (contactEmail) window.location.href = `mailto:${contactEmail}`;
+              }}
+              aria-label="Correo de Transmisiones Núñez"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2Zm8 7 8-5H4l8 5Zm0 2.2L4 10.2V16h16v-5.8l-8 5Z" />
+              </svg>
+              <span>Correo</span>
+            </button>
+          </div>
+        </footer>
       </main>
     </>
   );

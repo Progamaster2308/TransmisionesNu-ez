@@ -11,6 +11,7 @@ import UserAppointmentsPage from '../pages/UserAppointmentsPage.jsx';
 import AdminAppointmentsPage from '../pages/AdminAppointmentsPage.jsx';
 import AdminOrdersPage from '../pages/AdminOrdersPage.jsx';
 import ChatBotPage from '../pages/ChatBotPage.jsx';
+import NotFoundPage from '../pages/NotFoundPage.jsx';
 import { useAuth } from '../providers/useAuth';
 
 function RequireAdmin({ children }) {
@@ -53,8 +54,7 @@ export default function AppRoutes() {
 
       <Route path="/chat" element={<ChatBotPage />} />
 
-      {/* fallback */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }

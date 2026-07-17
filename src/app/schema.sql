@@ -241,8 +241,8 @@ for select to anon, authenticated using (true);
 drop policy if exists "products_admin_write" on public.products;
 create policy "products_admin_write" on public.products
 for all to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "banner_read_public" on public.admin_banner;
 create policy "banner_read_public" on public.admin_banner
@@ -251,8 +251,8 @@ for select to anon, authenticated using (enabled = true);
 drop policy if exists "banner_admin_write" on public.admin_banner;
 create policy "banner_admin_write" on public.admin_banner
 for all to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "repair_promotions_read_public" on public.repair_promotions;
 create policy "repair_promotions_read_public" on public.repair_promotions
@@ -261,8 +261,8 @@ for select to anon, authenticated using (enabled = true);
 drop policy if exists "repair_promotions_admin_write" on public.repair_promotions;
 create policy "repair_promotions_admin_write" on public.repair_promotions
 for all to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "work_showcase_read_public" on public.work_showcase;
 create policy "work_showcase_read_public" on public.work_showcase
@@ -271,8 +271,8 @@ for select to anon, authenticated using (enabled = true);
 drop policy if exists "work_showcase_admin_write" on public.work_showcase;
 create policy "work_showcase_admin_write" on public.work_showcase
 for all to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "orders_insert_public" on public.orders;
 create policy "orders_insert_public" on public.orders
@@ -280,20 +280,20 @@ for insert to public with check (true);
 
 drop policy if exists "orders_admin_select" on public.orders;
 create policy "orders_admin_select" on public.orders
-for select to authenticated using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+for select to authenticated using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "orders_public_status_lookup" on public.orders;
 
 drop policy if exists "orders_admin_update" on public.orders;
 create policy "orders_admin_update" on public.orders
 for update to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "orders_admin_delete" on public.orders;
 create policy "orders_admin_delete" on public.orders
 for delete to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "appointments_insert_public" on public.appointments;
 create policy "appointments_insert_public" on public.appointments
@@ -301,18 +301,18 @@ for insert to public with check (true);
 
 drop policy if exists "appointments_admin_select" on public.appointments;
 create policy "appointments_admin_select" on public.appointments
-for select to authenticated using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+for select to authenticated using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "appointments_admin_update" on public.appointments;
 create policy "appointments_admin_update" on public.appointments
 for update to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "appointments_admin_delete" on public.appointments;
 create policy "appointments_admin_delete" on public.appointments
 for delete to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 drop policy if exists "availability_read_public" on public.appointment_availability;
 create policy "availability_read_public" on public.appointment_availability
@@ -321,8 +321,8 @@ for select to anon, authenticated using (true);
 drop policy if exists "availability_admin_write" on public.appointment_availability;
 create policy "availability_admin_write" on public.appointment_availability
 for all to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
 
 -- Datos base para iniciar el catálogo y contenido público.
 insert into public.products (sku, nombre, marca, categoria, precio, "precioOriginal", descuento, imagen, rating, stock, "envioGratis")

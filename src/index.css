@@ -2,15 +2,22 @@
   --nu-ink: #071426;
   --nu-ink-soft: #24364f;
   --nu-muted: #607089;
-  --nu-line: #d8e3f2;
+  --nu-line: #e2e8f0;
+  --nu-line-strong: #cbd5e1;
   --nu-panel: #ffffff;
-  --nu-bg: #f4f8fd;
+  --nu-panel-soft: #f8fafc;
+  --nu-bg: #f4f7fb;
   --nu-primary: #0f62c9;
   --nu-primary-dark: #0a438e;
   --nu-navy: #071a35;
   --nu-blue: #1767c7;
   --nu-radius: 8px;
-  --nu-shadow: 0 20px 50px rgba(12, 40, 83, .09);
+  --nu-shadow: 0 18px 42px rgba(15, 23, 42, .07);
+  --nu-shadow-soft: 0 10px 28px rgba(15, 23, 42, .055);
+  --nu-shadow-hover: 0 18px 38px rgba(15, 23, 42, .09);
+  --nu-focus: 0 0 0 4px rgba(15, 98, 201, .12);
+  --nu-font: "Aptos", "Segoe UI Variable", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nu-display-font: "Aptos Display", "Segoe UI Variable Display", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 * {
@@ -26,7 +33,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--nu-font);
   background:
     linear-gradient(180deg, #ffffff 0, #f7fbff 220px, var(--nu-bg) 100%);
   color: var(--nu-ink);
@@ -68,6 +75,109 @@ a {
 
 button {
   letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+.nu-title,
+.dago-hero h1,
+.dago-season strong,
+.admin-hero h1 {
+  font-family: var(--nu-display-font);
+  letter-spacing: 0;
+}
+
+input,
+select,
+textarea {
+  color: var(--nu-ink);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+.nu-pageHeader,
+.checkoutPanel,
+.cartPanel,
+.chatPanel,
+.favoritesPanel,
+.adminOrdersPanel,
+.admin-hero,
+.admin-card,
+.admin-previewCard,
+.apCol,
+.apSide,
+.adminTableWrap,
+.workshop-map__copy,
+.workshop-map__frame {
+  border-color: var(--nu-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(248, 250, 252, .94));
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.nu-card,
+.favoriteCard,
+.cartItem,
+.cartSummary,
+.orderItems,
+.adminOrderCard,
+.adminMetrics div,
+.work-card {
+  border-color: var(--nu-line);
+  background: rgba(255, 255, 255, .96);
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.nu-card:hover,
+.favoriteCard:hover,
+.adminOrderCard:hover,
+.work-card:hover {
+  border-color: var(--nu-line-strong);
+  box-shadow: var(--nu-shadow-hover);
+}
+
+.nu-input,
+.nu-select,
+.field input,
+.field textarea,
+.field select,
+.admin-field input,
+.admin-field textarea,
+.adminSearch,
+.adminOrdersHeader input,
+.chatInput,
+.availabilityDay input[type="text"],
+.availabilityDay > input {
+  border-color: var(--nu-line);
+  background: #fbfdff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+  font-weight: 560;
+}
+
+.nu-input:focus,
+.nu-select:focus,
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.admin-field input:focus,
+.admin-field textarea:focus,
+.adminSearch:focus,
+.adminOrdersHeader input:focus,
+.chatInput:focus {
+  border-color: #9ec5fe;
+  background: #ffffff;
+  box-shadow: var(--nu-focus);
+}
+
+.field label,
+.admin-field span {
+  color: #334155;
+  font-size: .86rem;
+  font-weight: 720;
 }
 
 .nu-linkBtn {
@@ -113,4 +223,4519 @@ button {
 .cyber-toast.toast-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Minimal technical finish for Transmisiones Nunez.
+   This final layer intentionally tones down earlier decorative effects. */
+:root {
+  --nu-ink: #101820;
+  --nu-ink-soft: #314154;
+  --nu-muted: #6b7788;
+  --nu-line: #d9e1ea;
+  --nu-line-strong: #b9c6d4;
+  --nu-panel: #ffffff;
+  --nu-panel-soft: #f7f9fb;
+  --nu-bg: #f3f6f9;
+  --nu-primary: #155da8;
+  --nu-primary-dark: #0b3768;
+  --nu-blue: #155da8;
+  --nu-navy: #0d1b2a;
+  --nu-radius: 6px;
+  --nu-shadow: 0 14px 34px rgba(16, 24, 32, .075);
+  --nu-shadow-soft: 0 8px 22px rgba(16, 24, 32, .055);
+  --nu-shadow-hover: 0 16px 34px rgba(16, 24, 32, .105);
+  --nu-focus: 0 0 0 3px rgba(21, 93, 168, .14);
+  --nu-font: "Segoe UI Variable", "Aptos", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --nu-display-font: "Segoe UI Variable Display", "Aptos Display", "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background:
+    linear-gradient(180deg, #f9fbfd 0, #f3f6f9 260px, #eef3f7 100%);
+  color: var(--nu-ink);
+}
+
+h1,
+h2,
+h3,
+.nu-title,
+.dago-hero h1,
+.dago-season strong,
+.admin-hero h1 {
+  font-weight: 680;
+  letter-spacing: 0;
+}
+
+p,
+small,
+span,
+label,
+input,
+select,
+textarea,
+button {
+  letter-spacing: 0;
+}
+
+.nu-shellHeader {
+  background: rgba(250, 252, 254, .96);
+  border-bottom-color: #d8e1ec;
+  box-shadow: 0 8px 24px rgba(16, 24, 32, .045);
+}
+
+.nu-shellNav {
+  min-height: 72px;
+}
+
+.nu-brand {
+  color: #111c2b;
+  font-size: 1.02rem;
+  font-weight: 720;
+}
+
+.nu-brandMark {
+  width: 68px;
+  height: 38px;
+  border: 1px solid #dde5ee;
+  box-shadow: 0 8px 18px rgba(16, 24, 32, .06);
+}
+
+.nu-navLink,
+.nu-cartLink,
+.nu-adminBtn,
+.nu-linkBtn,
+.dago-btn,
+.admin-linkBtn,
+.admin-saveBtn,
+.admin-resetBtn,
+.adminOrdersBack,
+.adminOrdersTools button,
+.adminOrderActions button,
+.timeBtn,
+.apSubmit,
+.adminAction,
+.adminBackLink,
+.cartPay,
+.checkoutSubmit,
+.chatSend,
+.favoriteButtons button,
+.favoritesClear {
+  border-radius: 6px;
+  font-weight: 650;
+}
+
+.nu-navLink {
+  color: #526170;
+}
+
+.nu-navLink:hover,
+.nu-cartLink:hover {
+  background: #eef4fa;
+  color: #111c2b;
+}
+
+.nu-cartLink,
+.nu-linkBtn,
+.adminOrdersBack,
+.adminBackLink,
+.chatQuickLinks a,
+.favoritesClear,
+.favoriteButtons button:last-child,
+.timeBtn,
+.adminAction {
+  border-color: #cfdbe8;
+  color: #123d68;
+  background: #f5f8fb;
+  box-shadow: none;
+}
+
+.nu-adminBtn,
+.nu-btn--primary,
+.admin-linkBtn--dark,
+.admin-saveBtn,
+.apSubmit,
+.chatSend,
+.favoriteButtons button:first-child,
+.adminOrdersTools button {
+  border: 1px solid #123d68;
+  background: #123d68;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(18, 61, 104, .14);
+}
+
+.nu-adminBtn:hover,
+.nu-btn--primary:hover:not(:disabled),
+.admin-saveBtn:hover:not(:disabled),
+.apSubmit:hover:not(:disabled),
+.chatSend:hover:not(:disabled),
+.favoriteButtons button:first-child:hover:not(:disabled),
+.adminOrdersTools button:hover {
+  background: #0d3156;
+  box-shadow: 0 14px 26px rgba(18, 61, 104, .18);
+  transform: translateY(-1px);
+}
+
+.nu-page,
+.cartWrap,
+.checkoutWrap,
+.favoritesPage,
+.chatWrap,
+.adminOrdersPage,
+.nu-home {
+  background:
+    linear-gradient(180deg, #f9fbfd 0, #f3f6f9 220px, #eef3f7 100%);
+}
+
+.nu-page::before,
+.nu-page::after {
+  display: none;
+}
+
+.nu-container,
+.cartPanel,
+.checkoutPanel,
+.favoritesPanel,
+.chatPanel,
+.adminOrdersPanel,
+.admin-page,
+.apWrap {
+  position: relative;
+  z-index: 1;
+}
+
+.nu-pageHeader,
+.checkoutPanel,
+.cartPanel,
+.chatPanel,
+.favoritesPanel,
+.adminOrdersPanel,
+.admin-hero,
+.admin-card,
+.admin-previewCard,
+.apCol,
+.apSide,
+.adminTableWrap,
+.workshop-map__copy,
+.workshop-map__frame,
+.pickup-notice,
+.orderItems,
+.cartSummary,
+.cartItem,
+.favoriteCard,
+.adminOrderCard,
+.adminMetrics div,
+.adminWorkEditor,
+.adminProductRow,
+.availabilityDay,
+.nu-card,
+.work-card {
+  border: 1px solid var(--nu-line);
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.nu-card:hover,
+.favoriteCard:hover,
+.cartItem:hover,
+.adminOrderCard:hover,
+.admin-card:hover,
+.adminProductRow:hover,
+.adminWorkEditor:hover,
+.availabilityDay:hover,
+.work-card:hover {
+  border-color: var(--nu-line-strong);
+  box-shadow: var(--nu-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.nu-pageHeader,
+.admin-hero,
+.adminOrdersPanel,
+.checkoutPanel,
+.cartPanel,
+.favoritesPanel,
+.chatPanel {
+  padding: 24px;
+}
+
+.nu-pageHeader::before,
+.nu-pageHeader::after,
+.nu-card::after,
+.nu-cardTop::before {
+  display: none;
+}
+
+.nu-title,
+.adminOrdersHeader h1,
+.checkoutHeader h2,
+.cartHeader h2,
+.favoritesHeader h2,
+.chatPanel h2,
+.apHeader h2,
+.admin-hero h1 {
+  color: #101820;
+  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+  font-weight: 680;
+  line-height: 1.08;
+}
+
+.nu-subtitle,
+.checkoutHint,
+.cartHeader p,
+.favoritesHeader p,
+.chatSub,
+.apSub,
+.admin-hero p,
+.adminOrdersHeader p {
+  color: #657284;
+  font-weight: 430;
+  line-height: 1.55;
+}
+
+.nu-pageHeader {
+  gap: 16px;
+  background:
+    linear-gradient(90deg, rgba(18, 61, 104, .055), transparent 42%),
+    #ffffff;
+}
+
+.nu-controls,
+.adminOrdersTools {
+  gap: 10px;
+}
+
+.nu-input,
+.nu-select,
+.field input,
+.field textarea,
+.field select,
+.admin-field input,
+.admin-field textarea,
+.adminSearch,
+.adminOrdersHeader input,
+.chatInput,
+.availabilityDay input[type="text"],
+.availabilityDay > input {
+  min-height: 44px;
+  border: 1px solid var(--nu-line);
+  border-radius: 6px;
+  background: #fbfcfd;
+  color: #101820;
+  box-shadow: none;
+  font-weight: 430;
+}
+
+.nu-input:hover,
+.nu-select:hover,
+.field input:hover,
+.field textarea:hover,
+.field select:hover,
+.admin-field input:hover,
+.admin-field textarea:hover,
+.adminSearch:hover,
+.adminOrdersHeader input:hover,
+.chatInput:hover {
+  border-color: var(--nu-line-strong);
+}
+
+.nu-input:focus,
+.nu-select:focus,
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.admin-field input:focus,
+.admin-field textarea:focus,
+.adminSearch:focus,
+.adminOrdersHeader input:focus,
+.chatInput:focus {
+  border-color: #84a9ce;
+  background: #ffffff;
+  box-shadow: var(--nu-focus);
+  transform: none;
+}
+
+.field label,
+.admin-field span {
+  color: #3b4a5b;
+  font-size: .83rem;
+  font-weight: 620;
+}
+
+.dago-toolbar,
+.dago-season,
+.dago-hero,
+.dago-stats,
+.repair-promo,
+.workshop-map,
+.pickup-notice,
+.work-showcase,
+.nu-container {
+  width: min(1320px, calc(100% - 56px));
+}
+
+.dago-toolbar {
+  grid-template-columns: 120px 190px minmax(280px, 1fr) 180px;
+  margin-bottom: 18px;
+}
+
+.dago-toolbar button {
+  min-height: 44px;
+  border-color: #d8e1ec;
+  background: #ffffff;
+  color: #314154;
+  box-shadow: none;
+  font-weight: 560;
+}
+
+.dago-season {
+  min-height: 92px;
+  margin-bottom: 18px;
+  padding: 20px 26px;
+  background:
+    linear-gradient(90deg, rgba(18, 61, 104, .96), rgba(21, 93, 168, .88)),
+    #123d68;
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.dago-season strong {
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  font-weight: 680;
+  line-height: 1.12;
+}
+
+.dago-hero {
+  grid-template-columns: 48px minmax(0, 1fr) minmax(300px, .62fr) 48px;
+  min-height: 370px;
+  border: 1px solid rgba(216, 225, 236, .5);
+  background:
+    linear-gradient(90deg, rgba(13, 27, 42, .88), rgba(18, 61, 104, .78) 48%, rgba(21, 93, 168, .62)),
+    var(--hero-image, linear-gradient(105deg, #0d1b2a, #155da8));
+  box-shadow: 0 18px 44px rgba(18, 61, 104, .14);
+}
+
+.dago-hero::before {
+  background: linear-gradient(90deg, rgba(8, 16, 26, .28), transparent 58%);
+}
+
+.dago-hero::after {
+  display: none;
+}
+
+.dago-hero__copy {
+  max-width: 700px;
+  padding: 42px 20px 44px 16px;
+}
+
+.dago-hero h1 {
+  max-width: 700px;
+  margin-bottom: 14px;
+  font-size: clamp(2.55rem, 5vw, 4.6rem);
+  font-weight: 760;
+  line-height: 1.03;
+  text-shadow: 0 12px 24px rgba(0, 0, 0, .22);
+}
+
+.dago-hero__subtitle {
+  color: #ffffff;
+  font-size: clamp(.98rem, 1.2vw, 1.08rem);
+  font-weight: 620;
+}
+
+.dago-hero__desc {
+  max-width: 560px;
+  color: rgba(255, 255, 255, .82);
+  font-size: .95rem;
+  font-weight: 430;
+}
+
+.dago-hero__product {
+  opacity: .86;
+  transform: translateX(-18px) scale(.92);
+}
+
+.dago-hero__disc,
+.dago-hero__part {
+  box-shadow: 0 18px 32px rgba(0, 0, 0, .2);
+}
+
+.dago-stats,
+.nu-grid,
+.favoritesGrid,
+.work-showcase__grid,
+.adminMetrics,
+.adminOrdersList,
+.cartList {
+  gap: 16px;
+}
+
+.dago-stat {
+  min-height: 78px;
+  padding: 16px 18px;
+  background: #ffffff;
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.dago-stat strong {
+  font-size: 1.24rem;
+  font-weight: 680;
+}
+
+.dago-stat span,
+.dago-stat small {
+  font-weight: 500;
+}
+
+.pickup-notice,
+.repair-promo,
+.workshop-map,
+.work-showcase {
+  margin-top: 18px;
+}
+
+.repair-promo {
+  min-height: 220px;
+  padding: 28px;
+  background:
+    linear-gradient(90deg, rgba(13, 27, 42, .92), rgba(18, 61, 104, .82)),
+    var(--repair-promo-image, #123d68);
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.repair-promo::after {
+  display: none;
+}
+
+.repair-promo h2,
+.workshop-map__copy h2,
+.pickup-notice h2,
+.work-showcase__header h2 {
+  font-weight: 680;
+  line-height: 1.12;
+}
+
+.nu-grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-top: 18px;
+}
+
+.nu-card {
+  background: #ffffff;
+  transform: none;
+}
+
+.nu-cardTop {
+  padding: 14px;
+  background: #f8fafc;
+}
+
+.nu-imgWrap {
+  height: 166px;
+  margin-top: 12px;
+  border: 1px solid #e0e7ef;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+.nu-card:hover .nu-img,
+.nu-card:hover .nu-imgWrap {
+  filter: none;
+  transform: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
+}
+
+.nu-badge,
+.nu-favBtn,
+.nu-photoBtn,
+.nu-sku,
+.statusPill,
+.adminOrderTop strong {
+  border-radius: 999px;
+  box-shadow: none;
+  font-weight: 560;
+}
+
+.nu-badge {
+  color: #123d68;
+  background: #e8f0f8;
+}
+
+.nu-favBtn,
+.nu-photoBtn {
+  border-color: #d8e1ec;
+  background: rgba(255, 255, 255, .94);
+  color: #123d68;
+}
+
+.nu-favBtn--active {
+  border-color: #123d68;
+  background: #123d68;
+  color: #ffffff;
+}
+
+.nu-cardBody {
+  gap: 10px;
+  padding: 4px 16px 16px;
+}
+
+.nu-cardTitle {
+  min-height: 48px;
+  color: #101820;
+  font-size: 1rem;
+  font-weight: 620;
+  line-height: 1.35;
+}
+
+.nu-card:hover .nu-cardTitle {
+  color: #123d68;
+}
+
+.nu-rating {
+  color: #a66b00;
+  letter-spacing: .02em;
+}
+
+.nu-priceRow strong,
+.favoriteBody strong,
+.cartItemPrice,
+.orderTotal,
+.cartEstimate {
+  color: #123d68;
+  font-weight: 680;
+}
+
+.nu-stock,
+.nu-sku,
+.nu-priceRow span,
+.favoriteBody span,
+.favoriteBody p,
+.cartItemAvailability,
+.cartItemNote,
+.adminOrderTop span,
+.adminOrderTop p,
+.adminOrderMeta,
+.adminOrderItem small,
+.orderItemMeta {
+  color: #657284;
+  font-weight: 430;
+}
+
+.orderBox,
+.cartTotalBox {
+  border: 1px solid #123d68;
+  background: #123d68;
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.orderBox .orderTotal,
+.cartTotalBox .cartEstimate {
+  color: #ffffff;
+}
+
+.orderBoxTitle,
+.cartTotalTitle {
+  color: #dbe7f3;
+  font-weight: 620;
+}
+
+.orderSmall,
+.cartTotalHint,
+.orderCustomerRef {
+  color: rgba(255, 255, 255, .78);
+  font-weight: 430;
+}
+
+.admin-hero {
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(18, 61, 104, .06), transparent 44%),
+    #ffffff;
+}
+
+.admin-kicker,
+.workshop-map__copy span,
+.work-showcase__header span,
+.pickup-notice span,
+.repair-promo span,
+.dago-season span,
+.adminOrdersHeader p {
+  color: #155da8;
+  font-size: .74rem;
+  font-weight: 680;
+  letter-spacing: .08em;
+}
+
+.admin-card,
+.admin-previewCard {
+  padding: 22px;
+}
+
+.admin-cardHeader h2,
+.adminDayGroup h3,
+.adminMetrics strong,
+.adminProductRow strong,
+.adminOrderTop h2,
+.favoriteBody h3,
+.cartItemName,
+.orderItemName,
+.apSummaryTitle,
+.timesTitle,
+.adminClientName,
+.adminDate {
+  color: #101820;
+  font-weight: 650;
+}
+
+.adminProductForm,
+.adminWorkGrid,
+.availabilityGrid,
+.appointmentFields,
+.checkoutFieldGrid {
+  gap: 12px;
+}
+
+.adminProductRow,
+.availabilityDay,
+.adminWorkEditor,
+.adminOrderItem,
+.cartItem,
+.favoriteCard {
+  background: #fbfcfd;
+}
+
+.adminWorkImage,
+.favoriteImg,
+.cartItemImg,
+.adminProductRow img {
+  border-color: #dbe4ee;
+  background: #ffffff;
+}
+
+.admin-bannerPreview,
+.admin-splashPreview {
+  border: 1px solid rgba(216, 225, 236, .42);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+.admin-bannerPreview h3,
+.admin-splashPreview strong {
+  line-height: 1.05;
+  font-weight: 720;
+}
+
+.adminTable th {
+  background: #f4f7fa;
+  color: #617081;
+  font-weight: 650;
+  letter-spacing: .03em;
+}
+
+.adminTable td {
+  background: #ffffff;
+}
+
+.statusPill {
+  min-width: 98px;
+  font-size: .78rem;
+}
+
+.statusPill--scheduled,
+.adminOrderStatus--pending {
+  background: #edf4fb;
+  color: #123d68;
+}
+
+.statusPill--confirmed,
+.adminOrderStatus--confirmed {
+  background: #e4eef8;
+  color: #155da8;
+}
+
+.statusPill--completed,
+.statusPill--ready,
+.adminOrderStatus--ready {
+  background: #e7f4ed;
+  color: #1f6a3e;
+}
+
+.statusPill--cancelled,
+.adminOrderStatus--cancelled,
+.adminOrderStatus--returned {
+  background: #f8e9e9 !important;
+  color: #9b1c1c !important;
+}
+
+.adminAction--cancel,
+.cartRemove,
+.cartClear,
+.admin-resetBtn--danger,
+.adminOrderActions .danger {
+  border-color: #e9c4c4;
+  background: #fff6f6;
+  color: #9b1c1c;
+}
+
+.chatBox {
+  background: #f5f7fa;
+}
+
+.bubble {
+  border-radius: 6px;
+  font-weight: 430;
+}
+
+.bubble--bot {
+  box-shadow: none;
+}
+
+.bubble--user {
+  background: #123d68;
+}
+
+@media (max-width: 1080px) {
+  .dago-toolbar,
+  .dago-season,
+  .dago-hero,
+  .dago-stats,
+  .repair-promo,
+  .workshop-map,
+  .pickup-notice,
+  .work-showcase,
+  .nu-container {
+    width: min(100% - 32px, 1320px);
+  }
+}
+
+@media (max-width: 760px) {
+  .nu-pageHeader,
+  .checkoutPanel,
+  .cartPanel,
+  .chatPanel,
+  .favoritesPanel,
+  .adminOrdersPanel,
+  .admin-hero,
+  .admin-card,
+  .admin-previewCard {
+    padding: 18px;
+  }
+
+  .dago-hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .nu-shellNav {
+    width: min(100% - 24px, 1320px);
+  }
+}
+
+/* Premium mechanical direction: sober, technical, less template-like. */
+:root {
+  --nu-steel: #27323f;
+  --nu-steel-soft: #eef2f6;
+  --nu-accent: #1d6fb8;
+  --nu-accent-soft: #e7f1fb;
+}
+
+.nu-home,
+.nu-page,
+.cartWrap,
+.checkoutWrap,
+.favoritesPage,
+.chatWrap,
+.adminOrdersPage {
+  background:
+    linear-gradient(90deg, rgba(16, 24, 32, .035) 1px, transparent 1px),
+    linear-gradient(180deg, #fbfcfd 0, #f4f7fa 240px, #edf2f6 100%);
+  background-size: 72px 72px, auto;
+}
+
+.dago-toolbar {
+  margin-bottom: 14px;
+  border: 1px solid #dce4ed;
+  border-radius: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, .86);
+  box-shadow: 0 10px 28px rgba(16, 24, 32, .055);
+  backdrop-filter: blur(14px);
+}
+
+.dago-toolbar button {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dago-toolbar button:hover {
+  border-color: #d8e2ec;
+  background: #f7fafc;
+  box-shadow: none;
+}
+
+.dago-season {
+  min-height: 82px;
+  border: 1px solid rgba(216, 228, 240, .34);
+  background:
+    linear-gradient(90deg, rgba(13, 27, 42, .96), rgba(18, 61, 104, .92) 58%, rgba(29, 111, 184, .86)),
+    #123d68;
+}
+
+.dago-season::before {
+  content: "SERVICIO Y REFACCIONES";
+  color: rgba(255, 255, 255, .68);
+  font-size: .72rem;
+  font-weight: 680;
+  letter-spacing: .12em;
+}
+
+.dago-hero {
+  isolation: isolate;
+  border: 1px solid rgba(235, 241, 247, .18);
+  background:
+    linear-gradient(90deg, rgba(7, 15, 25, .94), rgba(16, 47, 80, .82) 46%, rgba(29, 111, 184, .58)),
+    var(--hero-image, linear-gradient(105deg, #0d1b2a, #155da8));
+}
+
+.dago-hero::before {
+  background:
+    linear-gradient(90deg, rgba(7, 15, 25, .5), transparent 58%),
+    linear-gradient(135deg, transparent 0 55%, rgba(255, 255, 255, .08) 55% 56%, transparent 56% 100%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .045) 0 1px, transparent 1px 88px);
+  opacity: .76;
+}
+
+.dago-hero__copy::before {
+  content: "TALLER MECÁNICO  /  TRANSMISIONES AUTOMÁTICAS";
+  display: inline-flex;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 999px;
+  padding: 7px 11px;
+  color: rgba(255, 255, 255, .78);
+  background: rgba(255, 255, 255, .08);
+  font-size: .72rem;
+  font-weight: 680;
+  letter-spacing: .08em;
+}
+
+.dago-hero h1 {
+  max-width: 640px;
+  font-weight: 780;
+}
+
+.dago-hero__actions {
+  align-items: center;
+}
+
+.dago-btn {
+  min-width: 150px;
+}
+
+.dago-btn--light {
+  color: #0d1b2a;
+}
+
+.dago-btn--dark {
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(10, 18, 30, .84);
+}
+
+.dago-hero__product::after {
+  content: "CVT  •  DPO  •  09M";
+  position: absolute;
+  right: 54px;
+  bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, .76);
+  background: rgba(7, 15, 25, .28);
+  font-size: .72rem;
+  font-weight: 680;
+  letter-spacing: .08em;
+}
+
+.dago-stat {
+  position: relative;
+  overflow: hidden;
+  border-left: 3px solid #123d68;
+}
+
+.dago-stat::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 18px;
+  width: 34px;
+  height: 34px;
+  border: 7px solid #e5edf5;
+  border-radius: 50%;
+}
+
+.pickup-notice {
+  background:
+    linear-gradient(90deg, #ffffff, #f8fbfe);
+}
+
+.repair-promo {
+  border: 1px solid rgba(220, 230, 240, .35);
+}
+
+.work-card {
+  overflow: hidden;
+}
+
+.work-card img {
+  filter: saturate(.94) contrast(1.02);
+}
+
+.nu-pageHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 3px solid #123d68;
+}
+
+.nu-pageHeader::marker {
+  display: none;
+}
+
+.nu-title::before,
+.checkoutHeader h2::before,
+.cartHeader h2::before,
+.favoritesHeader h2::before,
+.chatPanel h2::before,
+.apHeader h2::before,
+.adminOrdersHeader h1::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: .72em;
+  margin-right: 10px;
+  border-radius: 2px;
+  background: #123d68;
+}
+
+.nu-controls {
+  border-top: 1px solid #e4ebf2;
+  padding-top: 16px;
+}
+
+.nu-grid {
+  align-items: stretch;
+}
+
+.nu-card {
+  border-top: 3px solid #123d68;
+}
+
+.nu-cardTop {
+  border-bottom: 1px solid #e6edf4;
+  background:
+    linear-gradient(145deg, #f6f8fb, #ffffff);
+}
+
+.nu-imgWrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.nu-imgWrap::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px dashed #d8e2ec;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.nu-cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.nu-cardMeta span {
+  display: inline-flex;
+  min-height: 25px;
+  align-items: center;
+  border: 1px solid #dde6ef;
+  border-radius: 999px;
+  padding: 0 9px;
+  color: #46586c;
+  background: #f7fafc;
+  font-size: .76rem;
+  font-weight: 520;
+}
+
+.nu-stockTrack {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7edf3;
+}
+
+.nu-stockTrack span {
+  display: block;
+  height: 100%;
+  min-width: 10px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #123d68, #1d6fb8);
+}
+
+.nu-btn--primary {
+  margin-top: auto;
+}
+
+.admin-page {
+  width: min(1240px, calc(100% - 48px));
+}
+
+.admin-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 190px;
+  border-top: 3px solid #123d68;
+}
+
+.admin-hero::after {
+  content: "";
+  position: absolute;
+  right: 28px;
+  top: 26px;
+  width: 138px;
+  height: 138px;
+  border: 24px solid #edf2f7;
+  border-radius: 50%;
+  opacity: .9;
+}
+
+.admin-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.adminMetrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.adminMetrics div {
+  position: relative;
+  overflow: hidden;
+  min-height: 98px;
+  border-top: 3px solid #123d68;
+}
+
+.adminMetrics div::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 36px;
+  height: 10px;
+  border-top: 3px solid #dbe4ee;
+  border-bottom: 3px solid #dbe4ee;
+}
+
+.admin-grid {
+  gap: 18px;
+}
+
+.admin-card,
+.admin-previewCard,
+.adminOrdersPanel,
+.apCol,
+.apSide,
+.checkoutPanel,
+.cartPanel,
+.favoritesPanel,
+.chatPanel {
+  border-top: 3px solid #123d68;
+}
+
+.admin-cardHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid #e6edf4;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+}
+
+.admin-cardHeader h2 {
+  margin: 0;
+}
+
+.admin-field {
+  margin-bottom: 14px;
+}
+
+.admin-field input,
+.admin-field textarea,
+.field input,
+.field textarea,
+.field select {
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.adminProductForm {
+  border: 1px solid #e1e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfcfd;
+}
+
+.adminProductRow {
+  border-left: 3px solid #d1dce8;
+}
+
+.adminProductRow:hover {
+  border-left-color: #123d68;
+}
+
+.adminOrdersPanel,
+.adminTableWrap {
+  overflow: hidden;
+}
+
+.adminOrdersHeader {
+  border-bottom-color: #e3ebf3;
+}
+
+.adminOrderCard {
+  border-left: 3px solid #123d68;
+}
+
+.adminTable {
+  font-size: .94rem;
+}
+
+.adminTable th {
+  border-bottom: 1px solid #d9e3ed;
+}
+
+.apGrid,
+.checkoutGrid,
+.cartGrid {
+  gap: 18px;
+}
+
+.apSide,
+.checkoutSide,
+.cartRight {
+  filter: none;
+}
+
+.orderItems,
+.cartSummary {
+  background: #fbfcfd;
+}
+
+.chatPanel {
+  max-width: 980px;
+}
+
+.chatBox {
+  min-height: 420px;
+  border-left: 3px solid #d7e1eb;
+}
+
+@media (max-width: 900px) {
+  .admin-cardHeader {
+    display: grid;
+  }
+
+  .adminMetrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Blueprint metal-panel concept for the public storefront. */
+:root {
+  --tn-blueprint: #07172a;
+  --tn-blueprint-line: rgba(147, 197, 253, .12);
+  --tn-metal-dark: #17212d;
+  --tn-metal-mid: #4b5b6b;
+  --tn-metal-light: #cbd5e1;
+  --tn-rivet: radial-gradient(circle, #e5edf6 0 22%, #7b8794 23% 45%, #27323f 46% 100%);
+}
+
+body,
+.app-container,
+.nu-home {
+  background:
+    radial-gradient(circle at 18% 16%, rgba(29, 111, 184, .22), transparent 30%),
+    radial-gradient(circle at 82% 28%, rgba(203, 213, 225, .12), transparent 28%),
+    linear-gradient(var(--tn-blueprint-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tn-blueprint-line) 1px, transparent 1px),
+    linear-gradient(180deg, #0a1626 0%, #0e2034 42%, #f1f5f9 42%, #eef3f7 100%);
+  background-size: auto, auto, 34px 34px, 34px 34px, auto;
+}
+
+.nu-shellHeader {
+  border-bottom: 1px solid rgba(203, 213, 225, .28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .015)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .045) 0 1px, transparent 1px 12px),
+    linear-gradient(135deg, #1e2936, #0f1722 56%, #263340);
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, .08),
+    0 18px 42px rgba(0, 0, 0, .22);
+}
+
+.nu-brand,
+.nu-navLink {
+  color: rgba(255, 255, 255, .86);
+}
+
+.nu-brandMark {
+  border-color: rgba(203, 213, 225, .36);
+  background:
+    linear-gradient(145deg, #ffffff, #dbe4ee);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .8),
+    0 10px 22px rgba(0, 0, 0, .24);
+}
+
+.nu-navLink:hover,
+.nu-cartLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, .1);
+}
+
+.nu-cartLink,
+.nu-adminBtn {
+  border-color: rgba(203, 213, 225, .32);
+  color: #ffffff;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03)),
+    #123d68;
+}
+
+.nu-home {
+  position: relative;
+  padding-top: 22px;
+}
+
+.nu-home::before {
+  content: "";
+  position: fixed;
+  inset: 86px 0 auto;
+  height: 390px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 36%, transparent 0 22px, rgba(147, 197, 253, .1) 23px 24px, transparent 25px),
+    linear-gradient(135deg, transparent 0 40%, rgba(147, 197, 253, .06) 40% 41%, transparent 41% 100%),
+    linear-gradient(45deg, transparent 0 56%, rgba(203, 213, 225, .05) 56% 57%, transparent 57% 100%);
+  opacity: .86;
+}
+
+.dago-toolbar,
+.dago-season,
+.dago-hero,
+.dago-stats,
+.pickup-notice,
+.repair-promo,
+.workshop-map,
+.work-showcase {
+  position: relative;
+  z-index: 1;
+}
+
+.dago-toolbar {
+  border: 1px solid rgba(203, 213, 225, .28);
+  border-radius: 4px;
+  padding: 10px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .04) 0 1px, transparent 1px 10px),
+    linear-gradient(135deg, #1b2634, #0e1723 62%, #2e3a48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .12),
+    inset 0 -1px 0 rgba(0, 0, 0, .4),
+    0 18px 38px rgba(0, 0, 0, .22);
+}
+
+.dago-toolbar::before,
+.dago-toolbar::after,
+.dago-hero::after,
+.dago-season::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--tn-rivet);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, .8),
+    0 2px 4px rgba(0, 0, 0, .32);
+}
+
+.dago-toolbar::before {
+  left: 12px;
+  top: 12px;
+}
+
+.dago-toolbar::after {
+  right: 12px;
+  top: 12px;
+}
+
+.dago-toolbar button {
+  min-height: 42px;
+  border: 1px solid rgba(203, 213, 225, .2);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, .82);
+  background: rgba(255, 255, 255, .045);
+}
+
+.dago-toolbar button:hover {
+  border-color: rgba(203, 213, 225, .42);
+  color: #ffffff;
+  background: rgba(255, 255, 255, .09);
+}
+
+.dago-toolbar__store {
+  color: #bfdbfe;
+}
+
+.dago-season {
+  border: 1px solid rgba(203, 213, 225, .26);
+  border-radius: 4px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .08), transparent),
+    linear-gradient(100deg, #0d1b2a, #123d68 58%, #1d6fb8);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .12),
+    0 18px 42px rgba(2, 8, 23, .26);
+}
+
+.dago-season::after {
+  right: 18px;
+  bottom: 18px;
+}
+
+.dago-season button {
+  border: 1px solid rgba(203, 213, 225, .72);
+  border-radius: 4px;
+  color: #0d1b2a;
+  background:
+    linear-gradient(180deg, #ffffff, #cbd5e1);
+}
+
+.dago-hero {
+  min-height: 430px;
+  border: 4px solid transparent;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(6, 12, 20, .94), rgba(18, 61, 104, .82) 48%, rgba(29, 111, 184, .62)),
+    var(--hero-image, linear-gradient(105deg, #0d1b2a, #155da8)) padding-box,
+    linear-gradient(135deg, #dce6f1, #4b5b6b 18%, #101820 52%, #94a3b8 100%) border-box;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .16),
+    inset 0 0 42px rgba(0, 0, 0, .22),
+    0 26px 70px rgba(2, 8, 23, .34);
+}
+
+.dago-hero::before {
+  background:
+    linear-gradient(90deg, rgba(5, 10, 18, .54), transparent 64%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 32px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 32px);
+}
+
+.dago-hero::after {
+  right: 18px;
+  top: 18px;
+}
+
+.dago-hero__copy {
+  padding-left: 24px;
+}
+
+.dago-hero__copy::before {
+  border-color: rgba(203, 213, 225, .34);
+  border-radius: 4px;
+  color: #cfe1f4;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+}
+
+.dago-hero h1 {
+  max-width: 660px;
+  font-size: clamp(2.8rem, 5.2vw, 5.2rem);
+  font-weight: 850;
+  letter-spacing: .01em;
+}
+
+.dago-hero__subtitle {
+  max-width: 620px;
+  font-weight: 720;
+}
+
+.dago-hero__desc {
+  max-width: 570px;
+}
+
+.dago-btn {
+  border-radius: 4px;
+}
+
+.dago-btn--light {
+  border: 1px solid #dbeafe;
+  background:
+    linear-gradient(180deg, #ffffff, #d9e4ef);
+}
+
+.dago-btn--dark {
+  border-color: rgba(203, 213, 225, .32);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .02)),
+    #0d1b2a;
+}
+
+.dago-hero__disc {
+  border-color: #d9e2ec;
+  background:
+    radial-gradient(circle, #263241 0 13%, #ffffff 14% 22%, #8d98a6 23% 100%);
+}
+
+.dago-hero__part {
+  border: 1px solid rgba(203, 213, 225, .22);
+  background:
+    linear-gradient(135deg, #566678, #101820 48%, #27323f);
+}
+
+.dago-stats {
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  max-width: 720px;
+  margin-top: 18px;
+  margin-left: calc((100% - min(1320px, calc(100% - 56px))) / 2);
+}
+
+.dago-stat {
+  min-height: 118px;
+  border: 3px solid transparent;
+  border-radius: 6px;
+  padding: 18px 20px;
+  background:
+    linear-gradient(180deg, #f8fafc, #e8eef5) padding-box,
+    linear-gradient(135deg, #ffffff, #64748b 22%, #17212d 58%, #cbd5e1) border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .86),
+    0 14px 30px rgba(15, 23, 42, .12);
+}
+
+.dago-stat::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  width: 46px;
+  height: 8px;
+  border-top: 2px solid #9aa7b5;
+  border-bottom: 2px solid #9aa7b5;
+  opacity: .7;
+}
+
+.dago-stat::after {
+  right: 18px;
+  top: 18px;
+  width: 28px;
+  height: 28px;
+  border-width: 6px;
+  border-color: #b7c3d0;
+  background: #f8fafc;
+}
+
+.dago-stat strong {
+  color: #101820;
+  font-size: 1.45rem;
+}
+
+.dago-stat span {
+  color: #314154;
+}
+
+.dago-stat small {
+  color: #155da8;
+}
+
+.pickup-notice,
+.repair-promo,
+.workshop-map__copy,
+.workshop-map__frame,
+.work-card,
+.nu-pageHeader,
+.nu-card,
+.admin-card,
+.admin-previewCard,
+.adminOrdersPanel,
+.adminOrderCard,
+.apCol,
+.apSide,
+.checkoutPanel,
+.cartPanel,
+.favoritesPanel,
+.chatPanel {
+  border: 3px solid transparent;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, #ffffff, #f4f7fa) padding-box,
+    linear-gradient(135deg, #f8fafc, #94a3b8 24%, #27323f 64%, #cbd5e1) border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .86),
+    0 16px 36px rgba(16, 24, 32, .1);
+}
+
+.nu-cardTop,
+.adminTable th,
+.adminProductForm,
+.adminProductRow,
+.availabilityDay,
+.orderItems,
+.cartSummary,
+.favoriteCard {
+  background:
+    linear-gradient(180deg, #f8fafc, #edf2f7);
+}
+
+.nu-imgWrap,
+.favoriteImg,
+.cartItemImg,
+.adminProductRow img,
+.adminWorkImage {
+  border: 1px solid #cfd9e4;
+  background:
+    linear-gradient(var(--tn-blueprint-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tn-blueprint-line) 1px, transparent 1px),
+    #ffffff;
+  background-size: 18px 18px;
+}
+
+.nu-badge,
+.nu-cardMeta span,
+.nu-sku,
+.statusPill,
+.adminOrderTop strong {
+  border: 1px solid #c9d5e1;
+  background:
+    linear-gradient(180deg, #ffffff, #e9eff5);
+  color: #27323f;
+}
+
+.nu-stockTrack {
+  border: 1px solid #cbd5e1;
+  background: #dbe3ec;
+}
+
+.nu-stockTrack span {
+  background:
+    linear-gradient(90deg, #0d1b2a, #155da8);
+}
+
+.nu-btn--primary,
+.apSubmit,
+.admin-saveBtn,
+.chatSend,
+.favoriteButtons button:first-child,
+.adminOrdersTools button {
+  border-color: #071426;
+  background:
+    linear-gradient(180deg, #1d6fb8, #123d68 58%, #0d1b2a);
+}
+
+.orderBox,
+.cartTotalBox {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(180deg, #123d68, #0d1b2a) padding-box,
+    linear-gradient(135deg, #f8fafc, #64748b 28%, #101820 70%, #cbd5e1) border-box;
+}
+
+.admin-hero {
+  background:
+    linear-gradient(var(--tn-blueprint-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tn-blueprint-line) 1px, transparent 1px),
+    linear-gradient(135deg, #ffffff, #eef3f8);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.adminMetrics div {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(180deg, #ffffff, #edf2f7) padding-box,
+    linear-gradient(135deg, #ffffff, #94a3b8 28%, #27323f 70%, #cbd5e1) border-box;
+}
+
+@media (max-width: 760px) {
+  .dago-stats {
+    grid-template-columns: 1fr;
+    max-width: none;
+    margin-left: auto;
+  }
+
+  .dago-hero {
+    min-height: 500px;
+  }
+}
+
+/* Cadillac-inspired modular mosaic home. */
+.nu-home {
+  padding-top: 0;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(147, 197, 253, .1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .1) 1px, transparent 1px),
+    radial-gradient(circle at 20% 12%, rgba(29, 111, 184, .26), transparent 34%),
+    linear-gradient(180deg, #060d16 0%, #0d1b2a 52%, #101820 100%);
+  background-size: 38px 38px, 38px 38px, auto, auto;
+}
+
+.nu-home .dago-hero,
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+.dago-hero--integrated {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .72fr);
+  grid-template-rows: auto minmax(460px, 1fr);
+  align-items: stretch;
+  min-height: 680px;
+  border-width: 0 0 4px;
+  border-image: linear-gradient(90deg, #cbd5e1, #5b6775, #101820, #cbd5e1) 1;
+  padding: 0;
+  background:
+    linear-gradient(rgba(147, 197, 253, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(4, 9, 16, .94), rgba(14, 31, 52, .82) 48%, rgba(18, 61, 104, .58)),
+    var(--hero-image, linear-gradient(105deg, #0d1b2a, #155da8));
+  background-size: 34px 34px, 34px 34px, auto, cover;
+  background-position: center;
+  box-shadow: none;
+}
+
+.dago-hero--integrated::before {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .18), transparent 36%, rgba(0, 0, 0, .32)),
+    radial-gradient(circle at 70% 38%, rgba(203, 213, 225, .12), transparent 28%),
+    repeating-linear-gradient(115deg, transparent 0 84px, rgba(255, 255, 255, .045) 84px 86px);
+}
+
+.dago-hero--integrated::after {
+  display: none;
+}
+
+.dago-hero__nav {
+  position: relative;
+  z-index: 2;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  min-height: 86px;
+  border-bottom: 1px solid rgba(203, 213, 225, .24);
+  padding: 18px 32px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .04) 0 1px, transparent 1px 13px),
+    rgba(8, 16, 27, .88);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08);
+}
+
+.dago-hero__nav::before {
+  content: "TN";
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(203, 213, 225, .36);
+  border-radius: 4px;
+  color: #e5edf6;
+  background:
+    linear-gradient(145deg, #17212d, #0b121d);
+  font-weight: 850;
+  transform: translateY(-50%);
+}
+
+.dago-hero__nav button {
+  min-width: 128px;
+  border: 1px solid rgba(203, 213, 225, .2);
+  border-radius: 0;
+  color: rgba(255, 255, 255, .82);
+  background: rgba(255, 255, 255, .035);
+  font-size: .82rem;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.dago-hero__nav button:hover {
+  color: #ffffff;
+  background: rgba(29, 111, 184, .22);
+}
+
+.dago-hero--integrated .dago-hero__copy {
+  align-self: center;
+  max-width: 780px;
+  padding: 70px 42px 76px 84px;
+}
+
+.dago-hero--integrated .dago-hero__copy::before {
+  display: none;
+}
+
+.dago-hero__brandline {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 28px;
+  border-left: 4px solid #cbd5e1;
+  padding-left: 18px;
+}
+
+.dago-hero__brandline span {
+  color: #e5edf6;
+  font-size: .86rem;
+  font-weight: 760;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.dago-hero__brandline strong {
+  max-width: 680px;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2.5vw, 2.55rem);
+  font-weight: 780;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.dago-hero--integrated h1 {
+  max-width: 720px;
+  margin-bottom: 18px;
+  font-size: clamp(3.1rem, 6.1vw, 6.75rem);
+  line-height: .96;
+}
+
+.dago-hero--integrated .dago-hero__subtitle {
+  max-width: 620px;
+  color: #f8fafc;
+}
+
+.dago-hero--integrated .dago-hero__desc {
+  max-width: 620px;
+  color: rgba(226, 232, 240, .82);
+}
+
+.dago-hero--integrated .dago-hero__product {
+  align-self: center;
+  min-height: 420px;
+  opacity: .95;
+  transform: scale(1.08) translateX(-24px);
+}
+
+.dago-hero--integrated .dago-hero__disc {
+  filter: contrast(1.06) saturate(.82);
+}
+
+.dago-hero--integrated .dago-hero__part {
+  filter: contrast(1.1);
+}
+
+.dago-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 390px;
+  border-bottom: 4px solid #0b121d;
+  background: #050a12;
+}
+
+.dago-mosaic__panel {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 390px;
+  overflow: hidden;
+  border: 0;
+  border-right: 4px solid #050a12;
+  padding: 30px 34px;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  background: #111827;
+}
+
+.dago-mosaic__panel:last-child {
+  border-right: 0;
+}
+
+.dago-mosaic__panel::before,
+.dago-mosaic__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.dago-mosaic__panel::before {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .28), rgba(0, 0, 0, .72)),
+    var(--mosaic-image);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(.85) contrast(1.1);
+  transform: scale(1.02);
+  transition: transform .28s ease, filter .28s ease;
+}
+
+.dago-mosaic__panel::after {
+  background:
+    linear-gradient(rgba(147, 197, 253, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: .45;
+}
+
+.dago-mosaic__panel:hover::before {
+  filter: saturate(.95) contrast(1.15);
+  transform: scale(1.06);
+}
+
+.dago-mosaic__panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dago-mosaic__panel span {
+  max-width: 420px;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2.1vw, 2.4rem);
+  font-weight: 780;
+  letter-spacing: .12em;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.dago-mosaic__panel strong {
+  max-width: 360px;
+  margin-top: auto;
+  color: rgba(255, 255, 255, .84);
+  font-size: 1rem;
+  font-weight: 520;
+  line-height: 1.45;
+}
+
+.dago-mosaic__panel small {
+  width: fit-content;
+  border: 1px solid rgba(203, 213, 225, .38);
+  padding: 7px 10px;
+  color: #e5edf6;
+  background: rgba(5, 10, 18, .44);
+  font-size: .72rem;
+  font-weight: 720;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.dago-mosaic__panel--diagnostic {
+  --mosaic-image:
+    radial-gradient(circle at 34% 45%, rgba(203, 213, 225, .52), transparent 0 10%, transparent 28%),
+    linear-gradient(135deg, #111827 0%, #263445 45%, #0a111c 100%);
+}
+
+.dago-mosaic__panel--remanufacture {
+  --mosaic-image:
+    radial-gradient(circle at 58% 48%, rgba(226, 232, 240, .44), transparent 0 12%, transparent 30%),
+    linear-gradient(135deg, #17212d 0%, #394758 48%, #0b121d 100%);
+}
+
+.dago-mosaic__panel--warranty {
+  --mosaic-image:
+    linear-gradient(135deg, rgba(255, 255, 255, .2) 0 15%, transparent 15% 100%),
+    linear-gradient(135deg, #0c1724 0%, #123d68 46%, #0a1019 100%);
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: min(1320px, calc(100% - 56px));
+  margin: 24px auto 0;
+  border-radius: 6px;
+}
+
+@media (max-width: 980px) {
+  .dago-hero--integrated {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .dago-hero--integrated .dago-hero__copy {
+    padding: 54px 28px;
+  }
+
+  .dago-hero--integrated .dago-hero__product {
+    display: none;
+  }
+
+  .dago-hero__nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-left: 96px;
+  }
+
+  .dago-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .dago-mosaic__panel {
+    min-height: 280px;
+    border-right: 0;
+    border-bottom: 4px solid #050a12;
+  }
+}
+
+/* Final full-bleed home correction: every home section is a connected panel. */
+body:has(.nu-home),
+body:has(.nu-home) .app-container,
+body:has(.nu-home) .main-viewport {
+  background:
+    linear-gradient(rgba(148, 163, 184, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, .075) 1px, transparent 1px),
+    linear-gradient(180deg, #07101b, #0d1b2a 48%, #0a111c 100%);
+  background-size: 38px 38px, 38px 38px, auto;
+}
+
+body:has(.nu-home) .nu-shellHeader {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 12px),
+    linear-gradient(135deg, #17212d, #0b121d 58%, #243244);
+  border-bottom: 1px solid rgba(203, 213, 225, .22);
+}
+
+body:has(.nu-home) .nu-brand,
+body:has(.nu-home) .nu-navLink {
+  color: rgba(255, 255, 255, .88);
+}
+
+body:has(.nu-home) .nu-brandMark {
+  background: linear-gradient(145deg, #ffffff, #dbe4ee);
+}
+
+.nu-home {
+  padding: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(148, 163, 184, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, .075) 1px, transparent 1px),
+    radial-gradient(circle at 16% 4%, rgba(29, 111, 184, .28), transparent 34%),
+    linear-gradient(180deg, #07101b 0%, #0d1b2a 48%, #0a111c 100%);
+  background-size: 38px 38px, 38px 38px, auto, auto;
+}
+
+.nu-home .dago-hero,
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+.nu-home .dago-hero--integrated {
+  grid-template-columns: minmax(0, .96fr) minmax(360px, .68fr);
+  min-height: min(620px, calc(100vh - 86px));
+  border: 0;
+  border-bottom: 4px solid #050a12;
+  background:
+    linear-gradient(rgba(147, 197, 253, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 8, 14, .96), rgba(12, 32, 56, .86) 52%, rgba(18, 77, 125, .72)),
+    var(--hero-image, linear-gradient(105deg, #0d1b2a, #155da8));
+  background-size: 36px 36px, 36px 36px, auto, cover;
+  background-position: center;
+  box-shadow: none;
+}
+
+.nu-home .dago-hero--integrated::before {
+  background:
+    linear-gradient(90deg, rgba(3, 8, 14, .24), transparent 58%),
+    repeating-linear-gradient(115deg, transparent 0 132px, rgba(255, 255, 255, .055) 132px 134px);
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  width: min(760px, 100%);
+  max-width: none;
+  padding: clamp(42px, 7vw, 78px) clamp(28px, 5vw, 86px);
+}
+
+.nu-home .dago-hero__brandline {
+  max-width: 680px;
+  margin-bottom: 24px;
+}
+
+.nu-home .dago-hero__brandline strong {
+  max-width: 660px;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  max-width: 660px;
+  font-size: clamp(2.7rem, 5.4vw, 5.9rem);
+  line-height: 1;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle,
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  max-width: 620px;
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__product {
+  min-height: 420px;
+  overflow: visible;
+}
+
+.nu-home .dago-mosaic {
+  min-height: 360px;
+  border: 0;
+  border-bottom: 4px solid #050a12;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.nu-home .dago-mosaic__panel {
+  min-height: 360px;
+  border-right: 4px solid #050a12;
+  border-bottom: 0;
+  padding: clamp(28px, 3.6vw, 54px);
+}
+
+.nu-home .dago-mosaic__panel:last-child {
+  border-right: 0;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo {
+  min-height: 260px;
+  border: 0;
+  border-bottom: 4px solid #050a12;
+  border-radius: 0;
+  padding: clamp(30px, 4vw, 58px) clamp(28px, 6vw, 92px);
+  box-shadow: none;
+}
+
+.nu-home .pickup-notice {
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(100deg, rgba(7, 15, 25, .96), rgba(18, 61, 104, .88) 58%, rgba(29, 111, 184, .62));
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .pickup-notice p {
+  color: #ffffff;
+}
+
+.nu-home .pickup-notice p {
+  color: rgba(226, 232, 240, .86);
+}
+
+.nu-home .pickup-notice span {
+  color: #bfdbfe;
+  background: rgba(255, 255, 255, .08);
+}
+
+.nu-home .pickup-notice button {
+  border: 1px solid rgba(203, 213, 225, .34);
+  color: #0d1b2a;
+  background: linear-gradient(180deg, #ffffff, #dbe4ee);
+}
+
+.nu-home .repair-promo {
+  background:
+    linear-gradient(rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 8, 14, .9), rgba(18, 61, 104, .78)),
+    var(--repair-promo-image, #123d68);
+  background-size: 34px 34px, 34px 34px, auto, cover;
+}
+
+.nu-home .workshop-map {
+  display: grid;
+  grid-template-columns: minmax(280px, .42fr) minmax(0, .58fr);
+  gap: 4px;
+  border-bottom: 4px solid #050a12;
+  background: #050a12;
+}
+
+.nu-home .workshop-map__copy,
+.nu-home .workshop-map__frame {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.nu-home .workshop-map__copy {
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(135deg, #07101b, #123d68);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.nu-home .workshop-map__copy h2,
+.nu-home .workshop-map__copy p {
+  color: #ffffff;
+}
+
+.nu-home .workshop-map__copy p {
+  color: rgba(226, 232, 240, .82);
+}
+
+.nu-home .work-showcase {
+  padding: clamp(30px, 4vw, 58px) clamp(28px, 6vw, 92px);
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(147, 197, 253, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .06) 1px, transparent 1px),
+    linear-gradient(180deg, #0d1b2a, #07101b);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.nu-home .work-showcase__header h2,
+.nu-home .work-showcase__header span {
+  color: #ffffff;
+}
+
+.nu-home .work-showcase__grid {
+  gap: 4px;
+}
+
+.nu-home .work-card {
+  border: 0;
+  border-radius: 0;
+  color: #ffffff;
+  background: #101820;
+  box-shadow: none;
+}
+
+.nu-home .work-card div {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)),
+    #0b121d;
+}
+
+.nu-home .work-card h3,
+.nu-home .work-card p {
+  color: #ffffff;
+}
+
+.nu-home .work-card p {
+  color: rgba(226, 232, 240, .8);
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    padding: 42px 24px;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__product {
+    display: none;
+  }
+
+  .nu-home .dago-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .nu-home .dago-mosaic__panel {
+    border-right: 0;
+    border-bottom: 4px solid #050a12;
+  }
+
+  .nu-home .workshop-map {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Corrected premium home composition: no duplicated nav, no cramped copy. */
+.nu-home {
+  padding: 28px 0 72px;
+  color: #101820;
+  background:
+    linear-gradient(rgba(39, 50, 63, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(39, 50, 63, .055) 1px, transparent 1px),
+    radial-gradient(circle at 18% 0%, rgba(21, 93, 168, .18), transparent 34%),
+    linear-gradient(180deg, #f7fafc 0, #edf3f8 100%);
+  background-size: 42px 42px, 42px 42px, auto, auto;
+}
+
+.nu-home::before {
+  display: none;
+}
+
+.nu-home .dago-hero,
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: min(1360px, calc(100% - 56px));
+  max-width: 1360px;
+  margin-inline: auto;
+}
+
+.dago-hero--integrated {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(360px, .72fr);
+  grid-template-rows: auto;
+  min-height: 520px;
+  overflow: hidden;
+  border: 1px solid #1b2a3b;
+  border-radius: 8px;
+  padding: 0;
+  color: #ffffff;
+  background:
+    linear-gradient(rgba(147, 197, 253, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 15, 25, .94), rgba(12, 32, 56, .86) 54%, rgba(18, 77, 125, .7)),
+    var(--hero-image, linear-gradient(105deg, #0d1b2a, #155da8));
+  background-size: 36px 36px, 36px 36px, auto, cover;
+  background-position: center;
+  box-shadow: 0 24px 64px rgba(16, 24, 32, .18);
+}
+
+.dago-hero--integrated::before {
+  background:
+    linear-gradient(90deg, rgba(3, 8, 14, .22), transparent 58%),
+    repeating-linear-gradient(115deg, transparent 0 118px, rgba(255, 255, 255, .055) 118px 120px);
+  opacity: .9;
+}
+
+.dago-hero--integrated .dago-hero__copy {
+  align-self: center;
+  max-width: 720px;
+  padding: 54px 34px 58px 64px;
+}
+
+.dago-hero__brandline {
+  max-width: 610px;
+  margin-bottom: 24px;
+  border-left: 4px solid #bfdbfe;
+  padding-left: 18px;
+}
+
+.dago-hero__brandline span {
+  color: #bfdbfe;
+  font-size: .78rem;
+  font-weight: 760;
+  letter-spacing: .14em;
+}
+
+.dago-hero__brandline strong {
+  color: #ffffff;
+  font-size: clamp(1.18rem, 1.8vw, 1.8rem);
+  font-weight: 720;
+  line-height: 1.18;
+}
+
+.dago-hero--integrated h1 {
+  max-width: 560px;
+  margin: 0 0 16px;
+  font-size: clamp(2.7rem, 4.4vw, 4.8rem);
+  font-weight: 780;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.dago-hero--integrated .dago-hero__subtitle {
+  max-width: 560px;
+  color: #ffffff;
+  font-size: clamp(1rem, 1.25vw, 1.16rem);
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.dago-hero--integrated .dago-hero__desc {
+  max-width: 550px;
+  color: rgba(226, 232, 240, .86);
+  font-size: .98rem;
+  line-height: 1.65;
+}
+
+.dago-hero--integrated .dago-hero__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.dago-hero--integrated .dago-btn {
+  width: auto;
+  min-width: 160px;
+}
+
+.dago-hero--integrated .dago-hero__product {
+  align-self: center;
+  justify-self: stretch;
+  min-height: 380px;
+  opacity: .95;
+  transform: none;
+}
+
+.dago-hero--integrated .dago-hero__product::after {
+  right: 54px;
+  bottom: 16px;
+}
+
+.dago-hero--integrated .dago-hero__disc--one {
+  left: 30px;
+  bottom: 78px;
+}
+
+.dago-hero--integrated .dago-hero__disc--two {
+  left: 164px;
+  bottom: 136px;
+}
+
+.dago-hero--integrated .dago-hero__part--tall {
+  right: 76px;
+  bottom: 82px;
+}
+
+.dago-hero--integrated .dago-hero__part--small {
+  right: 178px;
+  bottom: 148px;
+}
+
+.dago-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 330px;
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid #1b2a3b;
+  border-radius: 8px;
+  background: #07101b;
+  box-shadow: 0 18px 46px rgba(16, 24, 32, .14);
+}
+
+.dago-mosaic__panel {
+  min-height: 330px;
+  border-right: 1px solid rgba(203, 213, 225, .18);
+  padding: 30px;
+  background: #0d1724;
+}
+
+.dago-mosaic__panel::before {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 12, .18), rgba(2, 6, 12, .82)),
+    var(--mosaic-image);
+  filter: saturate(.94) contrast(1.08);
+}
+
+.dago-mosaic__panel::after {
+  background:
+    linear-gradient(rgba(147, 197, 253, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .08) 1px, transparent 1px),
+    radial-gradient(circle at 74% 68%, rgba(203, 213, 225, .18), transparent 26%);
+  background-size: 30px 30px, 30px 30px, auto;
+  opacity: .8;
+}
+
+.dago-mosaic__panel span {
+  max-width: 380px;
+  font-size: clamp(1.4rem, 2vw, 2.18rem);
+  letter-spacing: .1em;
+  line-height: 1.16;
+}
+
+.dago-mosaic__panel strong {
+  max-width: 330px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, .86);
+}
+
+.dago-mosaic__panel small {
+  margin-top: auto;
+}
+
+.dago-mosaic__panel--diagnostic {
+  --mosaic-image:
+    radial-gradient(circle at 68% 48%, rgba(226, 232, 240, .34) 0 9%, transparent 10%),
+    radial-gradient(circle at 70% 48%, transparent 0 17%, rgba(148, 163, 184, .24) 18% 24%, transparent 25%),
+    linear-gradient(135deg, #07101b 0%, #223043 52%, #05080d 100%);
+}
+
+.dago-mosaic__panel--remanufacture {
+  --mosaic-image:
+    repeating-linear-gradient(90deg, rgba(226, 232, 240, .16) 0 5px, transparent 5px 18px),
+    radial-gradient(circle at 62% 52%, rgba(203, 213, 225, .28) 0 14%, transparent 15%),
+    linear-gradient(135deg, #111c2b 0%, #37475a 50%, #070d15 100%);
+}
+
+.dago-mosaic__panel--warranty {
+  --mosaic-image:
+    linear-gradient(135deg, transparent 0 52%, rgba(255, 255, 255, .16) 52% 54%, transparent 54%),
+    radial-gradient(circle at 72% 54%, rgba(226, 232, 240, .24) 0 10%, transparent 11%),
+    linear-gradient(135deg, #08111d 0%, #123d68 48%, #060b12 100%);
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: min(1360px, calc(100% - 56px));
+  max-width: 1360px;
+  margin: 18px auto 0;
+  border-radius: 8px;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .workshop-map__frame,
+.nu-home .work-card {
+  border: 1px solid #d7e2ee;
+  background: linear-gradient(180deg, #ffffff, #f5f8fb);
+  box-shadow: 0 14px 34px rgba(16, 24, 32, .08);
+}
+
+.nu-home .repair-promo {
+  color: #ffffff;
+  border-color: #1b2a3b;
+  background:
+    linear-gradient(90deg, rgba(7, 15, 25, .9), rgba(18, 61, 104, .78)),
+    var(--repair-promo-image, #123d68);
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 980px) {
+  .dago-hero--integrated {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .dago-hero--integrated .dago-hero__copy {
+    padding: 42px 24px;
+  }
+
+  .dago-hero--integrated .dago-hero__product {
+    display: none;
+  }
+
+  .dago-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .dago-mosaic__panel {
+    min-height: 260px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(203, 213, 225, .18);
+  }
+}
+
+/* FINAL HOME OVERRIDE
+   Keeps every home panel flush with the browser viewport and removes all white gutters. */
+html:has(.nu-home),
+body:has(.nu-home),
+body:has(.nu-home) #root,
+body:has(.nu-home) .app-container,
+body:has(.nu-home) .main-viewport {
+  background:
+    linear-gradient(rgba(148, 163, 184, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, .07) 1px, transparent 1px),
+    linear-gradient(180deg, #07101b 0%, #0d1b2a 45%, #07101b 100%) !important;
+  background-size: 38px 38px, 38px 38px, auto !important;
+}
+
+body:has(.nu-home) .nu-shellHeader {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 12px),
+    linear-gradient(135deg, #17212d, #0b121d 58%, #243244) !important;
+  border-bottom: 1px solid rgba(203, 213, 225, .22) !important;
+}
+
+body:has(.nu-home) .nu-brand,
+body:has(.nu-home) .nu-navLink {
+  color: rgba(255, 255, 255, .9) !important;
+}
+
+.nu-home {
+  width: 100% !important;
+  min-height: 100vh !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+  background:
+    linear-gradient(rgba(148, 163, 184, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, .07) 1px, transparent 1px),
+    radial-gradient(circle at 14% 0%, rgba(29, 111, 184, .25), transparent 36%),
+    linear-gradient(180deg, #07101b 0%, #0d1b2a 48%, #07101b 100%) !important;
+  background-size: 38px 38px, 38px 38px, auto, auto !important;
+}
+
+.nu-home .dago-hero,
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.nu-home .dago-hero--integrated {
+  grid-template-columns: minmax(0, .98fr) minmax(360px, .68fr) !important;
+  min-height: min(620px, calc(100vh - 86px)) !important;
+  border: 0 !important;
+  border-bottom: 4px solid #050a12 !important;
+  box-shadow: none !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  width: min(760px, 100%) !important;
+  max-width: none !important;
+  padding: clamp(42px, 7vw, 78px) clamp(28px, 5vw, 86px) !important;
+}
+
+.nu-home .dago-hero--integrated h1,
+.nu-home .dago-hero--integrated .dago-hero__subtitle,
+.nu-home .dago-hero--integrated .dago-hero__desc,
+.nu-home .dago-hero__brandline,
+.nu-home .dago-hero__brandline strong {
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  max-width: 660px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.7rem, 5.4vw, 5.9rem) !important;
+  line-height: 1 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  max-width: 620px !important;
+  color: #ffffff !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  max-width: 620px !important;
+  color: rgba(226, 232, 240, .86) !important;
+}
+
+.nu-home .dago-mosaic {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  min-height: 360px !important;
+  border: 0 !important;
+  border-bottom: 4px solid #050a12 !important;
+  background: #050a12 !important;
+  box-shadow: none !important;
+}
+
+.nu-home .dago-mosaic__panel {
+  min-height: 360px !important;
+  border-right: 4px solid #050a12 !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+  padding: clamp(28px, 3.6vw, 54px) !important;
+}
+
+.nu-home .dago-mosaic__panel:last-child {
+  border-right: 0 !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo {
+  min-height: 260px !important;
+  border: 0 !important;
+  border-bottom: 4px solid #050a12 !important;
+  box-shadow: none !important;
+  padding: clamp(30px, 4vw, 58px) clamp(28px, 6vw, 92px) !important;
+}
+
+.nu-home .pickup-notice {
+  color: #ffffff !important;
+  background:
+    linear-gradient(rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(100deg, rgba(7, 15, 25, .96), rgba(18, 61, 104, .88) 58%, rgba(29, 111, 184, .62)) !important;
+  background-size: 34px 34px, 34px 34px, auto !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .pickup-notice p,
+.nu-home .repair-promo h2,
+.nu-home .repair-promo p,
+.nu-home .repair-promo small {
+  color: #ffffff !important;
+}
+
+.nu-home .pickup-notice p,
+.nu-home .repair-promo p,
+.nu-home .repair-promo small {
+  color: rgba(226, 232, 240, .84) !important;
+}
+
+.nu-home .pickup-notice button,
+.nu-home .repair-promo button {
+  border: 1px solid rgba(203, 213, 225, .34) !important;
+  color: #0d1b2a !important;
+  background: linear-gradient(180deg, #ffffff, #dbe4ee) !important;
+}
+
+.nu-home .workshop-map {
+  display: grid !important;
+  grid-template-columns: minmax(280px, .42fr) minmax(0, .58fr) !important;
+  gap: 4px !important;
+  border-bottom: 4px solid #050a12 !important;
+  background: #050a12 !important;
+}
+
+.nu-home .workshop-map__copy,
+.nu-home .workshop-map__frame {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.nu-home .workshop-map__copy {
+  color: #ffffff !important;
+  background:
+    linear-gradient(rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .07) 1px, transparent 1px),
+    linear-gradient(135deg, #07101b, #123d68) !important;
+  background-size: 34px 34px, 34px 34px, auto !important;
+}
+
+.nu-home .workshop-map__copy h2,
+.nu-home .workshop-map__copy p {
+  color: #ffffff !important;
+}
+
+.nu-home .workshop-map__copy p {
+  color: rgba(226, 232, 240, .84) !important;
+}
+
+.nu-home .work-showcase {
+  padding: clamp(30px, 4vw, 58px) clamp(28px, 6vw, 92px) !important;
+  color: #ffffff !important;
+  background:
+    linear-gradient(rgba(147, 197, 253, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .06) 1px, transparent 1px),
+    linear-gradient(180deg, #0d1b2a, #07101b) !important;
+  background-size: 34px 34px, 34px 34px, auto !important;
+}
+
+.nu-home .work-showcase__header h2,
+.nu-home .work-showcase__header span {
+  color: #ffffff !important;
+}
+
+.nu-home .work-showcase__grid {
+  gap: 4px !important;
+}
+
+.nu-home .work-card {
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  background: #101820 !important;
+  box-shadow: none !important;
+}
+
+.nu-home .work-card div {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02)),
+    #0b121d !important;
+}
+
+.nu-home .work-card h3,
+.nu-home .work-card p {
+  color: #ffffff !important;
+}
+
+.nu-home .work-card p {
+  color: rgba(226, 232, 240, .8) !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    padding: 42px 24px !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__product {
+    display: none !important;
+  }
+
+  .nu-home .dago-mosaic {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-home .dago-mosaic__panel {
+    border-right: 0 !important;
+    border-bottom: 4px solid #050a12 !important;
+  }
+
+  .nu-home .workshop-map {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ABSOLUTE FINAL HERO FIX
+   Root cause: later duplicated home CSS was forcing the hero copy back into a narrow column.
+   This final layer keeps the banner text wide and readable. */
+.nu-home .dago-hero--integrated {
+  position: relative !important;
+  display: block !important;
+  min-height: clamp(600px, calc(100vh - 78px), 760px) !important;
+  background:
+    linear-gradient(90deg, rgba(3, 10, 22, .98) 0%, rgba(5, 18, 34, .9) 36%, rgba(12, 58, 105, .62) 72%, rgba(18, 111, 184, .5) 100%),
+    radial-gradient(circle at 78% 35%, rgba(141, 191, 255, .24), transparent 19%),
+    linear-gradient(120deg, transparent 0 30%, rgba(141, 191, 255, .11) 30% 30.4%, transparent 30.4% 58%, rgba(141, 191, 255, .08) 58% 58.4%, transparent 58.4% 100%),
+    var(--hero-image),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+  background-size: cover, auto, auto, cover, auto !important;
+  background-position: center !important;
+  overflow: hidden !important;
+}
+
+.nu-home .dago-hero--integrated::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(rgba(255, 255, 255, .052) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .052) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .04) 0 2px, transparent 2px 18px) !important;
+  background-size: 44px 44px, 44px 44px, auto !important;
+  opacity: .86 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: clamp(600px, calc(100vh - 78px), 760px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(520px, 760px) minmax(360px, 1fr) !important;
+  grid-template-areas:
+    "headline signature"
+    "support support"
+    "description description"
+    "actions actions" !important;
+  align-content: center !important;
+  column-gap: clamp(44px, 7vw, 132px) !important;
+  row-gap: 16px !important;
+  padding: clamp(52px, 6vw, 96px) clamp(48px, 7vw, 136px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  grid-area: headline !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: 18px !important;
+  border-left: 3px solid #8dbfff !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  display: block !important;
+  width: min(100%, 760px) !important;
+  max-width: none !important;
+  font-size: clamp(2.35rem, 3.55vw, 4.7rem) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -.045em !important;
+  text-wrap: balance !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  grid-area: signature !important;
+  align-self: end !important;
+  justify-self: start !important;
+  width: min(100%, 420px) !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(141, 191, 255, .34) !important;
+  color: rgba(255, 255, 255, .84) !important;
+  font-size: clamp(1.25rem, 1.7vw, 2rem) !important;
+  font-weight: 760 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+  text-align: left !important;
+  text-shadow: none !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle,
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  width: min(980px, 72vw) !important;
+  max-width: none !important;
+  min-width: 420px !important;
+  margin-left: 21px !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  columns: auto !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  grid-area: support !important;
+  font-size: clamp(1.02rem, 1.15vw, 1.22rem) !important;
+  line-height: 1.55 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  grid-area: description !important;
+  color: rgba(231, 241, 255, .76) !important;
+  font-size: clamp(.98rem, 1.05vw, 1.08rem) !important;
+  line-height: 1.68 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  grid-area: actions !important;
+  margin: 16px 0 0 21px !important;
+}
+
+.nu-home .dago-mosaic__panel::before {
+  background:
+    linear-gradient(180deg, rgba(1, 7, 16, .08), rgba(1, 7, 16, .76)),
+    linear-gradient(90deg, rgba(5, 18, 34, .72), rgba(12, 58, 105, .36)),
+    linear-gradient(rgba(255, 255, 255, .046) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .046) 1px, transparent 1px),
+    linear-gradient(125deg, transparent 0 28%, rgba(141, 191, 255, .13) 28% 28.5%, transparent 28.5% 100%) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .dago-mosaic__panel::after {
+  display: block !important;
+  content: "" !important;
+  position: absolute !important;
+  top: clamp(24px, 4vw, 56px) !important;
+  right: clamp(24px, 4vw, 56px) !important;
+  width: clamp(96px, 10vw, 170px) !important;
+  height: clamp(96px, 10vw, 170px) !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(141, 191, 255, .18) !important;
+  background:
+    radial-gradient(circle, transparent 0 35%, rgba(141, 191, 255, .14) 36% 37%, transparent 38% 58%, rgba(255, 255, 255, .1) 59% 60%, transparent 61%),
+    conic-gradient(from 120deg, transparent 0 20%, rgba(141, 191, 255, .16) 20% 24%, transparent 24% 50%, rgba(255, 255, 255, .08) 50% 54%, transparent 54%) !important;
+  opacity: .82 !important;
+  z-index: 0 !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated,
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    min-height: auto !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    display: flex !important;
+    padding: 46px 22px 58px !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__subtitle,
+  .nu-home .dago-hero--integrated .dago-hero__desc {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* HOME PANEL MATCH PASS
+   Makes the hero match the diagnostic/remanufacture/warranty panels and fixes stacked text. */
+.nu-home {
+  --tn-panel-blue: #071120;
+  --tn-panel-blue-2: #0d315e;
+  --tn-panel-blue-3: #06111f;
+  --tn-panel-line: rgba(255, 255, 255, .14);
+  --tn-panel-grid: rgba(255, 255, 255, .055);
+}
+
+.nu-home .dago-hero--integrated {
+  display: block !important;
+  min-height: auto !important;
+  padding: 0 !important;
+  border-bottom: 1px solid var(--tn-panel-line) !important;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .64)),
+    linear-gradient(90deg, rgba(5, 18, 34, .92), rgba(12, 58, 105, .58)),
+    radial-gradient(circle at 78% 32%, rgba(147, 197, 253, .22), transparent 18%),
+    var(--hero-image),
+    linear-gradient(135deg, var(--tn-panel-blue), var(--tn-panel-blue-2) 58%, var(--tn-panel-blue-3)) !important;
+  background-size: cover, cover, auto, cover, auto !important;
+  background-position: center !important;
+}
+
+.nu-home .dago-hero--integrated::before {
+  display: none !important;
+}
+
+.nu-home .dago-hero--integrated::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(var(--tn-panel-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tn-panel-grid) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 4px, transparent 4px 18px) !important;
+  background-size: 46px 46px, 46px 46px, auto !important;
+  opacity: .9 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  position: relative !important;
+  z-index: 1 !important;
+  width: min(980px, 100%) !important;
+  max-width: none !important;
+  min-height: clamp(560px, 62vh, 700px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: clamp(56px, 7vw, 92px) clamp(32px, 7vw, 126px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  order: 1 !important;
+  max-width: 680px !important;
+  margin: 0 0 24px !important;
+  padding-left: 18px !important;
+  border-left: 3px solid #8dbfff !important;
+}
+
+.nu-home .dago-hero__brandline span {
+  display: block !important;
+  margin: 0 0 12px !important;
+  color: #8dbfff !important;
+  font-size: .74rem !important;
+  font-weight: 850 !important;
+  letter-spacing: .2em !important;
+  text-transform: uppercase !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  display: block !important;
+  max-width: 640px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.15rem, 3.8vw, 4.65rem) !important;
+  font-weight: 850 !important;
+  line-height: 1.06 !important;
+  letter-spacing: -.04em !important;
+  text-transform: uppercase !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  order: 2 !important;
+  max-width: 640px !important;
+  margin: 0 0 16px !important;
+  color: rgba(255, 255, 255, .96) !important;
+  font-size: clamp(2.55rem, 4.5vw, 5.25rem) !important;
+  font-weight: 560 !important;
+  line-height: .98 !important;
+  letter-spacing: -.055em !important;
+  text-shadow: 0 16px 42px rgba(0, 0, 0, .48) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  order: 3 !important;
+  max-width: 540px !important;
+  margin: 0 0 12px !important;
+  color: rgba(255, 255, 255, .9) !important;
+  font-size: clamp(.98rem, 1.05vw, 1.1rem) !important;
+  font-weight: 760 !important;
+  line-height: 1.5 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  order: 4 !important;
+  max-width: 560px !important;
+  margin: 0 !important;
+  color: rgba(231, 241, 255, .72) !important;
+  font-size: .98rem !important;
+  line-height: 1.65 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  order: 5 !important;
+  margin-top: 28px !important;
+}
+
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase,
+.nu-home .work-card {
+  background-color: var(--tn-panel-blue) !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase {
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, .58)),
+    linear-gradient(90deg, rgba(5, 18, 34, .78), rgba(12, 58, 105, .42)),
+    linear-gradient(var(--tn-panel-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tn-panel-grid) 1px, transparent 1px),
+    linear-gradient(135deg, var(--tn-panel-blue), var(--tn-panel-blue-2) 58%, var(--tn-panel-blue-3)) !important;
+  background-size: auto, auto, 46px 46px, 46px 46px, auto !important;
+}
+
+.nu-home .repair-promo {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .68)),
+    linear-gradient(90deg, rgba(5, 18, 34, .86), rgba(12, 58, 105, .48)),
+    var(--repair-promo-image, linear-gradient(135deg, var(--tn-panel-blue), var(--tn-panel-blue-2) 58%, var(--tn-panel-blue-3))) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .repair-promo h2,
+.nu-home .workshop-map__copy h2,
+.nu-home .work-showcase__header h2 {
+  max-width: 690px !important;
+  font-size: clamp(1.95rem, 2.7vw, 3.25rem) !important;
+  line-height: 1.08 !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    min-height: auto !important;
+    padding: 48px 22px 58px !important;
+  }
+
+  .nu-home .dago-hero__brandline strong {
+    font-size: clamp(1.9rem, 9vw, 3.2rem) !important;
+  }
+
+  .nu-home .dago-hero--integrated h1 {
+    font-size: clamp(2.55rem, 12vw, 4.3rem) !important;
+  }
+}
+
+/* HOME DEPTH AND HERO TEXT FLOW
+   Opens the banner copy horizontally and adds richer technical detail to the blue panels. */
+.nu-home .dago-hero--integrated {
+  background:
+    linear-gradient(90deg, rgba(3, 10, 22, .97) 0%, rgba(5, 18, 34, .9) 35%, rgba(12, 58, 105, .64) 72%, rgba(18, 111, 184, .54) 100%),
+    radial-gradient(circle at 73% 34%, rgba(105, 167, 255, .28), transparent 20%),
+    linear-gradient(112deg, transparent 0 30%, rgba(255, 255, 255, .055) 30% 42%, transparent 42% 100%),
+    var(--hero-image),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+  background-size: cover, auto, auto, cover, auto !important;
+  background-position: center !important;
+}
+
+.nu-home .dago-hero--integrated::after {
+  background:
+    linear-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .055) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .045) 0 2px, transparent 2px 18px),
+    linear-gradient(118deg, transparent 0 23%, rgba(141, 191, 255, .12) 23% 23.4%, transparent 23.4% 54%, rgba(141, 191, 255, .08) 54% 54.35%, transparent 54.35% 100%) !important;
+  background-size: 44px 44px, 44px 44px, auto, auto !important;
+  opacity: .9 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  width: min(1280px, 100%) !important;
+  min-height: clamp(560px, 58vh, 690px) !important;
+  padding: clamp(54px, 6vw, 92px) clamp(36px, 7vw, 132px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  max-width: 1040px !important;
+  margin-bottom: 28px !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  max-width: 980px !important;
+  font-size: clamp(2.05rem, 3.45vw, 4.25rem) !important;
+  line-height: 1.02 !important;
+  text-wrap: balance !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  max-width: 860px !important;
+  font-size: clamp(2.8rem, 4.1vw, 5rem) !important;
+  line-height: .98 !important;
+  text-wrap: balance !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  max-width: 760px !important;
+  font-size: clamp(1rem, 1.18vw, 1.22rem) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  max-width: 740px !important;
+  columns: 1 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  max-width: 520px !important;
+}
+
+.nu-home .dago-mosaic__panel,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase,
+.nu-home .work-card div {
+  background-blend-mode: normal !important;
+}
+
+.nu-home .dago-mosaic__panel--diagnostic {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .72)),
+    radial-gradient(circle at 78% 32%, rgba(141, 191, 255, .28), transparent 18%),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .dago-mosaic__panel--remanufacture {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .76)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .075) 0 4px, transparent 4px 18px),
+    linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+    linear-gradient(135deg, #081522, #1d436b 54%, #050b14) !important;
+  background-size: auto, auto, 42px 42px, auto !important;
+}
+
+.nu-home .dago-mosaic__panel--warranty {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .76)),
+    radial-gradient(circle at 74% 70%, rgba(255, 255, 255, .15), transparent 14%),
+    linear-gradient(130deg, transparent 0 58%, rgba(141, 191, 255, .12) 58% 58.6%, transparent 58.6% 100%),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(135deg, #06111f, #083b73 58%, #040912) !important;
+  background-size: auto, auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase {
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, .58)),
+    radial-gradient(circle at 86% 18%, rgba(141, 191, 255, .16), transparent 18%),
+    linear-gradient(118deg, transparent 0 32%, rgba(141, 191, 255, .08) 32% 32.45%, transparent 32.45% 100%),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+  background-size: auto, auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .repair-promo {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .68)),
+    radial-gradient(circle at 82% 34%, rgba(141, 191, 255, .2), transparent 20%),
+    linear-gradient(118deg, transparent 0 35%, rgba(141, 191, 255, .1) 35% 35.45%, transparent 35.45% 100%),
+    var(--repair-promo-image, linear-gradient(135deg, #071120, #0d315e 58%, #06111f)) !important;
+  background-size: cover, auto, auto, cover !important;
+  background-position: center !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .repair-promo h2,
+.nu-home .workshop-map__copy h2,
+.nu-home .work-showcase__header h2 {
+  text-wrap: balance !important;
+}
+
+@media (min-width: 1180px) {
+  .nu-home .dago-hero--integrated .dago-hero__desc {
+    max-width: 820px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 46px 22px 58px !important;
+  }
+
+  .nu-home .dago-hero__brandline strong {
+    max-width: 100% !important;
+    font-size: clamp(1.85rem, 8vw, 3.15rem) !important;
+  }
+
+  .nu-home .dago-hero--integrated h1 {
+    max-width: 100% !important;
+    font-size: clamp(2.5rem, 11vw, 4.1rem) !important;
+  }
+}
+
+/* HERO CONTENT FIX + TECHNICAL PANEL DETAIL
+   Removes the competing stacked headlines and adds engineered marks to the blue panels. */
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  min-height: clamp(520px, 56vh, 660px) !important;
+  width: min(1420px, 100%) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .34fr) !important;
+  grid-template-areas:
+    "main meta"
+    "sub meta"
+    "desc meta"
+    "actions meta" !important;
+  align-content: end !important;
+  column-gap: clamp(32px, 7vw, 120px) !important;
+  row-gap: 14px !important;
+  padding: clamp(54px, 6vw, 92px) clamp(34px, 7vw, 136px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  grid-area: main !important;
+  max-width: 1080px !important;
+  margin: 0 !important;
+  padding-left: 18px !important;
+}
+
+.nu-home .dago-hero__brandline span {
+  margin-bottom: 14px !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  max-width: 1080px !important;
+  font-size: clamp(2.25rem, 4vw, 5rem) !important;
+  line-height: 1.01 !important;
+  letter-spacing: -.045em !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  grid-area: meta !important;
+  align-self: end !important;
+  justify-self: end !important;
+  width: min(310px, 100%) !important;
+  margin: 0 !important;
+  padding: 18px 0 0 !important;
+  border-top: 1px solid rgba(141, 191, 255, .38) !important;
+  color: rgba(255, 255, 255, .86) !important;
+  font-size: clamp(1.25rem, 1.55vw, 1.75rem) !important;
+  font-weight: 780 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+  text-align: right !important;
+  text-transform: none !important;
+  text-shadow: none !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  grid-area: sub !important;
+  max-width: 880px !important;
+  margin: 8px 0 0 21px !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  grid-area: desc !important;
+  max-width: 820px !important;
+  margin-left: 21px !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  grid-area: actions !important;
+  margin: 18px 0 0 21px !important;
+}
+
+.nu-home .dago-mosaic__panel {
+  isolation: isolate !important;
+}
+
+.nu-home .dago-mosaic__panel::before {
+  background:
+    linear-gradient(180deg, rgba(1, 7, 16, .1), rgba(1, 7, 16, .74)),
+    linear-gradient(90deg, rgba(5, 18, 34, .7), rgba(12, 58, 105, .34)),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(122deg, transparent 0 24%, rgba(141, 191, 255, .12) 24% 24.5%, transparent 24.5% 100%) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .dago-mosaic__panel::after {
+  display: block !important;
+  content: "" !important;
+  position: absolute !important;
+  right: clamp(26px, 4vw, 58px) !important;
+  top: clamp(26px, 4vw, 58px) !important;
+  width: clamp(96px, 10vw, 168px) !important;
+  height: clamp(96px, 10vw, 168px) !important;
+  border: 1px solid rgba(141, 191, 255, .16) !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle, transparent 0 34%, rgba(141, 191, 255, .13) 35% 36%, transparent 37% 58%, rgba(255, 255, 255, .1) 59% 60%, transparent 61%),
+    conic-gradient(from 90deg, transparent 0 18%, rgba(141, 191, 255, .14) 18% 22%, transparent 22% 50%, rgba(255, 255, 255, .08) 50% 54%, transparent 54%) !important;
+  opacity: .8 !important;
+  z-index: 0 !important;
+}
+
+.nu-home .dago-mosaic__panel > * {
+  z-index: 1 !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.nu-home .pickup-notice::before,
+.nu-home .repair-promo::before,
+.nu-home .workshop-map__copy::before,
+.nu-home .work-showcase::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 2px, transparent 2px 18px),
+    linear-gradient(125deg, transparent 0 58%, rgba(141, 191, 255, .11) 58% 58.45%, transparent 58.45% 100%) !important;
+  opacity: .72 !important;
+}
+
+.nu-home .pickup-notice > *,
+.nu-home .repair-promo > *,
+.nu-home .workshop-map__copy > *,
+.nu-home .work-showcase > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    display: flex !important;
+    min-height: auto !important;
+    padding: 46px 22px 58px !important;
+  }
+
+  .nu-home .dago-hero--integrated h1 {
+    align-self: flex-start !important;
+    width: auto !important;
+    padding-top: 12px !important;
+    text-align: left !important;
+    font-size: 1.25rem !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__subtitle,
+  .nu-home .dago-hero--integrated .dago-hero__desc,
+  .nu-home .dago-hero--integrated .dago-hero__actions {
+    margin-left: 0 !important;
+  }
+}
+
+/* HOME BLUE SYSTEM PASS
+   Unifies spacing, type scale, and blue automotive color language across the home. */
+.nu-home {
+  --tn-bg: #061120;
+  --tn-panel: #071a33;
+  --tn-panel-2: #08244a;
+  --tn-blue: #0f5bd8;
+  --tn-blue-soft: #69a7ff;
+  --tn-line: rgba(180, 210, 255, .18);
+  --tn-text: #f7fbff;
+  --tn-muted: rgba(231, 241, 255, .76);
+  background: var(--tn-bg) !important;
+}
+
+html:has(.nu-home),
+body:has(.nu-home),
+body:has(.nu-home) #root,
+body:has(.nu-home) .app-container,
+body:has(.nu-home) .main-viewport {
+  background: var(--tn-bg, #061120) !important;
+}
+
+body:has(.nu-home) .nu-shellHeader {
+  background: linear-gradient(180deg, #071a33, #061120) !important;
+  border-bottom: 1px solid var(--tn-line, rgba(180, 210, 255, .18)) !important;
+}
+
+.nu-home .dago-hero,
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.nu-home .dago-hero--integrated {
+  grid-template-columns: minmax(0, .48fr) minmax(0, .52fr) !important;
+  min-height: clamp(560px, calc(100vh - 78px), 720px) !important;
+  background:
+    linear-gradient(90deg, rgba(4, 13, 27, .96) 0%, rgba(6, 23, 45, .88) 42%, rgba(7, 52, 96, .62) 72%, rgba(11, 93, 160, .48) 100%),
+    var(--hero-image),
+    linear-gradient(135deg, var(--tn-bg), var(--tn-panel-2)) !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  width: min(680px, 100%) !important;
+  padding: clamp(54px, 7vw, 94px) clamp(28px, 6vw, 112px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  max-width: 620px !important;
+  margin-bottom: 28px !important;
+  padding-left: 16px !important;
+  border-left: 2px solid var(--tn-blue-soft) !important;
+}
+
+.nu-home .dago-hero__brandline span {
+  color: var(--tn-blue-soft) !important;
+  font-size: .74rem !important;
+  letter-spacing: .2em !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  max-width: 560px !important;
+  color: var(--tn-text) !important;
+  font-size: clamp(1.7rem, 2.45vw, 3rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.04em !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  max-width: 560px !important;
+  margin-bottom: 18px !important;
+  color: var(--tn-text) !important;
+  font-size: clamp(3.45rem, 6.2vw, 6.9rem) !important;
+  line-height: .93 !important;
+  letter-spacing: -.06em !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  max-width: 560px !important;
+  margin-top: 0 !important;
+  color: var(--tn-text) !important;
+  font-size: clamp(1rem, 1.12vw, 1.16rem) !important;
+  line-height: 1.55 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  max-width: 570px !important;
+  color: var(--tn-muted) !important;
+  line-height: 1.7 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  margin-top: 28px !important;
+}
+
+.nu-home .dago-mosaic {
+  min-height: 330px !important;
+  border-top: 1px solid var(--tn-line) !important;
+  border-bottom: 1px solid var(--tn-line) !important;
+  background: var(--tn-bg) !important;
+}
+
+.nu-home .dago-mosaic__panel {
+  min-height: 330px !important;
+  padding: clamp(34px, 4vw, 58px) !important;
+  border-right: 1px solid var(--tn-line) !important;
+}
+
+.nu-home .dago-mosaic__panel span {
+  max-width: 460px !important;
+  color: var(--tn-text) !important;
+  font-size: clamp(1.85rem, 2.35vw, 2.9rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: .08em !important;
+}
+
+.nu-home .dago-mosaic__panel strong {
+  max-width: 380px !important;
+  color: var(--tn-muted) !important;
+  font-size: .98rem !important;
+  line-height: 1.52 !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase {
+  background:
+    linear-gradient(135deg, rgba(10, 37, 73, .96), rgba(5, 17, 32, .98)),
+    linear-gradient(rgba(180, 210, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 210, 255, .035) 1px, transparent 1px) !important;
+  background-size: auto, 42px 42px, 42px 42px !important;
+  color: var(--tn-text) !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo {
+  min-height: 230px !important;
+  padding: clamp(38px, 5vw, 72px) clamp(28px, 6vw, 112px) !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .repair-promo h2,
+.nu-home .workshop-map__copy h2,
+.nu-home .work-showcase__header h2 {
+  max-width: 760px !important;
+  color: var(--tn-text) !important;
+  font-size: clamp(2rem, 2.85vw, 3.45rem) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -.045em !important;
+}
+
+.nu-home .pickup-notice p,
+.nu-home .repair-promo p,
+.nu-home .repair-promo small,
+.nu-home .workshop-map__copy p,
+.nu-home .work-card p {
+  color: var(--tn-muted) !important;
+}
+
+.nu-home .pickup-notice span,
+.nu-home .workshop-map__copy span,
+.nu-home .work-showcase__header span {
+  color: var(--tn-blue-soft) !important;
+}
+
+.nu-home .repair-promo {
+  background:
+    linear-gradient(90deg, rgba(5, 17, 32, .96), rgba(7, 34, 68, .82)),
+    var(--repair-promo-image, linear-gradient(135deg, var(--tn-panel), var(--tn-panel-2))) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.nu-home .workshop-map {
+  border-top: 1px solid var(--tn-line) !important;
+  border-bottom: 1px solid var(--tn-line) !important;
+  background: var(--tn-bg) !important;
+}
+
+.nu-home .workshop-map__copy {
+  padding: clamp(42px, 5vw, 76px) clamp(28px, 6vw, 108px) !important;
+}
+
+.nu-home .workshop-map__frame {
+  border-left: 1px solid var(--tn-line) !important;
+  background: var(--tn-panel) !important;
+}
+
+.nu-home .work-showcase {
+  padding: clamp(42px, 5vw, 76px) clamp(28px, 6vw, 112px) !important;
+}
+
+.nu-home .work-showcase__grid {
+  border: 1px solid var(--tn-line) !important;
+  background: var(--tn-bg) !important;
+}
+
+.nu-home .work-card {
+  border-right: 1px solid var(--tn-line) !important;
+  background: var(--tn-panel) !important;
+}
+
+.nu-home .work-card div {
+  background: linear-gradient(180deg, var(--tn-panel), var(--tn-bg)) !important;
+}
+
+.nu-home .work-card h3 {
+  color: var(--tn-text) !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    padding: 46px 22px 58px !important;
+  }
+
+  .nu-home .dago-hero--integrated h1 {
+    font-size: clamp(3rem, 13vw, 5.4rem) !important;
+  }
+
+  .nu-home .dago-mosaic {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-home .dago-mosaic__panel {
+    min-height: 260px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--tn-line) !important;
+  }
+}
+
+/* BLUE GLASS HOME POLISH
+   Final visual layer: full-bleed blue background with clean glass panels. */
+html:has(.nu-home),
+body:has(.nu-home),
+body:has(.nu-home) #root,
+body:has(.nu-home) .app-container,
+body:has(.nu-home) .main-viewport {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(42, 137, 255, .25), transparent 34%),
+    radial-gradient(circle at 86% 18%, rgba(20, 184, 166, .15), transparent 34%),
+    linear-gradient(rgba(147, 197, 253, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, .055) 1px, transparent 1px),
+    linear-gradient(135deg, #061225 0%, #0a2f63 48%, #061a34 100%) !important;
+  background-size: auto, auto, 34px 34px, 34px 34px, auto !important;
+}
+
+body:has(.nu-home) .nu-shellHeader {
+  background:
+    linear-gradient(180deg, rgba(13, 45, 89, .86), rgba(7, 20, 38, .76)) !important;
+  border-bottom: 1px solid rgba(191, 219, 254, .26) !important;
+  box-shadow: 0 18px 44px rgba(0, 16, 38, .22) !important;
+  backdrop-filter: blur(18px) saturate(145%) !important;
+}
+
+body:has(.nu-home) .nu-brand {
+  color: #f8fbff !important;
+  letter-spacing: -.01em !important;
+}
+
+body:has(.nu-home) .nu-navLink {
+  color: rgba(226, 239, 255, .9) !important;
+}
+
+body:has(.nu-home) .nu-navLink:hover,
+body:has(.nu-home) .nu-navLink--active,
+body:has(.nu-home) .nu-navButton,
+body:has(.nu-home) .nu-navButton--primary {
+  color: #ffffff !important;
+  border-color: rgba(147, 197, 253, .42) !important;
+  background: rgba(30, 96, 172, .42) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18) !important;
+}
+
+.nu-home {
+  background:
+    radial-gradient(circle at 20% 5%, rgba(35, 129, 244, .22), transparent 30%),
+    radial-gradient(circle at 88% 0%, rgba(56, 189, 248, .14), transparent 32%),
+    linear-gradient(rgba(191, 219, 254, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(191, 219, 254, .055) 1px, transparent 1px),
+    linear-gradient(145deg, #061225 0%, #082a58 48%, #061528 100%) !important;
+  background-size: auto, auto, 34px 34px, 34px 34px, auto !important;
+}
+
+.nu-home .dago-hero,
+.nu-home .dago-mosaic,
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map,
+.nu-home .work-showcase {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(191, 219, 254, .2) !important;
+  background-color: transparent !important;
+}
+
+.nu-home .dago-hero--integrated {
+  position: relative !important;
+  isolation: isolate !important;
+  min-height: min(650px, calc(100vh - 78px)) !important;
+  background:
+    linear-gradient(105deg, rgba(3, 12, 27, .88) 0%, rgba(6, 31, 70, .78) 46%, rgba(14, 116, 184, .62) 100%),
+    var(--hero-image),
+    linear-gradient(135deg, #061225, #0e5ca4) !important;
+  background-size: cover, cover, auto !important;
+  background-position: center, center, center !important;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .12) !important;
+}
+
+.nu-home .dago-hero--integrated::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: clamp(18px, 2.4vw, 34px) !important;
+  z-index: -1 !important;
+  border: 1px solid rgba(191, 219, 254, .26) !important;
+  border-radius: 0 !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .045)),
+    linear-gradient(90deg, rgba(255, 255, 255, .045), transparent 48%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .2),
+    0 28px 80px rgba(1, 13, 31, .34) !important;
+  backdrop-filter: blur(12px) saturate(128%) !important;
+}
+
+.nu-home .dago-hero--integrated::after {
+  background:
+    linear-gradient(rgba(191, 219, 254, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(191, 219, 254, .06) 1px, transparent 1px),
+    linear-gradient(115deg, transparent 0 34%, rgba(255, 255, 255, .055) 34% 48%, transparent 48% 100%) !important;
+  background-size: 36px 36px, 36px 36px, auto !important;
+  opacity: 1 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  padding: clamp(54px, 8vw, 104px) clamp(34px, 7vw, 116px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  border-left: 3px solid rgba(147, 197, 253, .9) !important;
+  padding-left: 18px !important;
+  gap: 10px !important;
+}
+
+.nu-home .dago-hero__brandline span {
+  color: #b9d7ff !important;
+  font-size: .77rem !important;
+  letter-spacing: .18em !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  max-width: 640px !important;
+  color: #ffffff !important;
+  font-size: clamp(1.45rem, 2.1vw, 2.4rem) !important;
+  line-height: 1.13 !important;
+  letter-spacing: -.035em !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  color: #f8fbff !important;
+  font-size: clamp(3.2rem, 6.2vw, 6.8rem) !important;
+  line-height: .92 !important;
+  letter-spacing: -.055em !important;
+  text-shadow: 0 20px 60px rgba(0, 0, 0, .28) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  color: #ffffff !important;
+  font-size: clamp(1rem, 1.35vw, 1.25rem) !important;
+  line-height: 1.55 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  color: rgba(226, 239, 255, .82) !important;
+  font-size: clamp(.98rem, 1.18vw, 1.12rem) !important;
+  line-height: 1.72 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-btn,
+.nu-home .pickup-notice button,
+.nu-home .repair-promo button,
+.nu-home .workshop-map__copy a {
+  min-height: 48px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(191, 219, 254, .28) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.01em !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .18),
+    0 14px 34px rgba(1, 13, 31, .24) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-btn--light {
+  color: #083266 !important;
+  background: linear-gradient(180deg, #ffffff, #dbeafe) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-btn--dark,
+.nu-home .pickup-notice button,
+.nu-home .repair-promo button,
+.nu-home .workshop-map__copy a {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, rgba(37, 99, 235, .78), rgba(13, 71, 161, .9)) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__product {
+  filter: drop-shadow(0 24px 38px rgba(0, 13, 31, .34)) !important;
+  opacity: .94 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__disc {
+  border-color: rgba(225, 239, 255, .9) !important;
+  background:
+    radial-gradient(circle, #1a2d45 0 16%, #f8fbff 17% 26%, #8ea3bc 27% 54%, #d8e4f2 55% 100%) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__part {
+  background: linear-gradient(145deg, rgba(16, 30, 52, .98), rgba(5, 15, 31, .95)) !important;
+  border: 1px solid rgba(191, 219, 254, .12) !important;
+}
+
+.nu-home .dago-mosaic {
+  min-height: 330px !important;
+  gap: 1px !important;
+  padding: 0 !important;
+  background: rgba(191, 219, 254, .16) !important;
+}
+
+.nu-home .dago-mosaic__panel {
+  min-height: 330px !important;
+  border: 0 !important;
+  padding: clamp(34px, 4vw, 62px) !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .14), rgba(255, 255, 255, .045)),
+    linear-gradient(180deg, rgba(8, 47, 101, .8), rgba(3, 12, 27, .84)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14) !important;
+  backdrop-filter: blur(14px) saturate(132%) !important;
+}
+
+.nu-home .dago-mosaic__panel::before {
+  inset: 16px !important;
+  border: 1px solid rgba(191, 219, 254, .22) !important;
+  background:
+    linear-gradient(rgba(191, 219, 254, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(191, 219, 254, .055) 1px, transparent 1px) !important;
+  background-size: 28px 28px !important;
+  opacity: .82 !important;
+}
+
+.nu-home .dago-mosaic__panel::after {
+  inset: auto 26px 24px auto !important;
+  width: 94px !important;
+  height: 94px !important;
+  border: 1px solid rgba(191, 219, 254, .2) !important;
+  background: radial-gradient(circle, rgba(219, 234, 254, .18), rgba(147, 197, 253, .04) 60%, transparent 62%) !important;
+  opacity: .7 !important;
+}
+
+.nu-home .dago-mosaic__panel span {
+  color: #ffffff !important;
+  font-size: clamp(1.95rem, 2.5vw, 3rem) !important;
+  line-height: 1.14 !important;
+  letter-spacing: .11em !important;
+  text-shadow: 0 14px 34px rgba(0, 0, 0, .35) !important;
+}
+
+.nu-home .dago-mosaic__panel strong {
+  max-width: 410px !important;
+  color: rgba(226, 239, 255, .9) !important;
+  font-size: 1rem !important;
+  line-height: 1.55 !important;
+}
+
+.nu-home .dago-mosaic__panel small {
+  color: #ffffff !important;
+  border-color: rgba(191, 219, 254, .34) !important;
+  background: rgba(6, 22, 45, .38) !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .workshop-map__frame,
+.nu-home .work-showcase {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .045)),
+    linear-gradient(135deg, rgba(8, 47, 101, .76), rgba(3, 12, 27, .78)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14) !important;
+  backdrop-filter: blur(14px) saturate(132%) !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo {
+  min-height: 230px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 28px !important;
+}
+
+.nu-home .pickup-notice span,
+.nu-home .workshop-map__copy span,
+.nu-home .work-showcase__header span {
+  color: #b9d7ff !important;
+  background: rgba(37, 99, 235, .22) !important;
+  border: 1px solid rgba(147, 197, 253, .24) !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .repair-promo h2,
+.nu-home .workshop-map__copy h2,
+.nu-home .work-showcase__header h2 {
+  color: #ffffff !important;
+  letter-spacing: -.04em !important;
+}
+
+.nu-home .pickup-notice p,
+.nu-home .repair-promo p,
+.nu-home .repair-promo small,
+.nu-home .workshop-map__copy p {
+  color: rgba(226, 239, 255, .82) !important;
+  line-height: 1.7 !important;
+}
+
+.nu-home .repair-promo {
+  position: relative !important;
+  isolation: isolate !important;
+  background:
+    linear-gradient(100deg, rgba(3, 12, 27, .86), rgba(8, 47, 101, .78)),
+    var(--repair-promo-image, linear-gradient(135deg, #061225, #0e5ca4)) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.nu-home .repair-promo::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 18px !important;
+  z-index: -1 !important;
+  border: 1px solid rgba(191, 219, 254, .22) !important;
+  background: rgba(255, 255, 255, .045) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.nu-home .workshop-map {
+  gap: 1px !important;
+  background: rgba(191, 219, 254, .16) !important;
+}
+
+.nu-home .workshop-map__copy,
+.nu-home .workshop-map__frame {
+  min-height: 420px !important;
+}
+
+.nu-home .workshop-map__frame iframe {
+  filter: saturate(.88) contrast(1.08) brightness(.86) !important;
+}
+
+.nu-home .work-showcase {
+  padding: clamp(42px, 5vw, 72px) clamp(28px, 6vw, 96px) !important;
+}
+
+.nu-home .work-showcase__grid {
+  gap: 1px !important;
+  background: rgba(191, 219, 254, .16) !important;
+}
+
+.nu-home .work-card {
+  border: 0 !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .04)),
+    rgba(5, 16, 33, .78) !important;
+  backdrop-filter: blur(12px) saturate(128%) !important;
+}
+
+.nu-home .work-card img {
+  filter: saturate(.94) contrast(1.04) !important;
+}
+
+.nu-home .work-card div {
+  background: rgba(4, 14, 30, .72) !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated::before {
+    inset: 14px !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    padding: 50px 28px !important;
+  }
+
+  .nu-home .dago-mosaic {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-home .dago-mosaic__panel {
+    min-height: 255px !important;
+  }
+
+  .nu-home .pickup-notice,
+  .nu-home .repair-promo {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+}
+
+/* AUTOMOTIVE PREMIUM HOME
+   Cadillac/Ford-inspired correction: full-bleed editorial sections, no cheap glass frame. */
+html:has(.nu-home),
+body:has(.nu-home),
+body:has(.nu-home) #root,
+body:has(.nu-home) .app-container,
+body:has(.nu-home) .main-viewport,
+.nu-home {
+  background: #06111f !important;
+}
+
+body:has(.nu-home) .nu-shellHeader {
+  min-height: 78px !important;
+  background: rgba(5, 17, 34, .96) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .12) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+body:has(.nu-home) .nu-logo {
+  border: 1px solid rgba(255, 255, 255, .14) !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+body:has(.nu-home) .nu-navLink {
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: .92rem !important;
+  font-weight: 700 !important;
+}
+
+body:has(.nu-home) .nu-navLink:hover {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+body:has(.nu-home) .nu-navButton {
+  border-radius: 4px !important;
+  color: #08264a !important;
+  background: #eaf2ff !important;
+  box-shadow: none !important;
+}
+
+body:has(.nu-home) .nu-navButton--primary {
+  color: #ffffff !important;
+  background: #0f5bd8 !important;
+}
+
+.nu-home .dago-hero--integrated {
+  display: grid !important;
+  grid-template-columns: minmax(0, .44fr) minmax(0, .56fr) !important;
+  min-height: clamp(620px, calc(100vh - 78px), 780px) !important;
+  border: 0 !important;
+  border-bottom: 6px solid #040912 !important;
+  background:
+    linear-gradient(90deg, rgba(3, 10, 22, .96) 0%, rgba(4, 15, 32, .9) 35%, rgba(4, 20, 45, .52) 64%, rgba(7, 87, 153, .35) 100%),
+    var(--hero-image),
+    linear-gradient(135deg, #050f1d 0%, #073c73 100%) !important;
+  background-size: cover, cover, auto !important;
+  background-position: center, center, center !important;
+  box-shadow: none !important;
+}
+
+.nu-home .dago-hero--integrated::before {
+  display: none !important;
+}
+
+.nu-home .dago-hero--integrated::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px),
+    linear-gradient(100deg, rgba(255, 255, 255, .06) 0 1px, transparent 1px 100%) !important;
+  background-size: 56px 56px, 56px 56px, auto !important;
+  opacity: .65 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  align-self: center !important;
+  width: min(650px, 100%) !important;
+  padding: clamp(60px, 8vw, 120px) clamp(34px, 6.5vw, 118px) !important;
+}
+
+.nu-home .dago-hero__brandline {
+  margin-bottom: 34px !important;
+  padding-left: 18px !important;
+  border-left: 2px solid #69a7ff !important;
+}
+
+.nu-home .dago-hero__brandline span {
+  margin-bottom: 12px !important;
+  color: #9fc8ff !important;
+  font-size: .78rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .22em !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 3.1vw, 3.45rem) !important;
+  font-weight: 850 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.045em !important;
+  text-transform: uppercase !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  max-width: 620px !important;
+  margin: 0 0 18px !important;
+  color: #ffffff !important;
+  font-size: clamp(4.15rem, 7.6vw, 8.6rem) !important;
+  font-weight: 500 !important;
+  line-height: .9 !important;
+  letter-spacing: -.07em !important;
+  text-shadow: 0 24px 64px rgba(0, 0, 0, .38) !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  max-width: 520px !important;
+  color: #ffffff !important;
+  font-size: clamp(1.05rem, 1.2vw, 1.22rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.55 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  max-width: 560px !important;
+  color: rgba(231, 241, 255, .78) !important;
+  font-size: clamp(.98rem, 1.05vw, 1.08rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.75 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  margin-top: 32px !important;
+  gap: 12px !important;
+}
+
+.nu-home .dago-hero--integrated .dago-btn,
+.nu-home .pickup-notice button,
+.nu-home .repair-promo button,
+.nu-home .workshop-map__copy a {
+  min-width: 162px !important;
+  min-height: 52px !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 255, 255, .18) !important;
+  box-shadow: none !important;
+  font-size: .92rem !important;
+  font-weight: 850 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-btn--light {
+  color: #061a33 !important;
+  background: #ffffff !important;
+}
+
+.nu-home .dago-hero--integrated .dago-btn--dark,
+.nu-home .pickup-notice button,
+.nu-home .repair-promo button,
+.nu-home .workshop-map__copy a {
+  color: #ffffff !important;
+  background: #0f5bd8 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__product {
+  display: none !important;
+}
+
+.nu-home .dago-mosaic {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  min-height: 390px !important;
+  gap: 0 !important;
+  border-bottom: 6px solid #040912 !important;
+  background: #040912 !important;
+}
+
+.nu-home .dago-mosaic__panel {
+  position: relative !important;
+  min-height: 390px !important;
+  justify-content: flex-end !important;
+  gap: 16px !important;
+  padding: clamp(34px, 4.2vw, 68px) !important;
+  border: 0 !important;
+  border-right: 1px solid rgba(255, 255, 255, .14) !important;
+  overflow: hidden !important;
+  background-size: cover !important;
+  background-position: center !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.nu-home .dago-mosaic__panel:last-child {
+  border-right: 0 !important;
+}
+
+.nu-home .dago-mosaic__panel::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border: 0 !important;
+  background:
+    linear-gradient(180deg, rgba(1, 7, 16, .12) 0%, rgba(1, 7, 16, .76) 100%),
+    linear-gradient(90deg, rgba(5, 18, 34, .72), rgba(12, 58, 105, .38)) !important;
+  opacity: 1 !important;
+}
+
+.nu-home .dago-mosaic__panel::after {
+  display: none !important;
+}
+
+.nu-home .dago-mosaic__panel--diagnostic {
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, .72)),
+    radial-gradient(circle at 82% 28%, rgba(147, 197, 253, .26), transparent 18%),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+}
+
+.nu-home .dago-mosaic__panel--remanufacture {
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, .76)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .08) 0 4px, transparent 4px 18px),
+    linear-gradient(135deg, #081522, #1d436b 54%, #050b14) !important;
+}
+
+.nu-home .dago-mosaic__panel--warranty {
+  background:
+    linear-gradient(180deg, transparent, rgba(0, 0, 0, .76)),
+    radial-gradient(circle at 74% 70%, rgba(255, 255, 255, .14), transparent 14%),
+    linear-gradient(135deg, #06111f, #083b73 58%, #040912) !important;
+}
+
+.nu-home .dago-mosaic__panel > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.nu-home .dago-mosaic__panel span {
+  max-width: 520px !important;
+  color: #ffffff !important;
+  font-size: clamp(2.1rem, 2.8vw, 3.45rem) !important;
+  font-weight: 850 !important;
+  line-height: 1.08 !important;
+  letter-spacing: .09em !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 18px 42px rgba(0, 0, 0, .48) !important;
+}
+
+.nu-home .dago-mosaic__panel strong {
+  max-width: 420px !important;
+  color: rgba(255, 255, 255, .82) !important;
+  font-size: 1rem !important;
+  font-weight: 650 !important;
+  line-height: 1.55 !important;
+}
+
+.nu-home .dago-mosaic__panel small {
+  align-self: flex-start !important;
+  padding: 9px 14px !important;
+  border-radius: 0 !important;
+  border: 1px solid rgba(255, 255, 255, .34) !important;
+  color: #ffffff !important;
+  background: transparent !important;
+  font-size: .78rem !important;
+  font-weight: 850 !important;
+  letter-spacing: .06em !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase {
+  border-bottom: 6px solid #040912 !important;
+  background: #071323 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo {
+  min-height: 250px !important;
+  padding: clamp(42px, 5.4vw, 84px) clamp(34px, 7vw, 128px) !important;
+}
+
+.nu-home .pickup-notice {
+  background:
+    linear-gradient(90deg, rgba(5, 17, 34, .96), rgba(8, 48, 94, .86)),
+    linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px) !important;
+  background-size: auto, 42px 42px, 42px 42px !important;
+}
+
+.nu-home .pickup-notice span,
+.nu-home .workshop-map__copy span,
+.nu-home .work-showcase__header span {
+  padding: 0 !important;
+  border: 0 !important;
+  color: #8dbfff !important;
+  background: transparent !important;
+  font-size: .76rem !important;
+  font-weight: 850 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .repair-promo h2,
+.nu-home .workshop-map__copy h2,
+.nu-home .work-showcase__header h2 {
+  color: #ffffff !important;
+  font-size: clamp(2.2rem, 3.2vw, 4rem) !important;
+  font-weight: 780 !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.055em !important;
+}
+
+.nu-home .pickup-notice p,
+.nu-home .repair-promo p,
+.nu-home .repair-promo small,
+.nu-home .workshop-map__copy p {
+  max-width: 780px !important;
+  color: rgba(231, 241, 255, .76) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
+
+.nu-home .repair-promo {
+  background:
+    linear-gradient(90deg, rgba(3, 10, 22, .96), rgba(3, 10, 22, .62)),
+    var(--repair-promo-image, linear-gradient(135deg, #061225, #0b4f96)) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.nu-home .repair-promo::after {
+  display: none !important;
+}
+
+.nu-home .workshop-map {
+  gap: 0 !important;
+  border-bottom: 6px solid #040912 !important;
+  background: #040912 !important;
+}
+
+.nu-home .workshop-map__copy {
+  padding: clamp(42px, 5vw, 84px) clamp(34px, 6vw, 112px) !important;
+}
+
+.nu-home .workshop-map__frame {
+  border-left: 1px solid rgba(255, 255, 255, .14) !important;
+  background: #071323 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.nu-home .work-showcase {
+  padding: clamp(46px, 5.2vw, 84px) clamp(34px, 7vw, 128px) !important;
+  background:
+    linear-gradient(180deg, #071323, #050b14) !important;
+}
+
+.nu-home .work-showcase__header {
+  margin-bottom: 32px !important;
+}
+
+.nu-home .work-showcase__grid {
+  gap: 0 !important;
+  background: #040912 !important;
+}
+
+.nu-home .work-card {
+  border-right: 1px solid rgba(255, 255, 255, .14) !important;
+  border-radius: 0 !important;
+  background: #071323 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.nu-home .work-card:last-child {
+  border-right: 0 !important;
+}
+
+.nu-home .work-card img {
+  aspect-ratio: 16 / 10 !important;
+  filter: saturate(.88) contrast(1.08) brightness(.82) !important;
+}
+
+.nu-home .work-card div {
+  padding: 24px !important;
+  background: #071323 !important;
+}
+
+.nu-home .work-card h3 {
+  color: #ffffff !important;
+  font-size: 1.05rem !important;
+  letter-spacing: -.02em !important;
+}
+
+.nu-home .work-card p {
+  color: rgba(231, 241, 255, .7) !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    padding: 56px 24px 64px !important;
+  }
+
+  .nu-home .dago-hero--integrated h1 {
+    font-size: clamp(3.25rem, 14vw, 5.4rem) !important;
+  }
+
+  .nu-home .dago-mosaic {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-home .dago-mosaic__panel {
+    min-height: 300px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .14) !important;
+  }
+
+  .nu-home .pickup-notice,
+  .nu-home .repair-promo {
+    align-items: flex-start !important;
+  }
+
+  .nu-home .workshop-map {
+    grid-template-columns: 1fr !important;
+  }
 }

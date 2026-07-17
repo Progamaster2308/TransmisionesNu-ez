@@ -3,10 +3,12 @@ import {
   normalizeMoney,
   safeDateISO,
   sanitizeEmail,
+  sanitizeInternalPath,
   sanitizeLongMessage,
   sanitizePersonName,
   sanitizePhone,
   sanitizeText,
+  sanitizeUrl,
   sanitizeVehicleText,
   sanitizeVehicleYear
 } from '../../app/providers/marketplaceStorage';
@@ -111,9 +113,9 @@ function normalizeBannerPayload(banner, fallback) {
     subtitulo: sanitizeText(banner.subtitulo, 180) || fallback.subtitulo,
     descripcion: sanitizeText(banner.descripcion, 320) || fallback.descripcion,
     cta_label: sanitizeText(banner.cta_label, 40) || fallback.cta_label,
-    cta_link: sanitizeText(banner.cta_link, 120) || fallback.cta_link,
-    imagen: sanitizeText(banner.imagen, 500) || '',
-    splash_image: sanitizeText(banner.splash_image, 500) || '',
+    cta_link: sanitizeInternalPath(banner.cta_link, fallback.cta_link),
+    imagen: sanitizeUrl(banner.imagen, 500) || '',
+    splash_image: sanitizeUrl(banner.splash_image, 500) || '',
     enabled: Boolean(banner.enabled ?? true)
   };
 }
@@ -127,7 +129,7 @@ function normalizeProductPayload(product) {
     precio: normalizeMoney(product.precio),
     precioOriginal: normalizeMoney(product.precioOriginal),
     descuento: sanitizeText(product.descuento, 40) || null,
-    imagen: sanitizeText(product.imagen, 500) || null,
+    imagen: sanitizeUrl(product.imagen, 500) || null,
     rating: Math.min(5, Math.max(0, Math.floor(Number(product.rating) || 5))),
     stock: Math.max(0, Math.floor(Number(product.stock) || 0)),
     envioGratis: false
@@ -139,7 +141,7 @@ function normalizeWorkShowcasePayload(item, index = 0) {
     slot: Math.max(1, Math.min(3, Math.floor(Number(item.slot ?? index + 1) || index + 1))),
     titulo: sanitizeText(item.titulo, 100),
     descripcion: sanitizeText(item.descripcion, 260),
-    imagen: sanitizeText(item.imagen, 2500000) || '',
+    imagen: sanitizeUrl(item.imagen, 2500000) || '',
     enabled: Boolean(item.enabled ?? true)
   };
 }
@@ -348,9 +350,24 @@ export async function createOrder(order) {
     throw new Error('Datos de orden inválidos');
   }
 
-  const result = await supabase.from('orders').insert(payload);
-  unwrapSupabase(result);
-  return { ...payload, id };
+  const result = await supabase.rpc('create_order_with_stock', {
+    p_id: id,
+    p_customer_name: payload.customer_name,
+    p_customer_email: payload.customer_email,
+    p_notas: payload.notas,
+    p_pickup_date: payload.pickup_date,
+    p_total: payload.total,
+    p_items: payload.items
+  });
+
+  const saved = unwrapSupabase(result) ?? {};
+  return {
+    ...payload,
+    id: saved.id || id,
+    total: Number.isFinite(Number(saved.total)) ? Number(saved.total) : payload.total,
+    items: Array.isArray(saved.items) ? saved.items : payload.items,
+    status
+  };
 }
 
 export async function getOrder(orderId) {

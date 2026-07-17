@@ -4,6 +4,12 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../providers/useAuth';
 import { useToast } from '../providers/useToast';
 import { sanitizeEmail } from '../providers/marketplaceStorage';
+import {
+  formatLockTime,
+  getAdminLoginLock,
+  registerAdminLoginFailure,
+  resetAdminLoginLock
+} from '../providers/adminLoginSecurity';
 
 export default function AdminLoginPage() {
   const { isAdmin, loading, signIn } = useAuth();
@@ -13,6 +19,7 @@ export default function AdminLoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [lock, setLock] = useState(() => getAdminLoginLock());
 
   const redirectTo = location.state?.from?.pathname ?? '/admin';
 
@@ -22,9 +29,17 @@ export default function AdminLoginPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const currentLock = getAdminLoginLock();
+
+    if (currentLock.locked) {
+      setLock(currentLock);
+      showToast(`Demasiados intentos. Espera ${formatLockTime(currentLock.remainingMs)}.`);
+      return;
+    }
+
     const safeEmail = sanitizeEmail(email);
 
-    if (!safeEmail || password.length < 6) {
+    if (!safeEmail || password.length < 8 || password.length > 128) {
       showToast('Ingresa credenciales validas.');
       return;
     }
@@ -32,33 +47,28 @@ export default function AdminLoginPage() {
     setSubmitting(true);
     try {
       await signIn(safeEmail, password);
+      resetAdminLoginLock();
+      setLock(getAdminLoginLock());
       showToast('Sesion admin iniciada.');
       navigate(redirectTo, { replace: true });
     } catch (error) {
       console.error(error);
-      showToast(error?.message ? `Error: ${error.message}` : 'No se pudo iniciar sesion.');
+      const nextLock = registerAdminLoginFailure();
+      setLock(nextLock);
+      showToast(nextLock.locked
+        ? `Demasiados intentos. Espera ${formatLockTime(nextLock.remainingMs)}.`
+        : `No se pudo iniciar sesion. Intentos restantes: ${nextLock.remainingAttempts}.`);
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <main style={{ width: 'min(520px, calc(100% - 32px))', margin: '0 auto', padding: '48px 0' }}>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: 'grid',
-          gap: 16,
-          padding: 24,
-          border: '1px solid #d9e2ef',
-          borderRadius: 8,
-          background: '#ffffff',
-          boxShadow: '0 18px 42px rgba(15, 23, 42, .08)'
-        }}
-      >
+    <main className="adminLoginPage">
+      <form className="adminLoginPanel" onSubmit={handleSubmit}>
         <div>
-          <h2 style={{ margin: 0, color: '#0f172a' }}>Admin</h2>
-          <p style={{ margin: '6px 0 0', color: '#526173', fontWeight: 700 }}>
+          <h2>Admin</h2>
+          <p>
             Inicia sesion con tu usuario de Supabase.
           </p>
         </div>
@@ -88,9 +98,15 @@ export default function AdminLoginPage() {
           />
         </div>
 
-        <button className="apSubmit" type="submit" disabled={submitting || loading}>
-          {submitting ? 'Entrando...' : 'Entrar'}
+        <button className="apSubmit" type="submit" disabled={submitting || loading || lock.locked}>
+          {lock.locked ? `Espera ${formatLockTime(lock.remainingMs)}` : submitting ? 'Entrando...' : 'Entrar'}
         </button>
+
+        {lock.locked && (
+          <p className="adminLoginWarning">
+            Acceso pausado por seguridad. Intenta nuevamente en {formatLockTime(lock.remainingMs)}.
+          </p>
+        )}
       </form>
     </main>
   );

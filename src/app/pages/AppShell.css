@@ -110,6 +110,48 @@
   background: #1d4ed8;
 }
 
+.nu-shellHeader {
+  background: rgba(255, 255, 255, .86);
+  border-bottom-color: rgba(148, 163, 184, .36);
+  box-shadow:
+    0 10px 30px rgba(2, 6, 23, .06),
+    0 1px 0 rgba(255, 255, 255, .72) inset;
+}
+
+.nu-brand {
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 560;
+}
+
+.nu-brandMark {
+  box-shadow:
+    0 10px 24px rgba(2, 6, 23, .08),
+    0 0 24px rgba(37, 99, 235, .08);
+}
+
+.nu-navLink,
+.nu-cartLink,
+.nu-adminBtn {
+  font-weight: 520;
+}
+
+.nu-navLink:hover,
+.nu-cartLink:hover,
+.nu-adminBtn:hover {
+  transform: translateY(-1px);
+}
+
+.nu-cartLink {
+  border-color: rgba(147, 197, 253, .52);
+  background: rgba(239, 246, 255, .82);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, .06);
+}
+
+.nu-adminBtn {
+  background: linear-gradient(135deg, #0b3d86, #0f62c9);
+  box-shadow: 0 14px 30px rgba(15, 98, 201, .18);
+}
+
 .main-viewport {
   min-height: calc(100vh - 74px);
 }

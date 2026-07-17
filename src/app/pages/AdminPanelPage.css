@@ -494,3 +494,267 @@
     align-items: stretch;
   }
 }
+
+.admin-hero,
+.admin-card,
+.admin-previewCard,
+.adminMetrics div,
+.adminWorkEditor,
+.adminProductRow,
+.availabilityDay {
+  border-color: var(--nu-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(248, 250, 252, .95));
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.admin-card,
+.adminProductRow,
+.adminWorkEditor,
+.availabilityDay {
+  transition: border-color .16s ease, box-shadow .16s ease;
+}
+
+.admin-card:hover,
+.adminProductRow:hover,
+.adminWorkEditor:hover,
+.availabilityDay:hover {
+  border-color: var(--nu-line-strong);
+  box-shadow: var(--nu-shadow-hover);
+}
+
+.admin-hero h1,
+.admin-cardHeader h2,
+.adminMetrics strong,
+.adminProductRow strong {
+  font-family: var(--nu-display-font);
+  font-weight: 760;
+}
+
+.admin-hero p,
+.adminProductRow span {
+  font-weight: 560;
+}
+
+.admin-kicker,
+.admin-linkBtn,
+.admin-saveBtn,
+.admin-resetBtn,
+.admin-check,
+.adminWorkImage {
+  font-weight: 720;
+}
+
+.admin-field span {
+  color: #334155;
+  font-size: .86rem;
+  font-weight: 720;
+}
+
+.admin-field input,
+.admin-field textarea,
+.availabilityDay input[type="text"],
+.availabilityDay > input {
+  border-color: var(--nu-line);
+  background: #fbfdff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+  font-weight: 560;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus,
+.availabilityDay input[type="text"]:focus,
+.availabilityDay > input:focus {
+  border-color: #9ec5fe;
+  background: #ffffff;
+  box-shadow: var(--nu-focus);
+  outline: none;
+}
+
+.adminWorkImage {
+  border-color: var(--nu-line-strong);
+  background: #ffffff;
+}
+
+.admin-page {
+  width: min(1280px, calc(100% - 56px));
+  color: #eaf2ff;
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+}
+
+.admin-hero,
+.admin-card,
+.admin-previewCard,
+.adminMetrics div {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(96, 165, 250, .32);
+  background:
+    linear-gradient(135deg, rgba(2, 6, 23, .96), rgba(7, 28, 61, .94) 56%, rgba(12, 44, 88, .9)),
+    linear-gradient(180deg, #020817, #071426);
+  box-shadow:
+    0 28px 76px rgba(2, 6, 23, .34),
+    0 12px 42px rgba(37, 99, 235, .12),
+    0 0 0 1px rgba(255, 255, 255, .05) inset;
+}
+
+.admin-hero::before,
+.admin-card::before,
+.admin-previewCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, .62), transparent);
+}
+
+.admin-hero h1,
+.admin-cardHeader h2,
+.adminMetrics strong {
+  color: #f8fbff;
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
+.admin-hero p,
+.adminMetrics span,
+.adminProductRow span {
+  color: #9fb2ca;
+  font-weight: 390;
+}
+
+.admin-kicker {
+  color: #93c5fd;
+  font-weight: 620;
+}
+
+.adminProductForm,
+.availabilityGrid,
+.adminWorkGrid,
+.adminProductList {
+  position: relative;
+  z-index: 1;
+}
+
+.adminProductForm {
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 18px;
+  border: 1px solid rgba(96, 165, 250, .2);
+  border-radius: 8px;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, .58), rgba(2, 6, 23, .36));
+}
+
+.admin-field span,
+.admin-check {
+  color: #cfe2ff;
+  font-weight: 520;
+}
+
+.admin-field input,
+.admin-field textarea,
+.availabilityDay input[type="text"],
+.availabilityDay > input {
+  min-height: 46px;
+  border-color: rgba(96, 165, 250, .3);
+  background: rgba(2, 8, 23, .72);
+  color: #eef6ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+  font-weight: 430;
+}
+
+.admin-field input::placeholder,
+.admin-field textarea::placeholder,
+.availabilityDay input::placeholder {
+  color: #7f93ad;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus,
+.availabilityDay input[type="text"]:focus,
+.availabilityDay > input:focus {
+  border-color: #60a5fa;
+  background: rgba(3, 12, 28, .9);
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, .18),
+    0 12px 30px rgba(2, 6, 23, .22);
+}
+
+.adminWorkEditor,
+.adminProductRow,
+.availabilityDay {
+  border-color: rgba(96, 165, 250, .24);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, .72), rgba(2, 8, 23, .62));
+  box-shadow: 0 16px 38px rgba(2, 6, 23, .2);
+}
+
+.adminWorkEditor:hover,
+.adminProductRow:hover,
+.availabilityDay:hover {
+  border-color: rgba(96, 165, 250, .42);
+  box-shadow:
+    0 22px 54px rgba(2, 6, 23, .28),
+    0 10px 32px rgba(37, 99, 235, .12);
+}
+
+.adminProductRow {
+  grid-template-columns: 64px minmax(0, 1fr) auto auto;
+  padding: 12px;
+}
+
+.adminProductRow strong {
+  color: #eef6ff;
+  font-weight: 560;
+}
+
+.adminProductRow img,
+.adminWorkImage {
+  border: 1px solid rgba(147, 197, 253, .26);
+  background: rgba(248, 250, 252, .94);
+}
+
+.availabilityGrid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.availabilityDay {
+  padding: 16px;
+}
+
+.admin-linkBtn,
+.admin-resetBtn {
+  border-color: rgba(147, 197, 253, .35);
+  color: #dbeafe;
+  background: rgba(15, 23, 42, .44);
+}
+
+.admin-linkBtn:hover,
+.admin-resetBtn:hover {
+  border-color: rgba(147, 197, 253, .58);
+  background: rgba(30, 64, 175, .22);
+}
+
+.admin-saveBtn {
+  border-color: rgba(96, 165, 250, .8);
+  background: linear-gradient(135deg, #0b3d86, #0f62c9);
+  box-shadow: 0 16px 36px rgba(15, 98, 201, .2);
+}
+
+.admin-saveBtn:hover {
+  background: linear-gradient(135deg, #083a7d, #1d6fd1);
+  box-shadow: 0 20px 46px rgba(15, 98, 201, .28);
+}
+
+@media (max-width: 900px) {
+  .admin-page {
+    width: min(100% - 28px, 1280px);
+  }
+
+  .adminProductForm {
+    grid-template-columns: 1fr;
+  }
+}

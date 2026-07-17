@@ -1,10 +1,26 @@
-﻿import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, matchPath, useLocation, useNavigate } from 'react-router-dom';
 
 import { useCart } from '../providers/useCart';
 import { useAuth } from '../providers/useAuth';
 import { useFavorites } from '../providers/useFavorites';
 
 import './AppShell.css';
+
+const KNOWN_ROUTES = [
+  '/',
+  '/inicio',
+  '/catalogo',
+  '/market',
+  '/favoritos',
+  '/carrito',
+  '/checkout',
+  '/citas',
+  '/admin/login',
+  '/admin/citas',
+  '/admin/ordenes',
+  '/admin',
+  '/chat'
+];
 
 export default function AppShell({ children }) {
   const navigate = useNavigate();
@@ -13,6 +29,7 @@ export default function AppShell({ children }) {
   const { count: favoriteCount } = useFavorites();
   const { isAuthenticated, signOut } = useAuth();
 
+  const isKnownRoute = KNOWN_ROUTES.some((path) => matchPath({ path, end: true }, location.pathname));
   const vistaActual = location.pathname.startsWith('/admin') ? 'admin' : 'tienda';
   const cartItems = items.reduce((acc, it) => acc + it.cantidad, 0);
 
@@ -25,6 +42,14 @@ export default function AppShell({ children }) {
 
     navigate('/admin');
   };
+
+  if (!isKnownRoute) {
+    return (
+      <div className="app-container app-container--standalone">
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div className="app-container">

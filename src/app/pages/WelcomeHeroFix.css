@@ -1,0 +1,699 @@
+.nu-home .tn-hero {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: clamp(560px, calc(100vh - 78px), 720px) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(141, 191, 255, .22) !important;
+  background:
+    linear-gradient(90deg, rgba(3, 10, 22, .98) 0%, rgba(5, 18, 34, .92) 38%, rgba(12, 58, 105, .64) 74%, rgba(18, 111, 184, .5) 100%),
+    radial-gradient(circle at 76% 32%, rgba(141, 191, 255, .26), transparent 20%),
+    linear-gradient(120deg, transparent 0 29%, rgba(141, 191, 255, .11) 29% 29.45%, transparent 29.45% 57%, rgba(141, 191, 255, .08) 57% 57.4%, transparent 57.4% 100%),
+    var(--hero-image),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+  background-position: center !important;
+  background-size: cover, auto, auto, cover, auto !important;
+}
+
+.nu-home .tn-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .04) 0 2px, transparent 2px 18px) !important;
+  background-size: 44px 44px, 44px 44px, auto !important;
+  opacity: .82 !important;
+}
+
+.nu-home .tn-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  right: clamp(44px, 8vw, 150px) !important;
+  bottom: clamp(40px, 7vw, 120px) !important;
+  width: clamp(170px, 18vw, 320px) !important;
+  height: clamp(170px, 18vw, 320px) !important;
+  border: 1px solid rgba(141, 191, 255, .18) !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle, transparent 0 34%, rgba(141, 191, 255, .12) 35% 36%, transparent 37% 58%, rgba(255, 255, 255, .1) 59% 60%, transparent 61%),
+    conic-gradient(from 130deg, transparent 0 20%, rgba(141, 191, 255, .16) 20% 24%, transparent 24% 52%, rgba(255, 255, 255, .08) 52% 56%, transparent 56%) !important;
+  opacity: .7 !important;
+}
+
+.nu-home .tn-hero .tn-hero-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+  width: min(980px, calc(100% - clamp(48px, 10vw, 180px))) !important;
+  max-width: 980px !important;
+  margin: 0 auto 0 clamp(54px, 7vw, 132px) !important;
+  padding: clamp(56px, 7vw, 96px) 0 clamp(66px, 8vw, 114px) !important;
+  color: #ffffff !important;
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+
+.nu-home .tn-hero .tn-hero-kicker,
+.nu-home .tn-hero h1.tn-hero-heading,
+.nu-home .tn-hero .tn-hero-name,
+.nu-home .tn-hero .tn-hero-subtitle,
+.nu-home .tn-hero .tn-hero-desc {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin-left: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  columns: auto !important;
+  text-align: left !important;
+  transform: none !important;
+  grid-area: auto !important;
+  align-self: auto !important;
+  justify-self: auto !important;
+}
+
+.nu-home .tn-hero .tn-hero-kicker {
+  order: 1 !important;
+  margin: 0 0 18px !important;
+  padding-left: 18px !important;
+  border-left: 3px solid #8dbfff !important;
+  color: #8dbfff !important;
+  font-size: .78rem !important;
+  font-weight: 850 !important;
+  letter-spacing: .2em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+.nu-home .tn-hero h1.tn-hero-heading {
+  order: 2 !important;
+  width: min(920px, 100%) !important;
+  max-width: 920px !important;
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: #ffffff !important;
+  font-family: "Segoe UI Variable Display", "Segoe UI Variable", "Aptos Display", system-ui, sans-serif !important;
+  font-size: clamp(3rem, 4.7vw, 5.55rem) !important;
+  font-weight: 850 !important;
+  line-height: .99 !important;
+  letter-spacing: -.055em !important;
+  text-wrap: balance !important;
+  text-shadow: 0 18px 46px rgba(0, 0, 0, .42) !important;
+}
+
+.nu-home .tn-hero .tn-hero-name {
+  order: 3 !important;
+  width: fit-content !important;
+  margin: 0 0 16px !important;
+  padding-top: 14px !important;
+  padding-right: clamp(90px, 14vw, 260px) !important;
+  border-top: 1px solid rgba(141, 191, 255, .34) !important;
+  color: rgba(255, 255, 255, .88) !important;
+  font-size: clamp(1.28rem, 1.48vw, 1.78rem) !important;
+  font-weight: 760 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+}
+
+.nu-home .tn-hero .tn-hero-subtitle {
+  order: 4 !important;
+  width: min(840px, 100%) !important;
+  max-width: 840px !important;
+  margin: 0 0 14px !important;
+  color: #ffffff !important;
+  font-size: clamp(1.08rem, 1.22vw, 1.32rem) !important;
+  font-weight: 780 !important;
+  line-height: 1.48 !important;
+}
+
+.nu-home .tn-hero .tn-hero-desc {
+  order: 5 !important;
+  width: min(850px, 100%) !important;
+  max-width: 850px !important;
+  margin: 0 !important;
+  color: rgba(231, 241, 255, .82) !important;
+  font-size: clamp(1.02rem, 1.12vw, 1.18rem) !important;
+  font-weight: 560 !important;
+  line-height: 1.62 !important;
+}
+
+.nu-home .tn-hero .tn-hero-actions {
+  order: 6 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 30px !important;
+  grid-area: auto !important;
+}
+
+.nu-home .tn-hero .tn-hero-btn {
+  min-width: 162px !important;
+  min-height: 54px !important;
+  padding: 0 26px !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(255, 255, 255, .18) !important;
+  font: inherit !important;
+  font-size: .96rem !important;
+  font-weight: 850 !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+
+.nu-home .tn-hero .tn-hero-btn--light {
+  color: #061a33 !important;
+  background: #ffffff !important;
+}
+
+.nu-home .tn-hero .tn-hero-btn--blue {
+  color: #ffffff !important;
+  background: #0f5bd8 !important;
+}
+
+.nu-home .tn-hero .dago-hero__product {
+  display: none !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .tn-hero {
+    min-height: auto !important;
+  }
+
+  .nu-home .tn-hero .tn-hero-copy {
+    width: calc(100% - 44px) !important;
+    margin: 0 22px !important;
+    padding: 48px 0 58px !important;
+  }
+
+  .nu-home .tn-hero h1.tn-hero-heading {
+    font-size: clamp(2.4rem, 10vw, 4.2rem) !important;
+  }
+
+  .nu-home .tn-hero .tn-hero-name {
+    padding-right: 0 !important;
+  }
+}
+
+/* Unified blue/black home cards, CSS icons, and zoom-safe text scaling. */
+.nu-home {
+  --tn-black: #050b14;
+  --tn-navy: #071120;
+  --tn-blue-deep: #0a2b55;
+  --tn-blue-mid: #0d4c91;
+  --tn-blue-bright: #69a7ff;
+  --tn-border: rgba(141, 191, 255, .24);
+  --tn-copy: rgba(232, 242, 255, .84);
+}
+
+.nu-home .dago-mosaic {
+  align-items: stretch !important;
+  min-height: auto !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  border-top: 1px solid var(--tn-border) !important;
+  border-bottom: 1px solid var(--tn-border) !important;
+  background: var(--tn-black) !important;
+}
+
+.nu-home .dago-mosaic__panel {
+  min-height: clamp(360px, 33vw, 470px) !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  gap: clamp(12px, 1.2vw, 18px) !important;
+  padding: clamp(32px, 3.6vw, 62px) !important;
+  border-right: 1px solid var(--tn-border) !important;
+  background-color: var(--tn-navy) !important;
+}
+
+.nu-home .dago-mosaic__panel::before {
+  background:
+    linear-gradient(180deg, rgba(1, 7, 16, .06), rgba(1, 7, 16, .78)),
+    linear-gradient(90deg, rgba(5, 18, 34, .78), rgba(12, 58, 105, .42)),
+    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px),
+    linear-gradient(125deg, transparent 0 28%, rgba(141, 191, 255, .13) 28% 28.5%, transparent 28.5% 100%) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .dago-mosaic__panel span {
+  max-width: 17ch !important;
+  color: #ffffff !important;
+  font-size: clamp(1.95rem, 2.45vw, 3.25rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: .065em !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  text-wrap: balance !important;
+}
+
+.nu-home .dago-mosaic__panel strong {
+  max-width: 34ch !important;
+  color: var(--tn-copy) !important;
+  font-size: clamp(1rem, 1.08vw, 1.18rem) !important;
+  line-height: 1.55 !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.nu-home .dago-mosaic__panel small {
+  margin-top: 2px !important;
+  font-size: clamp(.86rem, .95vw, 1rem) !important;
+}
+
+.tn-panel-icon {
+  position: relative !important;
+  z-index: 1 !important;
+  flex: 0 0 auto !important;
+  width: clamp(46px, 3.5vw, 62px) !important;
+  height: clamp(46px, 3.5vw, 62px) !important;
+  border: 1px solid rgba(141, 191, 255, .42) !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle, rgba(105, 167, 255, .22), transparent 62%),
+    rgba(5, 18, 34, .54) !important;
+  box-shadow: inset 0 0 0 8px rgba(141, 191, 255, .055) !important;
+}
+
+.nu-home .dago-mosaic__panel--diagnostic {
+  background:
+    repeating-linear-gradient(0deg, rgba(105, 167, 255, .08) 0 2px, transparent 2px 22px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 64px),
+    radial-gradient(circle at 78% 30%, rgba(105, 167, 255, .2), transparent 20%),
+    linear-gradient(140deg, transparent 0 42%, rgba(105, 167, 255, .12) 42% 42.5%, transparent 42.5% 100%),
+    linear-gradient(135deg, #071120, #0d315e 58%, #06111f) !important;
+  background-size: auto, auto, auto, auto, auto !important;
+}
+
+.nu-home .dago-mosaic__panel--remanufacture {
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .08) 0 4px, transparent 4px 18px),
+    repeating-linear-gradient(135deg, rgba(105, 167, 255, .055) 0 3px, transparent 3px 26px),
+    radial-gradient(circle at 72% 36%, rgba(105, 167, 255, .18), transparent 18%),
+    linear-gradient(135deg, #081522, #1b466f 54%, #050b14) !important;
+  background-size: auto, auto, auto, auto !important;
+}
+
+.nu-home .dago-mosaic__panel--warranty {
+  background:
+    repeating-linear-gradient(45deg, rgba(105, 167, 255, .075) 0 2px, transparent 2px 24px),
+    repeating-radial-gradient(circle at 76% 68%, rgba(255, 255, 255, .065) 0 1px, transparent 1px 18px),
+    radial-gradient(circle at 76% 68%, rgba(255, 255, 255, .13), transparent 14%),
+    linear-gradient(130deg, transparent 0 56%, rgba(105, 167, 255, .12) 56% 56.6%, transparent 56.6% 100%),
+    linear-gradient(135deg, #06111f, #083b73 58%, #040912) !important;
+  background-size: auto, auto, auto, auto, auto !important;
+}
+
+.nu-home .dago-mosaic__panel--diagnostic::after {
+  border-radius: 8px !important;
+}
+
+.nu-home .dago-mosaic__panel--remanufacture::after {
+  border-radius: 50% !important;
+}
+
+.nu-home .dago-mosaic__panel--warranty::after {
+  border-radius: 18px !important;
+  transform: rotate(45deg) !important;
+}
+
+.tn-panel-icon::before,
+.tn-panel-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 50% auto auto 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.tn-panel-icon--scan::before {
+  width: 44% !important;
+  height: 44% !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 0 6px rgba(105, 167, 255, .16) !important;
+}
+
+.tn-panel-icon--scan::after {
+  width: 58% !important;
+  height: 2px !important;
+  background: #69a7ff !important;
+}
+
+.tn-panel-icon--gear::before {
+  width: 46% !important;
+  height: 46% !important;
+  border: 4px solid #ffffff !important;
+  border-radius: 50% !important;
+  box-shadow:
+    0 -14px 0 -8px #69a7ff,
+    0 14px 0 -8px #69a7ff,
+    14px 0 0 -8px #69a7ff,
+    -14px 0 0 -8px #69a7ff !important;
+}
+
+.tn-panel-icon--gear::after {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: #69a7ff !important;
+}
+
+.tn-panel-icon--shield::before {
+  width: 42% !important;
+  height: 48% !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 14px 14px 18px 18px !important;
+  clip-path: polygon(50% 0, 100% 16%, 88% 72%, 50% 100%, 12% 72%, 0 16%) !important;
+}
+
+.tn-panel-icon--shield::after {
+  width: 22% !important;
+  height: 3px !important;
+  background: #69a7ff !important;
+  box-shadow: 0 8px 0 rgba(105, 167, 255, .9) !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo,
+.nu-home .workshop-map__copy,
+.nu-home .work-showcase {
+  min-height: auto !important;
+  color: #ffffff !important;
+  border-top: 1px solid var(--tn-border) !important;
+  border-bottom: 1px solid var(--tn-border) !important;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .66)),
+    radial-gradient(circle at 88% 20%, rgba(105, 167, 255, .16), transparent 20%),
+    linear-gradient(120deg, transparent 0 38%, rgba(141, 191, 255, .11) 38% 38.45%, transparent 38.45% 100%),
+    linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px),
+    linear-gradient(135deg, var(--tn-navy), var(--tn-blue-deep) 58%, var(--tn-black)) !important;
+  background-size: auto, auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .pickup-notice {
+  background:
+    linear-gradient(90deg, rgba(5, 11, 20, .98), rgba(9, 35, 70, .86)),
+    repeating-linear-gradient(-45deg, rgba(105, 167, 255, .16) 0 10px, transparent 10px 30px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .03) 0 1px, transparent 1px 110px),
+    radial-gradient(circle at 88% 32%, rgba(105, 167, 255, .2), transparent 16%),
+    linear-gradient(rgba(255, 255, 255, .038) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .038) 1px, transparent 1px),
+    linear-gradient(135deg, #071120, #0a2b55 58%, #050b14) !important;
+  background-size: auto, auto, auto, auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-home .pickup-notice::after {
+  content: "SIN ENVIO" !important;
+  position: absolute !important;
+  right: clamp(34px, 7vw, 130px) !important;
+  bottom: clamp(24px, 5vw, 70px) !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 12px 18px !important;
+  border: 1px solid rgba(141, 191, 255, .18) !important;
+  color: rgba(141, 191, 255, .14) !important;
+  font-size: clamp(2.4rem, 5.6vw, 6.6rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: .08em !important;
+  line-height: 1 !important;
+  transform: rotate(-6deg) !important;
+  pointer-events: none !important;
+}
+
+.nu-home .repair-promo {
+  background:
+    linear-gradient(90deg, rgba(5, 11, 20, .94), rgba(8, 44, 86, .82)),
+    repeating-linear-gradient(0deg, rgba(105, 167, 255, .075) 0 3px, transparent 3px 28px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 76px),
+    radial-gradient(circle at 82% 46%, rgba(105, 167, 255, .22), transparent 18%),
+    conic-gradient(from 35deg at 78% 50%, transparent 0 10%, rgba(141, 191, 255, .18) 10% 15%, transparent 15% 44%, rgba(255, 255, 255, .08) 44% 48%, transparent 48%),
+    var(--repair-promo-image, linear-gradient(135deg, #071120, #0d315e 58%, #06111f)) !important;
+  background-size: cover, auto, auto, auto, auto, cover !important;
+  background-position: center !important;
+}
+
+.nu-home .repair-promo::after {
+  content: "" !important;
+  position: absolute !important;
+  right: clamp(46px, 9vw, 180px) !important;
+  top: 50% !important;
+  width: clamp(220px, 24vw, 460px) !important;
+  height: clamp(54px, 6vw, 110px) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 10% 50%, transparent 0 28%, rgba(141, 191, 255, .2) 29% 38%, transparent 39% 100%),
+    radial-gradient(circle at 94% 50%, transparent 0 38%, rgba(141, 191, 255, .18) 39% 49%, transparent 50% 100%),
+    linear-gradient(90deg, transparent 0 13%, rgba(141, 191, 255, .16) 13% 82%, transparent 82% 100%),
+    linear-gradient(90deg, transparent 0 84%, rgba(141, 191, 255, .16) 84% 92%, transparent 92% 100%) !important;
+  opacity: .55 !important;
+  transform: translateY(-50%) rotate(-18deg) !important;
+  pointer-events: none !important;
+}
+
+.nu-home .repair-promo > div::after {
+  content: "" !important;
+  position: absolute !important;
+  right: clamp(84px, 13vw, 250px) !important;
+  top: 50% !important;
+  width: clamp(54px, 6vw, 112px) !important;
+  height: clamp(54px, 6vw, 112px) !important;
+  border: 1px solid rgba(141, 191, 255, .16) !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle, transparent 0 30%, rgba(141, 191, 255, .14) 31% 33%, transparent 34% 100%),
+    conic-gradient(from 100deg, rgba(141, 191, 255, .16) 0 14%, transparent 14% 52%, rgba(255, 255, 255, .08) 52% 60%, transparent 60%) !important;
+  opacity: .5 !important;
+  transform: translateY(-50%) rotate(-18deg) !important;
+  pointer-events: none !important;
+}
+
+.nu-home .repair-promo::before {
+  opacity: .42 !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(105, 167, 255, .08) 0 2px, transparent 2px 18px),
+    linear-gradient(100deg, transparent 0 64%, rgba(141, 191, 255, .16) 64% 64.4%, transparent 64.4% 100%) !important;
+}
+
+.nu-home .workshop-map__copy {
+  background:
+    linear-gradient(135deg, rgba(5, 11, 20, .98), rgba(8, 59, 115, .78)),
+    radial-gradient(circle at 82% 24%, rgba(105, 167, 255, .2), transparent 16%),
+    repeating-linear-gradient(30deg, rgba(105, 167, 255, .06) 0 2px, transparent 2px 30px),
+    linear-gradient(rgba(105, 167, 255, .075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 167, 255, .075) 1px, transparent 1px),
+    linear-gradient(135deg, #06111f, #083b73 58%, #040912) !important;
+  background-size: auto, auto, auto, 30px 30px, 30px 30px, auto !important;
+}
+
+.nu-home .workshop-map__copy::after {
+  content: "" !important;
+  position: absolute !important;
+  right: clamp(28px, 6vw, 110px) !important;
+  bottom: clamp(28px, 6vw, 90px) !important;
+  width: clamp(76px, 8vw, 140px) !important;
+  height: clamp(76px, 8vw, 140px) !important;
+  border: 2px solid rgba(141, 191, 255, .18) !important;
+  border-radius: 50% 50% 50% 0 !important;
+  transform: rotate(-45deg) !important;
+  background: radial-gradient(circle, rgba(105, 167, 255, .16) 0 18%, transparent 19%) !important;
+  pointer-events: none !important;
+}
+
+.nu-home .work-showcase {
+  background:
+    linear-gradient(180deg, rgba(5, 11, 20, .98), rgba(6, 17, 31, .96)),
+    radial-gradient(circle at 18% 24%, rgba(105, 167, 255, .14), transparent 20%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .045) 0 1px, transparent 1px 84px),
+    repeating-linear-gradient(-35deg, rgba(105, 167, 255, .06) 0 2px, transparent 2px 36px),
+    linear-gradient(135deg, #071120, #0a2b55 58%, #050b14) !important;
+  background-size: auto, auto, auto, auto, auto !important;
+}
+
+.nu-home .work-card:nth-child(3n + 1) div {
+  background:
+    repeating-linear-gradient(90deg, rgba(105, 167, 255, .07) 0 2px, transparent 2px 22px),
+    linear-gradient(135deg, rgba(13, 76, 145, .28), rgba(5, 11, 20, .94)),
+    var(--tn-navy) !important;
+}
+
+.nu-home .work-card:nth-child(3n + 2) div {
+  background:
+    repeating-linear-gradient(45deg, rgba(105, 167, 255, .07) 0 2px, transparent 2px 24px),
+    linear-gradient(135deg, rgba(13, 76, 145, .28), rgba(5, 11, 20, .94)),
+    var(--tn-navy) !important;
+}
+
+.nu-home .work-card:nth-child(3n) div {
+  background:
+    radial-gradient(circle at 82% 30%, rgba(105, 167, 255, .12), transparent 18%),
+    repeating-linear-gradient(0deg, rgba(105, 167, 255, .06) 0 2px, transparent 2px 26px),
+    linear-gradient(135deg, rgba(13, 76, 145, .28), rgba(5, 11, 20, .94)),
+    var(--tn-navy) !important;
+}
+
+.nu-home .work-showcase::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: auto clamp(28px, 7vw, 130px) clamp(24px, 5vw, 78px) auto !important;
+  width: clamp(130px, 15vw, 280px) !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, rgba(141, 191, 255, .5), transparent) !important;
+  pointer-events: none !important;
+}
+
+.nu-home .pickup-notice,
+.nu-home .repair-promo {
+  padding: clamp(44px, 5.8vw, 88px) clamp(34px, 7vw, 126px) !important;
+  gap: clamp(26px, 4vw, 64px) !important;
+}
+
+.nu-home .pickup-notice h2,
+.nu-home .repair-promo h2,
+.nu-home .workshop-map__copy h2,
+.nu-home .work-showcase__header h2 {
+  color: #ffffff !important;
+  font-size: clamp(2.35rem, 3.4vw, 4.25rem) !important;
+  line-height: 1.04 !important;
+  max-width: 15ch !important;
+  overflow-wrap: anywhere !important;
+}
+
+.nu-home .pickup-notice p,
+.nu-home .repair-promo p,
+.nu-home .repair-promo small,
+.nu-home .workshop-map__copy p,
+.nu-home .work-card p {
+  color: var(--tn-copy) !important;
+  font-size: clamp(1.04rem, 1.14vw, 1.22rem) !important;
+  line-height: 1.62 !important;
+  max-width: 68ch !important;
+  overflow-wrap: anywhere !important;
+}
+
+.nu-home .pickup-notice span,
+.nu-home .repair-promo span,
+.nu-home .workshop-map__copy span,
+.nu-home .work-showcase__header span {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: var(--tn-blue-bright) !important;
+  font-size: clamp(.82rem, .9vw, .96rem) !important;
+  letter-spacing: .14em !important;
+}
+
+.tn-section-icon {
+  position: relative !important;
+  display: inline-block !important;
+  width: 26px !important;
+  height: 26px !important;
+  border: 1px solid rgba(141, 191, 255, .42) !important;
+  border-radius: 50% !important;
+  background: rgba(105, 167, 255, .12) !important;
+  flex: 0 0 auto !important;
+}
+
+.tn-section-icon::before,
+.tn-section-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 50% auto auto 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #ffffff !important;
+}
+
+.tn-section-icon::before {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 2px !important;
+}
+
+.tn-section-icon::after {
+  width: 14px !important;
+  height: 2px !important;
+  background: #69a7ff !important;
+}
+
+.nu-home .workshop-map {
+  background: var(--tn-black) !important;
+}
+
+.nu-home .workshop-map__copy {
+  padding: clamp(44px, 5.8vw, 88px) clamp(34px, 7vw, 126px) !important;
+}
+
+.nu-home .workshop-map__frame {
+  min-height: clamp(360px, 42vw, 560px) !important;
+  border-left: 1px solid var(--tn-border) !important;
+  background: var(--tn-navy) !important;
+}
+
+.nu-home .work-showcase {
+  padding: clamp(44px, 5.8vw, 88px) clamp(34px, 7vw, 126px) !important;
+}
+
+.nu-home .work-showcase__grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important;
+  gap: 1px !important;
+  border: 1px solid var(--tn-border) !important;
+  background: var(--tn-border) !important;
+}
+
+.nu-home .work-card {
+  min-width: 0 !important;
+  border: 0 !important;
+  background: var(--tn-navy) !important;
+}
+
+.nu-home .work-card div {
+  padding: clamp(22px, 2.6vw, 34px) !important;
+  background:
+    linear-gradient(135deg, rgba(13, 76, 145, .28), rgba(5, 11, 20, .94)),
+    var(--tn-navy) !important;
+}
+
+.nu-home .work-card h3 {
+  color: #ffffff !important;
+  font-size: clamp(1.18rem, 1.45vw, 1.55rem) !important;
+  line-height: 1.18 !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-mosaic {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-home .dago-mosaic__panel {
+    min-height: auto !important;
+    padding: 38px 24px !important;
+  }
+
+  .nu-home .dago-mosaic__panel span,
+  .nu-home .pickup-notice h2,
+  .nu-home .repair-promo h2,
+  .nu-home .workshop-map__copy h2,
+  .nu-home .work-showcase__header h2 {
+    max-width: 100% !important;
+  }
+
+  .nu-home .pickup-notice,
+  .nu-home .repair-promo {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+}

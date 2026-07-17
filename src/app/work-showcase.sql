@@ -48,5 +48,5 @@ for select to anon, authenticated using (enabled = true);
 drop policy if exists "work_showcase_admin_write" on public.work_showcase;
 create policy "work_showcase_admin_write" on public.work_showcase
 for all to authenticated
-using ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com')
-with check ((auth.jwt() ->> 'email') = 'transmisionesnunezz@gmail.com');
+using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE')
+with check ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');

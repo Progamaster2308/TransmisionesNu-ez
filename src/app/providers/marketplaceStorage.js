@@ -5,14 +5,45 @@ export function normalizeMoney(n) {
 }
 
 export function sanitizeText(v, maxLen = 120) {
-  const s = String(v ?? '').replaceAll(String.fromCharCode(0), '').trim();
+  const s = String(v ?? '')
+    .split('')
+    .filter((char) => {
+      const code = char.charCodeAt(0);
+      return code > 31 && code !== 127;
+    })
+    .join('')
+    .replace(/\s+/g, ' ')
+    .trim();
   return s.slice(0, maxLen);
 }
 
 export function sanitizeEmail(v, maxLen = 160) {
   const s = sanitizeText(v, maxLen).toLowerCase().replace(/\s+/g, '');
-  if (!/^[a-z0-9]+@(?:[a-z0-9]+\.)+[a-z]{2,}$/.test(s)) return '';
+  if (!/^[a-z0-9._%+-]+@(?:[a-z0-9-]+\.)+[a-z]{2,}$/.test(s)) return '';
   return s;
+}
+
+export function sanitizeInternalPath(v, fallback = '/') {
+  const s = sanitizeText(v, 120);
+  if (!s.startsWith('/')) return fallback;
+  if (s.startsWith('//')) return fallback;
+  if (/[<>"'\\]/.test(s)) return fallback;
+  if (!/^\/[a-z0-9/_-]*(?:\?[a-z0-9=&._-]*)?$/i.test(s)) return fallback;
+  return s;
+}
+
+export function sanitizeUrl(v, maxLen = 500) {
+  const s = sanitizeText(v, maxLen);
+  if (!s) return '';
+  if (/^data:image\/(?:png|jpe?g|webp|gif);base64,[a-z0-9+/=]+$/i.test(s)) return s;
+
+  try {
+    const url = new URL(s);
+    if (!['https:', 'http:'].includes(url.protocol)) return '';
+    return url.toString().slice(0, maxLen);
+  } catch {
+    return '';
+  }
 }
 
 export function getTodayISO() {

@@ -1,5 +1,5 @@
-export const ADMIN_EMAIL = 'transmisionesnunezz@gmail.com';
+export const ADMIN_EMAIL = String(import.meta.env.VITE_ADMIN_EMAIL || '').trim().toLowerCase();
 
 export function isAdminEmail(email) {
-  return String(email || '').trim().toLowerCase() === ADMIN_EMAIL;
+  return Boolean(ADMIN_EMAIL) && String(email || '').trim().toLowerCase() === ADMIN_EMAIL;
 }

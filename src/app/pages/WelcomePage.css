@@ -973,3 +973,953 @@
     width: min(100% - 30px, 1120px);
   }
 }
+
+.dago-toolbar button,
+.dago-stat,
+.pickup-notice,
+.workshop-map__copy,
+.workshop-map__frame,
+.work-card {
+  border-color: var(--nu-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(248, 250, 252, .95));
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.dago-toolbar button:hover,
+.dago-stat:hover,
+.work-card:hover {
+  border-color: var(--nu-line-strong);
+  box-shadow: var(--nu-shadow-hover);
+}
+
+.pickup-notice h2,
+.workshop-map__copy h2,
+.work-showcase__header h2,
+.work-card h3 {
+  font-family: var(--nu-display-font);
+  font-weight: 760;
+}
+
+.dago-toolbar button,
+.dago-stat span,
+.pickup-notice p,
+.repair-promo p,
+.repair-promo small,
+.workshop-map__copy p,
+.work-card p {
+  font-weight: 560;
+}
+
+.dago-stat strong {
+  font-family: var(--nu-display-font);
+  font-weight: 760;
+}
+
+.dago-stat small,
+.pickup-notice span,
+.repair-promo span,
+.workshop-map__copy span,
+.work-showcase__header span,
+.pickup-notice button,
+.repair-promo button,
+.workshop-map__copy a {
+  font-weight: 720;
+}
+
+.nu-home {
+  --home-card-shadow: 0 14px 34px rgba(15, 23, 42, .08);
+  --home-card-shadow-hover: 0 26px 60px rgba(15, 23, 42, .16);
+  --home-card-border-hover: #b7c7db;
+  --home-card-accent: #2563eb;
+  font-family: "Aptos", "Segoe UI Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  background:
+    linear-gradient(180deg, #ffffff 0 122px, #f3f6fa 122px 100%);
+}
+
+.dago-toolbar button,
+.dago-stat,
+.pickup-notice,
+.workshop-map__copy,
+.work-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #dde6f0;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #fbfcfe 58%, #f7f9fc 100%);
+  box-shadow: var(--home-card-shadow);
+  transform: translateY(0);
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease;
+}
+
+.dago-toolbar button::after,
+.dago-stat::after,
+.pickup-notice::after,
+.workshop-map__copy::after,
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, #0f62c9, #38bdf8);
+  opacity: .18;
+  transition: width .2s ease, opacity .2s ease;
+}
+
+.dago-toolbar button:hover,
+.dago-stat:hover,
+.pickup-notice:hover,
+.workshop-map__copy:hover,
+.work-card:hover {
+  border-color: var(--home-card-border-hover);
+  background:
+    linear-gradient(180deg, #ffffff 0%, #ffffff 46%, #f2f7ff 100%);
+  box-shadow: var(--home-card-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.dago-toolbar button:hover::after,
+.dago-stat:hover::after,
+.pickup-notice:hover::after,
+.workshop-map__copy:hover::after,
+.work-card:hover::after {
+  width: 5px;
+  opacity: .95;
+}
+
+.dago-toolbar button:active,
+.dago-stat:active,
+.pickup-notice button:active,
+.repair-promo button:active,
+.workshop-map__copy a:active {
+  transform: translateY(-1px);
+}
+
+.dago-toolbar button {
+  min-height: 54px;
+  padding: 0 18px;
+  color: #253244;
+  font-size: .94rem;
+  font-weight: 520;
+  line-height: 1.2;
+}
+
+.dago-toolbar button::before {
+  opacity: .72;
+}
+
+.dago-toolbar__search {
+  color: #46566b;
+}
+
+.dago-toolbar__store {
+  color: #0f5132;
+}
+
+.dago-season {
+  border: 1px solid rgba(147, 197, 253, .38);
+  background:
+    linear-gradient(105deg, rgba(4, 34, 90, .97) 0%, rgba(15, 98, 201, .88) 52%, rgba(14, 165, 233, .78) 100%),
+    linear-gradient(90deg, #0f3d91, #0ea5e9);
+  box-shadow: 0 24px 58px rgba(15, 98, 201, .18);
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+.dago-season:hover {
+  border-color: rgba(191, 219, 254, .7);
+  box-shadow: 0 32px 72px rgba(15, 98, 201, .24);
+  transform: translateY(-3px);
+}
+
+.dago-season strong {
+  max-width: 920px;
+  font-family: "Aptos Display", "Segoe UI Variable Display", "Aptos", system-ui, sans-serif;
+  font-size: clamp(1.36rem, 2.9vw, 2.25rem);
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dago-season button,
+.dago-btn,
+.pickup-notice button,
+.repair-promo button,
+.workshop-map__copy a {
+  font-weight: 620;
+  letter-spacing: 0;
+}
+
+.dago-hero {
+  box-shadow: 0 30px 80px rgba(15, 98, 201, .22);
+}
+
+.dago-hero h1 {
+  font-family: "Aptos Display", "Segoe UI Variable Display", "Aptos", system-ui, sans-serif;
+  font-weight: 680;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dago-hero__subtitle {
+  color: rgba(255, 255, 255, .92);
+  font-weight: 560;
+}
+
+.dago-hero__desc {
+  color: rgba(255, 255, 255, .78);
+  font-weight: 450;
+}
+
+.dago-stats {
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.dago-stat {
+  gap: 8px;
+  min-height: 112px;
+  padding: 22px 24px 20px 26px;
+}
+
+.dago-stat strong {
+  color: #0f172a;
+  font-size: clamp(1.28rem, 1.65vw, 1.7rem);
+  font-weight: 640;
+}
+
+.dago-stat span {
+  color: #526173;
+  font-size: .9rem;
+  font-weight: 460;
+}
+
+.dago-stat small {
+  width: fit-content;
+  margin-top: 4px;
+  border-radius: 999px;
+  padding: 5px 9px;
+  color: #0f62c9;
+  background: rgba(219, 234, 254, .72);
+  font-size: .75rem;
+  font-weight: 620;
+}
+
+.pickup-notice {
+  margin-top: 22px;
+  padding: 28px 30px 28px 34px;
+}
+
+.pickup-notice span,
+.workshop-map__copy span,
+.work-showcase__header span {
+  font-weight: 620;
+  letter-spacing: .08em;
+}
+
+.pickup-notice h2,
+.workshop-map__copy h2,
+.work-showcase__header h2,
+.work-card h3 {
+  color: #0f172a;
+  font-family: "Aptos Display", "Segoe UI Variable Display", "Aptos", system-ui, sans-serif;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.pickup-notice p,
+.workshop-map__copy p,
+.work-card p {
+  color: #5f6f84;
+  font-size: .98rem;
+  font-weight: 430;
+}
+
+.repair-promo {
+  border: 1px solid rgba(203, 213, 225, .22);
+  box-shadow: 0 26px 66px rgba(15, 23, 42, .22);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.repair-promo:hover {
+  border-color: rgba(226, 232, 240, .54);
+  box-shadow: 0 34px 86px rgba(15, 23, 42, .3);
+  transform: translateY(-4px);
+}
+
+.repair-promo h2 {
+  font-family: "Aptos Display", "Segoe UI Variable Display", "Aptos", system-ui, sans-serif;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.repair-promo p,
+.repair-promo small {
+  font-weight: 430;
+}
+
+.workshop-map {
+  gap: 22px;
+}
+
+.workshop-map__copy {
+  padding: 34px 34px 34px 38px;
+}
+
+.workshop-map__frame {
+  border-color: #d5dfeb;
+  box-shadow: var(--home-card-shadow);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.workshop-map__frame:hover {
+  border-color: var(--home-card-border-hover);
+  box-shadow: var(--home-card-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.work-card {
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+.work-card img {
+  transition: filter .2s ease, transform .2s ease;
+}
+
+.work-card:hover img {
+  filter: saturate(1.04) contrast(1.03);
+  transform: scale(1.025);
+}
+
+.work-card div {
+  position: relative;
+  z-index: 1;
+  padding: 20px 20px 22px 24px;
+}
+
+.dago-toolbar {
+  gap: 14px;
+}
+
+.dago-toolbar button {
+  backdrop-filter: blur(14px);
+}
+
+.dago-toolbar button:hover {
+  color: #0f172a;
+}
+
+.dago-toolbar button:hover::before {
+  opacity: 1;
+}
+
+.dago-hero {
+  transition: box-shadow .24s ease, transform .24s ease, filter .24s ease;
+}
+
+.dago-hero:hover {
+  box-shadow: 0 38px 96px rgba(15, 98, 201, .28);
+  filter: saturate(1.04);
+  transform: translateY(-3px);
+}
+
+.dago-hero__arrow {
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.dago-hero__arrow:hover {
+  border-color: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, .16);
+  transform: scale(1.08);
+}
+
+.dago-btn,
+.pickup-notice button,
+.repair-promo button,
+.workshop-map__copy a {
+  transition: box-shadow .2s ease, transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.dago-btn:hover,
+.pickup-notice button:hover,
+.repair-promo button:hover,
+.workshop-map__copy a:hover {
+  box-shadow: 0 18px 42px rgba(15, 98, 201, .22);
+  transform: translateY(-2px);
+}
+
+.dago-stat:hover strong {
+  color: #0b3d86;
+}
+
+.dago-stat:hover small {
+  background: #dbeafe;
+  color: #0b3d86;
+}
+
+.pickup-notice button:hover,
+.workshop-map__copy a:hover {
+  background: linear-gradient(135deg, #083a7d, #0f62c9);
+}
+
+.repair-promo button:hover {
+  color: #0b3d86;
+  background: #f8fbff;
+}
+
+.work-showcase__grid {
+  gap: 20px;
+}
+
+.work-card {
+  min-height: 100%;
+}
+
+.work-card h3 {
+  font-size: 1.12rem;
+}
+
+.work-card:hover h3 {
+  color: #0b3d86;
+}
+
+.nu-home {
+  position: relative;
+  overflow: hidden;
+  font-family: "Segoe UI Variable", "Aptos", "Inter", ui-sans-serif, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(37, 99, 235, .17), transparent 29%),
+    radial-gradient(circle at 82% 30%, rgba(14, 165, 233, .14), transparent 31%),
+    linear-gradient(180deg, #ffffff 0 122px, #f3f6fa 122px 100%);
+}
+
+.nu-home::before {
+  content: "";
+  position: absolute;
+  inset: 112px 0 auto;
+  height: 560px;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, .13) 24%, rgba(14, 165, 233, .09) 52%, transparent 88%);
+  filter: blur(36px);
+  opacity: .9;
+  pointer-events: none;
+}
+
+.nu-home > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dago-toolbar button,
+.dago-stat,
+.pickup-notice,
+.workshop-map__copy,
+.work-card {
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, .06), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #fbfcfe 58%, #f7f9fc 100%);
+  box-shadow:
+    var(--home-card-shadow),
+    0 0 0 1px rgba(255, 255, 255, .74) inset;
+}
+
+.dago-toolbar button:hover,
+.dago-stat:hover,
+.pickup-notice:hover,
+.workshop-map__copy:hover,
+.work-card:hover {
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, .1), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 46%, #f2f7ff 100%);
+  box-shadow:
+    var(--home-card-shadow-hover),
+    0 0 34px rgba(37, 99, 235, .14),
+    0 0 0 1px rgba(255, 255, 255, .82) inset;
+}
+
+.dago-season {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255, 255, 255, .22), transparent 28%),
+    linear-gradient(105deg, rgba(4, 34, 90, .97) 0%, rgba(15, 98, 201, .88) 52%, rgba(14, 165, 233, .78) 100%),
+    linear-gradient(90deg, #0f3d91, #0ea5e9);
+  box-shadow:
+    0 24px 58px rgba(15, 98, 201, .18),
+    0 0 42px rgba(37, 99, 235, .15);
+}
+
+.dago-season:hover {
+  box-shadow:
+    0 32px 72px rgba(15, 98, 201, .24),
+    0 0 58px rgba(56, 189, 248, .2);
+}
+
+.dago-hero {
+  box-shadow:
+    0 30px 80px rgba(15, 98, 201, .22),
+    0 0 64px rgba(37, 99, 235, .17);
+}
+
+.dago-hero:hover {
+  box-shadow:
+    0 38px 96px rgba(15, 98, 201, .28),
+    0 0 84px rgba(56, 189, 248, .22);
+}
+
+.repair-promo {
+  box-shadow:
+    0 26px 66px rgba(15, 23, 42, .22),
+    0 0 56px rgba(37, 99, 235, .15);
+}
+
+.repair-promo:hover {
+  box-shadow:
+    0 34px 86px rgba(15, 23, 42, .3),
+    0 0 76px rgba(56, 189, 248, .2);
+}
+
+.dago-season strong,
+.dago-hero h1,
+.pickup-notice h2,
+.workshop-map__copy h2,
+.work-showcase__header h2,
+.work-card h3,
+.repair-promo h2 {
+  font-family: "Segoe UI Variable Display", "Aptos Display", "Segoe UI Variable", system-ui, sans-serif;
+  font-weight: 610;
+}
+
+.nu-home {
+  --home-card-shadow: 0 18px 44px rgba(2, 8, 23, .12);
+  --home-card-shadow-hover: 0 30px 76px rgba(2, 8, 23, .22);
+  color: #0d1726;
+  background:
+    radial-gradient(ellipse at 50% -12%, rgba(15, 23, 42, .34), transparent 46%),
+    radial-gradient(ellipse at 15% 14%, rgba(37, 99, 235, .28), transparent 34%),
+    radial-gradient(ellipse at 88% 28%, rgba(14, 165, 233, .18), transparent 31%),
+    linear-gradient(180deg, #f9fbff 0 118px, #eef3f9 118px 48%, #f7f9fc 100%);
+  font-family: "Segoe UI Variable", "Aptos", "Inter", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+.nu-home::before {
+  inset: 88px 0 auto;
+  height: 640px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(2, 8, 23, .34), transparent 42%),
+    linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, .18) 18%, rgba(14, 165, 233, .12) 50%, rgba(2, 8, 23, .16) 82%, transparent 100%);
+  filter: blur(42px);
+  opacity: .92;
+}
+
+.nu-home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .88) 360px, rgba(255, 255, 255, .72)),
+    repeating-linear-gradient(90deg, rgba(15, 23, 42, .028) 0 1px, transparent 1px 80px);
+  pointer-events: none;
+}
+
+.dago-toolbar,
+.dago-season,
+.dago-hero,
+.dago-stats,
+.pickup-notice,
+.repair-promo,
+.workshop-map,
+.work-showcase {
+  position: relative;
+  z-index: 2;
+}
+
+.dago-toolbar button,
+.dago-stat,
+.pickup-notice,
+.workshop-map__copy,
+.work-card {
+  border-color: rgba(148, 163, 184, .42);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, .045), rgba(37, 99, 235, .07) 32%, transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, .94), rgba(248, 250, 252, .9));
+  box-shadow:
+    var(--home-card-shadow),
+    0 0 0 1px rgba(255, 255, 255, .82) inset,
+    0 0 42px rgba(37, 99, 235, .08);
+}
+
+.dago-toolbar button:hover,
+.dago-stat:hover,
+.pickup-notice:hover,
+.workshop-map__copy:hover,
+.work-card:hover {
+  border-color: rgba(59, 130, 246, .38);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, .055), rgba(37, 99, 235, .11) 34%, transparent 62%),
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(242, 247, 255, .94));
+  box-shadow:
+    var(--home-card-shadow-hover),
+    0 0 0 1px rgba(255, 255, 255, .9) inset,
+    0 0 56px rgba(37, 99, 235, .17);
+}
+
+.dago-season,
+.dago-hero,
+.repair-promo {
+  border-color: rgba(191, 219, 254, .26);
+  box-shadow:
+    0 30px 86px rgba(2, 8, 23, .28),
+    0 0 72px rgba(37, 99, 235, .2);
+}
+
+.dago-hero {
+  background:
+    linear-gradient(105deg, rgba(2, 8, 23, .92) 0%, rgba(10, 45, 104, .9) 48%, rgba(14, 116, 144, .78) 100%),
+    var(--hero-image, linear-gradient(105deg, #020817, #0f3d91 52%, #0ea5e9));
+  background-size: cover;
+  background-position: center;
+}
+
+.repair-promo {
+  background:
+    linear-gradient(100deg, rgba(2, 8, 23, .95), rgba(7, 34, 77, .9) 54%, rgba(14, 116, 144, .76)),
+    var(--repair-promo-image, linear-gradient(100deg, #020817, #0f62c9));
+  background-size: cover;
+  background-position: center;
+}
+
+.dago-season strong,
+.dago-hero h1,
+.pickup-notice h2,
+.workshop-map__copy h2,
+.work-showcase__header h2,
+.work-card h3,
+.repair-promo h2 {
+  font-family: "Segoe UI Variable Display", "Aptos Display", "Segoe UI Variable", system-ui, sans-serif;
+  font-weight: 680;
+  letter-spacing: -.01em;
+}
+
+.dago-hero h1 {
+  text-shadow: 0 18px 44px rgba(2, 8, 23, .38);
+}
+
+.dago-hero__subtitle,
+.repair-promo p {
+  font-weight: 520;
+  letter-spacing: .005em;
+}
+
+.dago-hero__desc,
+.repair-promo small,
+.pickup-notice p,
+.workshop-map__copy p,
+.work-card p {
+  font-weight: 430;
+  letter-spacing: .002em;
+}
+
+.nu-home {
+  --home-card-shadow: 0 16px 38px rgba(2, 6, 23, .1);
+  --home-card-shadow-hover: 0 28px 68px rgba(2, 6, 23, .18);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(2, 6, 23, .28), transparent 34%),
+    radial-gradient(ellipse at 50% 8%, rgba(37, 99, 235, .12), transparent 28%),
+    linear-gradient(180deg, #fbfdff 0 118px, #f2f5f9 118px 52%, #f8fafc 100%);
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+}
+
+.nu-home::before {
+  inset: 72px 8% auto;
+  height: 420px;
+  border-radius: 999px;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(2, 6, 23, .36), transparent 56%),
+    radial-gradient(ellipse at 50% 42%, rgba(37, 99, 235, .16), transparent 42%);
+  filter: blur(46px);
+  opacity: .72;
+}
+
+.nu-home::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .76), rgba(255, 255, 255, .92) 330px, rgba(255, 255, 255, .78));
+}
+
+.dago-toolbar button,
+.dago-stat,
+.pickup-notice,
+.workshop-map__copy,
+.work-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(248, 250, 252, .92));
+  box-shadow:
+    var(--home-card-shadow),
+    0 0 0 1px rgba(255, 255, 255, .78) inset;
+}
+
+.dago-toolbar button:hover,
+.dago-stat:hover,
+.pickup-notice:hover,
+.workshop-map__copy:hover,
+.work-card:hover {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(246, 249, 253, .96));
+  box-shadow:
+    var(--home-card-shadow-hover),
+    0 14px 42px rgba(37, 99, 235, .1),
+    0 0 0 1px rgba(255, 255, 255, .88) inset;
+}
+
+.dago-season,
+.dago-hero,
+.repair-promo {
+  box-shadow:
+    0 28px 78px rgba(2, 6, 23, .3),
+    0 12px 42px rgba(37, 99, 235, .14);
+}
+
+.dago-season:hover,
+.dago-hero:hover,
+.repair-promo:hover {
+  box-shadow:
+    0 34px 92px rgba(2, 6, 23, .34),
+    0 16px 52px rgba(37, 99, 235, .18);
+}
+
+.dago-season strong,
+.dago-hero h1,
+.pickup-notice h2,
+.workshop-map__copy h2,
+.work-showcase__header h2,
+.work-card h3,
+.repair-promo h2 {
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
+.dago-hero h1 {
+  text-shadow: 0 14px 34px rgba(2, 6, 23, .34);
+}
+
+.dago-toolbar button,
+.dago-stat span,
+.dago-hero__subtitle,
+.repair-promo p {
+  font-weight: 450;
+}
+
+.dago-hero__desc,
+.repair-promo small,
+.pickup-notice p,
+.workshop-map__copy p,
+.work-card p {
+  font-weight: 390;
+}
+
+.nu-home .dago-season button,
+.nu-home .dago-btn,
+.nu-home .pickup-notice button,
+.nu-home .repair-promo button,
+.nu-home .workshop-map__copy a {
+  border: 1px solid rgba(89, 174, 234, .72);
+  color: #ffffff;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df);
+  box-shadow:
+    0 16px 36px rgba(47, 134, 199, .24),
+    0 0 0 1px rgba(255, 255, 255, .12) inset;
+}
+
+.nu-home .dago-season button:hover,
+.nu-home .dago-btn:hover,
+.nu-home .pickup-notice button:hover,
+.nu-home .repair-promo button:hover,
+.nu-home .workshop-map__copy a:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #1b6499, #348dce 54%, #5ab0ea);
+  box-shadow:
+    0 22px 48px rgba(47, 134, 199, .34),
+    0 0 30px rgba(89, 174, 234, .18);
+}
+
+.tn-footer {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 0;
+  border-top: 1px solid rgba(89, 174, 234, .28);
+  border-radius: 0;
+  padding: 28px max(28px, calc((100vw - 1440px) / 2)) 34px;
+  color: rgba(232, 242, 255, .86);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(89, 174, 234, .12), transparent 24%),
+    linear-gradient(125deg, transparent 0 58%, rgba(89, 174, 234, .1) 58% 58.35%, transparent 58.35%),
+    linear-gradient(135deg, rgba(4, 9, 18, .98), rgba(6, 22, 42, .96) 52%, rgba(4, 9, 18, .98)),
+    linear-gradient(rgba(89, 174, 234, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .035) 1px, transparent 1px);
+  background-size: auto, auto, auto, 38px 38px, 38px 38px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .05),
+    0 -18px 54px rgba(4, 9, 18, .22);
+}
+
+.tn-footer p {
+  margin: 0;
+  color: rgba(240, 248, 255, .9);
+  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
+  font-weight: 620;
+  letter-spacing: .01em;
+}
+
+.tn-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tn-footer__links a,
+.tn-footer__links button {
+  min-width: 128px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid rgba(89, 174, 234, .45);
+  border-radius: 8px;
+  padding: 0 15px;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(31, 111, 169, .92), rgba(47, 134, 199, .78));
+  font: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .16),
+    0 14px 30px rgba(47, 134, 199, .2);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.tn-footer__links a:hover,
+.tn-footer__links button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(123, 200, 255, .82);
+  background: linear-gradient(135deg, #1f6fa9, #3fa3de);
+  box-shadow:
+    0 18px 38px rgba(47, 134, 199, .24),
+    0 0 24px rgba(89, 174, 234, .14);
+}
+
+.tn-footer__links svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.tn-footer__links span {
+  font-size: .96rem;
+  font-weight: 760;
+}
+
+/* Final hero readability guard.
+   Prevents the banner description from collapsing into a narrow column. */
+.nu-home .dago-hero--integrated .dago-hero__copy {
+  width: 100% !important;
+  max-width: none !important;
+  display: grid !important;
+  grid-template-columns: minmax(520px, 760px) minmax(360px, 1fr) !important;
+  grid-template-areas:
+    "headline signature"
+    "support support"
+    "description description"
+    "actions actions" !important;
+  column-gap: clamp(44px, 7vw, 132px) !important;
+  row-gap: 16px !important;
+}
+
+.nu-home .dago-hero__brandline {
+  grid-area: headline !important;
+  max-width: none !important;
+}
+
+.nu-home .dago-hero__brandline strong {
+  max-width: none !important;
+}
+
+.nu-home .dago-hero--integrated h1 {
+  grid-area: signature !important;
+  width: min(100%, 420px) !important;
+  max-width: none !important;
+  font-size: clamp(1.25rem, 1.7vw, 2rem) !important;
+  line-height: 1.12 !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle,
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  width: min(980px, 72vw) !important;
+  max-width: none !important;
+  min-width: 420px !important;
+  margin-left: 21px !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  columns: auto !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__subtitle {
+  grid-area: support !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__desc {
+  grid-area: description !important;
+}
+
+.nu-home .dago-hero--integrated .dago-hero__actions {
+  grid-area: actions !important;
+  margin-left: 21px !important;
+}
+
+@media (max-width: 980px) {
+  .nu-home .dago-hero--integrated .dago-hero__copy {
+    display: flex !important;
+  }
+
+  .nu-home .dago-hero--integrated .dago-hero__subtitle,
+  .nu-home .dago-hero--integrated .dago-hero__desc,
+  .nu-home .dago-hero--integrated .dago-hero__actions {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .tn-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px 18px 30px;
+  }
+
+  .tn-footer__links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tn-footer__links a,
+  .tn-footer__links button {
+    min-width: 0;
+    width: 100%;
+  }
+}

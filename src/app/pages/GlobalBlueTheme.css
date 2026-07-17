@@ -1,0 +1,2760 @@
+:root {
+  --tn-bg: #050b14;
+  --tn-panel: #071120;
+  --tn-panel-2: #0a2b55;
+  --tn-panel-3: #061a33;
+  --tn-blue: #0f5bd8;
+  --tn-blue-soft: #69a7ff;
+  --tn-line: rgba(141, 191, 255, .24);
+  --tn-line-soft: rgba(141, 191, 255, .14);
+  --tn-text: #f7fbff;
+  --tn-muted: rgba(232, 242, 255, .78);
+  --tn-danger: #ef4444;
+}
+
+body .main-viewport .favoritesPage .favoriteCard .favoriteBody p {
+  border: 1px solid rgba(34, 197, 94, .34) !important;
+  color: #14532d !important;
+  -webkit-text-fill-color: #14532d !important;
+  background: linear-gradient(180deg, #f0fdf4, #dcfce7) !important;
+  box-shadow: 0 8px 18px rgba(21, 128, 61, .1) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport .favoritesPage .favoriteCard .favoriteBody span {
+  border: 1px solid rgba(89, 174, 234, .52) !important;
+  color: #eaf6ff !important;
+  -webkit-text-fill-color: #eaf6ff !important;
+  background:
+    linear-gradient(135deg, rgba(31, 111, 169, .96), rgba(47, 134, 199, .82)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .18),
+    0 10px 22px rgba(47, 134, 199, .16) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport .favoritesPage .favoriteButtons button:first-child,
+body .main-viewport .favoritesPage .favoritesClear {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: linear-gradient(135deg, #083a7d, #0f62c9 54%, #1d6fd1) !important;
+}
+
+body .main-viewport .favoritesPage .favoriteButtons button:last-child,
+body .main-viewport .favoritesPage .favoritesActions .nu-linkBtn {
+  color: #0f2e55 !important;
+  -webkit-text-fill-color: #0f2e55 !important;
+  background: linear-gradient(180deg, #ffffff, #eaf2fb) !important;
+}
+
+body,
+.app-container,
+.main-viewport {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(15, 91, 216, .18), transparent 28%),
+    linear-gradient(rgba(141, 191, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .035) 1px, transparent 1px),
+    var(--tn-bg) !important;
+  background-size: auto, 42px 42px, 42px 42px, auto !important;
+  color: var(--tn-text) !important;
+}
+
+.nu-shellHeader {
+  background: rgba(5, 11, 20, .96) !important;
+  border-bottom: 1px solid var(--tn-line-soft) !important;
+  box-shadow: none !important;
+}
+
+.nu-brand,
+.nu-navLink {
+  color: var(--tn-text) !important;
+}
+
+.nu-cartLink,
+.nu-adminBtn,
+.nu-linkBtn,
+.nu-btn,
+.cartPay,
+.checkoutSubmit,
+.apSubmit,
+.chatSend,
+.admin-saveBtn,
+.admin-linkBtn,
+.adminAction,
+.adminOrdersBack,
+.adminOrdersActions button,
+.favoritesClear,
+.cartClear,
+.cartRemove,
+.qtyBtn {
+  border: 1px solid rgba(141, 191, 255, .28) !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .16) !important;
+}
+
+.nu-linkBtn,
+.adminOrdersBack,
+.admin-linkBtn--dark,
+.admin-resetBtn,
+.qtyBtn,
+.cartRemove,
+.favoritesClear {
+  color: var(--tn-text) !important;
+  background:
+    linear-gradient(135deg, rgba(15, 91, 216, .22), rgba(5, 11, 20, .82)) !important;
+}
+
+.admin-resetBtn--danger,
+.danger,
+.adminAction--cancel {
+  border-color: rgba(239, 68, 68, .42) !important;
+  color: #ffe8e8 !important;
+  background: linear-gradient(180deg, rgba(127, 29, 29, .95), rgba(69, 10, 10, .95)) !important;
+}
+
+.nu-page,
+.favoritesPage,
+.cartWrap,
+.checkoutWrap,
+.apWrap,
+.chatWrap,
+.admin-page,
+.adminOrdersPage {
+  min-height: calc(100vh - 76px) !important;
+  padding: clamp(28px, 4vw, 58px) clamp(18px, 4vw, 64px) !important;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(105, 167, 255, .14), transparent 24%),
+    linear-gradient(rgba(141, 191, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .035) 1px, transparent 1px),
+    var(--tn-bg) !important;
+  background-size: auto, 42px 42px, 42px 42px, auto !important;
+}
+
+.nu-container,
+.favoritesPanel,
+.cartPanel,
+.checkoutPanel,
+.apPanel,
+.chatPanel,
+.admin-card,
+.admin-previewCard,
+.adminOrdersPanel,
+.adminOrderCard,
+.adminWorkEditor,
+.adminProductRow,
+.cartTotalBox,
+.orderBox,
+.orderItems,
+.apSummary,
+.chatBox,
+.nu-previewCard {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid var(--tn-line) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    linear-gradient(135deg, rgba(7, 17, 32, .96), rgba(10, 43, 85, .78)),
+    linear-gradient(rgba(141, 191, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .04) 1px, transparent 1px) !important;
+  background-size: auto, 38px 38px, 38px 38px !important;
+  box-shadow: none !important;
+}
+
+.nu-container::before,
+.favoritesPanel::before,
+.cartPanel::before,
+.checkoutPanel::before,
+.apPanel::before,
+.chatPanel::before,
+.admin-card::before,
+.admin-previewCard::before,
+.adminOrdersPanel::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(125deg, transparent 0 58%, rgba(141, 191, 255, .1) 58% 58.4%, transparent 58.4%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 84px) !important;
+  opacity: .72 !important;
+}
+
+.nu-pageHeader,
+.favoritesHeader,
+.cartHeader,
+.checkoutHeader,
+.apHeader,
+.admin-hero,
+.adminOrdersHeader,
+.chatPanel > h1,
+.admin-cardHeader {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.nu-title,
+.favoritesHeader h1,
+.cartHeader h1,
+.checkoutHeader h1,
+.apHeader h1,
+.admin-hero h1,
+.adminOrdersHeader h1,
+.chatPanel h1,
+.admin-cardHeader h2 {
+  color: var(--tn-text) !important;
+  font-size: clamp(2rem, 3vw, 3.7rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.045em !important;
+}
+
+.nu-subtitle,
+.checkoutHint,
+.apSub,
+.chatSub,
+.admin-hero p,
+.admin-cardHeader p,
+.adminOrdersHeader p,
+.cartTotalHint,
+.orderSmall,
+.apLegal,
+.adminClientEmail,
+.adminOrderMeta,
+.adminOrderNotes,
+.nu-cardMeta,
+.nu-stock,
+.favoriteBody p {
+  color: var(--tn-muted) !important;
+}
+
+.nu-input,
+.nu-select,
+.adminSearch,
+.field input,
+.field select,
+.field textarea,
+.admin-field input,
+.admin-field textarea,
+.chatInput {
+  border: 1px solid rgba(141, 191, 255, .28) !important;
+  color: var(--tn-text) !important;
+  background: rgba(5, 11, 20, .64) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06) !important;
+}
+
+.nu-input::placeholder,
+.adminSearch::placeholder,
+.field input::placeholder,
+.field textarea::placeholder,
+.admin-field input::placeholder,
+.chatInput::placeholder {
+  color: rgba(232, 242, 255, .5) !important;
+}
+
+.nu-card,
+.favoriteCard,
+.cartItem,
+.orderItemRow,
+.adminOrderItem,
+.availabilityDay,
+.apCol,
+.checkoutCol,
+.checkoutSide,
+.cartLeft,
+.cartRight,
+.adminTableWrap,
+.adminDayGroup {
+  border: 1px solid var(--tn-line-soft) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    linear-gradient(180deg, rgba(10, 43, 85, .78), rgba(5, 11, 20, .94)),
+    repeating-linear-gradient(90deg, rgba(105, 167, 255, .045) 0 1px, transparent 1px 70px) !important;
+  box-shadow: none !important;
+}
+
+.nu-card:nth-child(3n + 1),
+.favoriteCard:nth-child(3n + 1),
+.cartItem:nth-child(3n + 1) {
+  background:
+    linear-gradient(180deg, rgba(10, 43, 85, .78), rgba(5, 11, 20, .94)),
+    repeating-linear-gradient(0deg, rgba(105, 167, 255, .05) 0 2px, transparent 2px 26px) !important;
+}
+
+.nu-card:nth-child(3n + 2),
+.favoriteCard:nth-child(3n + 2),
+.cartItem:nth-child(3n + 2) {
+  background:
+    linear-gradient(180deg, rgba(8, 59, 115, .7), rgba(5, 11, 20, .94)),
+    repeating-linear-gradient(45deg, rgba(105, 167, 255, .055) 0 2px, transparent 2px 28px) !important;
+}
+
+.nu-card:nth-child(3n),
+.favoriteCard:nth-child(3n),
+.cartItem:nth-child(3n) {
+  background:
+    radial-gradient(circle at 82% 22%, rgba(105, 167, 255, .14), transparent 18%),
+    linear-gradient(180deg, rgba(10, 43, 85, .78), rgba(5, 11, 20, .94)) !important;
+}
+
+.nu-cardTitle,
+.favoriteBody h3,
+.cartItemName,
+.orderItemName,
+.adminClientName,
+.adminOrderTop h2,
+.adminDate,
+.orderBoxTitle,
+.apSummaryTitle,
+.timesTitle {
+  color: var(--tn-text) !important;
+}
+
+.nu-imgWrap,
+.favoriteImg,
+.cartItemImg,
+.adminWorkImage,
+.nu-previewCard img {
+  background: rgba(5, 11, 20, .68) !important;
+  border-color: var(--tn-line-soft) !important;
+}
+
+.nu-badge,
+.nu-sku,
+.admin-kicker,
+.statusPill,
+.adminOrderStatus,
+.timesHint,
+.cartSummary,
+.orderTotal,
+.cartEstimate {
+  color: var(--tn-blue-soft) !important;
+}
+
+.adminTable {
+  color: var(--tn-text) !important;
+}
+
+.adminTable th {
+  color: var(--tn-blue-soft) !important;
+  background: rgba(5, 11, 20, .78) !important;
+}
+
+.adminTable td {
+  border-color: var(--tn-line-soft) !important;
+}
+
+.bubble--bot {
+  color: var(--tn-text) !important;
+  background: rgba(10, 43, 85, .78) !important;
+}
+
+.bubble--user {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+}
+
+@media (max-width: 900px) {
+  .nu-page,
+  .favoritesPage,
+  .cartWrap,
+  .checkoutWrap,
+  .apWrap,
+  .chatWrap,
+  .admin-page,
+  .adminOrdersPage {
+    padding: 22px 14px !important;
+  }
+
+  .nu-title,
+  .favoritesHeader h1,
+  .cartHeader h1,
+  .checkoutHeader h1,
+  .apHeader h1,
+  .admin-hero h1,
+  .adminOrdersHeader h1,
+  .chatPanel h1 {
+    font-size: clamp(1.8rem, 8vw, 2.7rem) !important;
+  }
+}
+
+/* Contrast and responsiveness QA layer. */
+.adminLoginPage {
+  min-height: calc(100vh - 76px) !important;
+  width: min(560px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+  padding: clamp(34px, 6vw, 72px) 0 !important;
+}
+
+.adminLoginPanel {
+  position: relative !important;
+  display: grid !important;
+  gap: 18px !important;
+  padding: clamp(24px, 4vw, 36px) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--tn-line) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    linear-gradient(135deg, rgba(7, 17, 32, .98), rgba(10, 43, 85, .78)),
+    linear-gradient(rgba(141, 191, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .04) 1px, transparent 1px) !important;
+  background-size: auto, 38px 38px, 38px 38px !important;
+}
+
+.adminLoginPanel::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(105, 167, 255, .16), transparent 22%),
+    linear-gradient(125deg, transparent 0 58%, rgba(141, 191, 255, .1) 58% 58.4%, transparent 58.4%) !important;
+}
+
+.adminLoginPanel > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.adminLoginPanel h2 {
+  margin: 0 !important;
+  color: var(--tn-text) !important;
+  font-size: clamp(2rem, 5vw, 3.2rem) !important;
+  letter-spacing: -.04em !important;
+}
+
+.adminLoginPanel p {
+  margin: 8px 0 0 !important;
+  color: var(--tn-muted) !important;
+  font-weight: 700 !important;
+}
+
+.adminLoginPanel .adminLoginWarning {
+  margin: 0 !important;
+  border: 1px solid rgba(239, 68, 68, .42) !important;
+  border-radius: 4px !important;
+  padding: 12px 14px !important;
+  color: #ffe8e8 !important;
+  background: linear-gradient(135deg, rgba(127, 29, 29, .78), rgba(69, 10, 10, .72)) !important;
+}
+
+.nu-linkBtn,
+.tn-hero-btn--light,
+.nu-home .tn-hero .tn-hero-btn--light,
+.dago-btn--light,
+.nu-home .dago-hero--integrated .dago-btn--light,
+.nu-cartLink {
+  color: #061a33 !important;
+  background: linear-gradient(180deg, #ffffff, #dbeafe) !important;
+}
+
+.nu-adminBtn,
+.nu-btn--primary,
+.tn-hero-btn--blue,
+.nu-home .tn-hero .tn-hero-btn--blue,
+.cartPay,
+.checkoutSubmit,
+.apSubmit,
+.chatSend,
+.admin-saveBtn,
+.adminAction,
+.adminOrdersActions button:not(.danger),
+.favoriteButtons button:first-child,
+.cartClear,
+.favoritesClear,
+.timeBtn--active {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+}
+
+button:disabled,
+.nu-btn:disabled,
+.cartPay:disabled,
+.checkoutSubmit:disabled,
+.apSubmit:disabled,
+.chatSend:disabled,
+.admin-saveBtn:disabled,
+.adminAction:disabled {
+  color: rgba(232, 242, 255, .54) !important;
+  background: rgba(71, 85, 105, .46) !important;
+  border-color: rgba(148, 163, 184, .22) !important;
+  cursor: not-allowed !important;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  min-width: 0 !important;
+}
+
+.nu-linkBtn,
+.nu-cartLink,
+.nu-adminBtn,
+.nu-btn,
+.cartPay,
+.checkoutSubmit,
+.apSubmit,
+.chatSend,
+.admin-saveBtn,
+.admin-resetBtn,
+.adminAction,
+.adminOrdersBack,
+.favoriteButtons button,
+.cartClear,
+.cartRemove,
+.qtyBtn,
+.timeBtn,
+.tn-hero-btn {
+  min-height: 42px !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  line-height: 1.15 !important;
+}
+
+input,
+select,
+textarea,
+option {
+  color: var(--tn-text) !important;
+  background-color: #071120 !important;
+}
+
+label,
+.field label,
+.admin-field span,
+.admin-check,
+.availabilityDay label {
+  color: rgba(232, 242, 255, .9) !important;
+}
+
+.nu-empty,
+.favoritesEmpty,
+.cartEmpty,
+.checkoutEmpty,
+.adminEmpty,
+.adminOrdersEmpty,
+.adminLoading {
+  border: 1px solid var(--tn-line-soft) !important;
+  color: var(--tn-muted) !important;
+  background:
+    linear-gradient(135deg, rgba(7, 17, 32, .9), rgba(10, 43, 85, .6)),
+    repeating-linear-gradient(45deg, rgba(105, 167, 255, .045) 0 2px, transparent 2px 24px) !important;
+}
+
+.statusPill--cancelled,
+.adminOrderStatus--cancelled {
+  color: #fecaca !important;
+  background: rgba(127, 29, 29, .82) !important;
+}
+
+.statusPill--completed,
+.adminOrderStatus--completed {
+  color: #bbf7d0 !important;
+  background: rgba(20, 83, 45, .76) !important;
+}
+
+.statusPill--confirmed,
+.adminOrderStatus--confirmed,
+.statusPill--scheduled,
+.adminOrderStatus--pending,
+.adminOrderStatus--scheduled {
+  color: #dbeafe !important;
+  background: rgba(30, 64, 175, .76) !important;
+}
+
+.nu-previewOverlay {
+  background: rgba(2, 6, 23, .82) !important;
+}
+
+.nu-previewClose,
+.nu-photoBtn,
+.nu-favBtn {
+  color: var(--tn-text) !important;
+  background: rgba(5, 11, 20, .76) !important;
+  border-color: var(--tn-line-soft) !important;
+}
+
+.nu-favBtn--active {
+  color: #ffffff !important;
+  background: #0f5bd8 !important;
+}
+
+.cartItemTop,
+.cartItemBottom,
+.favoriteButtons,
+.adminActionsRow,
+.adminOrderActions,
+.admin-formActions,
+.adminOrdersTools,
+.nu-controls,
+.cartHeaderActions,
+.favoritesActions {
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+.adminTableWrap,
+.adminOrdersList,
+.cartList,
+.orderItems,
+.chatBox {
+  scrollbar-color: rgba(105, 167, 255, .48) rgba(5, 11, 20, .7) !important;
+}
+
+@media (max-width: 720px) {
+  .nu-shellNav,
+  .nu-navLinks,
+  .nu-controls,
+  .cartGrid,
+  .checkoutGrid,
+  .apGrid,
+  .adminTools,
+  .adminOrdersTools {
+    align-items: stretch !important;
+  }
+
+  .nu-navLinks > *,
+  .nu-controls > *,
+  .cartHeaderActions > *,
+  .favoritesActions > *,
+  .adminOrdersTools > *,
+  .admin-formActions > *,
+  .checkoutSubmit,
+  .cartPay,
+  .apSubmit {
+    width: 100% !important;
+  }
+}
+
+/* Final page-specific contrast pass: page CSS is more specific in a few older views. */
+body .main-viewport .admin-page .admin-hero,
+body .main-viewport .admin-page .adminMetrics > div,
+body .main-viewport .admin-page .admin-card,
+body .main-viewport .admin-page .admin-previewCard,
+body .main-viewport .admin-page .adminWorkEditor,
+body .main-viewport .admin-page .adminProductRow {
+  border: 1px solid var(--tn-line) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(105, 167, 255, .13), transparent 20%),
+    linear-gradient(135deg, rgba(7, 17, 32, .96), rgba(10, 43, 85, .78)),
+    linear-gradient(rgba(141, 191, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .04) 1px, transparent 1px) !important;
+  background-size: auto, auto, 38px 38px, 38px 38px !important;
+  box-shadow: none !important;
+}
+
+body .main-viewport .admin-page .admin-hero::before,
+body .main-viewport .admin-page .admin-card::before,
+body .main-viewport .admin-page .admin-previewCard::before {
+  opacity: .9 !important;
+}
+
+body .main-viewport .admin-page .admin-hero h1,
+body .main-viewport .admin-page .admin-cardHeader h2,
+body .main-viewport .admin-page .adminMetrics strong,
+body .main-viewport .admin-page .admin-previewCard h3,
+body .main-viewport .admin-page .adminWorkEditor h3,
+body .main-viewport .admin-page .adminProductName {
+  color: var(--tn-text) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport .admin-page .admin-hero p,
+body .main-viewport .admin-page .adminMetrics span,
+body .main-viewport .admin-page .admin-cardHeader p,
+body .main-viewport .admin-page .admin-previewCard p,
+body .main-viewport .admin-page .adminProductMeta {
+  color: var(--tn-muted) !important;
+}
+
+body .main-viewport .admin-page .admin-actions,
+body .main-viewport .admin-page .admin-formActions {
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+}
+
+body .main-viewport .admin-page .admin-linkBtn,
+body .main-viewport .admin-page .admin-resetBtn {
+  color: var(--tn-text) !important;
+  background:
+    linear-gradient(135deg, rgba(15, 91, 216, .22), rgba(5, 11, 20, .82)) !important;
+}
+
+body .main-viewport .admin-page .admin-linkBtn--dark,
+body .main-viewport .admin-page .admin-saveBtn {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+}
+
+body .main-viewport .apWrap .apPanel,
+body .main-viewport .apWrap .apCol,
+body .main-viewport .apWrap .apSide,
+body .main-viewport .apWrap .apSummary {
+  border: 1px solid var(--tn-line) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    radial-gradient(circle at 92% 18%, rgba(105, 167, 255, .12), transparent 20%),
+    linear-gradient(135deg, rgba(7, 17, 32, .96), rgba(10, 43, 85, .72)),
+    linear-gradient(rgba(141, 191, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .04) 1px, transparent 1px) !important;
+  background-size: auto, auto, 38px 38px, 38px 38px !important;
+  box-shadow: none !important;
+}
+
+body .main-viewport .apWrap .apHeader h1,
+body .main-viewport .apWrap .apHeader h2,
+body .main-viewport .apWrap .apSummaryTitle,
+body .main-viewport .apWrap .timesTitle,
+body .main-viewport .apWrap .field label,
+body .main-viewport .apWrap .apSummaryLine,
+body .main-viewport .apWrap .apSummaryLine strong {
+  color: var(--tn-text) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport .apWrap .apSub,
+body .main-viewport .apWrap .apLegal,
+body .main-viewport .apWrap .timesHint {
+  color: var(--tn-muted) !important;
+}
+
+body .main-viewport .apWrap .field input,
+body .main-viewport .apWrap .field select,
+body .main-viewport .apWrap .field textarea {
+  border: 1px solid rgba(141, 191, 255, .28) !important;
+  color: var(--tn-text) !important;
+  background: rgba(5, 11, 20, .72) !important;
+}
+
+body .main-viewport .apWrap .field input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.8) !important;
+}
+
+body .main-viewport .apWrap .timeBtn {
+  min-height: 48px !important;
+  color: #061a33 !important;
+  background: linear-gradient(180deg, #f8fbff, #dbeafe) !important;
+  border: 1px solid rgba(141, 191, 255, .48) !important;
+}
+
+body .main-viewport .apWrap .timeBtn--active {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+}
+
+body .main-viewport .apWrap .timeBtn:disabled,
+body .main-viewport .apWrap .apSubmit:disabled {
+  color: rgba(247, 251, 255, .82) !important;
+  background: linear-gradient(180deg, rgba(71, 85, 105, .72), rgba(30, 41, 59, .82)) !important;
+  border-color: rgba(148, 163, 184, .34) !important;
+}
+
+body .main-viewport .apWrap .apSubmit {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+}
+
+body .main-viewport .nu-page .nu-container,
+body .main-viewport .nu-page .nu-pageHeader {
+  border: 1px solid var(--tn-line) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(105, 167, 255, .14), transparent 22%),
+    linear-gradient(135deg, rgba(7, 17, 32, .96), rgba(10, 43, 85, .78)),
+    repeating-linear-gradient(90deg, rgba(105, 167, 255, .045) 0 1px, transparent 1px 84px) !important;
+  box-shadow: none !important;
+}
+
+body .main-viewport .nu-page .nu-title {
+  color: var(--tn-text) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport .nu-page .nu-subtitle {
+  color: var(--tn-muted) !important;
+}
+
+body .main-viewport .nu-page .nu-input,
+body .main-viewport .nu-page .nu-select {
+  border: 1px solid rgba(141, 191, 255, .28) !important;
+  color: var(--tn-text) !important;
+  background: rgba(5, 11, 20, .72) !important;
+}
+
+body .main-viewport .nu-page .nu-card {
+  border: 1px solid var(--tn-line-soft) !important;
+  color: var(--tn-text) !important;
+  background:
+    linear-gradient(180deg, rgba(10, 43, 85, .78), rgba(5, 11, 20, .94)),
+    repeating-linear-gradient(90deg, rgba(105, 167, 255, .045) 0 1px, transparent 1px 70px) !important;
+  box-shadow: none !important;
+}
+
+body .main-viewport .nu-page .nu-cardTop {
+  border-bottom: 1px solid var(--tn-line-soft) !important;
+  background:
+    linear-gradient(180deg, rgba(10, 43, 85, .48), rgba(5, 11, 20, .74)),
+    radial-gradient(circle at 80% 18%, rgba(105, 167, 255, .14), transparent 28%) !important;
+}
+
+body .main-viewport .nu-page .nu-imgWrap {
+  border: 1px solid rgba(141, 191, 255, .28) !important;
+  background: rgba(248, 251, 255, .92) !important;
+}
+
+body .main-viewport .nu-page .nu-cardBody {
+  background: transparent !important;
+}
+
+body .main-viewport .nu-page .nu-cardTitle,
+body .main-viewport .nu-page .nu-stock {
+  color: var(--tn-text) !important;
+}
+
+body .main-viewport .nu-page .nu-price {
+  color: var(--tn-blue-soft) !important;
+}
+
+body .main-viewport .nu-page .nu-cardMeta span,
+body .main-viewport .nu-page .nu-badge,
+body .main-viewport .nu-page .nu-sku {
+  color: #061a33 !important;
+  background: linear-gradient(180deg, #ffffff, #dbeafe) !important;
+}
+
+body .main-viewport .nu-page .nu-linkBtn {
+  color: #061a33 !important;
+  background: linear-gradient(180deg, #ffffff, #dbeafe) !important;
+}
+
+body .main-viewport .nu-page .nu-photoBtn,
+body .main-viewport .nu-page .nu-favBtn {
+  color: #ffffff !important;
+  background: rgba(5, 11, 20, .82) !important;
+  border: 1px solid var(--tn-line-soft) !important;
+}
+
+body .main-viewport .nu-page .nu-favBtn--active {
+  background: linear-gradient(180deg, #1768e6, #0d4fbf) !important;
+}
+
+@media (max-width: 920px) {
+  body .main-viewport .admin-page .admin-actions,
+  body .main-viewport .admin-page .admin-formActions {
+    justify-content: flex-start !important;
+  }
+
+  body .main-viewport .apWrap .apSide,
+  body .main-viewport .apWrap .apSummary {
+    width: 100% !important;
+  }
+}
+
+body .main-viewport .adminOrdersPage .adminOrdersPanel,
+body .main-viewport .adminOrdersPage .adminOrderCard,
+body .main-viewport .favoritesPage .favoritesPanel,
+body .main-viewport .favoritesPage .favoriteCard,
+body .main-viewport .cartWrap .cartPanel,
+body .main-viewport .cartWrap .cartItem,
+body .main-viewport .cartWrap .cartTotalBox,
+body .main-viewport .checkoutWrap .checkoutPanel,
+body .main-viewport .checkoutWrap .checkoutCol,
+body .main-viewport .checkoutWrap .checkoutSide,
+body .main-viewport .chatWrap .chatPanel,
+body .main-viewport .chatWrap .chatBox {
+  border: 1px solid var(--tn-line) !important;
+  border-radius: 0 !important;
+  color: var(--tn-text) !important;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(105, 167, 255, .12), transparent 20%),
+    linear-gradient(135deg, rgba(7, 17, 32, .96), rgba(10, 43, 85, .72)),
+    linear-gradient(rgba(141, 191, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 191, 255, .04) 1px, transparent 1px) !important;
+  background-size: auto, auto, 38px 38px, 38px 38px !important;
+  box-shadow: none !important;
+}
+
+body .main-viewport .adminOrdersPage h1,
+body .main-viewport .adminOrdersPage h2,
+body .main-viewport .favoritesPage h1,
+body .main-viewport .favoritesPage h2,
+body .main-viewport .cartWrap h1,
+body .main-viewport .cartWrap h2,
+body .main-viewport .checkoutWrap h1,
+body .main-viewport .checkoutWrap h2,
+body .main-viewport .chatWrap h1,
+body .main-viewport .chatWrap h2,
+body .main-viewport .cartWrap .cartItemName,
+body .main-viewport .favoritesPage .favoriteBody h3,
+body .main-viewport .checkoutWrap .orderBoxTitle,
+body .main-viewport .adminOrdersPage .adminOrderTop h2,
+body .main-viewport .adminOrdersPage .adminOrderItem strong {
+  color: var(--tn-text) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport .adminOrdersPage p,
+body .main-viewport .adminOrdersPage .adminOrderMeta,
+body .main-viewport .adminOrdersPage .adminOrderNotes,
+body .main-viewport .favoritesPage p,
+body .main-viewport .cartWrap p,
+body .main-viewport .checkoutWrap p,
+body .main-viewport .chatWrap p,
+body .main-viewport .cartWrap .cartItemMeta,
+body .main-viewport .checkoutWrap .orderSmall {
+  color: var(--tn-muted) !important;
+}
+
+body .main-viewport .adminOrdersPage input,
+body .main-viewport .adminOrdersPage select,
+body .main-viewport .favoritesPage input,
+body .main-viewport .cartWrap input,
+body .main-viewport .checkoutWrap input,
+body .main-viewport .checkoutWrap select,
+body .main-viewport .checkoutWrap textarea,
+body .main-viewport .chatWrap input,
+body .main-viewport .chatWrap textarea {
+  border: 1px solid rgba(141, 191, 255, .28) !important;
+  color: var(--tn-text) !important;
+  background: rgba(5, 11, 20, .72) !important;
+}
+
+body .main-viewport .adminOrdersPage button,
+body .main-viewport .favoritesPage button,
+body .main-viewport .cartWrap button,
+body .main-viewport .checkoutWrap button,
+body .main-viewport .chatWrap button {
+  min-height: 42px !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Navigation and catalog placement polish. */
+body .nu-shellHeader .nu-navLink,
+body .nu-shellHeader .nu-cartLink,
+body .nu-shellHeader .nu-adminBtn {
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 42px !important;
+  border: 1px solid transparent !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+}
+
+body .nu-shellHeader .nu-navLink:hover,
+body .nu-shellHeader .nu-navLink:focus-visible,
+body:has(.nu-home) .nu-shellHeader .nu-navLink:hover,
+body:has(.nu-home) .nu-shellHeader .nu-navLink:focus-visible {
+  border-color: rgba(141, 191, 255, .32) !important;
+  color: var(--tn-text) !important;
+  background: rgba(105, 167, 255, .16) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08) !important;
+}
+
+body .nu-shellHeader .nu-cartLink:hover,
+body .nu-shellHeader .nu-cartLink:focus-visible,
+body:has(.nu-home) .nu-shellHeader .nu-cartLink:hover,
+body:has(.nu-home) .nu-shellHeader .nu-cartLink:focus-visible {
+  border-color: rgba(141, 191, 255, .48) !important;
+  color: #061a33 !important;
+  background: linear-gradient(180deg, #ffffff, #dbeafe) !important;
+}
+
+body .nu-shellHeader .nu-adminBtn:hover,
+body .nu-shellHeader .nu-adminBtn:focus-visible,
+body:has(.nu-home) .nu-shellHeader .nu-adminBtn:hover,
+body:has(.nu-home) .nu-shellHeader .nu-adminBtn:focus-visible {
+  border-color: rgba(141, 191, 255, .42) !important;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #2b7cff, #0f5bd8) !important;
+}
+
+body .main-viewport .nu-page .nu-controls {
+  display: grid !important;
+  grid-template-columns: minmax(min(100%, 280px), 1fr) minmax(160px, 220px) minmax(112px, auto) minmax(112px, auto) !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+}
+
+body .main-viewport .nu-page .nu-controls > * {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+body .main-viewport .nu-page .nu-linkBtn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  padding: 0 16px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+body .main-viewport .nu-page .nu-cardTop {
+  min-height: 238px !important;
+  padding: 16px !important;
+}
+
+body .main-viewport .nu-page .nu-cardTop::before,
+body .main-viewport .nu-page .nu-imgWrap::before {
+  display: none !important;
+  content: none !important;
+}
+
+body .main-viewport .nu-page .nu-badge {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: calc(100% - 100px) !important;
+}
+
+body .main-viewport .nu-page .nu-favBtn {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 3 !important;
+  min-height: 32px !important;
+  max-width: min(116px, calc(100% - 28px)) !important;
+  padding: 0 12px !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+body .main-viewport .nu-page .nu-imgWrap {
+  position: relative !important;
+  z-index: 1 !important;
+  height: 168px !important;
+  margin-top: 16px !important;
+  overflow: hidden !important;
+}
+
+body .main-viewport .nu-page .nu-photoBtn {
+  position: absolute !important;
+  left: 14px !important;
+  right: auto !important;
+  bottom: 14px !important;
+  z-index: 3 !important;
+  min-height: 34px !important;
+  max-width: calc(100% - 28px) !important;
+  padding: 0 12px !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+body .main-viewport .nu-page .nu-btn--primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  text-align: center !important;
+}
+
+@media (max-width: 1020px) {
+  body .nu-shellNav {
+    width: min(100% - 32px, 1440px) !important;
+    gap: 14px !important;
+  }
+
+  body .nu-shellHeader .nu-navLinks {
+    gap: 8px !important;
+  }
+
+  body .nu-shellHeader .nu-navLink,
+  body .nu-shellHeader .nu-cartLink,
+  body .nu-shellHeader .nu-adminBtn {
+    padding: 0 10px !important;
+    font-size: .86rem !important;
+  }
+
+  body .main-viewport .nu-page .nu-controls {
+    grid-template-columns: minmax(220px, 1fr) minmax(170px, 220px) repeat(2, minmax(130px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 820px) {
+  body .main-viewport .nu-page .nu-controls {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  body .main-viewport .nu-page .nu-input {
+    grid-column: 1 / -1 !important;
+  }
+
+  body .main-viewport .nu-page .nu-select {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  body .nu-shellNav {
+    align-items: stretch !important;
+  }
+
+  body .nu-shellHeader .nu-navLinks {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+  }
+
+  body .nu-shellHeader .nu-navLink,
+  body .nu-shellHeader .nu-cartLink,
+  body .nu-shellHeader .nu-adminBtn {
+    width: 100% !important;
+    white-space: normal !important;
+    line-height: 1.15 !important;
+  }
+
+  body .main-viewport .nu-page .nu-controls {
+    grid-template-columns: 1fr !important;
+  }
+
+  body .main-viewport .nu-page .nu-input,
+  body .main-viewport .nu-page .nu-select,
+  body .main-viewport .nu-page .nu-linkBtn {
+    grid-column: auto !important;
+  }
+}
+
+/* Temporary gray-background comparison for every view except the home page. */
+body:not(:has(.nu-home)),
+body:not(:has(.nu-home)) .app-container,
+body:not(:has(.nu-home)) .main-viewport {
+  background: #02050a !important;
+  color: #f8fafc !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-page,
+body .main-viewport:not(:has(.nu-home)) .favoritesPage,
+body .main-viewport:not(:has(.nu-home)) .cartWrap,
+body .main-viewport:not(:has(.nu-home)) .checkoutWrap,
+body .main-viewport:not(:has(.nu-home)) .apWrap,
+body .main-viewport:not(:has(.nu-home)) .chatWrap,
+body .main-viewport:not(:has(.nu-home)) .admin-page,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersPage {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, .1), transparent 28%),
+    radial-gradient(ellipse at 18% 8%, rgba(15, 23, 42, .42), transparent 30%),
+    linear-gradient(rgba(148, 163, 184, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, .025) 1px, transparent 1px),
+    linear-gradient(180deg, #02050a 0%, #050911 48%, #02050a 100%) !important;
+  background-size: auto, auto, 42px 42px, 42px 42px, auto !important;
+  color: #f8fafc !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-pageHeader,
+body .main-viewport:not(:has(.nu-home)) .favoritesPanel,
+body .main-viewport:not(:has(.nu-home)) .favoriteCard,
+body .main-viewport:not(:has(.nu-home)) .cartPanel,
+body .main-viewport:not(:has(.nu-home)) .cartItem,
+body .main-viewport:not(:has(.nu-home)) .cartSummary,
+body .main-viewport:not(:has(.nu-home)) .checkoutPanel,
+body .main-viewport:not(:has(.nu-home)) .orderItems,
+body .main-viewport:not(:has(.nu-home)) .apHeader,
+body .main-viewport:not(:has(.nu-home)) .apCol,
+body .main-viewport:not(:has(.nu-home)) .apSide,
+body .main-viewport:not(:has(.nu-home)) .chatPanel,
+body .main-viewport:not(:has(.nu-home)) .chatBox,
+body .main-viewport:not(:has(.nu-home)) .admin-hero,
+body .main-viewport:not(:has(.nu-home)) .admin-card,
+body .main-viewport:not(:has(.nu-home)) .admin-previewCard,
+body .main-viewport:not(:has(.nu-home)) .adminMetrics div,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersPanel,
+body .main-viewport:not(:has(.nu-home)) .adminOrderCard {
+  border-color: rgba(148, 163, 184, .22) !important;
+  background:
+    linear-gradient(135deg, rgba(9, 14, 24, .98), rgba(5, 9, 17, .96) 58%, rgba(2, 5, 10, .96)) !important;
+  color: #f8fafc !important;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, .42),
+    0 0 0 1px rgba(255, 255, 255, .055) inset !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .adminProductForm,
+body .main-viewport:not(:has(.nu-home)) .adminWorkEditor,
+body .main-viewport:not(:has(.nu-home)) .adminProductRow,
+body .main-viewport:not(:has(.nu-home)) .availabilityDay,
+body .main-viewport:not(:has(.nu-home)) .adminOrderItem,
+body .main-viewport:not(:has(.nu-home)) .apSummary {
+  border-color: rgba(148, 163, 184, .2) !important;
+  background: rgba(5, 9, 17, .82) !important;
+  color: #f8fafc !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) h1,
+body .main-viewport:not(:has(.nu-home)) h2,
+body .main-viewport:not(:has(.nu-home)) h3,
+body .main-viewport:not(:has(.nu-home)) .adminProductRow strong,
+body .main-viewport:not(:has(.nu-home)) .adminOrderItem strong,
+body .main-viewport:not(:has(.nu-home)) .cartItemName,
+body .main-viewport:not(:has(.nu-home)) .favoriteBody h3 {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) p,
+body .main-viewport:not(:has(.nu-home)) span,
+body .main-viewport:not(:has(.nu-home)) small,
+body .main-viewport:not(:has(.nu-home)) label,
+body .main-viewport:not(:has(.nu-home)) .admin-kicker,
+body .main-viewport:not(:has(.nu-home)) .admin-field span,
+body .main-viewport:not(:has(.nu-home)) .field label,
+body .main-viewport:not(:has(.nu-home)) .cartHeader p,
+body .main-viewport:not(:has(.nu-home)) .checkoutHint,
+body .main-viewport:not(:has(.nu-home)) .apSub,
+body .main-viewport:not(:has(.nu-home)) .chatSub {
+  color: rgba(226, 232, 240, .76) !important;
+  -webkit-text-fill-color: rgba(226, 232, 240, .76) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) input,
+body .main-viewport:not(:has(.nu-home)) select,
+body .main-viewport:not(:has(.nu-home)) textarea {
+  border-color: rgba(148, 163, 184, .28) !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+  background: rgba(0, 0, 0, .42) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) input::placeholder,
+body .main-viewport:not(:has(.nu-home)) textarea::placeholder {
+  color: rgba(203, 213, 225, .62) !important;
+  -webkit-text-fill-color: rgba(203, 213, 225, .62) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .orderBox,
+body .main-viewport:not(:has(.nu-home)) .cartTotalBox,
+body .main-viewport:not(:has(.nu-home)) .bubble--user {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #050911, #111827) !important;
+}
+
+/* Vivid blue accent pass for the black theme. */
+body:not(:has(.nu-home)) {
+  --tn-blue: #2f86c7;
+  --tn-blue-soft: #59aeea;
+  --tn-line: rgba(89, 174, 234, .34);
+  --tn-line-soft: rgba(89, 174, 234, .18);
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-page,
+body .main-viewport:not(:has(.nu-home)) .favoritesPage,
+body .main-viewport:not(:has(.nu-home)) .cartWrap,
+body .main-viewport:not(:has(.nu-home)) .checkoutWrap,
+body .main-viewport:not(:has(.nu-home)) .apWrap,
+body .main-viewport:not(:has(.nu-home)) .chatWrap,
+body .main-viewport:not(:has(.nu-home)) .admin-page,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersPage {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(47, 134, 199, .18), transparent 30%),
+    radial-gradient(ellipse at 16% 9%, rgba(89, 174, 234, .1), transparent 28%),
+    linear-gradient(rgba(89, 174, 234, .03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .03) 1px, transparent 1px),
+    linear-gradient(180deg, #02050a 0%, #050911 48%, #02050a 100%) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-pageHeader,
+body .main-viewport:not(:has(.nu-home)) .favoritesPanel,
+body .main-viewport:not(:has(.nu-home)) .favoriteCard,
+body .main-viewport:not(:has(.nu-home)) .cartPanel,
+body .main-viewport:not(:has(.nu-home)) .cartItem,
+body .main-viewport:not(:has(.nu-home)) .cartSummary,
+body .main-viewport:not(:has(.nu-home)) .checkoutPanel,
+body .main-viewport:not(:has(.nu-home)) .orderItems,
+body .main-viewport:not(:has(.nu-home)) .apHeader,
+body .main-viewport:not(:has(.nu-home)) .apCol,
+body .main-viewport:not(:has(.nu-home)) .apSide,
+body .main-viewport:not(:has(.nu-home)) .chatPanel,
+body .main-viewport:not(:has(.nu-home)) .chatBox,
+body .main-viewport:not(:has(.nu-home)) .admin-hero,
+body .main-viewport:not(:has(.nu-home)) .admin-card,
+body .main-viewport:not(:has(.nu-home)) .admin-previewCard,
+body .main-viewport:not(:has(.nu-home)) .adminMetrics div,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersPanel,
+body .main-viewport:not(:has(.nu-home)) .adminOrderCard {
+  border-color: rgba(89, 174, 234, .28) !important;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, .42),
+    0 10px 34px rgba(47, 134, 199, .1),
+    0 0 0 1px rgba(255, 255, 255, .055) inset !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-linkBtn,
+body .main-viewport:not(:has(.nu-home)) .nu-btn--primary,
+body .main-viewport:not(:has(.nu-home)) .favoritesClear,
+body .main-viewport:not(:has(.nu-home)) .favoriteButtons button:first-child,
+body .main-viewport:not(:has(.nu-home)) .cartPay,
+body .main-viewport:not(:has(.nu-home)) .checkoutSubmit,
+body .main-viewport:not(:has(.nu-home)) .apSubmit,
+body .main-viewport:not(:has(.nu-home)) .chatSend,
+body .main-viewport:not(:has(.nu-home)) .admin-saveBtn,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersTools button {
+  border-color: rgba(89, 174, 234, .72) !important;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow:
+    0 16px 36px rgba(47, 134, 199, .24),
+    0 0 0 1px rgba(255, 255, 255, .12) inset !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-linkBtn:hover,
+body .main-viewport:not(:has(.nu-home)) .nu-btn--primary:hover,
+body .main-viewport:not(:has(.nu-home)) .favoritesClear:hover,
+body .main-viewport:not(:has(.nu-home)) .favoriteButtons button:first-child:hover,
+body .main-viewport:not(:has(.nu-home)) .cartPay:hover,
+body .main-viewport:not(:has(.nu-home)) .checkoutSubmit:hover,
+body .main-viewport:not(:has(.nu-home)) .apSubmit:hover,
+body .main-viewport:not(:has(.nu-home)) .chatSend:hover,
+body .main-viewport:not(:has(.nu-home)) .admin-saveBtn:hover,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersTools button:hover {
+  background: linear-gradient(135deg, #1b6499, #348dce 54%, #5ab0ea) !important;
+  box-shadow:
+    0 22px 48px rgba(47, 134, 199, .34),
+    0 0 30px rgba(89, 174, 234, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .admin-kicker,
+body .main-viewport:not(:has(.nu-home)) .favoriteBody strong,
+body .main-viewport:not(:has(.nu-home)) .nu-priceRow strong,
+body .main-viewport:not(:has(.nu-home)) .cartItemPrice,
+body .main-viewport:not(:has(.nu-home)) .adminOrderItem span {
+  color: #59aeea !important;
+  -webkit-text-fill-color: #59aeea !important;
+}
+
+body:not(:has(.nu-home)),
+body:not(:has(.nu-home)) .app-container,
+body:not(:has(.nu-home)) .main-viewport {
+  background: #0b111a !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-page,
+body .main-viewport:not(:has(.nu-home)) .favoritesPage,
+body .main-viewport:not(:has(.nu-home)) .cartWrap,
+body .main-viewport:not(:has(.nu-home)) .checkoutWrap,
+body .main-viewport:not(:has(.nu-home)) .apWrap,
+body .main-viewport:not(:has(.nu-home)) .chatWrap,
+body .main-viewport:not(:has(.nu-home)) .admin-page,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersPage {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(47, 134, 199, .22), transparent 32%),
+    radial-gradient(ellipse at 16% 9%, rgba(89, 174, 234, .12), transparent 30%),
+    linear-gradient(rgba(89, 174, 234, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .035) 1px, transparent 1px),
+    linear-gradient(180deg, #0d1520 0%, #111b29 48%, #0b111a 100%) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-pageHeader,
+body .main-viewport:not(:has(.nu-home)) .favoritesPanel,
+body .main-viewport:not(:has(.nu-home)) .favoriteCard,
+body .main-viewport:not(:has(.nu-home)) .cartPanel,
+body .main-viewport:not(:has(.nu-home)) .cartItem,
+body .main-viewport:not(:has(.nu-home)) .cartSummary,
+body .main-viewport:not(:has(.nu-home)) .checkoutPanel,
+body .main-viewport:not(:has(.nu-home)) .orderItems,
+body .main-viewport:not(:has(.nu-home)) .apHeader,
+body .main-viewport:not(:has(.nu-home)) .apCol,
+body .main-viewport:not(:has(.nu-home)) .apSide,
+body .main-viewport:not(:has(.nu-home)) .chatPanel,
+body .main-viewport:not(:has(.nu-home)) .chatBox,
+body .main-viewport:not(:has(.nu-home)) .admin-hero,
+body .main-viewport:not(:has(.nu-home)) .admin-card,
+body .main-viewport:not(:has(.nu-home)) .admin-previewCard,
+body .main-viewport:not(:has(.nu-home)) .adminMetrics div,
+body .main-viewport:not(:has(.nu-home)) .adminOrdersPanel,
+body .main-viewport:not(:has(.nu-home)) .adminOrderCard {
+  background:
+    linear-gradient(135deg, rgba(20, 30, 44, .98), rgba(14, 23, 35, .96) 58%, rgba(10, 18, 29, .96)) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .orderBox *,
+body .main-viewport:not(:has(.nu-home)) .cartTotalBox *,
+body .main-viewport:not(:has(.nu-home)) .bubble--user {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+body:has(.nu-home) .nu-home .dago-season button,
+body:has(.nu-home) .nu-home .dago-btn,
+body:has(.nu-home) .nu-home .pickup-notice button,
+body:has(.nu-home) .nu-home .repair-promo button,
+body:has(.nu-home) .nu-home .workshop-map__copy a {
+  border: 1px solid rgba(89, 174, 234, .72) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow:
+    0 16px 36px rgba(47, 134, 199, .24),
+    0 0 0 1px rgba(255, 255, 255, .12) inset !important;
+}
+
+body:has(.nu-home) .nu-home .dago-season button:hover,
+body:has(.nu-home) .nu-home .dago-btn:hover,
+body:has(.nu-home) .nu-home .pickup-notice button:hover,
+body:has(.nu-home) .nu-home .repair-promo button:hover,
+body:has(.nu-home) .nu-home .workshop-map__copy a:hover {
+  background: linear-gradient(135deg, #1b6499, #348dce 54%, #5ab0ea) !important;
+  box-shadow:
+    0 22px 48px rgba(47, 134, 199, .34),
+    0 0 30px rgba(89, 174, 234, .18) !important;
+}
+
+body .nu-shellHeader .nu-adminBtn,
+body:has(.nu-home) .nu-shellHeader .nu-adminBtn,
+body:has(.nu-home) .nu-home .tn-hero-btn--blue {
+  border: 1px solid rgba(89, 174, 234, .72) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow:
+    0 16px 36px rgba(47, 134, 199, .24),
+    0 0 0 1px rgba(255, 255, 255, .12) inset !important;
+}
+
+body .nu-shellHeader .nu-adminBtn:hover,
+body .nu-shellHeader .nu-adminBtn:focus-visible,
+body:has(.nu-home) .nu-shellHeader .nu-adminBtn:hover,
+body:has(.nu-home) .nu-shellHeader .nu-adminBtn:focus-visible,
+body:has(.nu-home) .nu-home .tn-hero-btn--blue:hover,
+body:has(.nu-home) .nu-home .tn-hero-btn--blue:focus-visible {
+  border-color: rgba(147, 213, 255, .86) !important;
+  background: linear-gradient(135deg, #1b6499, #348dce 54%, #5ab0ea) !important;
+  box-shadow:
+    0 22px 48px rgba(47, 134, 199, .34),
+    0 0 30px rgba(89, 174, 234, .18) !important;
+}
+
+body:has(.nu-home) .nu-home .work-showcase__grid {
+  gap: 8px !important;
+  background: rgba(89, 174, 234, .14) !important;
+}
+
+body:has(.nu-home) .nu-home .work-card {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(89, 174, 234, .18) !important;
+  border-radius: 0 !important;
+  background:
+    linear-gradient(145deg, rgba(47, 134, 199, .12), transparent 44%),
+    #071323 !important;
+  transform: translateY(0) scale(1) !important;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease !important;
+}
+
+body:has(.nu-home) .nu-home .work-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(180deg, rgba(89, 174, 234, .18), transparent 34%),
+    radial-gradient(circle at 50% 0%, rgba(89, 174, 234, .22), transparent 42%) !important;
+  opacity: 0 !important;
+  transition: opacity .22s ease !important;
+}
+
+body:has(.nu-home) .nu-home .work-card::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 3 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  opacity: .96 !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  transition: transform .22s ease !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover {
+  z-index: 5 !important;
+  border-color: rgba(89, 174, 234, .58) !important;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, .38),
+    0 0 38px rgba(47, 134, 199, .22) !important;
+  transform: translateY(-8px) scale(1.015) !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover::before {
+  opacity: 1 !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover::after {
+  transform: scaleX(1) !important;
+}
+
+body:has(.nu-home) .nu-home .work-card img {
+  transition:
+    transform .28s ease,
+    filter .28s ease !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover img {
+  filter: saturate(1.08) contrast(1.08) brightness(.98) !important;
+  transform: scale(1.045) !important;
+}
+
+body:has(.nu-home) .nu-home .work-card div {
+  position: relative !important;
+  z-index: 4 !important;
+  transition:
+    background .22s ease,
+    transform .22s ease !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover div {
+  background:
+    linear-gradient(135deg, rgba(47, 134, 199, .18), transparent 46%),
+    #071323 !important;
+  transform: translateY(-2px) !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover h3 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 22px rgba(89, 174, 234, .26) !important;
+}
+
+body:has(.nu-home) .nu-home .work-card:hover p {
+  color: rgba(240, 248, 255, .9) !important;
+  -webkit-text-fill-color: rgba(240, 248, 255, .9) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel,
+body:has(.nu-home) .nu-home .pickup-notice,
+body:has(.nu-home) .nu-home .repair-promo,
+body:has(.nu-home) .nu-home .workshop-map__copy,
+body:has(.nu-home) .nu-home .workshop-map__frame {
+  transition:
+    border-color .24s ease,
+    box-shadow .24s ease,
+    filter .24s ease,
+    transform .24s ease !important;
+}
+
+body:has(.nu-home) .nu-home .pickup-notice,
+body:has(.nu-home) .nu-home .repair-promo,
+body:has(.nu-home) .nu-home .workshop-map__copy {
+  position: relative !important;
+  overflow: hidden !important;
+  border-color: rgba(89, 174, 234, .16) !important;
+  border-bottom-color: #040912 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .05),
+    0 24px 64px rgba(0, 0, 0, .2) !important;
+}
+
+body:has(.nu-home) .nu-home .pickup-notice {
+  background:
+    linear-gradient(100deg, rgba(3, 10, 22, .98), rgba(7, 31, 59, .92) 58%, rgba(16, 76, 126, .72)),
+    linear-gradient(rgba(89, 174, 234, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .045) 1px, transparent 1px) !important;
+  background-size: auto, 42px 42px, 42px 42px !important;
+}
+
+body:has(.nu-home) .nu-home .repair-promo {
+  background:
+    linear-gradient(100deg, rgba(2, 8, 18, .97), rgba(5, 18, 35, .86) 52%, rgba(21, 84, 137, .5)),
+    var(--repair-promo-image, linear-gradient(135deg, #061225, #0b4f96)) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+body:has(.nu-home) .nu-home .workshop-map__copy {
+  background:
+    linear-gradient(135deg, rgba(3, 10, 22, .98), rgba(8, 38, 72, .9) 54%, rgba(20, 91, 146, .62)),
+    linear-gradient(rgba(89, 174, 234, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .04) 1px, transparent 1px) !important;
+  background-size: auto, 38px 38px, 38px 38px !important;
+}
+
+body:has(.nu-home) .nu-home .pickup-notice:hover,
+body:has(.nu-home) .nu-home .repair-promo:hover,
+body:has(.nu-home) .nu-home .workshop-map__copy:hover {
+  border-color: rgba(89, 174, 234, .44) !important;
+  border-bottom-color: rgba(89, 174, 234, .42) !important;
+  background-blend-mode: normal !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(89, 174, 234, .16),
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 30px 78px rgba(0, 0, 0, .34),
+    0 0 46px rgba(47, 134, 199, .2) !important;
+  transform: none !important;
+}
+
+body:has(.nu-home) .nu-home .pickup-notice:hover {
+  background:
+    linear-gradient(100deg, rgba(2, 8, 18, .98), rgba(8, 38, 72, .95) 58%, rgba(31, 111, 169, .78)),
+    linear-gradient(rgba(89, 174, 234, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .055) 1px, transparent 1px) !important;
+  background-size: auto, 42px 42px, 42px 42px !important;
+}
+
+body:has(.nu-home) .nu-home .repair-promo:hover {
+  background:
+    linear-gradient(100deg, rgba(2, 8, 18, .98), rgba(5, 18, 35, .88) 48%, rgba(31, 111, 169, .56)),
+    var(--repair-promo-image, linear-gradient(135deg, #061225, #0b4f96)) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+body:has(.nu-home) .nu-home .workshop-map__copy:hover {
+  background:
+    linear-gradient(135deg, rgba(2, 8, 18, .98), rgba(9, 44, 82, .94) 54%, rgba(31, 111, 169, .68)),
+    linear-gradient(rgba(89, 174, 234, .065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .05) 1px, transparent 1px) !important;
+  background-size: auto, 38px 38px, 38px 38px !important;
+}
+
+body:has(.nu-home) .nu-home .pickup-notice:hover h2,
+body:has(.nu-home) .nu-home .repair-promo:hover h2,
+body:has(.nu-home) .nu-home .workshop-map__copy:hover h2 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: 0 0 28px rgba(89, 174, 234, .22) !important;
+}
+
+body:has(.nu-home) .nu-home .pickup-notice:hover p,
+body:has(.nu-home) .nu-home .repair-promo:hover p,
+body:has(.nu-home) .nu-home .repair-promo:hover small,
+body:has(.nu-home) .nu-home .workshop-map__copy:hover p {
+  color: rgba(240, 248, 255, .88) !important;
+  -webkit-text-fill-color: rgba(240, 248, 255, .88) !important;
+}
+
+body:has(.nu-home) .nu-home .workshop-map:hover .workshop-map__frame {
+  border-color: rgba(89, 174, 234, .38) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(89, 174, 234, .16),
+    0 30px 74px rgba(0, 0, 0, .3),
+    0 0 38px rgba(47, 134, 199, .16) !important;
+  filter: saturate(1.04) contrast(1.03) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic {
+  gap: 6px !important;
+  background: #040912 !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel {
+  border: 1px solid rgba(89, 174, 234, .14) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05) !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel::before {
+  transition:
+    opacity .24s ease,
+    filter .24s ease,
+    transform .28s ease !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  border: 0 !important;
+  opacity: .95 !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  transition: transform .24s ease !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel:hover {
+  z-index: 4 !important;
+  border-color: rgba(89, 174, 234, .56) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(89, 174, 234, .12),
+    0 28px 70px rgba(0, 0, 0, .34),
+    0 0 38px rgba(47, 134, 199, .2) !important;
+  transform: translateY(-6px) scale(1.01) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel:hover::before {
+  filter: saturate(1.08) contrast(1.08) brightness(1.04) !important;
+  transform: scale(1.025) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel:hover::after {
+  transform: scaleX(1) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel:hover span {
+  text-shadow:
+    0 18px 42px rgba(0, 0, 0, .5),
+    0 0 28px rgba(89, 174, 234, .24) !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic__panel:hover small {
+  border-color: rgba(89, 174, 234, .62) !important;
+  background: rgba(89, 174, 234, .12) !important;
+  box-shadow: 0 0 24px rgba(47, 134, 199, .16) !important;
+}
+
+body:has(.nu-home) .nu-home .tn-hero,
+body:has(.nu-home) .nu-home .dago-hero,
+body:has(.nu-home) .nu-home .dago-hero--integrated {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(89, 174, 234, .18) !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(0, 0, 0, .84),
+    inset 0 -10px 32px rgba(2, 8, 18, .28) !important;
+}
+
+body:has(.nu-home) .nu-home .tn-hero::after,
+body:has(.nu-home) .nu-home .dago-hero--integrated::after {
+  content: "" !important;
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+  width: auto !important;
+  height: 18px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(180deg, transparent, rgba(2, 8, 18, .72)),
+    linear-gradient(90deg, transparent, rgba(89, 174, 234, .3) 50%, transparent) !important;
+  box-shadow: none !important;
+  opacity: .9 !important;
+}
+
+body:has(.nu-home) .nu-home .dago-mosaic {
+  border-top: 1px solid rgba(4, 9, 18, .96) !important;
+  border-bottom: 1px solid rgba(89, 174, 234, .16) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(89, 174, 234, .08),
+    0 -18px 46px rgba(0, 0, 0, .34) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apWrap {
+  background:
+    radial-gradient(ellipse at 58% 8%, rgba(47, 134, 199, .34), transparent 34%),
+    radial-gradient(circle at 92% 36%, rgba(31, 111, 169, .42), transparent 24%),
+    linear-gradient(135deg, rgba(5, 14, 28, .98), rgba(7, 34, 66, .96) 50%, rgba(9, 55, 105, .9)) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apHeader {
+  border-color: rgba(89, 174, 234, .5) !important;
+  background:
+    linear-gradient(135deg, rgba(7, 34, 66, .96), rgba(8, 52, 100, .9) 54%, rgba(31, 111, 169, .7)),
+    linear-gradient(rgba(89, 174, 234, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .045) 1px, transparent 1px) !important;
+  background-size: auto, 36px 36px, 36px 36px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 24px 64px rgba(0, 0, 0, .28),
+    0 0 44px rgba(47, 134, 199, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apHeader::before {
+  background: linear-gradient(180deg, #49a2df, #1f6fa9) !important;
+  box-shadow: 0 0 24px rgba(89, 174, 234, .42) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apCol,
+body .main-viewport:not(:has(.nu-home)) .apSide,
+body .main-viewport:not(:has(.nu-home)) .apSummary {
+  border-color: rgba(89, 174, 234, .34) !important;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(89, 174, 234, .16), transparent 22%),
+    linear-gradient(135deg, rgba(8, 29, 55, .94), rgba(7, 42, 81, .9) 48%, rgba(5, 14, 28, .92)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .06),
+    0 24px 62px rgba(0, 0, 0, .26),
+    0 0 34px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apSummary {
+  background:
+    radial-gradient(circle at 84% 20%, rgba(89, 174, 234, .2), transparent 25%),
+    linear-gradient(145deg, rgba(4, 12, 24, .96), rgba(8, 37, 70, .92) 58%, rgba(5, 11, 20, .94)) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apWrap .field input,
+body .main-viewport:not(:has(.nu-home)) .apWrap .field select,
+body .main-viewport:not(:has(.nu-home)) .apWrap .field textarea {
+  border-color: rgba(89, 174, 234, .38) !important;
+  background: rgba(3, 10, 22, .78) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apWrap .field input:focus,
+body .main-viewport:not(:has(.nu-home)) .apWrap .field select:focus,
+body .main-viewport:not(:has(.nu-home)) .apWrap .field textarea:focus {
+  border-color: rgba(89, 174, 234, .78) !important;
+  box-shadow:
+    0 0 0 4px rgba(47, 134, 199, .16),
+    0 16px 34px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apWrap .timeBtn {
+  border-color: rgba(89, 174, 234, .58) !important;
+  color: #06305a !important;
+  -webkit-text-fill-color: #06305a !important;
+  background: linear-gradient(180deg, #f3faff, #cbe7ff) !important;
+  box-shadow: 0 12px 24px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apWrap .timeBtn:hover:not(:disabled) {
+  border-color: rgba(89, 174, 234, .86) !important;
+  background: linear-gradient(180deg, #ffffff, #dff1ff) !important;
+  box-shadow:
+    0 18px 38px rgba(47, 134, 199, .22),
+    0 0 24px rgba(89, 174, 234, .16) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .apWrap .timeBtn--active,
+body .main-viewport:not(:has(.nu-home)) .apWrap .apSubmit {
+  border: 1px solid rgba(89, 174, 234, .72) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow:
+    0 16px 36px rgba(47, 134, 199, .24),
+    0 0 0 1px rgba(255, 255, 255, .12) inset !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap {
+  background:
+    radial-gradient(ellipse at 42% 0%, rgba(47, 134, 199, .36), transparent 34%),
+    radial-gradient(circle at 88% 30%, rgba(31, 111, 169, .42), transparent 26%),
+    linear-gradient(135deg, rgba(5, 14, 28, .98), rgba(7, 34, 66, .96) 48%, rgba(9, 55, 105, .9)) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatPanel {
+  border-color: rgba(89, 174, 234, .5) !important;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(89, 174, 234, .16), transparent 22%),
+    linear-gradient(135deg, rgba(8, 29, 55, .96), rgba(7, 42, 81, .92) 50%, rgba(5, 14, 28, .94)),
+    linear-gradient(rgba(89, 174, 234, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .04) 1px, transparent 1px) !important;
+  background-size: auto, auto, 38px 38px, 38px 38px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 24px 68px rgba(0, 0, 0, .3),
+    0 0 48px rgba(47, 134, 199, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatPanel::before {
+  background:
+    linear-gradient(125deg, transparent 0 58%, rgba(89, 174, 234, .14) 58% 58.4%, transparent 58.4%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 84px) !important;
+  opacity: .82 !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatPanel h2 {
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  text-shadow: 0 0 26px rgba(89, 174, 234, .2) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatSub {
+  color: rgba(232, 242, 255, .88) !important;
+  -webkit-text-fill-color: rgba(232, 242, 255, .88) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatQuickLinks a {
+  border-color: rgba(89, 174, 234, .52) !important;
+  color: #06305a !important;
+  -webkit-text-fill-color: #06305a !important;
+  background: linear-gradient(180deg, #f3faff, #cbe7ff) !important;
+  box-shadow: 0 12px 24px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatQuickLinks a:hover {
+  border-color: rgba(89, 174, 234, .86) !important;
+  background: linear-gradient(180deg, #ffffff, #dff1ff) !important;
+  box-shadow:
+    0 18px 38px rgba(47, 134, 199, .22),
+    0 0 24px rgba(89, 174, 234, .16) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatBox {
+  border-color: rgba(89, 174, 234, .38) !important;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(89, 174, 234, .12), transparent 22%),
+    linear-gradient(145deg, rgba(3, 10, 22, .84), rgba(8, 37, 70, .78) 58%, rgba(5, 11, 20, .86)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .06),
+    inset 0 0 0 1px rgba(89, 174, 234, .08) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .bubble--bot {
+  border-color: rgba(147, 213, 255, .62) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background:
+    linear-gradient(135deg, rgba(9, 44, 82, .96), rgba(14, 73, 128, .9)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .12),
+    0 14px 30px rgba(47, 134, 199, .16) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .bubble--user {
+  border: 1px solid rgba(89, 174, 234, .66) !important;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow:
+    0 18px 38px rgba(47, 134, 199, .26),
+    0 0 0 1px rgba(255, 255, 255, .1) inset !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatInput {
+  border-color: rgba(89, 174, 234, .38) !important;
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  background: rgba(3, 10, 22, .78) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatInput:focus {
+  border-color: rgba(89, 174, 234, .78) !important;
+  box-shadow:
+    0 0 0 4px rgba(47, 134, 199, .16),
+    0 16px 34px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .chatWrap .chatSend {
+  border: 1px solid rgba(89, 174, 234, .72) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: linear-gradient(135deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow:
+    0 16px 36px rgba(47, 134, 199, .24),
+    0 0 0 1px rgba(255, 255, 255, .12) inset !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-page .nu-pageHeader .nu-controls .nu-linkBtn {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage {
+  background:
+    radial-gradient(ellipse at 42% 0%, rgba(47, 134, 199, .34), transparent 34%),
+    radial-gradient(circle at 88% 28%, rgba(31, 111, 169, .4), transparent 26%),
+    linear-gradient(135deg, rgba(5, 14, 28, .98), rgba(7, 34, 66, .96) 48%, rgba(9, 55, 105, .9)) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoritesPanel {
+  border-color: rgba(89, 174, 234, .5) !important;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(89, 174, 234, .16), transparent 22%),
+    linear-gradient(135deg, rgba(8, 29, 55, .96), rgba(7, 42, 81, .92) 50%, rgba(5, 14, 28, .94)),
+    linear-gradient(rgba(89, 174, 234, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .04) 1px, transparent 1px) !important;
+  background-size: auto, auto, 38px 38px, 38px 38px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 24px 68px rgba(0, 0, 0, .3),
+    0 0 48px rgba(47, 134, 199, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoritesPanel::before {
+  background:
+    linear-gradient(125deg, transparent 0 58%, rgba(89, 174, 234, .14) 58% 58.4%, transparent 58.4%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 84px) !important;
+  opacity: .82 !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoritesHeader h2 {
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  text-shadow: 0 0 26px rgba(89, 174, 234, .2) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoritesHeader p {
+  color: rgba(232, 242, 255, .88) !important;
+  -webkit-text-fill-color: rgba(232, 242, 255, .88) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteCard {
+  border-color: rgba(89, 174, 234, .38) !important;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(89, 174, 234, .18), transparent 24%),
+    linear-gradient(145deg, rgba(8, 29, 55, .94), rgba(7, 42, 81, .88) 48%, rgba(5, 14, 28, .92)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .06),
+    0 22px 58px rgba(0, 0, 0, .24),
+    0 0 28px rgba(47, 134, 199, .1) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteCard::before {
+  background: linear-gradient(90deg, #1f6fa9, #2f86c7 54%, #49a2df) !important;
+  box-shadow: 0 0 24px rgba(89, 174, 234, .24) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteCard::after {
+  background: radial-gradient(circle, rgba(89, 174, 234, .18), transparent 64%) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteCard:hover {
+  border-color: rgba(89, 174, 234, .66) !important;
+  background:
+    radial-gradient(circle at 84% 10%, rgba(89, 174, 234, .26), transparent 26%),
+    linear-gradient(145deg, rgba(9, 44, 82, .96), rgba(14, 73, 128, .9) 52%, rgba(5, 14, 28, .92)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(89, 174, 234, .12),
+    0 28px 72px rgba(0, 0, 0, .34),
+    0 0 42px rgba(47, 134, 199, .2) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteImg {
+  border-color: rgba(147, 213, 255, .42) !important;
+  background:
+    linear-gradient(145deg, rgba(3, 10, 22, .96), rgba(8, 37, 70, .78)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 14px 32px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteCard:hover .favoriteImg {
+  border-color: rgba(147, 213, 255, .68) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .1),
+    0 18px 44px rgba(47, 134, 199, .22),
+    0 0 28px rgba(89, 174, 234, .14) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .favoritesPage .favoriteBody strong {
+  color: #59aeea !important;
+  -webkit-text-fill-color: #59aeea !important;
+  text-shadow: 0 0 18px rgba(89, 174, 234, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-page .nu-cardMeta span,
+body .main-viewport:not(:has(.nu-home)) .nu-page .nu-sku,
+body .main-viewport:not(:has(.nu-home)) .nu-page .nu-badge {
+  border: 1px solid rgba(89, 174, 234, .52) !important;
+  color: #eaf6ff !important;
+  -webkit-text-fill-color: #eaf6ff !important;
+  background: linear-gradient(135deg, rgba(31, 111, 169, .96), rgba(47, 134, 199, .82)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .18),
+    0 10px 22px rgba(47, 134, 199, .16) !important;
+  text-shadow: none !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .nu-page .nu-cardMeta span {
+  font-weight: 650 !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap {
+  background:
+    radial-gradient(ellipse at 42% 0%, rgba(47, 134, 199, .34), transparent 34%),
+    radial-gradient(circle at 88% 28%, rgba(31, 111, 169, .4), transparent 26%),
+    linear-gradient(135deg, rgba(5, 14, 28, .98), rgba(7, 34, 66, .96) 48%, rgba(9, 55, 105, .9)) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartPanel {
+  border-color: rgba(89, 174, 234, .5) !important;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(89, 174, 234, .16), transparent 22%),
+    linear-gradient(135deg, rgba(8, 29, 55, .96), rgba(7, 42, 81, .92) 50%, rgba(5, 14, 28, .94)),
+    linear-gradient(rgba(89, 174, 234, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 174, 234, .04) 1px, transparent 1px) !important;
+  background-size: auto, auto, 38px 38px, 38px 38px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 24px 68px rgba(0, 0, 0, .3),
+    0 0 48px rgba(47, 134, 199, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartPanel::before {
+  background:
+    linear-gradient(125deg, transparent 0 58%, rgba(89, 174, 234, .14) 58% 58.4%, transparent 58.4%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 84px) !important;
+  opacity: .82 !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartHeader h2 {
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  text-shadow: 0 0 26px rgba(89, 174, 234, .2) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartHeader p {
+  color: rgba(232, 242, 255, .88) !important;
+  -webkit-text-fill-color: rgba(232, 242, 255, .88) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartSummary,
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItem,
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartTotalBox {
+  border-color: rgba(89, 174, 234, .38) !important;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(89, 174, 234, .18), transparent 24%),
+    linear-gradient(145deg, rgba(8, 29, 55, .94), rgba(7, 42, 81, .88) 48%, rgba(5, 14, 28, .92)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .06),
+    0 22px 58px rgba(0, 0, 0, .24),
+    0 0 28px rgba(47, 134, 199, .1) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItem:hover,
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartTotalBox:hover {
+  border-color: rgba(89, 174, 234, .66) !important;
+  background:
+    radial-gradient(circle at 84% 10%, rgba(89, 174, 234, .26), transparent 26%),
+    linear-gradient(145deg, rgba(9, 44, 82, .96), rgba(14, 73, 128, .9) 52%, rgba(5, 14, 28, .92)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(89, 174, 234, .12),
+    0 28px 72px rgba(0, 0, 0, .34),
+    0 0 42px rgba(47, 134, 199, .2) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItemImg {
+  border-color: rgba(147, 213, 255, .42) !important;
+  background:
+    linear-gradient(145deg, rgba(3, 10, 22, .96), rgba(8, 37, 70, .78)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .08),
+    0 14px 32px rgba(47, 134, 199, .12) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItemSku {
+  width: fit-content !important;
+  border: 1px solid rgba(89, 174, 234, .52) !important;
+  border-radius: 999px !important;
+  padding: 4px 9px !important;
+  color: #eaf6ff !important;
+  -webkit-text-fill-color: #eaf6ff !important;
+  background: linear-gradient(135deg, rgba(31, 111, 169, .96), rgba(47, 134, 199, .82)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .18),
+    0 10px 22px rgba(47, 134, 199, .16) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItemPrice,
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartEstimate {
+  color: #59aeea !important;
+  -webkit-text-fill-color: #59aeea !important;
+  text-shadow: 0 0 18px rgba(89, 174, 234, .18) !important;
+}
+
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItemAvailability,
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartItemNote,
+body .main-viewport:not(:has(.nu-home)) .cartWrap .cartTotalHint {
+  color: rgba(232, 242, 255, .76) !important;
+  -webkit-text-fill-color: rgba(232, 242, 255, .76) !important;
+}
+
+/* Responsive polish layer */
+html {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  background: #050c16;
+}
+
+body,
+.app-container,
+.main-viewport {
+  min-width: 0;
+  background-color: #050c16;
+  overscroll-behavior: none;
+}
+
+body,
+#root {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(47, 134, 199, .16), transparent 34%),
+    #050c16;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  min-width: 0;
+}
+
+.nu-linkBtn,
+.admin-linkBtn,
+.admin-saveBtn,
+.admin-resetBtn,
+.adminOrdersBack,
+.adminOrdersTools button,
+.adminOrderActions button,
+.cartPay,
+.cartClear,
+.cartRemove,
+.checkoutSubmit,
+.chatSend,
+.favoritesClear,
+.favoriteButtons button,
+.nu-btn,
+.tn-hero-btn,
+.dago-mosaic__panel,
+.pickup-notice button,
+.repair-promo button,
+.apSubmit,
+.timeBtn {
+  touch-action: manipulation;
+}
+
+@media (max-width: 1180px) {
+  .nu-shellNav {
+    width: min(100% - 36px, 1440px) !important;
+    gap: 16px !important;
+  }
+
+  .nu-navLinks {
+    gap: 8px !important;
+  }
+
+  .nu-navLink,
+  .nu-cartLink,
+  .nu-adminBtn {
+    padding-inline: 10px !important;
+    font-size: .88rem !important;
+  }
+
+  .nu-container,
+  .cartPanel,
+  .checkoutPanel,
+  .favoritesPanel,
+  .chatPanel,
+  .adminOrdersPanel,
+  .admin-page,
+  .apWrap {
+    width: min(100% - 34px, 1360px) !important;
+  }
+
+  .admin-grid,
+  .checkoutGrid,
+  .cartGrid,
+  .apGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .checkoutSide,
+  .cartRight,
+  .apSide {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .nu-grid,
+  .favoritesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .nu-shellHeader {
+    position: sticky !important;
+  }
+
+  .nu-shellNav {
+    min-height: auto !important;
+    padding: 14px 0 !important;
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  .nu-brand {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .nu-navLinks {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: 100% !important;
+  }
+
+  .nu-navLink,
+  .nu-cartLink,
+  .nu-adminBtn {
+    min-height: 44px !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .nu-page,
+  .cartWrap,
+  .checkoutWrap,
+  .favoritesPage,
+  .chatWrap,
+  .adminOrdersPage,
+  .apWrap {
+    padding-block: 18px 48px !important;
+  }
+
+  .nu-pageHeader,
+  .cartPanel,
+  .checkoutPanel,
+  .favoritesPanel,
+  .chatPanel,
+  .adminOrdersPanel,
+  .admin-hero,
+  .admin-card,
+  .admin-previewCard,
+  .apHeader,
+  .apCol,
+  .apSide {
+    padding: clamp(18px, 4vw, 28px) !important;
+  }
+
+  .nu-pageHeader,
+  .favoritesHeader,
+  .cartHeader,
+  .adminOrdersHeader,
+  .admin-cardHeader,
+  .admin-hero,
+  .checkoutHeader {
+    gap: 16px !important;
+  }
+
+  .favoritesHeader,
+  .cartHeader,
+  .adminOrdersHeader,
+  .admin-cardHeader,
+  .admin-hero {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  .favoritesActions,
+  .cartHeaderActions,
+  .admin-actions,
+  .adminOrdersTools,
+  .admin-formActions {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)) !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .favoritesActions > *,
+  .cartHeaderActions > *,
+  .admin-actions > *,
+  .adminOrdersTools > *,
+  .admin-formActions > * {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .nu-controls {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .nu-controls .nu-input,
+  .nu-controls .nu-select,
+  .nu-controls .nu-linkBtn {
+    width: 100% !important;
+  }
+
+  .checkoutFieldGrid,
+  .admin-fieldRow,
+  .adminProductForm,
+  .adminWorkGrid,
+  .availabilityGrid,
+  .appointmentFields {
+    grid-template-columns: 1fr !important;
+  }
+
+  .adminMetrics {
+    grid-template-columns: 1fr !important;
+  }
+
+  .adminProductRow,
+  .cartItem,
+  .adminOrderItem {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    align-items: start !important;
+  }
+
+  .adminProductRow button,
+  .adminOrderItem button {
+    width: 100% !important;
+  }
+
+  .adminTableWrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .adminTable {
+    min-width: 760px !important;
+  }
+
+  .nu-previewCard {
+    width: min(100% - 28px, 900px) !important;
+    max-height: calc(100vh - 28px) !important;
+    overflow-y: auto !important;
+  }
+
+  .nu-zoomStage {
+    min-height: min(58vh, 420px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .nu-shellNav,
+  .nu-container,
+  .cartPanel,
+  .checkoutPanel,
+  .favoritesPanel,
+  .chatPanel,
+  .adminOrdersPanel,
+  .admin-page,
+  .apWrap {
+    width: min(100% - 24px, 1360px) !important;
+  }
+
+  .nu-navLinks {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .nu-brandMark {
+    width: 66px !important;
+    height: 38px !important;
+  }
+
+  .nu-brandMark img {
+    width: 56px !important;
+  }
+
+  .nu-brandText {
+    font-size: 1rem !important;
+  }
+
+  .nu-title,
+  .favoritesHeader h2,
+  .cartHeader h2,
+  .checkoutHeader h2,
+  .chatPanel h2,
+  .adminOrdersHeader h1,
+  .apHeader h2,
+  .admin-hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+    line-height: 1.02 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .nu-subtitle,
+  .favoritesHeader p,
+  .cartHeader p,
+  .checkoutHint,
+  .chatSub,
+  .apSub,
+  .admin-hero p {
+    font-size: .96rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .nu-grid,
+  .favoritesGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-card,
+  .favoriteCard {
+    min-width: 0 !important;
+  }
+
+  .nu-cardTitle,
+  .favoriteBody h3,
+  .cartItemName,
+  .orderItemName,
+  .adminProductRow strong,
+  .adminOrderTop h2 {
+    overflow-wrap: anywhere !important;
+  }
+
+  .favoriteButtons {
+    grid-template-columns: 1fr !important;
+  }
+
+  .favoriteButtons button,
+  .nu-btn,
+  .cartPay,
+  .checkoutSubmit,
+  .chatSend,
+  .apSubmit {
+    min-height: 50px !important;
+  }
+
+  .cartItem {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cartItemImg {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: contain !important;
+  }
+
+  .cartItemTop,
+  .cartItemBottom {
+    align-items: stretch !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  .cartRemove,
+  .cartClear,
+  .qtyRow {
+    width: 100% !important;
+  }
+
+  .qtyRow {
+    justify-content: space-between !important;
+  }
+
+  .qtyBtn {
+    min-width: 52px !important;
+    min-height: 44px !important;
+  }
+
+  .orderBox,
+  .orderItems,
+  .cartTotalBox,
+  .apSummary {
+    padding: 18px !important;
+  }
+
+  .timesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .chatQuickLinks {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .chatQuickLinks a {
+    justify-content: center !important;
+  }
+
+  .chatBox {
+    min-height: 320px !important;
+    max-height: 56vh !important;
+  }
+
+  .bubble {
+    max-width: 94% !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .chatComposer {
+    flex-direction: column !important;
+  }
+
+  .adminProductRow {
+    grid-template-columns: 72px minmax(0, 1fr) !important;
+  }
+
+  .adminProductRow img {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .adminProductRow button {
+    grid-column: 1 / -1 !important;
+  }
+
+  .availabilityDay {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dago-toolbar,
+  .tn-hero-actions,
+  .dago-season,
+  .pickup-notice,
+  .repair-promo {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tn-hero-btn,
+  .dago-toolbar button,
+  .dago-season button,
+  .pickup-notice button,
+  .repair-promo button {
+    width: 100% !important;
+    min-height: 50px !important;
+  }
+
+  body .nu-home .tn-hero,
+  body .nu-home .dago-hero,
+  body .nu-home .workshop-map,
+  body .nu-home .pickup-notice,
+  body .nu-home .repair-promo,
+  body .nu-home .work-showcase,
+  body .nu-home .dago-mosaic {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  body .nu-home .tn-hero-copy,
+  body .nu-home .dago-hero__product,
+  body .nu-home .pickup-notice > *,
+  body .nu-home .repair-promo > *,
+  body .nu-home .workshop-map__copy,
+  body .nu-home .workshop-map__frame,
+  body .nu-home .work-showcase__header,
+  body .nu-home .work-showcase__grid {
+    width: min(100% - 24px, 1360px) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-inline: auto !important;
+  }
+
+  body .nu-home .tn-hero,
+  body .nu-home .repair-promo,
+  body .nu-home .workshop-map,
+  body .nu-home .work-showcase__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body .nu-home .tn-hero h1,
+  body .nu-home .dago-hero h2,
+  body .nu-home .pickup-notice h2,
+  body .nu-home .repair-promo h2,
+  body .nu-home .workshop-map h2,
+  body .nu-home .work-showcase h2 {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body .nu-home .dago-mosaic {
+    grid-template-columns: 1fr !important;
+    width: min(100% - 24px, 1360px) !important;
+  }
+
+  body .nu-home .dago-mosaic__panel {
+    min-height: 260px !important;
+  }
+
+  body .nu-home iframe,
+  body .nu-home .workshop-map iframe {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body .nu-home .workshop-map__frame {
+    min-height: 320px !important;
+  }
+
+  body .nu-home .work-showcase__grid {
+    gap: 14px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .nu-shellNav,
+  .nu-container,
+  .cartPanel,
+  .checkoutPanel,
+  .favoritesPanel,
+  .chatPanel,
+  .adminOrdersPanel,
+  .admin-page,
+  .apWrap {
+    width: min(100% - 18px, 1360px) !important;
+  }
+
+  .nu-navLinks {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-pageHeader,
+  .cartPanel,
+  .checkoutPanel,
+  .favoritesPanel,
+  .chatPanel,
+  .adminOrdersPanel,
+  .admin-hero,
+  .admin-card,
+  .admin-previewCard,
+  .apHeader,
+  .apCol,
+  .apSide {
+    padding: 16px !important;
+  }
+
+  .nu-title,
+  .favoritesHeader h2,
+  .cartHeader h2,
+  .checkoutHeader h2,
+  .chatPanel h2,
+  .adminOrdersHeader h1,
+  .apHeader h2,
+  .admin-hero h1 {
+    font-size: clamp(1.8rem, 12vw, 2.55rem) !important;
+  }
+
+  .timesGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nu-cardTop,
+  .favoriteImg,
+  .adminWorkImage {
+    min-height: 180px !important;
+  }
+
+  body .nu-home .tn-hero-copy,
+  body .nu-home .dago-hero__product,
+  body .nu-home .pickup-notice > *,
+  body .nu-home .repair-promo > *,
+  body .nu-home .workshop-map__copy,
+  body .nu-home .workshop-map__frame,
+  body .nu-home .work-showcase__header,
+  body .nu-home .work-showcase__grid,
+  body .nu-home .dago-mosaic {
+    width: min(100% - 18px, 1360px) !important;
+  }
+
+  body .nu-home .dago-mosaic__panel {
+    min-height: 230px !important;
+  }
+}

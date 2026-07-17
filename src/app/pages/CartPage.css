@@ -302,3 +302,105 @@
     position: static;
   }
 }
+
+.cartPanel,
+.cartSummary,
+.cartItem {
+  border-color: var(--nu-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(248, 250, 252, .95));
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.cartItem {
+  transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+.cartItem:hover {
+  border-color: var(--nu-line-strong);
+  box-shadow: var(--nu-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.cartHeader h2 {
+  font-family: var(--nu-display-font);
+  font-weight: 760;
+}
+
+.cartHeader p,
+.cartItemAvailability,
+.cartItemNote,
+.cartTotalHint {
+  font-weight: 560;
+}
+
+.cartSummary,
+.cartItemName,
+.cartItemPrice {
+  font-weight: 720;
+}
+
+.cartItemImg,
+.qtyBtn {
+  border-color: var(--nu-line);
+  background: #fbfdff;
+}
+
+.cartTotalBox {
+  background: linear-gradient(135deg, #0b3d86, #1d6fd1);
+  box-shadow: var(--nu-shadow-soft);
+}
+
+.cartTotalTitle,
+.cartPay,
+.cartRemove,
+.cartClear,
+.qtyVal {
+  font-weight: 720;
+}
+
+.cartWrap {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(2, 6, 23, .16), transparent 30%),
+    radial-gradient(ellipse at 50% 8%, rgba(37, 99, 235, .08), transparent 26%),
+    linear-gradient(180deg, #fbfdff 0 120px, #f2f5f9 120px 100%);
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+}
+
+.cartPanel,
+.cartSummary,
+.cartItem {
+  border-color: rgba(148, 163, 184, .38);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(248, 250, 252, .94));
+  box-shadow:
+    0 16px 38px rgba(2, 6, 23, .1),
+    0 0 0 1px rgba(255, 255, 255, .78) inset;
+}
+
+.cartItem:hover {
+  border-color: rgba(59, 130, 246, .36);
+  box-shadow:
+    0 24px 58px rgba(2, 6, 23, .16),
+    0 12px 36px rgba(37, 99, 235, .1);
+}
+
+.cartHeader h2,
+.cartItemName {
+  font-family: "Segoe UI Variable", "Aptos", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 560;
+}
+
+.cartHeader p,
+.cartItemAvailability,
+.cartItemNote,
+.cartTotalHint {
+  font-weight: 390;
+}
+
+.cartTotalBox {
+  background:
+    linear-gradient(135deg, rgba(2, 6, 23, .94), rgba(11, 61, 134, .92) 62%, rgba(15, 98, 201, .88));
+  box-shadow:
+    0 26px 68px rgba(2, 6, 23, .24),
+    0 12px 38px rgba(37, 99, 235, .14);
+}
