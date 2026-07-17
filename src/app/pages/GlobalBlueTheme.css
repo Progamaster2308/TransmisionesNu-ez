@@ -2836,10 +2836,67 @@ body select:-webkit-autofill:focus {
     0 0 0 4px rgba(47, 134, 199, .12) !important;
 }
 
+body input[type="date"],
+body input[type="month"] {
+  color-scheme: dark !important;
+}
+
 body input[type="date"]::-webkit-calendar-picker-indicator,
 body input[type="month"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) brightness(1.45) saturate(.85);
-  opacity: .9;
+  background-color: transparent !important;
+  cursor: pointer;
+  filter: invert(1) brightness(2.35) contrast(1.15) saturate(.25) !important;
+  opacity: 1 !important;
+}
+
+/* Checkout detail spacing */
+body .checkoutWrap .orderItems {
+  padding: 18px 20px !important;
+}
+
+body .checkoutWrap .orderItems .orderBoxTitle {
+  padding: 0 2px 12px !important;
+}
+
+body .checkoutWrap .orderItemRow {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  gap: 14px !important;
+  align-items: start !important;
+  border: 1px solid rgba(89, 174, 234, .24) !important;
+  border-radius: 4px !important;
+  padding: 12px 14px !important;
+  background: rgba(3, 10, 22, .36) !important;
+}
+
+body .checkoutWrap .orderItemRow + .orderItemRow {
+  margin-top: 8px !important;
+}
+
+body .checkoutWrap .orderItemName {
+  padding-left: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body .checkoutWrap .orderItemMeta {
+  padding-right: 0 !important;
+  color: rgba(203, 219, 238, .72) !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 640px) {
+  body .checkoutWrap .orderItems {
+    padding: 16px !important;
+  }
+
+  body .checkoutWrap .orderItemRow {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  body .checkoutWrap .orderItemMeta {
+    white-space: normal !important;
+  }
 }
 
 /* Product preview and admin preview contrast fixes */
