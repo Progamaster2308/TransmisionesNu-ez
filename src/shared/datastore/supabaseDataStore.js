@@ -360,6 +360,10 @@ export async function createOrder(order) {
     p_items: payload.items
   });
 
+  if (result.error?.code === 'PGRST202' || result.error?.message?.includes('create_order_with_stock')) {
+    throw new Error('Falta activar el descuento de stock en Supabase. Ejecuta src/app/security-hardening.sql en el SQL Editor y refresca el schema cache.');
+  }
+
   const saved = unwrapSupabase(result) ?? {};
   return {
     ...payload,

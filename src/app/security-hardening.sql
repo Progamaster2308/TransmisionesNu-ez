@@ -304,3 +304,6 @@ drop policy if exists "appointments_admin_delete" on public.appointments;
 create policy "appointments_admin_delete" on public.appointments
 for delete to authenticated
 using ((auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
+
+-- Refresh PostgREST schema cache so new RPC functions are available immediately.
+notify pgrst, 'reload schema';
