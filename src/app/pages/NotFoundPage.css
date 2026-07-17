@@ -494,18 +494,11 @@
   }
 
   .notFoundVisual::before {
-    width: 238px;
-    height: 238px;
-    box-shadow:
-      0 0 0 22px rgba(123, 200, 255, .035),
-      0 0 0 48px rgba(123, 200, 255, .025),
-      0 0 46px rgba(73, 162, 223, .16);
+    display: none;
   }
 
   .notFoundVisual::after {
-    width: 112px;
-    height: 112px;
-    border-width: 16px;
+    display: none;
   }
 
   .notFoundPlate {
@@ -539,10 +532,7 @@
   }
 
   .notFoundShaft {
-    top: 47%;
-    left: 7%;
-    width: 86%;
-    height: 16px;
+    display: none;
   }
 
   .notFoundTool {
