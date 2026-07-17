@@ -186,7 +186,7 @@
 }
 
 .adminTools--wide {
-  grid-template-columns: minmax(260px, 1fr) 180px auto auto;
+  grid-template-columns: minmax(260px, 1fr) 180px auto auto auto;
 }
 
 .adminDayGroup {
@@ -351,6 +351,12 @@
 .adminAction--cancel {
   background: #fee2e2;
   color: #991b1b;
+}
+
+.adminAction--report {
+  border: 1px solid rgba(123, 200, 255, .48);
+  background: linear-gradient(135deg, #247fba, #42a6dc);
+  color: #ffffff;
 }
 
 .adminBackLink {
@@ -630,5 +636,206 @@
 
   .timesGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Admin appointments refinement */
+.apWrap .adminTools--wide {
+  border: 1px solid rgba(89, 174, 234, .24);
+  border-radius: 8px;
+  padding: 14px;
+  background:
+    linear-gradient(135deg, rgba(8, 31, 59, .82), rgba(3, 10, 22, .72));
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .22);
+}
+
+.apWrap .adminTools--wide .adminSearch {
+  border-color: rgba(123, 200, 255, .28);
+  background: rgba(3, 10, 22, .8);
+  color: #f8fbff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+.apWrap .adminTools--wide .adminSearch::placeholder {
+  color: rgba(203, 219, 238, .72);
+}
+
+.apWrap .adminDayGroup {
+  overflow: hidden;
+  border: 1px solid rgba(89, 174, 234, .28);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 86% 14%, rgba(66, 166, 220, .12), transparent 28%),
+    linear-gradient(135deg, rgba(10, 32, 58, .88), rgba(3, 10, 22, .92));
+  box-shadow:
+    0 26px 66px rgba(0, 0, 0, .25),
+    0 0 0 1px rgba(255, 255, 255, .03) inset;
+}
+
+.apWrap .adminDayGroup h3 {
+  margin: 0;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(123, 200, 255, .18);
+  color: #f8fbff;
+  font-size: 1.15rem;
+  font-weight: 620;
+  background: linear-gradient(90deg, rgba(36, 127, 186, .34), rgba(3, 10, 22, 0));
+}
+
+.apWrap .adminTableWrap {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.apWrap .adminTable {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.apWrap .adminTable th {
+  border-bottom: 1px solid rgba(123, 200, 255, .18);
+  background: rgba(3, 10, 22, .82);
+  color: #62c7ff;
+  font-size: .76rem;
+  font-weight: 650;
+  letter-spacing: .04em;
+}
+
+.apWrap .adminTable td {
+  border-bottom: 1px solid rgba(123, 200, 255, .14);
+  background: rgba(6, 18, 35, .72);
+  color: #eef6ff;
+}
+
+.apWrap .adminTable tbody tr:nth-child(even) td {
+  background: rgba(9, 29, 54, .64);
+}
+
+.apWrap .adminTable tbody tr:hover td {
+  background: rgba(18, 66, 109, .58);
+}
+
+.apWrap .adminClientName,
+.apWrap .adminDate {
+  color: #f8fbff;
+  font-weight: 620;
+}
+
+.apWrap .adminClientEmail,
+.apWrap .adminProblem {
+  color: rgba(203, 219, 238, .78);
+}
+
+.apWrap .statusPill {
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+}
+
+.apWrap .adminActionsRow {
+  gap: 9px;
+}
+
+.apWrap .adminAction {
+  border: 1px solid rgba(123, 200, 255, .34);
+  border-radius: 6px;
+  background: linear-gradient(135deg, #247fba, #42a6dc);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(2, 12, 26, .24);
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.apWrap .adminAction:hover:not(:disabled),
+.apWrap .adminBackLink:hover {
+  border-color: rgba(178, 222, 255, .64);
+  box-shadow:
+    0 16px 34px rgba(2, 12, 26, .32),
+    0 0 26px rgba(66, 166, 220, .16);
+  transform: translateY(-1px);
+}
+
+.apWrap .adminAction:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+}
+
+.apWrap .adminAction--cancel {
+  border-color: rgba(248, 113, 113, .38);
+  background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+}
+
+.apWrap .adminCount,
+.apWrap .adminLoading,
+.apWrap .adminEmpty {
+  color: rgba(203, 219, 238, .82);
+}
+
+@media (max-width: 980px) {
+  .adminTools--wide {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .apWrap .adminCount {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .adminTools--wide {
+    grid-template-columns: 1fr;
+  }
+
+  .apWrap .adminTable,
+  .apWrap .adminTable thead,
+  .apWrap .adminTable tbody,
+  .apWrap .adminTable tr,
+  .apWrap .adminTable th,
+  .apWrap .adminTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .apWrap .adminTable--appointments {
+    min-width: 0;
+  }
+
+  .apWrap .adminTable thead {
+    display: none;
+  }
+
+  .apWrap .adminTable tr {
+    margin: 12px;
+    border: 1px solid rgba(123, 200, 255, .2);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(3, 10, 22, .68);
+  }
+
+  .apWrap .adminTable td {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    gap: 12px;
+    border-bottom-color: rgba(123, 200, 255, .12);
+    padding: 12px 14px;
+  }
+
+  .apWrap .adminTable td::before {
+    color: #62c7ff;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  .apWrap .adminTable td:nth-child(1)::before { content: "Hora"; }
+  .apWrap .adminTable td:nth-child(2)::before { content: "Cliente"; }
+  .apWrap .adminTable td:nth-child(3)::before { content: "Vehiculo"; }
+  .apWrap .adminTable td:nth-child(4)::before { content: "Falla"; }
+  .apWrap .adminTable td:nth-child(5)::before { content: "Status"; }
+  .apWrap .adminTable td:nth-child(6)::before { content: "Acciones"; }
+
+  .apWrap .adminActionsRow {
+    grid-template-columns: 1fr;
   }
 }
