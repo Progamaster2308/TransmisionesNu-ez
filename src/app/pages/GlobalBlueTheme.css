@@ -2758,3 +2758,86 @@ textarea {
     min-height: 230px !important;
   }
 }
+
+/* Final form color guard.
+   Keeps browser autofill/focus from painting white boxes with unreadable text. */
+body input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+body select,
+body textarea,
+body .nu-input,
+body .nu-select,
+body .chatInput,
+body .adminSearch {
+  border-color: rgba(89, 174, 234, .36) !important;
+  background: rgba(3, 10, 22, .78) !important;
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  caret-color: #7bc8ff !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .06),
+    0 0 0 1px rgba(89, 174, 234, .04) !important;
+  color-scheme: dark;
+}
+
+body input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):hover,
+body select:hover,
+body textarea:hover,
+body .nu-input:hover,
+body .nu-select:hover,
+body .chatInput:hover,
+body .adminSearch:hover {
+  border-color: rgba(123, 200, 255, .52) !important;
+  background: rgba(5, 15, 30, .9) !important;
+}
+
+body input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+body select:focus,
+body textarea:focus,
+body .nu-input:focus,
+body .nu-select:focus,
+body .chatInput:focus,
+body .adminSearch:focus {
+  border-color: rgba(123, 200, 255, .78) !important;
+  background: rgba(3, 10, 22, .92) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow:
+    0 0 0 4px rgba(47, 134, 199, .16),
+    0 12px 30px rgba(0, 0, 0, .18) !important;
+}
+
+body input:not([type="checkbox"]):not([type="radio"]):not([type="file"])::placeholder,
+body textarea::placeholder,
+body .nu-input::placeholder,
+body .chatInput::placeholder {
+  color: rgba(203, 219, 238, .72) !important;
+  -webkit-text-fill-color: rgba(203, 219, 238, .72) !important;
+}
+
+body input:-webkit-autofill,
+body input:-webkit-autofill:hover,
+body input:-webkit-autofill:focus,
+body input:-webkit-autofill:active,
+body textarea:-webkit-autofill,
+body textarea:-webkit-autofill:hover,
+body textarea:-webkit-autofill:focus,
+body select:-webkit-autofill,
+body select:-webkit-autofill:hover,
+body select:-webkit-autofill:focus {
+  border-color: rgba(123, 200, 255, .68) !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  caret-color: #7bc8ff !important;
+  transition: background-color 999999s ease-in-out 0s, color 999999s ease-in-out 0s !important;
+  -webkit-box-shadow:
+    0 0 0 1000px #071426 inset,
+    0 0 0 4px rgba(47, 134, 199, .12) !important;
+  box-shadow:
+    0 0 0 1000px #071426 inset,
+    0 0 0 4px rgba(47, 134, 199, .12) !important;
+}
+
+body input[type="date"]::-webkit-calendar-picker-indicator,
+body input[type="month"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.45) saturate(.85);
+  opacity: .9;
+}
