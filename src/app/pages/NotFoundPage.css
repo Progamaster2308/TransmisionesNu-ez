@@ -427,30 +427,171 @@
 
 @media (max-width: 560px) {
   .notFoundPage {
+    min-height: 100dvh;
+    place-items: start center;
     padding: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .notFoundHero {
+    width: min(100%, 390px);
+    gap: 24px;
     padding: 22px;
+    overflow: visible;
   }
 
   .notFoundBrand {
     align-items: flex-start;
     flex-direction: column;
-    font-size: 2rem;
+    gap: 14px;
+    font-size: clamp(1.8rem, 9vw, 2.35rem);
+    line-height: .94;
+  }
+
+  .notFoundLogo {
+    width: 128px;
+    height: 70px;
+  }
+
+  .notFoundLogo img {
+    width: 108px;
+  }
+
+  .notFoundContent {
+    gap: 28px;
   }
 
   .notFoundCopy h1 {
-    font-size: clamp(2.8rem, 16vw, 4.4rem);
+    font-size: clamp(2.55rem, 13vw, 3.65rem);
+    line-height: .96;
+    letter-spacing: -.035em;
+  }
+
+  .notFoundText {
+    margin-top: 22px;
+    font-size: .98rem;
+    line-height: 1.75;
+  }
+
+  .notFoundActions {
+    margin-top: 30px;
   }
 
   .notFoundActions a {
     width: 100%;
   }
 
+  .notFoundVisual {
+    min-height: 300px;
+    padding: 18px;
+    overflow: hidden;
+  }
+
+  .notFoundVisual::before {
+    width: 238px;
+    height: 238px;
+    box-shadow:
+      0 0 0 22px rgba(123, 200, 255, .035),
+      0 0 0 48px rgba(123, 200, 255, .025),
+      0 0 46px rgba(73, 162, 223, .16);
+  }
+
+  .notFoundVisual::after {
+    width: 112px;
+    height: 112px;
+    border-width: 16px;
+  }
+
+  .notFoundPlate {
+    top: 20px;
+    left: 24px;
+    right: 24px;
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .notFoundPlate span {
+    width: 42px;
+    height: 32px;
+    flex: 0 0 auto;
+  }
+
+  .notFoundPlate strong {
+    min-width: 0;
+    font-size: .86rem;
+    line-height: 1.2;
+    text-align: right;
+  }
+
+  .notFoundDial {
+    margin-top: 22px;
+    gap: 10px;
+    font-size: clamp(3rem, 15vw, 4.25rem);
+  }
+
+  .notFoundShaft {
+    width: 86%;
+    height: 16px;
+  }
+
+  .notFoundTool {
+    width: 126px;
+    height: 26px;
+    right: 14px;
+    bottom: 102px;
+    opacity: .82;
+  }
+
+  .notFoundTool::before {
+    left: -12px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .notFoundTool::after {
+    right: -12px;
+    width: 30px;
+    height: 30px;
+  }
+
   .notFoundStatus {
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
     align-items: flex-start;
     flex-direction: column;
     gap: 4px;
+    padding: 12px 14px;
+  }
+
+  .notFoundStatus strong,
+  .notFoundStatus span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .notFoundPage {
+    padding: 8px;
+  }
+
+  .notFoundHero {
+    padding: 18px;
+  }
+
+  .notFoundCopy h1 {
+    font-size: clamp(2.25rem, 12.5vw, 3.1rem);
+  }
+
+  .notFoundVisual {
+    min-height: 282px;
+  }
+
+  .notFoundPlate,
+  .notFoundStatus {
+    left: 18px;
+    right: 18px;
   }
 }
