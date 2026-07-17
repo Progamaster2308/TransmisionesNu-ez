@@ -350,20 +350,7 @@ export async function createOrder(order) {
     throw new Error('Datos de orden inválidos');
   }
 
-  const result = await supabase.rpc('create_order_with_stock', {
-    p_id: id,
-    p_customer_name: payload.customer_name,
-    p_customer_email: payload.customer_email,
-    p_notas: payload.notas,
-    p_pickup_date: payload.pickup_date,
-    p_total: payload.total,
-    p_items: payload.items
-  });
-
-  if (result.error?.code === 'PGRST202' || result.error?.message?.includes('create_order_with_stock')) {
-    throw new Error('Falta activar el descuento de stock en Supabase. Ejecuta src/app/security-hardening.sql en el SQL Editor y refresca el schema cache.');
-  }
-
+  const result = await supabase.from('orders').insert(payload).select('*').single();
   const saved = unwrapSupabase(result) ?? {};
   return {
     ...payload,
