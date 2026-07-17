@@ -16,7 +16,6 @@ import './WelcomeHeroFix.css';
 
 const workshopMapsUrl = 'https://www.google.com/maps/place/Av.+Ejido+A+%26+C.+46,+M%C3%A9xico,+83498+San+Luis+R%C3%ADo+Colorado,+Son./@32.4275119,-114.7390882,87m/data=!3m1!1e3!4m6!3m5!1s0x80d64f3fe382f6c7:0x78547498f5547196!8m2!3d32.4275085!4d-114.7389354!16s%2Fg%2F11hb8gf69j!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D';
 const workshopMapEmbedUrl = 'https://www.google.com/maps?q=32.4275085,-114.7389354&t=k&z=19&output=embed';
-const contactEmail = String(import.meta.env.VITE_CONTACT_EMAIL || '').trim();
 
 function WelcomePage() {
   const [banner, setBanner] = useState(null);
@@ -238,18 +237,6 @@ function WelcomePage() {
                 <path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.4l.6-3h-3V9c0-.6.4-1 1-1Z" />
               </svg>
               <span>Facebook</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                if (contactEmail) window.location.href = `mailto:${contactEmail}`;
-              }}
-              aria-label="Correo de Transmisiones Núñez"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 6h16c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2Zm8 7 8-5H4l8 5Zm0 2.2L4 10.2V16h16v-5.8l-8 5Z" />
-              </svg>
-              <span>Correo</span>
             </button>
           </div>
         </footer>

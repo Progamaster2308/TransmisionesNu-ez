@@ -1914,7 +1914,7 @@
   .tn-footer__links {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .tn-footer__links a,

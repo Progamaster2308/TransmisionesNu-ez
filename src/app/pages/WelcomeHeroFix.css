@@ -104,8 +104,8 @@
   border: 0 !important;
   color: #ffffff !important;
   font-family: "Segoe UI Variable Display", "Segoe UI Variable", "Aptos Display", system-ui, sans-serif !important;
-  font-size: clamp(3rem, 4.7vw, 5.55rem) !important;
-  font-weight: 850 !important;
+  font-size: clamp(2.65rem, 4.15vw, 4.85rem) !important;
+  font-weight: 820 !important;
   line-height: .99 !important;
   letter-spacing: -.055em !important;
   text-wrap: balance !important;
@@ -119,11 +119,12 @@
   padding-top: 14px !important;
   padding-right: clamp(90px, 14vw, 260px) !important;
   border-top: 1px solid rgba(141, 191, 255, .34) !important;
-  color: rgba(255, 255, 255, .88) !important;
-  font-size: clamp(1.28rem, 1.48vw, 1.78rem) !important;
-  font-weight: 760 !important;
-  line-height: 1.12 !important;
+  color: #ffffff !important;
+  font-size: clamp(1.75rem, 2.35vw, 3rem) !important;
+  font-weight: 820 !important;
+  line-height: 1.04 !important;
   letter-spacing: -.025em !important;
+  text-shadow: 0 16px 40px rgba(0, 0, 0, .34) !important;
 }
 
 .nu-home .tn-hero .tn-hero-subtitle {
@@ -196,11 +197,12 @@
   }
 
   .nu-home .tn-hero h1.tn-hero-heading {
-    font-size: clamp(2.4rem, 10vw, 4.2rem) !important;
+    font-size: clamp(2.15rem, 8.8vw, 3.55rem) !important;
   }
 
   .nu-home .tn-hero .tn-hero-name {
     padding-right: 0 !important;
+    font-size: clamp(1.65rem, 7vw, 2.65rem) !important;
   }
 }
 
