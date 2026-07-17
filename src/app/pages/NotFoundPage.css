@@ -442,11 +442,13 @@
   }
 
   .notFoundBrand {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 14px;
+    width: 100%;
     font-size: clamp(1.8rem, 9vw, 2.35rem);
     line-height: .94;
+    text-align: center;
   }
 
   .notFoundLogo {
@@ -502,11 +504,7 @@
   }
 
   .notFoundPlate {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    gap: 10px;
-    padding: 10px 12px;
+    display: none;
   }
 
   .notFoundPlate span {
@@ -540,14 +538,7 @@
   }
 
   .notFoundStatus {
-    position: relative;
-    inset: auto;
-    z-index: 2;
-    width: 100%;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
-    padding: 12px 14px;
+    display: none;
   }
 
   .notFoundStatus strong,
