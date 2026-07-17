@@ -32,7 +32,6 @@ export default function CheckoutPage() {
   const { showToast } = useToast();
   const minDate = getTodayISO();
   const maxDate = addYearsISO(1);
-  const maxVehicleYear = new Date().getFullYear() + 1;
 
   const [loading, setLoading] = useState(false);
   const [customerName, setCustomerName] = useState('');
@@ -251,10 +250,12 @@ export default function CheckoutPage() {
                   <label>Año</label>
                   <input
                     value={vehicleYear}
-                    onChange={(e) => setVehicleYear(e.target.value)}
-                    type="number"
-                    min="1950"
-                    max={maxVehicleYear}
+                    onChange={(e) => setVehicleYear(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                    type="text"
+                    inputMode="numeric"
+                    minLength={4}
+                    maxLength={4}
+                    pattern="[0-9]{4}"
                     placeholder="Ej. 2019"
                     required
                   />

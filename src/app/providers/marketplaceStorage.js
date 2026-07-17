@@ -85,7 +85,9 @@ export function sanitizeVehicleText(v, maxLen = 60) {
 }
 
 export function sanitizeVehicleYear(v) {
-  const year = Math.floor(Number(v) || 0);
+  const raw = String(v ?? '').replace(/\D/g, '');
+  if (!/^\d{4}$/.test(raw)) return 0;
+  const year = Math.floor(Number(raw) || 0);
   const max = new Date().getFullYear() + 1;
   return year >= 1950 && year <= max ? year : 0;
 }

@@ -31,7 +31,6 @@ export default function UserAppointmentsPage() {
   const { showToast } = useToast();
   const minDate = getTodayISO();
   const maxDate = addYearsISO(1);
-  const maxVehicleYear = new Date().getFullYear() + 1;
 
   const [selectedDate, setSelectedDate] = useState(minDate);
   const [service, setService] = useState('Diagnóstico');
@@ -227,7 +226,17 @@ export default function UserAppointmentsPage() {
               </div>
               <div className="field">
                 <label>Año</label>
-                <input value={year} onChange={(event) => setYear(event.target.value)} type="number" min="1950" max={maxVehicleYear} placeholder="Ej. 2020" required />
+                <input
+                  value={year}
+                  onChange={(event) => setYear(event.target.value.replace(/\D/g, '').slice(0, 4))}
+                  type="text"
+                  inputMode="numeric"
+                  minLength={4}
+                  maxLength={4}
+                  pattern="[0-9]{4}"
+                  placeholder="Ej. 2020"
+                  required
+                />
               </div>
             </div>
 

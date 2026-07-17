@@ -3040,3 +3040,113 @@ body input[type="file"]::-webkit-file-upload-button {
     padding: 14px !important;
   }
 }
+
+/* Final hard overrides: visible date icons and admin appointments contrast */
+body input[type="date"],
+body input[type="month"] {
+  color-scheme: dark !important;
+  padding-right: 46px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M16 2v4'/%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 18px 18px !important;
+}
+
+body input[type="date"]::-webkit-calendar-picker-indicator,
+body input[type="month"]::-webkit-calendar-picker-indicator {
+  width: 42px !important;
+  height: 100% !important;
+  margin: 0 -8px 0 0 !important;
+  opacity: 0 !important;
+  cursor: pointer !important;
+}
+
+body .main-viewport .apWrap .adminDayGroup {
+  overflow: hidden !important;
+  border: 1px solid rgba(89, 174, 234, .34) !important;
+  border-radius: 8px !important;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(66, 166, 220, .13), transparent 28%),
+    linear-gradient(135deg, rgba(10, 34, 61, .96), rgba(3, 10, 22, .96)) !important;
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, .28),
+    0 0 0 1px rgba(255, 255, 255, .03) inset !important;
+}
+
+body .main-viewport .apWrap .adminDayGroup h3 {
+  margin: 0 !important;
+  padding: 14px 18px !important;
+  border-bottom: 1px solid rgba(123, 200, 255, .2) !important;
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+  background: linear-gradient(90deg, rgba(36, 127, 186, .38), rgba(3, 10, 22, 0)) !important;
+}
+
+body .main-viewport .apWrap .adminTableWrap {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body .main-viewport .apWrap .adminTable {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  color: #eef6ff !important;
+  background: transparent !important;
+}
+
+body .main-viewport .apWrap .adminTable th {
+  border-bottom: 1px solid rgba(123, 200, 255, .2) !important;
+  color: #62c7ff !important;
+  -webkit-text-fill-color: #62c7ff !important;
+  background: rgba(3, 10, 22, .9) !important;
+}
+
+body .main-viewport .apWrap .adminTable td {
+  border-color: rgba(123, 200, 255, .14) !important;
+  color: #eef6ff !important;
+  -webkit-text-fill-color: #eef6ff !important;
+  background: rgba(6, 18, 35, .78) !important;
+}
+
+body .main-viewport .apWrap .adminTable tbody tr:nth-child(even) td {
+  background: rgba(9, 29, 54, .72) !important;
+}
+
+body .main-viewport .apWrap .adminTable tbody tr:hover td {
+  background: rgba(18, 66, 109, .62) !important;
+}
+
+body .main-viewport .apWrap .adminDate,
+body .main-viewport .apWrap .adminClientName {
+  color: #f8fbff !important;
+  -webkit-text-fill-color: #f8fbff !important;
+}
+
+body .main-viewport .apWrap .adminClientEmail,
+body .main-viewport .apWrap .adminProblem {
+  color: rgba(203, 219, 238, .82) !important;
+  -webkit-text-fill-color: rgba(203, 219, 238, .82) !important;
+}
+
+body .main-viewport .apWrap .adminTools--wide {
+  grid-template-columns: minmax(260px, 1fr) 180px auto auto auto !important;
+}
+
+@media (max-width: 980px) {
+  body .main-viewport .apWrap .adminTools--wide {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body .main-viewport .apWrap .adminTools--wide {
+    grid-template-columns: 1fr !important;
+  }
+
+  body .main-viewport .apWrap .adminTable td {
+    display: grid !important;
+    grid-template-columns: 110px minmax(0, 1fr) !important;
+  }
+}
