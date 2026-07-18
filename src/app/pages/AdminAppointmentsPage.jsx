@@ -83,12 +83,12 @@ export default function AdminAppointmentsPage() {
     }
   };
 
-  const generateAppointmentsReport = () => {
+  const generateAppointmentsReport = async () => {
     setReporting(true);
     try {
       const today = new Date().toISOString().slice(0, 10);
       const scopeLabel = dateFilter ? `Fecha filtrada: ${formatReportDate(dateFilter)}` : `Historial al ${formatReportDate(today)}`;
-      const blob = buildTablePdf({
+      const blob = await buildTablePdf({
         title: `Total de citas: ${filtered.length}`,
         subtitle: 'Historial de citas',
         rows: filtered,
@@ -96,13 +96,13 @@ export default function AdminAppointmentsPage() {
         totalLabel: `${filtered.length} citas`,
         footerLabel: 'Reporte administrativo de citas',
         columns: [
-          { label: 'Fecha', x: 36, chars: 10, lines: 1, bold: true, value: (row) => formatReportDate(row.fecha) },
-          { label: 'Hora', x: 118, chars: 6, lines: 1, value: (row) => row.hora || '-' },
-          { label: 'Cliente', x: 178, chars: 24, lines: 3, value: (row) => `${row.customer_name || '-'} | ${row.customer_email || '-'}` },
-          { label: 'Vehiculo', x: 358, chars: 22, lines: 3, value: (row) => `${row.car || '-'} ${row.model || ''} ${row.year || ''} | ${row.servicio || '-'}` },
-          { label: 'Falla reportada', x: 526, chars: 27, lines: 3, value: (row) => row.problem_description || row.notes || '-' },
-          { label: 'Estado', x: 700, chars: 12, lines: 1, value: (row) => STATUS_LABELS[row.status] || row.status || '-' },
-          { label: 'Celular', x: 762, chars: 10, lines: 1, value: (row) => row.phone || '-' }
+          { label: 'Fecha', x: 34, bold: true, value: (row) => formatReportDate(row.fecha) },
+          { label: 'Hora', x: 106, value: (row) => row.hora || '-' },
+          { label: 'Cliente', x: 156, value: (row) => `${row.customer_name || '-'} | ${row.customer_email || '-'}` },
+          { label: 'Vehiculo', x: 326, value: (row) => `${row.car || '-'} ${row.model || ''} ${row.year || ''} | ${row.servicio || '-'}` },
+          { label: 'Falla reportada', x: 500, value: (row) => row.problem_description || row.notes || '-' },
+          { label: 'Estado', x: 686, value: (row) => STATUS_LABELS[row.status] || row.status || '-' },
+          { label: 'Celular', x: 752, value: (row) => row.phone || '-' }
         ]
       });
       downloadBlob(blob, `transmisiones-nunez-historial-citas-${today}.pdf`);

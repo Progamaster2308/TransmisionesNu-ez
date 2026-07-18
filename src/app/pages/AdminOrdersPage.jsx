@@ -76,7 +76,7 @@ export default function AdminOrdersPage() {
     setReporting(true);
     try {
       const data = await listOrdersByMonth(year, month - 1);
-      const blob = buildTablePdf({
+      const blob = await buildTablePdf({
         title: `Total de pedidos: ${data.length}`,
         subtitle: 'Historial de pedidos',
         rows: data,
@@ -84,15 +84,13 @@ export default function AdminOrdersPage() {
         totalLabel: `${data.length} pedidos`,
         footerLabel: 'Reporte administrativo de pedidos',
         columns: [
-          { label: 'Pedido', x: 36, chars: 9, lines: 1, bold: true, value: (order) => String(order.id || '-').slice(0, 8) },
-          { label: 'Creado', x: 96, chars: 10, lines: 1, value: (order) => formatReportDate(String(order.created_at || '').slice(0, 10)) },
-          { label: 'Cliente', x: 174, chars: 23, lines: 3, value: (order) => `${order.customer_name || '-'} | ${order.customer_email || '-'}` },
-          { label: 'Fecha sol.', x: 350, chars: 10, lines: 1, value: (order) => formatReportDate(order.pickup_date) },
+          { label: 'Pedido', x: 34, bold: true, value: (order) => String(order.id || '-').slice(0, 8) },
+          { label: 'Creado', x: 96, value: (order) => formatReportDate(String(order.created_at || '').slice(0, 10)) },
+          { label: 'Cliente', x: 170, value: (order) => `${order.customer_name || '-'} | ${order.customer_email || '-'}` },
+          { label: 'Fecha sol.', x: 340, value: (order) => formatReportDate(order.pickup_date) },
           {
             label: 'Productos',
-            x: 424,
-            chars: 29,
-            lines: 3,
+            x: 414,
             value: (order) => {
               const items = Array.isArray(order.items) ? order.items : [];
               return items.length
@@ -100,9 +98,9 @@ export default function AdminOrdersPage() {
                 : '-';
             }
           },
-          { label: 'Notas', x: 610, chars: 17, lines: 3, value: (order) => order.notas || '-' },
-          { label: 'Estado', x: 724, chars: 10, lines: 1, value: (order) => order.status || '-' },
-          { label: 'Total', x: 768, chars: 9, lines: 1, value: (order) => `$${Number(order.total || 0).toLocaleString()}` }
+          { label: 'Notas', x: 596, value: (order) => order.notas || '-' },
+          { label: 'Estado', x: 710, value: (order) => order.status || '-' },
+          { label: 'Total', x: 764, value: (order) => `$${Number(order.total || 0).toLocaleString()}` }
         ]
       });
       downloadBlob(blob, `transmisiones-nunez-historial-pedidos-${reportMonth}.pdf`);
