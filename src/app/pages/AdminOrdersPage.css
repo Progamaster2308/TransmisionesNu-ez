@@ -55,8 +55,10 @@
 
 .adminOrdersTools {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(210px, max-content) auto;
-  gap: 10px;
+  grid-template-columns: minmax(240px, 1fr) 220px 176px !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
 }
 
 .adminOrdersHeader input,
@@ -329,6 +331,8 @@
 
 .adminOrdersHeader {
   border-bottom-color: rgba(147, 197, 253, .24);
+  grid-template-columns: minmax(320px, .82fr) minmax(0, 720px) !important;
+  align-items: end !important;
 }
 
 .adminOrdersHeader h1,
@@ -348,11 +352,14 @@
   background: rgba(2, 8, 23, .72);
   color: #eef6ff;
   font-weight: 430;
-  min-width: 0;
+  width: 100% !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  min-width: 0 !important;
 }
 
 .adminOrdersHeader input[type="month"] {
-  min-width: 210px;
+  min-width: 220px !important;
   color-scheme: dark;
   white-space: nowrap;
 }
@@ -374,6 +381,14 @@
 .adminOrdersTools button {
   background: linear-gradient(135deg, #0b3d86, #0f62c9);
   font-weight: 560;
+  width: 176px !important;
+  min-width: 176px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  padding-inline: 18px !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
 }
 
 .adminOrderCard {
@@ -415,4 +430,28 @@
 .adminOrderItem span {
   color: #93c5fd;
   font-weight: 560;
+}
+
+@media (max-width: 1320px) {
+  .adminOrdersHeader {
+    grid-template-columns: 1fr !important;
+    align-items: stretch !important;
+  }
+
+  .adminOrdersTools {
+    grid-template-columns: minmax(240px, 1fr) 220px 176px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .adminOrdersTools {
+    grid-template-columns: 1fr !important;
+  }
+
+  .adminOrdersHeader input,
+  .adminOrdersTools button,
+  .adminOrdersHeader input[type="month"] {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
 }

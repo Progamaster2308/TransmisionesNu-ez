@@ -173,15 +173,14 @@ export default function UserAppointmentsPage() {
         fecha: date,
         hora: timeSlot
       });
+      try {
+        await requestAppointmentEmailNotification(appointment);
+        showToast('Cita agendada y correo enviado al admin.');
+      } catch (error) {
+        console.error(error);
+        showToast(error?.message ? `Cita agendada, pero fallo el correo: ${error.message}` : 'Cita agendada, pero no se pudo enviar el correo al admin.');
+      }
 
-      requestAppointmentEmailNotification(appointment)
-        .then(() => showToast('Correo enviado al admin.'))
-        .catch((error) => {
-          console.error(error);
-          showToast(error?.message || 'Cita agendada, pero no se pudo enviar el correo al admin.');
-        });
-
-      showToast('Cita agendada. Admin la revisará.');
       setTimeSlot('');
       await refreshBookedSlots(date);
     } catch (err) {

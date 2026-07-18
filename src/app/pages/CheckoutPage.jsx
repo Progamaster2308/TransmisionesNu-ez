@@ -131,16 +131,16 @@ export default function CheckoutPage() {
 
       if (data?.id) {
         localStorage.setItem('nu:lastOrderId', data.id);
-        requestAdminEmailNotification({ ...orderPayload, id: data.id })
-          .then(() => showToast('Correo enviado al admin.'))
-          .catch((error) => {
-            console.error(error);
-            showToast(error?.message || 'Orden registrada, pero no se pudo enviar el correo al admin.');
-          });
+        try {
+          await requestAdminEmailNotification({ ...orderPayload, id: data.id });
+          showToast('Orden registrada y correo enviado al admin.');
+        } catch (error) {
+          console.error(error);
+          showToast(error?.message ? `Orden registrada, pero falló el correo: ${error.message}` : 'Orden registrada, pero no se pudo enviar el correo al admin.');
+        }
       }
 
       clearCart();
-      showToast('Orden registrada. Notificando al vendedor...');
     } catch (err) {
       console.error(err);
       showToast(err?.message ? `Error: ${err.message}` : 'No se pudo registrar la orden.');

@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
 
     const safeEmail = sanitizeEmail(email);
 
-    if (!safeEmail || password.length < 8 || password.length > 128) {
+    if (!safeEmail || password.length < 6 || password.length > 128) {
       showToast('Ingresa credenciales validas.');
       return;
     }

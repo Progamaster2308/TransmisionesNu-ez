@@ -11,7 +11,9 @@ function formatCurrency(value) {
 }
 
 async function sendWithWeb3Forms(email) {
-  if (!WEB3FORMS_ACCESS_KEY || typeof fetch !== 'function') return false;
+  if (!WEB3FORMS_ACCESS_KEY || typeof fetch !== 'function') {
+    throw new Error('Falta configurar VITE_WEB3FORMS_ACCESS_KEY.');
+  }
 
   const controller = typeof AbortController === 'function' ? new AbortController() : null;
   const timeout = controller ? globalThis.setTimeout(() => controller.abort(), 12000) : null;
@@ -26,9 +28,11 @@ async function sendWithWeb3Forms(email) {
       body: JSON.stringify({
         access_key: WEB3FORMS_ACCESS_KEY,
         subject: email.subject,
+        name: 'Transmisiones Nunez',
         from_name: 'Transmisiones Nunez',
         email: email.replyTo || ADMIN_EMAIL,
         replyto: email.replyTo || ADMIN_EMAIL,
+        botcheck: false,
         message: email.body,
         tipo: email.type,
         folio: email.fields?.Folio || '',
@@ -38,13 +42,20 @@ async function sendWithWeb3Forms(email) {
       signal: controller?.signal
     });
 
-    if (!response.ok) return false;
+    if (!response.ok) {
+      const details = await response.text().catch(() => '');
+      throw new Error(details || `Web3Forms respondió ${response.status}.`);
+    }
 
     const data = await response.json().catch(() => null);
-    return data?.success === true;
+    if (data?.success !== true) {
+      throw new Error(data?.message || 'Web3Forms no confirmó el envío.');
+    }
+
+    return true;
   } catch (error) {
     console.error(error);
-    return false;
+    throw error;
   } finally {
     if (timeout) globalThis.clearTimeout(timeout);
   }
@@ -137,15 +148,17 @@ function wait(ms) {
 }
 
 async function notifyAdmin(email) {
+  if (WEB3FORMS_ACCESS_KEY) {
+    await sendWithWeb3Forms(email);
+    return { ok: true, message: 'Correo enviado al admin por Web3Forms.' };
+  }
+
   const retryDelays = [0, 1200, 2500];
 
   for (let attempt = 0; attempt < retryDelays.length; attempt += 1) {
     if (retryDelays[attempt]) await wait(retryDelays[attempt]);
 
     try {
-      const sentByWeb3Forms = await sendWithWeb3Forms(email);
-      if (sentByWeb3Forms) return { ok: true, message: 'Correo enviado al admin.' };
-
       const sentByClassicForm = await sendWithClassicFormSubmit(email);
       if (sentByClassicForm) return { ok: true, message: 'Correo enviado al admin.' };
 
