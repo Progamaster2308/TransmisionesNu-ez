@@ -55,7 +55,7 @@
 
 .adminOrdersTools {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 150px auto;
+  grid-template-columns: minmax(280px, 1fr) minmax(210px, max-content) auto;
   gap: 10px;
 }
 
@@ -348,6 +348,13 @@
   background: rgba(2, 8, 23, .72);
   color: #eef6ff;
   font-weight: 430;
+  min-width: 0;
+}
+
+.adminOrdersHeader input[type="month"] {
+  min-width: 210px;
+  color-scheme: dark;
+  white-space: nowrap;
 }
 
 .adminOrdersHeader input:focus {
