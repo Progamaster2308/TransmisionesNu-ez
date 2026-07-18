@@ -38,6 +38,25 @@ const emptyProduct = {
   stock: ''
 };
 
+function isCompanyTitle(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .toLowerCase() === 'transmisiones nunez';
+}
+
+function renderPreviewTitle(value) {
+  if (!isCompanyTitle(value)) return value;
+
+  return (
+    <>
+      <span className="adminPreviewTitleLine">Transmisiones</span>
+      <span className="adminPreviewTitleLine">Núñez</span>
+    </>
+  );
+}
+
 function slotsToText(slots) {
   return Array.isArray(slots) ? slots.join(', ') : '';
 }
@@ -317,11 +336,11 @@ export default function AdminPanelPage() {
           <p className="admin-kicker">Vista previa</p>
           <div className="admin-splashPreview" style={splashPreviewStyle}>
             <span>Inicio</span>
-            <strong>Transmisiones Núñez</strong>
+            <strong>{renderPreviewTitle('Transmisiones Núñez')}</strong>
           </div>
           <div className="admin-bannerPreview" style={previewStyle}>
             <span>Transmisiones Núñez</span>
-            <h3>{bannerForm.titulo}</h3>
+            <h3>{renderPreviewTitle(bannerForm.titulo)}</h3>
             <p>{bannerForm.subtitulo}</p>
             <button>{bannerForm.cta_label || 'Explorar catálogo'}</button>
           </div>

@@ -2986,12 +2986,34 @@ body .admin-bannerPreview p {
 body .admin-splashPreview strong,
 body .admin-bannerPreview h3 {
   max-width: 100% !important;
-  font-size: clamp(2.05rem, 7cqw, 3rem) !important;
+  font-size: clamp(1.85rem, 6.3cqw, 3rem) !important;
   line-height: 1.02 !important;
   overflow-wrap: normal !important;
   word-break: normal !important;
   text-wrap: balance !important;
   hyphens: none !important;
+}
+
+body .adminPreviewTitleLine {
+  display: block !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+  text-align: inherit !important;
+  text-shadow: inherit !important;
+  text-transform: inherit !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+  white-space: nowrap !important;
 }
 
 body .admin-bannerPreview button {
