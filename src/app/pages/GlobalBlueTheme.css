@@ -2983,6 +2983,17 @@ body .admin-bannerPreview p {
     0 0 24px rgba(47, 134, 199, .18) !important;
 }
 
+body .admin-bannerPreview > span {
+  border: 1px solid rgba(147, 210, 255, .7) !important;
+  background: linear-gradient(135deg, rgba(15, 89, 155, .95), rgba(60, 166, 220, .9)) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, .22),
+    0 0 22px rgba(73, 162, 223, .22) !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .35) !important;
+}
+
 body .admin-splashPreview strong,
 body .admin-bannerPreview h3 {
   max-width: 100% !important;
