@@ -350,7 +350,7 @@ export async function createOrder(order) {
     throw new Error('Datos de orden inválidos');
   }
 
-  const result = await supabase.from('orders').insert(payload).select('*').single();
+  const result = await supabase.from('orders').insert(payload);
   const saved = unwrapSupabase(result) ?? {};
   return {
     ...payload,
